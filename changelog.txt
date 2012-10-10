@@ -1,0 +1,17 @@
+2010-05-30	CesTa 0.1.2
+
+- fixed problem with multiple class loaders (loaded transformations via Task and not Taskdef couldn't be cast properly)
+- DOT parser can handle case-insensitive keywords and attributes (converted to lowercase)
+- added jUnit test for CheckTransactions
+- new parameters for CheckTransactions transformation
+
+2010-05-20	CesTa 0.1.1
+
+- new configuration options for IfSwitchReplacement (includeMethods, excludeMethods)
+- new configuration options for ShadowVariables (includeVariables, excludeVariables, replaceTypes, useMethodId)
+- ShadowVariables can now handle stuff like "i += ++j"
+- ShadowVariables now adds default initializer for non initialized variables
+- IfSwitchReplacement works better with functions, that return in if "if (..) return true; else return false;"
+- improved jUnit tests
+
+2010-05-16	initial release CesTa 0.1.0

@@ -1,0 +1,9 @@
+Architecture
+	- collect important data during first parsing and share it accross transformations (symbol table, ...)
+	- allow calling other transformations programatically via simple API
+	
+Grammars
+	- optimize grammars and throw away backtracking
+
+Task
+	- we could add new type "paramGroup", that would contain other params, have id and could be referenced between transformations

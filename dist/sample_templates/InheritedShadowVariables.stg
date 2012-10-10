@@ -1,0 +1,14 @@
+/*
+ *	This template shows how to inherit another template group and override templates. 
+ */
+group InheritedShadowVariables : ShadowVariablesParser;
+
+declareResistantGetter(varGroup) ::= << 
+	/**
+	 *	Custom getter
+	 */
+	private <if(varGroup.isStatic)>static <endif><varGroup.type> __get_<varGroup.ident>(<varGroup.type> value, short id){
+		// all checks are disabled
+		return value;
+	}
+>>

@@ -1,0 +1,8 @@
+/*
+ * Default template group for IdentifyBlocks tree parser. 
+ */
+
+ group IdentifyBlocksParser : Base;
+
+breakContinueStatement(statement, ident, id, enabled) ::= "<statement> <if(enabled)>BLOCK_<id><else><ident><endif>;"
+IDENTIFY_BLOCKS(ruleParams) ::= "<if(ruleParams.enabled)>BLOCK_<ruleParams.id>: { <endif><ruleParams.text><if(ruleParams.enabled)> }<endif>"

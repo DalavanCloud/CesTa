@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<!--
+	This is sample build file, which shows how to call the transformations. 
+	Default target contains simple demo, which shows in steps the process. 
+
+	To run this file you will need Ant (at least version 1.7). You can also 
+	use build-in Ant (1.8), which is included in this distribution. Main class
+	calls directly Ant's entry point therefore it behaves strictly like original 
+	Ant and can also handle all parameters. 
+	
+	The easiest way how to run default target is simly by executing:
+		java -jar cesta.jar
+		
+	You can find list of supported command line options in Ant's manual. 
+	Interesting options are:
+		-f <buildfile>		
+			for specifying build file
+		-p 					
+			for project info
+		-e					
+			for producing logging information without adornments
+		[target [target2] ...]
+			for specifying targets, that should be executed
+	
+	Transformations are called via custom Task called TransformationTask. 
+	This task can call internal or external (via classpath) transformations
+	on specified files, define filename mapping and custom parameters for each 
+	transformation. "Real world" examples are included in this build file. 
+	Other examples can be found in CesTa's build.xml (CesTa sources), 
+	in which the transformations are used to transform jUnit test classes.
+	
+	TransformationTask can handle different parameters.
+	
+	attributes:
+			
+		classname (required)
+			- classname of transformation, which should be called 			
+			- note: prefix org.cesta.trans can be omitted for internal transformations
+		classpath 
+			- classpath, which should be added to classpath, it is used for loading 
+			transformation, but also for loading templates (if they are used in transformation). 
+			- default value is current Ant project base directory
+		classpathRef 
+			- reference to classpath
+		destDir 
+			- where to write transformed files
+		destFile 
+			- where to write single transformed file
+		srcDir
+			- where to find source files
+		srcFile 
+			- where to find single source file
+
+	inner elements:
+		
+		resources 
+			- for specifying source files (FileSet, Filelist, Dirset) 
+			- they support also file selectors (filename, contains, size, modified, ...)
+		mapper 
+			- for mapping filenames (i.e. *.java to *_mod.java)
+		classpath 
+			- see attribute classpath
+		param 
+			- common parameter, which will be passed directly to transformation object
+			and possibly also to templates
+			- has two attributes: name and value
+			- common parameters are:
+			
+				to optimize transformation for Java Card (default is true for Java Card transformations)
+					<param name="javaCard" value="true" />
+				
+				to generate comments in transformed file (default is true)
+					<param name="generateComments" value="true" />
+					
+				to use different path when loading templates (default is "templates")
+					<param name="templatePath" value="templates" />
+				
+				to use different template group when loading templates 
+				(default is always parser class simple name, e.g. ShadowVariablesParser or IfSwitchReplacementParser)
+					<param name="templateGroup" value="Custom" />
+			
+			Additional custom parameters are supported by specific transformations.  
+-->
+<project name="Sample CESTA build file" default="default" basedir="." xmlns:c="antlib:org.cesta">
+	<property name="interactive" value="1" />	
+	<property name="cesta.src.dir" value="sample_project" />
+	
+	<!-- 
+		if you don't have CesTa on your classpath, you can include it to defined namespace (in this example "c")
+		by calling 
+		
+		<taskdef 
+			resource="org/cesta/antlib.xml" 
+			uri="antlib:org.cesta"
+			classpath="path/to/cesta.jar" />
+	-->
+	
+	<macrodef name="press-any-key">
+		<sequential>
+			<input>Press any key to continue...</input>
+		</sequential>
+	</macrodef>
+		
+	<target name="intro">
+		<echo>
+First step before any transformation can be performed
+is to load transformationTask must be loaded. 
+Ant is very flexible, you can use many different ways 
+(please search for details in Ant's manual)
+
+If you don't have cesta.jar on classpath (i.e. in ant/lib),
+you can this method: 
+		
+	1. define xml namespace in your project or task
+		&lt;target name="default" xmlns:c="antlib:org.cesta"&gt;
+	2. call taskdef Task with proper classpath 
+		&lt;taskdef 
+			resource="org/cesta/antlib.xml" 
+			uri="antlib:org.cesta"
+			classpath="../lib/cesta.jar"&gt;
+		&lt;/taskdef&gt;
+
+Afterwards you are able to call transformations via your namespace
+		&lt;c:transform 
+			classname="java.ShadowVariables" 
+			dir="sample_project"
+		&gt;
+		</echo>
+		<press-any-key/>
+	</target>
+	
+	<target name="test-ifswitchreplacement">		
+		<echo>
+IfSwitchReplacement is called on file IfSwitchReplacement.java from
+sample project directory. Parameter generateComments is explicitly 
+set to true, method "dontReplace" is excluded from transformation 
+and filename is mapped to *_mod1.java. 
+		</echo>
+		<press-any-key/>
+		<!-- 
+			Custom transformation can be loaded pretty easily, for example:
+			
+			<c:transform 
+				classname="test.DummyTransformation" 
+				srcDir="${test.src.dir}/transformed"
+				classpath="path/to/own.jar"/>
+		-->
+		<c:transform classname="java.IfSwitchReplacement">
+			<param name="generateComments" value="true"/>
+			<param name="excludeMethods" value="dontReplace"/>
+			<fileset dir="${cesta.src.dir}">
+				<filename name="**/IfSwitchReplacement.java"/>
+			</fileset>
+			<mapper type="glob" from="*.java" to="*_mod1.java"/>
+		</c:transform>
+		<press-any-key/>
+	</target>
+	
+	<target name="test-shadowvariables">		
+		<echo>
+ShadowVariables.java is called on file ShadowVariables.java. 
+Output is written to *_mod1.java. Parameter "replaceLocal" is set 
+and not only global variables, but also local are replaced. 
+Special parameter "excludeVariables" is set to filter out specific 
+variables from transformation. 
+
+IfSwitchReplacement is preformed on the output and final 
+transformed file is saved to *_mod2.java. 
+
+Finaly ShadowVariables is performed on original file 
+ShadowVariables.java, but custom template 
+sample_templates/InheritedShadowVariables.stg is used. 
+Output is saved to *_mod3.java. 
+		</echo>
+		<press-any-key/>
+		<c:transform classname="java.ShadowVariables">
+			<fileset dir="${cesta.src.dir}">
+				<filename name="**/ShadowVariables.java"/>
+			</fileset>
+			<mapper type="glob" from="*.java" to="*_mod1.java"/>
+			<param name="replaceLocal" value="1" />
+			<param name="excludeVariables" value="excluded" />
+		</c:transform>
+		<c:transform classname="java.IfSwitchReplacement">
+			<fileset dir="${cesta.src.dir}">
+				<filename name="**/ShadowVariables_mod1.java"/>
+			</fileset>
+			<mapper type="glob" from="*_mod1.java" to="*_mod2.java"/>
+		</c:transform>
+		<c:transform classname="java.ShadowVariables">
+			<param name="templateGroup" value="InheritedShadowVariables"/>
+			<param name="templatePath" value="sample_templates:templates"/>
+			<fileset dir="${cesta.src.dir}">
+				<filename name="**/ShadowVariables.java"/>
+			</fileset>
+			<mapper type="glob" from="*.java" to="*_mod3.java"/>
+		</c:transform>
+		<press-any-key/>
+	</target>
+	
+	<target name="test-checktransactions">		
+		<echo>
+CheckTransactions is performed on file CheckTransactions.java. 
+Output is written to *_mod.java. Warnings should be reported. 
+		</echo>
+		<press-any-key/>
+		<c:transform classname="java.CheckTransactions">
+			<fileset dir="${cesta.src.dir}">
+				<filename name="**/CheckTransactions.java"/>
+			</fileset>
+			<mapper type="glob" from="*.java" to="*_mod1.java"/>
+		</c:transform>
+		<press-any-key/>
+	</target>
+	
+	<target name="test-validatestatetransitions">		
+		<echo>
+ValidateStateTransitions is performed on file 
+ValidateStateTransitions.java and uses graph from 
+graphs/SampleStateTransitionGraph.dot. 
+Output is written to *_mod1.java. Parameters are set 
+to specify name of state constants and ignored functions. 
+		</echo>
+		<press-any-key/>
+		<c:transform classname="java.ValidateStateTransitions">
+			<param name="dotGrammar" value="${cesta.src.dir}/graphs/SampleStateTransitionGraph.dot" />
+			<param name="stateConstants" value="STATE_.*"/>
+            <param name="ignoredFunctions" value="test.*"/>
+			
+			<fileset dir="${cesta.src.dir}">
+				<filename name="**/ValidateStateTransitions.java"/>
+			</fileset>
+			<mapper type="glob" from="*.java" to="*_mod1.java"/>
+		</c:transform>
+		<press-any-key/>
+	</target>
+	<!-- default target executes all tests -->
+	<target name="default" depends="intro,test-ifswitchreplacement,test-shadowvariables,test-checktransactions,test-validatestatetransitions">
+		
+	</target>
+</project>

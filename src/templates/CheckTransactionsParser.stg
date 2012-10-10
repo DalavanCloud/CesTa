@@ -1,0 +1,17 @@
+/**
+ * Default template group for CheckTransaction parser. 
+ */
+
+group CheckTransactionsParser : Base;
+
+detectedStartOfTransaction() ::= "<if(params.generateComments)>/* detected start of transaction */<endif>"
+detectedEndOfTransaction() ::= "<if(params.generateComments)>/* detected end of transaction */<endif>"
+
+warningNonAtomic(variables) ::= <<<if(params.generateComments)><\n>
+	/***** WARNING *****
+		Transaction may contain dangerous operations,		
+		some variables are used in both assignments and 
+		non atomic operations: <variables; separator=", ">
+	***** WARNING *****/ 
+<endif>
+>>

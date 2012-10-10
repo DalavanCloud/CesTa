@@ -1,0 +1,20 @@
+/**
+ * Default base group
+ */
+
+group Base;
+
+/**
+ *	Default template, that can be used for generating original source code in comments. 
+ */
+rewrite(ruleParams) ::= << <if(params.generateComments)>
+	/***** BEGIN ORIGINAL [<ruleParams.name>_<ruleParams.id>] *****
+	<ruleParams.originalCode> 
+	***** END ORIGINAL [<ruleParams.name>_<ruleParams.id>] *****/ 
+	<if(ruleParams.rule)>
+	/***** BEGIN REPLACE [<ruleParams.name>_<ruleParams.id>] *****/ 
+	<(ruleParams.rule)(ruleParams)>
+	/***** END REPLACE [<ruleParams.name>_<ruleParams.id>] *****/ 
+	<endif>
+<else><if(ruleParams.rule)><(ruleParams.rule)(ruleParams)><endif><endif>
+>>

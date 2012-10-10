@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Sample build file for building Java Card applets
+	
+	Copyright (c) 2009-2010 by BUSLAB FI MUNI
+	BSD licence	
+-->
+<project name="jc-samples" default="default" basedir="." xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:c="antlib:org.cesta">
+    <description>Builds, tests, and runs the project jc-samples.</description>
+	<import file="nbproject/build-impl.xml"/>
+    <target name="-post-init">
+		<!-- Tasks from CesTa project -->
+		<taskdef 
+			resource="org/cesta/antlib.xml" 
+			uri="antlib:org.cesta"
+			classpath="${cesta.lib}" />
+
+		<!-- Definitions for tasks for javacard tools -->
+		<path id="jc-tasks" >
+			<pathelement path="lib//jctasks.jar"/>
+		</path>	
+		<taskdef name="apdutool"  
+			classname="com.sun.javacard.ant.tasks.APDUToolTask"
+			classpathref="jc-tasks" /> 
+		<taskdef name="capgen"  
+			classname="com.sun.javacard.ant.tasks.CapgenTask"
+			classpathref="jc-tasks" /> 
+		<taskdef name="convert" 
+			classname="com.sun.javacard.ant.tasks.ConverterTask"
+			classpathref="jc-tasks" />
+		<taskdef name="verifyexport" 
+			classname="com.sun.javacard.ant.tasks.VerifyExpTask"
+			classpathref="jc-tasks" />
+		<taskdef name="verifycap" 
+			classname="com.sun.javacard.ant.tasks.VerifyCapTask"
+			classpathref="jc-tasks" />
+		<taskdef name="verifyrevision" 
+			classname="com.sun.javacard.ant.tasks.VerifyRevTask"
+			classpathref="jc-tasks" />
+		<taskdef name="scriptgen" 
+			classname="com.sun.javacard.ant.tasks.ScriptgenTask"
+			classpathref="jc-tasks" />
+		
+		<path id="jc-classpath" >
+			<pathelement path="${jc.home}/lib/converter.jar"/>
+			<pathelement path="${jc.home}/lib/offcardverifier.jar"/>
+			<pathelement path="${jc.home}/lib/scriptgen.jar"/>
+			<pathelement path="${jc.home}/lib/apdutool.jar"/>
+			<pathelement path="${jc.home}/lib/apduio.jar"/>
+			
+			<pathelement path="lib//comm.jar"/>
+			
+			<pathelement path="."/>
+		</path>
+	</target>
+	
+	<target name="convert" depends="init">
+		<copy todir="${build.classes.dir}">
+			<fileset dir="${jc.export_files}">
+				<filename name="**/*.exp"/>
+			</fileset>
+		</copy>
+		
+		<convert
+			dir="${build.classes.dir}"
+			Configfile="${src.dir}/com/sun/javacard/samples/HelloWorld/HelloWorld.opt"
+			nobanner="true">
+			<classpath refid="jc-classpath"/>
+		</convert>
+		<verifycap Verbose="true" CapFile="${build.classes.dir}/com/sun/javacard/samples/HelloWorld/javacard/HelloWorld.cap">
+			<exportfiles file="${jc.export_files}/java/lang/javacard/lang.exp" />
+			<exportfiles file="${jc.export_files}/javacard/framework/javacard/framework.exp" />
+			<exportfiles file="${jc.export_files}/javacard/security/javacard/security.exp" />
+			<exportfiles file="${jc.export_files}/javacardx/crypto/javacard/crypto.exp" />
+			<exportfiles file="${build.classes.dir}/com/sun/javacard/samples/HelloWorld/javacard/HelloWorld.exp" />
+			<classpath refid="jc-classpath"/>
+		</verifycap>
+		
+		<convert
+			dir="${build.classes.dir}"
+			Configfile="${src.dir}/com/sun/javacard/samples/ChannelsDemo/ChannelsDemo.opt"
+			nobanner="true">
+			<classpath refid="jc-classpath"/>
+		</convert>
+		<verifycap Verbose="true" CapFile="${build.classes.dir}/com/sun/javacard/samples/ChannelsDemo/javacard/ChannelsDemo.cap">
+			<exportfiles file="${jc.export_files}/java/lang/javacard/lang.exp" />
+			<exportfiles file="${jc.export_files}/javacard/framework/javacard/framework.exp" />
+			<exportfiles file="${jc.export_files}/javacard/security/javacard/security.exp" />
+			<exportfiles file="${jc.export_files}/javacardx/crypto/javacard/crypto.exp" />
+			<exportfiles file="${build.classes.dir}/com/sun/javacard/samples/ChannelsDemo/javacard/ChannelsDemo.exp" />
+			<classpath refid="jc-classpath"/>
+		</verifycap>
+		
+		<convert
+			dir="${build.classes.dir}"
+			Configfile="${src.dir}/com/sun/javacard/samples/SampleLibrary/SampleLibrary.opt">
+			<classpath refid="jc-classpath"/>
+		</convert>
+		<verifycap Verbose="true" CapFile="${build.classes.dir}/com/sun/javacard/samples/SampleLibrary/javacard/SampleLibrary.cap">
+			<exportfiles file="${jc.export_files}/java/lang/javacard/lang.exp" />
+			<exportfiles file="${jc.export_files}/javacard/framework/javacard/framework.exp" />
+			<exportfiles file="${jc.export_files}/javacard/security/javacard/security.exp" />
+			<exportfiles file="${jc.export_files}/javacardx/crypto/javacard/crypto.exp" />
+			<exportfiles file="${build.classes.dir}/com/sun/javacard/samples/SampleLibrary/javacard/SampleLibrary.exp" />
+			<classpath refid="jc-classpath"/>
+		</verifycap>
+		
+		<convert
+			dir="${build.classes.dir}"
+			Configfile="${src.dir}/com/sun/javacard/samples/JavaLoyalty/JavaLoyalty.opt">
+			<classpath refid="jc-classpath"/>
+		</convert>
+		<verifycap Verbose="true" CapFile="${build.classes.dir}/com/sun/javacard/samples/JavaLoyalty/javacard/JavaLoyalty.cap">
+			<exportfiles file="${jc.export_files}/java/lang/javacard/lang.exp" />
+			<exportfiles file="${jc.export_files}/javacard/framework/javacard/framework.exp" />
+			<exportfiles file="${jc.export_files}/javacard/security/javacard/security.exp" />
+			<exportfiles file="${jc.export_files}/javacardx/crypto/javacard/crypto.exp" />
+			<exportfiles file="${build.classes.dir}/com/sun/javacard/samples/SampleLibrary/javacard/SampleLibrary.exp" />
+			<exportfiles file="${build.classes.dir}/com/sun/javacard/samples/JavaLoyalty/javacard/JavaLoyalty.exp" />
+			<classpath refid="jc-classpath"/>
+		</verifycap>
+		
+		<convert
+			dir="${build.classes.dir}"
+			Configfile="${src.dir}/com/sun/javacard/samples/JavaPurse/JavaPurse.opt">
+			<classpath refid="jc-classpath"/>
+		</convert>
+		<verifycap Verbose="true" CapFile="${build.classes.dir}/com/sun/javacard/samples/JavaPurse/javacard/JavaPurse.cap">
+			<exportfiles file="${jc.export_files}/java/lang/javacard/lang.exp" />
+			<exportfiles file="${jc.export_files}/javacard/framework/javacard/framework.exp" />
+			<exportfiles file="${jc.export_files}/javacard/security/javacard/security.exp" />
+			<exportfiles file="${jc.export_files}/javacardx/crypto/javacard/crypto.exp" />
+			<exportfiles file="${build.classes.dir}/com/sun/javacard/samples/SampleLibrary/javacard/SampleLibrary.exp" />
+			<exportfiles file="${build.classes.dir}/com/sun/javacard/samples/JavaPurse/javacard/JavaPurse.exp" />
+			<classpath refid="jc-classpath"/>
+		</verifycap>
+		
+		<convert
+			dir="${build.classes.dir}"
+			Configfile="${src.dir}/com/sun/javacard/samples/wallet/Wallet.opt"
+			nobanner="true">
+			<classpath refid="jc-classpath"/>
+		</convert>
+		<verifycap Verbose="true" CapFile="${build.classes.dir}/com/sun/javacard/samples/Wallet/javacard/Wallet.cap">
+			<exportfiles file="${jc.export_files}/java/lang/javacard/lang.exp" />
+			<exportfiles file="${jc.export_files}/javacard/framework/javacard/framework.exp" />
+			<exportfiles file="${jc.export_files}/javacard/security/javacard/security.exp" />
+			<exportfiles file="${jc.export_files}/javacardx/crypto/javacard/crypto.exp" />
+			<exportfiles file="${build.classes.dir}/com/sun/javacard/samples/Wallet/javacard/Wallet.exp" />
+			<classpath refid="jc-classpath"/>
+		</verifycap>
+		
+		<convert
+			dir="${build.classes.dir}"
+			Configfile="${src.dir}/com/sun/javacard/samples/RMIDemo/RMIDemo.opt"
+			nobanner="true">
+			<classpath refid="jc-classpath"/>
+		</convert>
+		<verifycap Verbose="true" CapFile="${build.classes.dir}/com/sun/javacard/samples/RMIDemo/javacard/RMIDemo.cap">
+			<exportfiles file="${jc.export_files}/java/lang/javacard/lang.exp" />
+			<exportfiles file="${jc.export_files}/java/rmi/javacard/rmi.exp" />
+			<exportfiles file="${jc.export_files}/javacard/framework/javacard/framework.exp" />
+			<exportfiles file="${jc.export_files}/javacard/framework/service/javacard/service.exp" />
+			<exportfiles file="${jc.export_files}/javacard/security/javacard/security.exp" />
+			<exportfiles file="${jc.export_files}/javacardx/crypto/javacard/crypto.exp" />
+			<exportfiles file="${build.classes.dir}/com/sun/javacard/samples/RMIDemo/javacard/RMIDemo.exp" />
+			<classpath refid="jc-classpath"/>
+		</verifycap>
+		
+		<convert
+			dir="${build.classes.dir}"
+			Configfile="${src.dir}/com/sun/javacard/samples/SecureRMIDemo/SecureRMIDemo.opt"
+			nobanner="true">
+			<classpath refid="jc-classpath"/>
+		</convert>
+		<verifycap Verbose="true" CapFile="${build.classes.dir}/com/sun/javacard/samples/SecureRMIDemo/javacard/SecureRMIDemo.cap">
+			<exportfiles file="${jc.export_files}/java/lang/javacard/lang.exp" />
+			<exportfiles file="${jc.export_files}/java/rmi/javacard/rmi.exp" />
+			<exportfiles file="${jc.export_files}/javacard/framework/javacard/framework.exp" />
+			<exportfiles file="${jc.export_files}/javacard/framework/service/javacard/service.exp" />
+			<exportfiles file="${jc.export_files}/javacard/security/javacard/security.exp" />
+			<exportfiles file="${jc.export_files}/javacardx/crypto/javacard/crypto.exp" />
+			<exportfiles file="${build.classes.dir}/com/sun/javacard/samples/SecureRMIDemo/javacard/SecureRMIDemo.exp" />
+			<classpath refid="jc-classpath"/>
+		</verifycap>
+		
+	</target>
+	<target name="run-demo" depends="init">
+		<!-- create demo script for simulator -->
+		<mkdir dir="${jc.demo}/scripts" />
+		<scriptgen 
+			dir="${build.classes.dir}"
+			CapFile="com/sun/javacard/samples/JavaLoyalty/javacard/JavaLoyalty.cap"
+			outFile="${jc.demo}/scripts/JavaLoyalty.scr" 
+			nobanner="true">
+			<classpath refid="jc-classpath"/>
+		</scriptgen>
+		<scriptgen 
+			dir="${build.classes.dir}"
+			CapFile="com/sun/javacard/samples/JavaPurse/javacard/JavaPurse.cap"
+			outFile="${jc.demo}/scripts/JavaPurse.scr" 
+			nobanner="true">
+			<classpath refid="jc-classpath"/>
+		</scriptgen>
+		<scriptgen 
+			dir="${build.classes.dir}"
+			CapFile="com/sun/javacard/samples/SampleLibrary/javacard/SampleLibrary.cap"
+			outFile="${jc.demo}/scripts/SampleLibrary.scr" 
+			nobanner="true">
+			<classpath refid="jc-classpath"/>
+		</scriptgen>
+		<scriptgen 
+			dir="${build.classes.dir}"
+			CapFile="com/sun/javacard/samples/wallet/javacard/wallet.cap"
+			outFile="${jc.demo}/scripts/Wallet.scr" 
+			nobanner="true">
+			<classpath refid="jc-classpath"/>
+		</scriptgen>
+		<scriptgen 
+			dir="${build.classes.dir}"
+			CapFile="com/sun/javacard/samples/RMIDemo/javacard/RMIDemo.cap"
+			outFile="${jc.demo}/scripts/RMIDemo.scr" 
+			nobanner="true">
+			<classpath refid="jc-classpath"/>
+		</scriptgen>
+		<scriptgen 
+			dir="${build.classes.dir}"
+			CapFile="com/sun/javacard/samples/SecureRMIDemo/javacard/SecureRMIDemo.cap"
+			outFile="${jc.demo}/scripts/SecureRMIDemo.scr" 
+			nobanner="true">
+			<classpath refid="jc-classpath"/>
+		</scriptgen>
+		
+		<concat destfile="${jc.demo}/demo1.scr" append="false">
+		   <filelist dir="${jc.demo}" files="misc/Header.scr,scripts/SampleLibrary.scr,scripts/JavaLoyalty.scr,scripts/JavaPurse.scr,scripts/Wallet.scr,scripts/RMIDemo.scr,scripts/SecureRMIDemo.scr,AppletTest.scr,misc/Footer.scr" />
+		</concat>
+		
+		<record name="${jc.demo}/demo1.out" action="start" emacsmode="true"/>
+			<apdutool
+				scriptFile="${jc.demo}/demo1.scr"
+				outEEFile="${jc.demo}/demo1.EEfile"
+				CheckDownloadFailure="true"
+				CrefExe="${jc.cref}"
+				nobanner="true">
+				<classpath refid="jc-classpath"/>
+			</apdutool>
+		<record name="${jc.demo}/demo1.out" action="stop"/>
+	</target>
+	<target name="compile" depends="init,transform">
+		<mkdir dir="${build.classes.dir}/"/>
+		<j2seproject3:javac srcdir="${build.generated.sources.dir}/cesta" />		
+	</target>
+	<target name="transform" depends="init">
+		<copy todir="${build.generated.sources.dir}/cesta" overwrite="true">
+			<fileset dir="${src.dir}"/>
+		</copy>
+		<fileset dir="${build.generated.sources.dir}/cesta" id="trans-files"/>
+		
+		<c:transform classname="java.ShadowVariables">
+			<!-- replace also local variables -->
+			<param name="replaceLocal" value="true"/>
+			<fileset refid="trans-files"/>
+		</c:transform>
+		
+		<c:transform classname="java.IfSwitchReplacement">
+			<!-- disable nested rewrites, because they can cause big overhead -->
+			<param name="nestedRewrite" value="false"/>
+			<fileset refid="trans-files"/>
+		</c:transform>
+		
+		<c:transform classname="java.CheckTransactions">
+			<fileset refid="trans-files"/>
+		</c:transform>		
+	</target>
+	
+	<target name="jar" depends="init,compile,convert">
+	</target>
+	
+	<target name="test" depends="jar,run-demo">
+	</target>
+	
+</project>

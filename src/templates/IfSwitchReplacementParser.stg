@@ -1,0 +1,97 @@
+/*
+ * Default template group for IfSwitchReplacement transformation. 
+ */
+
+group IfSwitchReplacementParser : Base;
+
+/**
+ *	Most important template, which is used for transforming original if statements.
+ *
+ *	Note, that exceptions for Java Card could be thrown via throw new ISOException().
+ *	But it will add more new bytecode, therefore we are using provided static method. 
+ *	However, special case when both <then> and <else> branches are always ending (return 
+ *	or exception) need to be considered and that's why last "return" was introduced. 
+ *
+ *	Named block IF_SWITCH_XXX is there only for clarity reasons.. The break statement
+ *	can be easily identifies in transformed code. It doesn't add any new bytecode instructions. 
+ */
+IF_SWITCH(ruleParams) ::= <<
+IF_SWITCH_<ruleParams.id>: {
+	switch (__getRandomBit()){
+		case -1: 
+			<if(params.javaCard)>
+			ISOException.throwIt(ISO7816.SW_CONDITIONS_NOT_SATISFIED);
+			<else>
+			throw new RuntimeException("__getRandomBit() returned invalid value");
+			<endif>
+		case 0:
+			if (<ruleParams.expr>) {
+				<ruleParams.ifTrue>
+			}<if(ruleParams.ifFalse)> else {
+				<ruleParams.ifFalse>
+			}<endif>
+			<if(!ruleParams.ifTrueReturn.always)>break IF_SWITCH_<ruleParams.id>;<endif>
+		case 1:
+			if (!<ruleParams.expr>) {
+				<ruleParams.ifFalse>
+			}<if(ruleParams.ifTrue)> else {
+				<ruleParams.ifTrue>
+			}<endif>
+			<if(!ruleParams.ifFalseReturn.always)>break IF_SWITCH_<ruleParams.id>;<endif>
+		default:
+			<if(params.javaCard)>
+			ISOException.throwIt(ISO7816.SW_CONDITIONS_NOT_SATISFIED);
+			<else>
+			throw new RuntimeException("__getRandomBit() returned invalid value");
+			<endif>
+	}
+	<if(params.javaCard)><if(ruleParams.return.always)>return <ruleParams.sampleReturn>;<endif><endif>
+}
+>>
+
+additionalImports() ::= <<
+<if(params.javaCard)>
+import javacard.security.RandomData;
+import javacard.framework.ISO7816;
+import javacard.framework.JCSystem;
+import javacard.security.CryptoException;
+import javacard.framework.ISOException;<\n>
+<else>
+import java.util.Random;<\n>
+<endif>
+>>
+
+classAdditionalCode() ::= <<
+<if(params.javaCard)>
+	/** Random number generator for IF_SWITCH transformation */
+	private static RandomData __random = null;
+	/** Helper array for random number generator */
+	private static byte __randomData[] = null;
+	/**
+	 *	Returns random bit 0 or 1
+	 */
+	private static short __getRandomBit(){
+		try {
+			if (__random == null) __random = RandomData.getInstance(RandomData.<if(params.pseudoRandom)>ALG_PSEUDO_RANDOM<else>ALG_SECURE_RANDOM<endif>);
+			if (__randomData == null) __randomData = JCSystem.makeTransientByteArray((short)1, JCSystem.CLEAR_ON_DESELECT);
+			__random.generateData(__randomData, (short)0, (short)1);
+			return (byte)((__randomData[0] & 0xFF)%2);
+		} catch (CryptoException ex) {
+			// JC simulator sometimes doesn't allow to get instance of RandomData.. 
+			// this fallback will return always 0 in case that random number couldn't be fetched 
+			// and program will continue normally
+			return (byte)0;
+		}
+	}
+<else>
+	/** Random number generator for IF_SWITCH transformation */
+	private static Random __random = null;	
+	/**
+	 *	Returns random bit 0 or 1
+	 */
+	private static byte __getRandomBit(){
+		if (__random == null) __random = new Random();
+		return (byte)(__random.nextInt(2));
+	}
+<endif>
+>>

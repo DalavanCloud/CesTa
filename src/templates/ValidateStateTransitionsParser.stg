@@ -1,0 +1,109 @@
+/**
+ *	Default group for ValidateStateTransitions parser
+ */
+ 
+group ValidateStateTransitionsParser : Base;
+
+/**
+ *	Declares all constants for modeling states
+ */
+declareStateConstants(states) ::= <<<\n>
+	/***** BEGIN declareStateConstants *****/
+	<states:{s|public static final short <s.name> = <s.id>;<\n>}>
+	/***** END declareStateConstants *****/
+>>
+
+/**
+ *	Declares all constants for modeling functions
+ */
+declareFunctionConstants(functions) ::= <<<\n>
+	/***** BEGIN declareFunctionConstants *****/
+	<functions:{f|public static final short FUNC_<f.name> = <f.id>;<\n>}>
+	/***** END declareFunctionConstants *****/
+>>
+
+/**
+ *	Template for throwing exception in case current function is not allowed. 
+ */
+FunctionNotAllowedException() ::= <<
+<if(params.javaCard)>
+ISOException.throwIt(ISO7816.SW_SECURITY_STATUS_NOT_SATISFIED);
+<else>
+throw new RuntimeException("Function is not allowed in current state");
+<endif>
+>>
+
+/**
+ *	Template, that will be inserted in beginning of every checked function. 
+ */
+VerifyAllowedFunction(function,stateGetter) ::= <<<\n>
+	_VerifyAllowedFunction(FUNC_<function.name>, <stateGetter>());
+>>
+
+VerifyAllowedFunction_caseFunc(function) ::= <<
+case FUNC_<function.name>: {
+<if(function.alwaysAllowed)>
+	/* Function is always allowed */
+	break;<\n>
+<else>
+	<function.entryStates:{s|if (state == <s.name>) break;<\n>}>
+	<FunctionNotAllowedException()>
+<endif>
+}
+>>
+/**
+ *	Template for declaring actual function, that will check access to function according to current state
+ */
+DeclareVerifyAllowedFunction(functions,stateGetter) ::= <<<\n>
+	/**
+	 *	Checks whether given function is allowed in given state or not. 
+	 *@param function function to check 
+	 *@param state state to check
+	 *@throws <if(params.javaCard)>IsoException<else>RuntimeException<endif> in case that function is not allowed in given state
+	 */
+	 private static void _VerifyAllowedFunction(short function, short state){
+		switch (function){
+			<functions:{f|<VerifyAllowedFunction_caseFunc(function=f)><\n>}>
+			default:
+				<FunctionNotAllowedException()>
+		}
+	}
+>>
+/**
+ *	Template, that will be inserted in beginning of state setter
+ */
+setStateFunc() ::= <<<\n>
+	_VerifyAllowedTransition(<params.stateGetter>(), <params.stateSetterArg>);
+>>
+VerifyAllowedTransition_caseState(oldState, newStates) ::= <<
+case <oldState>: {
+	<newStates:{s|if (newState == <s.id>) {break;}<\n>}>
+	<if(params.javaCard)>
+	ISOException.throwIt(ISO7816.SW_SECURITY_STATUS_NOT_SATISFIED);
+	<else>
+	throw new RuntimeException("State transition is not allowed");
+	<endif>
+}
+>>
+/**
+ *	Template for declaring function, that will check current state transition
+ */
+DeclareVerifyAllowedTransition(stateMap) ::= <<<\n>
+	/**
+	 *	Checks whether given transition is allowed or not. 
+	 *@param oldState old state
+	 *@param newState new state
+	 *@throws <if(params.javaCard)>IsoException<else>RuntimeException<endif> in case that transition is not allowed
+	 */
+	private static void _VerifyAllowedTransition(short oldState, short newState){
+		switch (oldState){
+			<stateMap.keys:{k|<VerifyAllowedTransition_caseState(oldState=k.id,newStates=stateMap.(k))><\n>}>
+			default:
+				<if(params.javaCard)>
+				ISOException.throwIt(ISO7816.SW_SECURITY_STATUS_NOT_SATISFIED);
+				<else>
+				throw new RuntimeException("State transition is not allowed");
+				<endif>
+		}
+	}
+>>

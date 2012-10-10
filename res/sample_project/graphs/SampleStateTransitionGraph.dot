@@ -1,0 +1,11 @@
+digraph SampleStateTransitionGraph {
+    size="30,30";
+    node [color=lightblue2, style=filled];
+
+    "STATE_SELECTED" [color=chartreuse];
+    "STATE_BLOCKED" [color=firebrick1];
+
+    "STATE_INSTALLED" -> "STATE_SELECTED" [label="select"];
+    "STATE_UPLOADED" -> "STATE_INSTALLED" [label="install"];
+    {"STATE_INSTALLED"; "STATE_SELECTED"} -> "STATE_BLOCKED" [label="blockCard"];
+}

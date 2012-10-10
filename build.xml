@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See commented blocks below for -->
+<!-- some examples of how to customize the build. -->
+<!-- (If you delete it and reopen the project it will be recreated.) -->
+<!-- By default, only the Clean and Build commands use this build script. -->
+<!-- Commands such as Run, Debug, and Test only use this build script if -->
+<!-- the Compile on Save feature is turned off for the project. -->
+<!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
+<!-- in the project's Project Properties dialog box.-->
+<project name="cesta" default="default" basedir=".">
+    <description>Builds, tests, and runs the project JavaCardCodeTrans.</description>
+    <import file="nbproject/build-impl.xml"/>
+    <!--
+
+    There exist several targets which are by default empty and which can be
+    used for execution of your tasks. These targets are usually executed
+    before and after some main targets. They are:
+
+      -pre-init:                 called before initialization of project properties
+      -post-init:                called after initialization of project properties
+      -pre-compile:              called before javac compilation
+      -post-compile:             called after javac compilation
+      -pre-compile-single:       called before javac compilation of single file
+      -post-compile-single:      called after javac compilation of single file
+      -pre-compile-test:         called before javac compilation of JUnit tests
+      -post-compile-test:        called after javac compilation of JUnit tests
+      -pre-compile-test-single:  called before javac compilation of single JUnit test
+      -post-compile-test-single: called after javac compilation of single JUunit test
+      -pre-jar:                  called before JAR building
+      -post-jar:                 called after JAR building
+      -post-clean:               called after cleaning build products
+
+    (Targets beginning with '-' are not intended to be called on their own.)
+
+    Example of inserting an obfuscator after compilation could look like this:
+
+        <target name="-post-compile">
+            <obfuscate>
+                <fileset dir="${build.classes.dir}"/>
+            </obfuscate>
+        </target>
+
+    For list of available properties check the imported
+    nbproject/build-impl.xml file.
+
+
+    Another way to customize the build is by overriding existing main targets.
+    The targets of interest are:
+
+      -init-macrodef-javac:     defines macro for javac compilation
+      -init-macrodef-junit:     defines macro for junit execution
+      -init-macrodef-debug:     defines macro for class debugging
+      -init-macrodef-java:      defines macro for class execution
+      -do-jar-with-manifest:    JAR building (if you are using a manifest)
+      -do-jar-without-manifest: JAR building (if you are not using a manifest)
+      run:                      execution of project
+      -javadoc-build:           Javadoc generation
+      test-report:              JUnit report generation
+
+    An example of overriding the target for project execution could look like this:
+
+        <target name="run" depends="JavaCardCodeTrans-impl.jar">
+            <exec dir="bin" executable="launcher.exe">
+                <arg file="${dist.jar}"/>
+            </exec>
+        </target>
+
+    Notice that the overridden target depends on the jar target and not only on
+    the compile target as the regular run target does. Again, for a list of available
+    properties which you can use, check the target you are overriding in the
+    nbproject/build-impl.xml file.
+
+    -->
+
+    <!-- Do not forget to place the archive containing the antlr3 task, namely
+         "antlr3.jar" in the ant/lib directory. The path to the ant home
+         directory can be found/configured in netbeans via the
+         Tools->Options->Miscellaneous->ant sheet.
+    -->
+    <!-- default name of the package -->
+    <property name="antlr.package" value="org.cesta.grammars"/>
+
+    <!-- antlr options -->
+    <property name="antlr.report" value="true" />
+    <property name="antlr.multithreaded" value="true" />
+    <property name="antlr.debug" value="false" />
+
+    <property name="antlr.libdir" location="lib" />
+    <patternset id="antlr.libs">
+        <include name="antlr-3.2.jar" />
+        <include name="stringtemplate-3.2.jar" />
+    </patternset>
+
+    <target name="-pre-init">
+        <!--
+            Default antlr task from Ant doesn't support ANTLR ver. 3, therefore we are using ANTLR3 task.
+
+            Copy of the library is already in lib directory.
+            The task can be downloaded from http://www.antlr.org/share/1169924912745/antlr3-task.zip
+        -->
+        <taskdef name="antlr3" classname="org.apache.tools.ant.antlr.ANTLR3" classpath="lib/ant-antlr3.jar" />
+    </target>
+
+    <!-- Simple macro for invoking antlr task -->
+    <macrodef name="antlr3-compile">
+        <attribute name="grammar.name"/>
+        <attribute name="grammar.package" default="${antlr.package}"/>
+        <attribute name="parser.package" default="${antlr.package}"/>
+        <sequential>
+            <echo message="ANTLR: compiling @{grammar.name} from @{grammar.package}" />
+
+			<pathconvert property="src.dir.converted">
+                <path location="${src.dir}"/>
+            </pathconvert>
+			
+            <pathconvert property="@{grammar.package}.converted">
+                <path location="${src.dir}/@{grammar.package}"/>
+                <mapper type="unpackage" from="${src.dir.converted}*" to="${src.dir.converted}*"/>
+            </pathconvert>
+            <mkdir dir="${@{grammar.package}.converted}"/>
+
+            <pathconvert property="@{parser.package}.converted">
+                <path location="${src.dir}/@{parser.package}"/>
+                <mapper type="unpackage" from="${src.dir.converted}*" to="${src.dir.converted}*"/>
+            </pathconvert>
+            <mkdir dir="${@{parser.package}.converted}"/>
+
+            <antlr3
+                target="${@{grammar.package}.converted}/@{grammar.name}"
+                outputdirectory="${@{parser.package}.converted}"
+                libdirectory="${@{parser.package}.converted}"
+                multithreaded="${antlr.multithreaded}"
+                report="${antlr.report}"
+                debug="${antlr.debug}">
+
+                <classpath>
+                    <fileset dir="${antlr.libdir}" casesensitive="yes">
+                        <patternset refid="antlr.libs" />
+                    </fileset>
+                </classpath>
+            </antlr3>
+
+        </sequential>
+    </macrodef>
+
+    <target name="antlr-grammars" description="Compiling parser" depends="init">
+        <antlr3-compile grammar.name="Java.g" grammar.package="org.cesta.grammars.java" parser.package="org.cesta.parsers.java"/>
+        <antlr3-compile grammar.name="Dot.g" grammar.package="org.cesta.grammars.dot" parser.package="org.cesta.parsers.dot"/>
+    </target>
+    <target name="antlr-transformations" description="Compiling transformations" depends="init,antlr-grammars">
+        <antlr3-compile grammar.name="CheckTransactionsParser.g" grammar.package="org.cesta.grammars.java" parser.package="org.cesta.parsers.java"/>
+        <antlr3-compile grammar.name="ShadowVariablesParser.g" grammar.package="org.cesta.grammars.java" parser.package="org.cesta.parsers.java"/>
+        <antlr3-compile grammar.name="IfSwitchReplacementParser.g" grammar.package="org.cesta.grammars.java" parser.package="org.cesta.parsers.java"/>
+        <antlr3-compile grammar.name="IdentifyBlocksParser.g" grammar.package="org.cesta.grammars.java" parser.package="org.cesta.parsers.java"/>
+        <antlr3-compile grammar.name="ValidateStateTransitionsParser.g" grammar.package="org.cesta.grammars.java" parser.package="org.cesta.parsers.java"/>
+        <antlr3-compile grammar.name="DotTree.g" grammar.package="org.cesta.grammars.dot" parser.package="org.cesta.parsers.dot"/>
+    </target>
+    <target name="-pre-compile" depends="antlr-transformations">
+
+    </target>
+    <target name="-post-compile" depends="">
+    </target>
+
+    <target name="-pre-jar">
+    </target>
+
+    <target name="-post-jar" depends="">
+        <copy todir="${dist.dir}" overwrite="true">
+            <fileset dir="res"/>
+        </copy>
+    </target>
+    <target name="-post-clean">
+        <echo message="Touching grammar files" />
+        <touch>
+            <fileset dir="${src.dir}" includes="*.g"/>
+        </touch>
+    </target>
+
+    <target name="transform-tests" depends="compile" xmlns:c="antlib:org.cesta">
+		<!-- define CesTa tasks via custom namespace and antlib -->
+		<taskdef 
+			resource="org/cesta/antlib.xml" 
+			uri="antlib:org.cesta"
+			classpath="${run.classpath}" />
+		<!-- copy original test classes to new directory and replace packages -->
+        <copy
+            todir="${test.src.dir}/transformed/"
+            overwrite="true" >
+            <fileset dir="${test.src.dir}">
+                <exclude name="transformed/**"/>
+                <include name="**/trans/**"/>
+            </fileset>
+            <filterchain>
+                <tokenfilter>
+                    <replaceregex pattern="org\.cesta" replace="transformed.org.cesta" flags="gi"/>
+                </tokenfilter>
+            </filterchain>
+        </copy>		
+		<!-- run ValidateStateTransitions transformation -->
+        <c:transform classname="java.ValidateStateTransitions">
+			<!-- do not optimize for Java Card (i.e. exceptions) -->
+            <param name="javaCard" value="false"/>
+			<!-- load transition graph from given file -->
+            <param name="dotGrammar" value="${test.src.dir}/graphs/SampleStateTransitionGraph.dot" />
+			<!-- those functions should not be checked -->
+            <param name="ignoredFunctions" value="init|test.*"/>
+			<!-- transform only specified files -->
+            <fileset dir="${test.src.dir}/transformed">
+				<include name="**/ValidateStateTransitionsTest.java"/>
+				<include name="**/MultipleTest.java"/>
+            </fileset>
+        </c:transform>
+		<!-- run ShadowVariables transformation -->
+        <c:transform classname="java.ShadowVariables">
+			<param name="javaCard" value="false"/>
+			<!-- replace also local variables inside methods -->
+			<param name="replaceLocal" value="true"/>
+			<fileset dir="${test.src.dir}/transformed">
+				<include name="**/ShadowVariablesTest.java"/>
+				<include name="**/MultipleTest.java"/>
+			</fileset>
+		</c:transform>
+		<!-- run IfSwitchReplacement transformation -->
+        <c:transform classname="java.IfSwitchReplacement">
+			<param name="javaCard" value="false"/>
+			<fileset dir="${test.src.dir}/transformed">
+				<include name="**/IfSwitchReplacementTest.java"/>
+				<include name="**/MultipleTest.java"/>
+			</fileset>
+		</c:transform>
+		<!-- run CheckTransactions transformation -->
+        <c:transform classname="java.CheckTransactions">
+			<param name="javaCard" value="false"/>
+			<param name="nonatomicMethods" value="NonAtomic"/>
+			<param name="startMethods" value="StartTransaction"/>
+			<param name="endMethods" value="EndTransaction"/>
+			<fileset dir="${test.src.dir}/transformed">
+				<include name="**/CheckTransactionsTest.java"/>
+			</fileset>
+		</c:transform>
+    </target>
+
+    <target name="-pre-compile-test" depends="transform-tests">
+
+    </target>
+</project>
