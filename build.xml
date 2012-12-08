@@ -87,8 +87,8 @@
 
     <property name="antlr.libdir" location="lib" />
     <patternset id="antlr.libs">
-        <include name="antlr-3.4-complete.jar" />
-        <include name="stringtemplate-3.2.jar" />
+        <include name="antlr-3.2.jar" />
+        <include name="stringtemplate-3.2.1.jar" />
     </patternset>
 
     <target name="-pre-init">
@@ -146,7 +146,7 @@
     <target name="antlr-grammars" description="Compiling parser" depends="init">
         <antlr3-compile grammar.name="Java.g" grammar.package="org.cesta.grammars.java" parser.package="org.cesta.parsers.java"/>
         <antlr3-compile grammar.name="Dot.g" grammar.package="org.cesta.grammars.dot" parser.package="org.cesta.parsers.dot"/>
-        <antlr3-compile grammar.name="CSharp4.g" grammar.package="org.cesta.grammars.csharp" parser.package="org.cesta.parsers.csharp"/>
+        <!--<antlr3-compile grammar.name="CSharp4.g" grammar.package="org.cesta.grammars.csharp" parser.package="org.cesta.parsers.csharp"/>-->
     </target>
     <target name="antlr-transformations" description="Compiling transformations" depends="init,antlr-grammars">
         <antlr3-compile grammar.name="CheckTransactionsParser.g" grammar.package="org.cesta.grammars.java" parser.package="org.cesta.parsers.java"/>
@@ -155,8 +155,9 @@
         <antlr3-compile grammar.name="IdentifyBlocksParser.g" grammar.package="org.cesta.grammars.java" parser.package="org.cesta.parsers.java"/>
         <antlr3-compile grammar.name="ValidateStateTransitionsParser.g" grammar.package="org.cesta.grammars.java" parser.package="org.cesta.parsers.java"/>
         <antlr3-compile grammar.name="DotTree.g" grammar.package="org.cesta.grammars.dot" parser.package="org.cesta.parsers.dot"/>
-        <antlr3-compile grammar.name="CSharp4AST.g" grammar.package="org.cesta.grammars.csharp" parser.package="org.cesta.parsers.csharp"/>
+        <!--<antlr3-compile grammar.name="CSharp4AST.g" grammar.package="org.cesta.grammars.csharp" parser.package="org.cesta.parsers.csharp"/>-->
         <!--<antlr3-compile grammar.name="CSharp4PreProcessor.g" grammar.package="org.cesta.grammars.csharp" parser.package="org.cesta.parsers.csharp"/>-->
+        <antlr3-compile grammar.name="IntegrityVariablesParser.g" grammar.package="org.cesta.grammars.java" parser.package="org.cesta.parsers.java"/>
     </target>
     <target name="-pre-compile" depends="antlr-transformations">
 
@@ -222,7 +223,14 @@
 				<include name="**/ShadowVariablesTest.java"/>
 				<include name="**/MultipleTest.java"/>
 			</fileset>
-		</c:transform>
+	</c:transform>
+                 <!-- run IntegrityVariables transformation -->
+        <c:transform classname="java.IntegrityVariables">
+                        <param name="javaCard" value="false"/>
+			<fileset dir="${test.src.dir}/transformed">
+				<include name="**/IntegrityVariablesTest.java"/>
+			</fileset>
+	</c:transform>
 		<!-- run IfSwitchReplacement transformation -->
         <c:transform classname="java.IfSwitchReplacement">
 			<param name="javaCard" value="false"/>

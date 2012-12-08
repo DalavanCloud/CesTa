@@ -1,0 +1,12 @@
+group IntegrityVariablesParser : Base;
+
+/**
+ *	Additional imports, that will be included in transformed file
+ */
+additionalImports() ::= <<
+<if(params.javaCard)>
+import javacard.framework.ISO7816;
+import javacard.framework.ISOException;<\n>
+<else>
+<endif>
+>>
