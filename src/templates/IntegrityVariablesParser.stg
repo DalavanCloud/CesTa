@@ -10,3 +10,41 @@ import javacard.framework.ISOException;<\n>
 <else>
 <endif>
 >>
+
+declareBooleanSetter(trueValue,falseValue) ::= << <\n>
+    private byte _setBoolean(boolean var) {
+        return var ? (byte) <trueValue> : (byte) <falseValue>;
+    }
+<\n> >>
+
+declareBooleanGetter(trueValue,falseValue) ::= << <\n>
+    private boolean _getBoolean(byte var) {
+        switch (var) {
+            case (byte) <trueValue>: return true;
+            case (byte) <falseValue>: return false;
+            default: <if(params.javaCard)>ISOException.throwIt(ISO7816.SW_DATA_INVALID);
+                     <else>throw new RuntimeException("Error induction");
+                     <endif>
+        }
+    }
+>>
+
+declareByteSetter(mask) ::= << <\n>
+    private short _setByte(byte var) {
+        return (short) ((short) ((<mask> ^ var) \<\< 8) ^ var);
+    }
+>>
+
+declareByteGetter(mask) ::= << <\n>
+    private byte _getByte(short var) {
+        if (((var \>\> 8) ^ <mask>) == (var ^ 0xFFFF)) {
+            return (byte) var;
+        } else {
+            <if(params.javaCard)>
+            ISOException.throwIt(ISO7816.SW_DATA_INVALID);
+            <else>
+            throw new RuntimeException("Error induction");
+            <endif>
+        }
+    }
+>>

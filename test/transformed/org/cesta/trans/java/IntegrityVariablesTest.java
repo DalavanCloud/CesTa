@@ -2,7 +2,6 @@ package transformed.org.cesta.trans.java;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -12,14 +11,35 @@ import org.junit.Test;
  * @author David Formanek, Tobias Smolka
  */
 public class IntegrityVariablesTest {
+
+    private byte _getByte(short var) {
+        if (((var >> 8) ^ 0x55) == (var ^ 0xFFFF)) {
+            return (byte) var;
+        } else {
+            throw new RuntimeException("Error induction");
+        }
+    }
+
+    private short _setByte(byte var) {
+        return (short) ((short) ((0x55 ^ var) << 8) ^ var);
+    }
+
+    private boolean _getBoolean(byte var) {
+        switch (var) {
+            case (byte) 0x55: return true;
+            case (byte) 0xAA: return false;
+            default: throw new RuntimeException("Error induction");
+        }
+    }
+
+    private byte _setBoolean(boolean var) {
+        return var ? (byte) 0x55 : (byte) 0xAA;
+    }
+
+ 
     private short globalI = 4;
     private static byte globalStatic = 0;
     byte x,y;   // test variables without initializer
-
-    /*@Before
-    public void setUp() {
-        globalStatic++;
-    }*/
 
     @Test
     public void basic() {

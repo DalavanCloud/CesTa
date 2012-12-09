@@ -78,7 +78,7 @@ enumConstant
     
     
 classTopLevelScope
-    :   ^(CLASS_TOP_LEVEL_SCOPE classScopeDeclarations*)
+    :   ^(CLASS_TOP_LEVEL_SCOPE classScopeDeclarations*) classAdditionalCode[(CommonTree)retval.start]
     ;
     
 classScopeDeclarations
@@ -455,13 +455,44 @@ literal
     |   NULL
     ;
 
+/**
+ * Adds additional imports
+ */
 additionalImports[CommonTree tree]
-	:
-            {
-                if (tree!=null){
-                    getLogger().finer("Adding additional imports");
-                    StringTemplate st = getTemplateLib().getInstanceOf("additionalImports");
-                    tokens.insertBefore(tree.getTokenStartIndex(), st);
-                }
+    :
+        {
+            if (tree!=null){
+                getLogger().finer("Adding additional imports");
+                StringTemplate st = getTemplateLib().getInstanceOf("additionalImports");
+                tokens.insertBefore(tree.getTokenStartIndex(), st);
             }
-	;
+        }
+    ;
+
+/**
+ * Adds get & set methods
+ */
+classAdditionalCode[CommonTree tree]
+    :
+        {
+            StringTemplate st;
+
+            st = getTemplateLib().getInstanceOf("declareBooleanSetter");
+            st.setAttribute("trueValue", "0x55");
+            st.setAttribute("falseValue", "0xAA");
+            tokens.insertAfter(tree.getTokenStartIndex(), st);
+
+            st = getTemplateLib().getInstanceOf("declareBooleanGetter");
+            st.setAttribute("trueValue", "0x55");
+            st.setAttribute("falseValue", "0xAA");
+            tokens.insertAfter(tree.getTokenStartIndex(), st);
+
+            st = getTemplateLib().getInstanceOf("declareByteSetter");
+            st.setAttribute("mask", "0x55");
+            tokens.insertAfter(tree.getTokenStartIndex(), st);
+
+            st = getTemplateLib().getInstanceOf("declareByteGetter");
+            st.setAttribute("mask", "0x55");
+            tokens.insertAfter(tree.getTokenStartIndex(), st);
+        }
+    ;
