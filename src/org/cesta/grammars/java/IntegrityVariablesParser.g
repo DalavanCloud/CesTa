@@ -41,7 +41,7 @@ importDeclaration
     ;
     
 typeDeclaration
-    :   ^(CLASS modifierList IDENT genericTypeParameterList? extendsClause? implementsClause? classTopLevelScope)
+    :   classDeclaration
     |   ^(INTERFACE modifierList IDENT genericTypeParameterList? extendsClause? interfaceTopLevelScope)
     |   ^(ENUM modifierList IDENT implementsClause? enumTopLevelScope)
     |   ^(AT modifierList IDENT annotationTopLevelScope)
@@ -84,10 +84,8 @@ classTopLevelScope
 classScopeDeclarations
     :   ^(CLASS_INSTANCE_INITIALIZER block)
     |   ^(CLASS_STATIC_INITIALIZER block)
-    |   ^(FUNCTION_METHOD_DECL modifierList genericTypeParameterList? type IDENT formalParameterList arrayDeclaratorList? throwsClause? block?)
-    |   ^(VOID_METHOD_DECL modifierList genericTypeParameterList? IDENT formalParameterList throwsClause? block?)
-    |   ^(VAR_DECLARATION modifierList type variableDeclaratorList)
-    |   ^(CONSTRUCTOR_DECL modifierList genericTypeParameterList? formalParameterList throwsClause? block)
+    |   methodScopeDeclarations
+    |   globalVariableDeclaration
     |   typeDeclaration
     ;
     
@@ -101,7 +99,7 @@ interfaceScopeDeclarations
                          // Interface constant declarations have been switched to variable
                          // declarations by 'java.g'; the parser has already checked that
                          // there's an obligatory initializer.
-    |   ^(VAR_DECLARATION modifierList type variableDeclaratorList)
+    |   globalVariableDeclaration
     |   typeDeclaration
     ;
 
@@ -494,5 +492,49 @@ classAdditionalCode[CommonTree tree]
             st = getTemplateLib().getInstanceOf("declareByteGetter");
             st.setAttribute("mask", "0x55");
             tokens.insertAfter(tree.getTokenStartIndex(), st);
+
+            // TODO: static variables
+            // TODO: protection of a type short
         }
     ;
+
+/**
+ *	Whole class
+ */
+classDeclaration
+	scope {
+		Map<String, String> globalVariablesTypes;
+                Map<String, String> localVariablesTypes;
+	}
+	@init {	
+		$classDeclaration::globalVariablesTypes = new HashMap<String, String>();
+                $classDeclaration::localVariablesTypes = new HashMap<String, String>();
+	}
+	:
+		^(CLASS modifierList IDENT genericTypeParameterList? extendsClause? implementsClause? classTopLevelScope)
+	;
+
+methodScopeDeclarations
+        scope {
+		Map<String, String> localVariablesTypes;
+	}
+	@init {
+                $methodScopeDeclarations::localVariablesTypes = new HashMap<String, String>();
+	}
+	:
+		^(FUNCTION_METHOD_DECL modifierList genericTypeParameterList? type IDENT formalParameterList arrayDeclaratorList? throwsClause? block?)
+	|	^(VOID_METHOD_DECL modifierList genericTypeParameterList? IDENT formalParameterList throwsClause? block?)
+	|	^(CONSTRUCTOR_DECL modifierList genericTypeParameterList? formalParameterList throwsClause? block)
+	;
+
+/**
+ *	Global variables
+ */
+globalVariableDeclaration
+	:
+		^(VAR_DECLARATION 
+			modifierList 
+			type
+			variableDeclaratorList
+		)
+	;

@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g 2012-12-09 01:11:34
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g 2012-12-09 17:11:04
 
 package org.cesta.parsers.java;
 
@@ -215,7 +215,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
         }
         public IntegrityVariablesParser(TreeNodeStream input, RecognizerSharedState state) {
             super(input, state);
-            this.state.ruleMemo = new HashMap[290+1];
+            this.state.ruleMemo = new HashMap[293+1];
              
              
         }
@@ -507,58 +507,69 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "typeDeclaration"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:43:1: typeDeclaration : ( ^( CLASS modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? ( implementsClause )? classTopLevelScope ) | ^( INTERFACE modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? interfaceTopLevelScope ) | ^( ENUM modifierList IDENT ( implementsClause )? enumTopLevelScope ) | ^( AT modifierList IDENT annotationTopLevelScope ) );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:43:1: typeDeclaration : ( classDeclaration | ^( INTERFACE modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? interfaceTopLevelScope ) | ^( ENUM modifierList IDENT ( implementsClause )? enumTopLevelScope ) | ^( AT modifierList IDENT annotationTopLevelScope ) );
     public final IntegrityVariablesParser.typeDeclaration_return typeDeclaration() throws RecognitionException {
         IntegrityVariablesParser.typeDeclaration_return retval = new IntegrityVariablesParser.typeDeclaration_return();
         retval.start = input.LT(1);
         int typeDeclaration_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 4) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:44:5: ( ^( CLASS modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? ( implementsClause )? classTopLevelScope ) | ^( INTERFACE modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? interfaceTopLevelScope ) | ^( ENUM modifierList IDENT ( implementsClause )? enumTopLevelScope ) | ^( AT modifierList IDENT annotationTopLevelScope ) )
-            int alt12=4;
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:44:5: ( classDeclaration | ^( INTERFACE modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? interfaceTopLevelScope ) | ^( ENUM modifierList IDENT ( implementsClause )? enumTopLevelScope ) | ^( AT modifierList IDENT annotationTopLevelScope ) )
+            int alt9=4;
             switch ( input.LA(1) ) {
             case CLASS:
                 {
-                alt12=1;
+                alt9=1;
                 }
                 break;
             case INTERFACE:
                 {
-                alt12=2;
+                alt9=2;
                 }
                 break;
             case ENUM:
                 {
-                alt12=3;
+                alt9=3;
                 }
                 break;
             case AT:
                 {
-                alt12=4;
+                alt9=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 12, 0, input);
+                    new NoViableAltException("", 9, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt12) {
+            switch (alt9) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:44:9: ^( CLASS modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? ( implementsClause )? classTopLevelScope )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:44:9: classDeclaration
                     {
-                    match(input,CLASS,FOLLOW_CLASS_in_typeDeclaration221); if (state.failed) return retval;
+                    pushFollow(FOLLOW_classDeclaration_in_typeDeclaration220);
+                    classDeclaration();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+
+                    }
+                    break;
+                case 2 :
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:45:9: ^( INTERFACE modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? interfaceTopLevelScope )
+                    {
+                    match(input,INTERFACE,FOLLOW_INTERFACE_in_typeDeclaration231); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_typeDeclaration223);
+                    pushFollow(FOLLOW_modifierList_in_typeDeclaration233);
                     modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_typeDeclaration225); if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:44:36: ( genericTypeParameterList )?
+                    match(input,IDENT,FOLLOW_IDENT_in_typeDeclaration235); if (state.failed) return retval;
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:45:40: ( genericTypeParameterList )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -569,95 +580,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeParameterList
                             {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_typeDeclaration227);
-                            genericTypeParameterList();
-
-                            state._fsp--;
-                            if (state.failed) return retval;
-
-                            }
-                            break;
-
-                    }
-
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:44:62: ( extendsClause )?
-                    int alt7=2;
-                    int LA7_0 = input.LA(1);
-
-                    if ( (LA7_0==EXTENDS_CLAUSE) ) {
-                        alt7=1;
-                    }
-                    switch (alt7) {
-                        case 1 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: extendsClause
-                            {
-                            pushFollow(FOLLOW_extendsClause_in_typeDeclaration230);
-                            extendsClause();
-
-                            state._fsp--;
-                            if (state.failed) return retval;
-
-                            }
-                            break;
-
-                    }
-
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:44:77: ( implementsClause )?
-                    int alt8=2;
-                    int LA8_0 = input.LA(1);
-
-                    if ( (LA8_0==IMPLEMENTS_CLAUSE) ) {
-                        alt8=1;
-                    }
-                    switch (alt8) {
-                        case 1 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: implementsClause
-                            {
-                            pushFollow(FOLLOW_implementsClause_in_typeDeclaration233);
-                            implementsClause();
-
-                            state._fsp--;
-                            if (state.failed) return retval;
-
-                            }
-                            break;
-
-                    }
-
-                    pushFollow(FOLLOW_classTopLevelScope_in_typeDeclaration236);
-                    classTopLevelScope();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-
-                    match(input, Token.UP, null); if (state.failed) return retval;
-
-                    }
-                    break;
-                case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:45:9: ^( INTERFACE modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? interfaceTopLevelScope )
-                    {
-                    match(input,INTERFACE,FOLLOW_INTERFACE_in_typeDeclaration248); if (state.failed) return retval;
-
-                    match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_typeDeclaration250);
-                    modifierList();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_typeDeclaration252); if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:45:40: ( genericTypeParameterList )?
-                    int alt9=2;
-                    int LA9_0 = input.LA(1);
-
-                    if ( (LA9_0==GENERIC_TYPE_PARAM_LIST) ) {
-                        alt9=1;
-                    }
-                    switch (alt9) {
-                        case 1 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeParameterList
-                            {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_typeDeclaration254);
+                            pushFollow(FOLLOW_genericTypeParameterList_in_typeDeclaration237);
                             genericTypeParameterList();
 
                             state._fsp--;
@@ -669,17 +592,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
 
                     // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:45:66: ( extendsClause )?
-                    int alt10=2;
-                    int LA10_0 = input.LA(1);
+                    int alt7=2;
+                    int LA7_0 = input.LA(1);
 
-                    if ( (LA10_0==EXTENDS_CLAUSE) ) {
-                        alt10=1;
+                    if ( (LA7_0==EXTENDS_CLAUSE) ) {
+                        alt7=1;
                     }
-                    switch (alt10) {
+                    switch (alt7) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: extendsClause
                             {
-                            pushFollow(FOLLOW_extendsClause_in_typeDeclaration257);
+                            pushFollow(FOLLOW_extendsClause_in_typeDeclaration240);
                             extendsClause();
 
                             state._fsp--;
@@ -690,7 +613,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_interfaceTopLevelScope_in_typeDeclaration260);
+                    pushFollow(FOLLOW_interfaceTopLevelScope_in_typeDeclaration243);
                     interfaceTopLevelScope();
 
                     state._fsp--;
@@ -703,27 +626,27 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 case 3 :
                     // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:46:9: ^( ENUM modifierList IDENT ( implementsClause )? enumTopLevelScope )
                     {
-                    match(input,ENUM,FOLLOW_ENUM_in_typeDeclaration272); if (state.failed) return retval;
+                    match(input,ENUM,FOLLOW_ENUM_in_typeDeclaration255); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_typeDeclaration274);
+                    pushFollow(FOLLOW_modifierList_in_typeDeclaration257);
                     modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_typeDeclaration276); if (state.failed) return retval;
+                    match(input,IDENT,FOLLOW_IDENT_in_typeDeclaration259); if (state.failed) return retval;
                     // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:46:35: ( implementsClause )?
-                    int alt11=2;
-                    int LA11_0 = input.LA(1);
+                    int alt8=2;
+                    int LA8_0 = input.LA(1);
 
-                    if ( (LA11_0==IMPLEMENTS_CLAUSE) ) {
-                        alt11=1;
+                    if ( (LA8_0==IMPLEMENTS_CLAUSE) ) {
+                        alt8=1;
                     }
-                    switch (alt11) {
+                    switch (alt8) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: implementsClause
                             {
-                            pushFollow(FOLLOW_implementsClause_in_typeDeclaration278);
+                            pushFollow(FOLLOW_implementsClause_in_typeDeclaration261);
                             implementsClause();
 
                             state._fsp--;
@@ -734,7 +657,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_enumTopLevelScope_in_typeDeclaration281);
+                    pushFollow(FOLLOW_enumTopLevelScope_in_typeDeclaration264);
                     enumTopLevelScope();
 
                     state._fsp--;
@@ -747,16 +670,16 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 case 4 :
                     // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:47:9: ^( AT modifierList IDENT annotationTopLevelScope )
                     {
-                    match(input,AT,FOLLOW_AT_in_typeDeclaration293); if (state.failed) return retval;
+                    match(input,AT,FOLLOW_AT_in_typeDeclaration276); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_typeDeclaration295);
+                    pushFollow(FOLLOW_modifierList_in_typeDeclaration278);
                     modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_typeDeclaration297); if (state.failed) return retval;
-                    pushFollow(FOLLOW_annotationTopLevelScope_in_typeDeclaration299);
+                    match(input,IDENT,FOLLOW_IDENT_in_typeDeclaration280); if (state.failed) return retval;
+                    pushFollow(FOLLOW_annotationTopLevelScope_in_typeDeclaration282);
                     annotationTopLevelScope();
 
                     state._fsp--;
@@ -797,26 +720,26 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:52:5: ( ^( EXTENDS_CLAUSE ( type )+ ) )
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:52:9: ^( EXTENDS_CLAUSE ( type )+ )
             {
-            match(input,EXTENDS_CLAUSE,FOLLOW_EXTENDS_CLAUSE_in_extendsClause336); if (state.failed) return retval;
+            match(input,EXTENDS_CLAUSE,FOLLOW_EXTENDS_CLAUSE_in_extendsClause319); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:52:26: ( type )+
-            int cnt13=0;
-            loop13:
+            int cnt10=0;
+            loop10:
             do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( (LA13_0==TYPE) ) {
-                    alt13=1;
+                if ( (LA10_0==TYPE) ) {
+                    alt10=1;
                 }
 
 
-                switch (alt13) {
+                switch (alt10) {
             	case 1 :
             	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: type
             	    {
-            	    pushFollow(FOLLOW_type_in_extendsClause338);
+            	    pushFollow(FOLLOW_type_in_extendsClause321);
             	    type();
 
             	    state._fsp--;
@@ -826,13 +749,13 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             	    break;
 
             	default :
-            	    if ( cnt13 >= 1 ) break loop13;
+            	    if ( cnt10 >= 1 ) break loop10;
             	    if (state.backtracking>0) {state.failed=true; return retval;}
                         EarlyExitException eee =
-                            new EarlyExitException(13, input);
+                            new EarlyExitException(10, input);
                         throw eee;
                 }
-                cnt13++;
+                cnt10++;
             } while (true);
 
 
@@ -869,26 +792,26 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:56:5: ( ^( IMPLEMENTS_CLAUSE ( type )+ ) )
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:56:9: ^( IMPLEMENTS_CLAUSE ( type )+ )
             {
-            match(input,IMPLEMENTS_CLAUSE,FOLLOW_IMPLEMENTS_CLAUSE_in_implementsClause367); if (state.failed) return retval;
+            match(input,IMPLEMENTS_CLAUSE,FOLLOW_IMPLEMENTS_CLAUSE_in_implementsClause350); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:56:29: ( type )+
-            int cnt14=0;
-            loop14:
+            int cnt11=0;
+            loop11:
             do {
-                int alt14=2;
-                int LA14_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( (LA14_0==TYPE) ) {
-                    alt14=1;
+                if ( (LA11_0==TYPE) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt14) {
+                switch (alt11) {
             	case 1 :
             	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: type
             	    {
-            	    pushFollow(FOLLOW_type_in_implementsClause369);
+            	    pushFollow(FOLLOW_type_in_implementsClause352);
             	    type();
 
             	    state._fsp--;
@@ -898,13 +821,13 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             	    break;
 
             	default :
-            	    if ( cnt14 >= 1 ) break loop14;
+            	    if ( cnt11 >= 1 ) break loop11;
             	    if (state.backtracking>0) {state.failed=true; return retval;}
                         EarlyExitException eee =
-                            new EarlyExitException(14, input);
+                            new EarlyExitException(11, input);
                         throw eee;
                 }
-                cnt14++;
+                cnt11++;
             } while (true);
 
 
@@ -941,26 +864,26 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:60:5: ( ^( GENERIC_TYPE_PARAM_LIST ( genericTypeParameter )+ ) )
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:60:9: ^( GENERIC_TYPE_PARAM_LIST ( genericTypeParameter )+ )
             {
-            match(input,GENERIC_TYPE_PARAM_LIST,FOLLOW_GENERIC_TYPE_PARAM_LIST_in_genericTypeParameterList399); if (state.failed) return retval;
+            match(input,GENERIC_TYPE_PARAM_LIST,FOLLOW_GENERIC_TYPE_PARAM_LIST_in_genericTypeParameterList382); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:60:35: ( genericTypeParameter )+
-            int cnt15=0;
-            loop15:
+            int cnt12=0;
+            loop12:
             do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
+                int alt12=2;
+                int LA12_0 = input.LA(1);
 
-                if ( (LA15_0==IDENT) ) {
-                    alt15=1;
+                if ( (LA12_0==IDENT) ) {
+                    alt12=1;
                 }
 
 
-                switch (alt15) {
+                switch (alt12) {
             	case 1 :
             	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeParameter
             	    {
-            	    pushFollow(FOLLOW_genericTypeParameter_in_genericTypeParameterList401);
+            	    pushFollow(FOLLOW_genericTypeParameter_in_genericTypeParameterList384);
             	    genericTypeParameter();
 
             	    state._fsp--;
@@ -970,13 +893,13 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             	    break;
 
             	default :
-            	    if ( cnt15 >= 1 ) break loop15;
+            	    if ( cnt12 >= 1 ) break loop12;
             	    if (state.backtracking>0) {state.failed=true; return retval;}
                         EarlyExitException eee =
-                            new EarlyExitException(15, input);
+                            new EarlyExitException(12, input);
                         throw eee;
                 }
-                cnt15++;
+                cnt12++;
             } while (true);
 
 
@@ -1013,22 +936,22 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:64:5: ( ^( IDENT ( bound )? ) )
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:64:9: ^( IDENT ( bound )? )
             {
-            match(input,IDENT,FOLLOW_IDENT_in_genericTypeParameter423); if (state.failed) return retval;
+            match(input,IDENT,FOLLOW_IDENT_in_genericTypeParameter406); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
                 // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:64:17: ( bound )?
-                int alt16=2;
-                int LA16_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( (LA16_0==EXTENDS_BOUND_LIST) ) {
-                    alt16=1;
+                if ( (LA13_0==EXTENDS_BOUND_LIST) ) {
+                    alt13=1;
                 }
-                switch (alt16) {
+                switch (alt13) {
                     case 1 :
                         // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: bound
                         {
-                        pushFollow(FOLLOW_bound_in_genericTypeParameter425);
+                        pushFollow(FOLLOW_bound_in_genericTypeParameter408);
                         bound();
 
                         state._fsp--;
@@ -1074,26 +997,26 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:68:5: ( ^( EXTENDS_BOUND_LIST ( type )+ ) )
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:68:9: ^( EXTENDS_BOUND_LIST ( type )+ )
             {
-            match(input,EXTENDS_BOUND_LIST,FOLLOW_EXTENDS_BOUND_LIST_in_bound455); if (state.failed) return retval;
+            match(input,EXTENDS_BOUND_LIST,FOLLOW_EXTENDS_BOUND_LIST_in_bound438); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:68:30: ( type )+
-            int cnt17=0;
-            loop17:
+            int cnt14=0;
+            loop14:
             do {
-                int alt17=2;
-                int LA17_0 = input.LA(1);
+                int alt14=2;
+                int LA14_0 = input.LA(1);
 
-                if ( (LA17_0==TYPE) ) {
-                    alt17=1;
+                if ( (LA14_0==TYPE) ) {
+                    alt14=1;
                 }
 
 
-                switch (alt17) {
+                switch (alt14) {
             	case 1 :
             	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: type
             	    {
-            	    pushFollow(FOLLOW_type_in_bound457);
+            	    pushFollow(FOLLOW_type_in_bound440);
             	    type();
 
             	    state._fsp--;
@@ -1103,13 +1026,13 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             	    break;
 
             	default :
-            	    if ( cnt17 >= 1 ) break loop17;
+            	    if ( cnt14 >= 1 ) break loop14;
             	    if (state.backtracking>0) {state.failed=true; return retval;}
                         EarlyExitException eee =
-                            new EarlyExitException(17, input);
+                            new EarlyExitException(14, input);
                         throw eee;
                 }
-                cnt17++;
+                cnt14++;
             } while (true);
 
 
@@ -1146,26 +1069,26 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:72:5: ( ^( ENUM_TOP_LEVEL_SCOPE ( enumConstant )+ ( classTopLevelScope )? ) )
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:72:9: ^( ENUM_TOP_LEVEL_SCOPE ( enumConstant )+ ( classTopLevelScope )? )
             {
-            match(input,ENUM_TOP_LEVEL_SCOPE,FOLLOW_ENUM_TOP_LEVEL_SCOPE_in_enumTopLevelScope479); if (state.failed) return retval;
+            match(input,ENUM_TOP_LEVEL_SCOPE,FOLLOW_ENUM_TOP_LEVEL_SCOPE_in_enumTopLevelScope462); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:72:32: ( enumConstant )+
-            int cnt18=0;
-            loop18:
+            int cnt15=0;
+            loop15:
             do {
-                int alt18=2;
-                int LA18_0 = input.LA(1);
+                int alt15=2;
+                int LA15_0 = input.LA(1);
 
-                if ( (LA18_0==IDENT) ) {
-                    alt18=1;
+                if ( (LA15_0==IDENT) ) {
+                    alt15=1;
                 }
 
 
-                switch (alt18) {
+                switch (alt15) {
             	case 1 :
             	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: enumConstant
             	    {
-            	    pushFollow(FOLLOW_enumConstant_in_enumTopLevelScope481);
+            	    pushFollow(FOLLOW_enumConstant_in_enumTopLevelScope464);
             	    enumConstant();
 
             	    state._fsp--;
@@ -1175,27 +1098,27 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             	    break;
 
             	default :
-            	    if ( cnt18 >= 1 ) break loop18;
+            	    if ( cnt15 >= 1 ) break loop15;
             	    if (state.backtracking>0) {state.failed=true; return retval;}
                         EarlyExitException eee =
-                            new EarlyExitException(18, input);
+                            new EarlyExitException(15, input);
                         throw eee;
                 }
-                cnt18++;
+                cnt15++;
             } while (true);
 
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:72:46: ( classTopLevelScope )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA19_0==CLASS_TOP_LEVEL_SCOPE) ) {
-                alt19=1;
+            if ( (LA16_0==CLASS_TOP_LEVEL_SCOPE) ) {
+                alt16=1;
             }
-            switch (alt19) {
+            switch (alt16) {
                 case 1 :
                     // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: classTopLevelScope
                     {
-                    pushFollow(FOLLOW_classTopLevelScope_in_enumTopLevelScope484);
+                    pushFollow(FOLLOW_classTopLevelScope_in_enumTopLevelScope467);
                     classTopLevelScope();
 
                     state._fsp--;
@@ -1240,26 +1163,26 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:76:5: ( ^( IDENT annotationList ( arguments )? ( classTopLevelScope )? ) )
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:76:9: ^( IDENT annotationList ( arguments )? ( classTopLevelScope )? )
             {
-            match(input,IDENT,FOLLOW_IDENT_in_enumConstant510); if (state.failed) return retval;
+            match(input,IDENT,FOLLOW_IDENT_in_enumConstant493); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_annotationList_in_enumConstant512);
+            pushFollow(FOLLOW_annotationList_in_enumConstant495);
             annotationList();
 
             state._fsp--;
             if (state.failed) return retval;
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:76:32: ( arguments )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA20_0==ARGUMENT_LIST) ) {
-                alt20=1;
+            if ( (LA17_0==ARGUMENT_LIST) ) {
+                alt17=1;
             }
-            switch (alt20) {
+            switch (alt17) {
                 case 1 :
                     // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: arguments
                     {
-                    pushFollow(FOLLOW_arguments_in_enumConstant514);
+                    pushFollow(FOLLOW_arguments_in_enumConstant497);
                     arguments();
 
                     state._fsp--;
@@ -1271,17 +1194,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             }
 
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:76:43: ( classTopLevelScope )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA21_0==CLASS_TOP_LEVEL_SCOPE) ) {
-                alt21=1;
+            if ( (LA18_0==CLASS_TOP_LEVEL_SCOPE) ) {
+                alt18=1;
             }
-            switch (alt21) {
+            switch (alt18) {
                 case 1 :
                     // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: classTopLevelScope
                     {
-                    pushFollow(FOLLOW_classTopLevelScope_in_enumConstant517);
+                    pushFollow(FOLLOW_classTopLevelScope_in_enumConstant500);
                     classTopLevelScope();
 
                     state._fsp--;
@@ -1326,26 +1249,26 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:81:5: ( ^( CLASS_TOP_LEVEL_SCOPE ( classScopeDeclarations )* ) classAdditionalCode[(CommonTree)retval.start] )
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:81:9: ^( CLASS_TOP_LEVEL_SCOPE ( classScopeDeclarations )* ) classAdditionalCode[(CommonTree)retval.start]
             {
-            match(input,CLASS_TOP_LEVEL_SCOPE,FOLLOW_CLASS_TOP_LEVEL_SCOPE_in_classTopLevelScope548); if (state.failed) return retval;
+            match(input,CLASS_TOP_LEVEL_SCOPE,FOLLOW_CLASS_TOP_LEVEL_SCOPE_in_classTopLevelScope531); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
                 // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:81:33: ( classScopeDeclarations )*
-                loop22:
+                loop19:
                 do {
-                    int alt22=2;
-                    int LA22_0 = input.LA(1);
+                    int alt19=2;
+                    int LA19_0 = input.LA(1);
 
-                    if ( (LA22_0==AT||LA22_0==CLASS||LA22_0==ENUM||LA22_0==INTERFACE||(LA22_0>=CLASS_INSTANCE_INITIALIZER && LA22_0<=CLASS_STATIC_INITIALIZER)||LA22_0==CONSTRUCTOR_DECL||LA22_0==FUNCTION_METHOD_DECL||LA22_0==VAR_DECLARATION||LA22_0==VOID_METHOD_DECL) ) {
-                        alt22=1;
+                    if ( (LA19_0==AT||LA19_0==CLASS||LA19_0==ENUM||LA19_0==INTERFACE||(LA19_0>=CLASS_INSTANCE_INITIALIZER && LA19_0<=CLASS_STATIC_INITIALIZER)||LA19_0==CONSTRUCTOR_DECL||LA19_0==FUNCTION_METHOD_DECL||LA19_0==VAR_DECLARATION||LA19_0==VOID_METHOD_DECL) ) {
+                        alt19=1;
                     }
 
 
-                    switch (alt22) {
+                    switch (alt19) {
                 	case 1 :
                 	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: classScopeDeclarations
                 	    {
-                	    pushFollow(FOLLOW_classScopeDeclarations_in_classTopLevelScope550);
+                	    pushFollow(FOLLOW_classScopeDeclarations_in_classTopLevelScope533);
                 	    classScopeDeclarations();
 
                 	    state._fsp--;
@@ -1355,14 +1278,14 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 	    break;
 
                 	default :
-                	    break loop22;
+                	    break loop19;
                     }
                 } while (true);
 
 
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
-            pushFollow(FOLLOW_classAdditionalCode_in_classTopLevelScope554);
+            pushFollow(FOLLOW_classAdditionalCode_in_classTopLevelScope537);
             classAdditionalCode((CommonTree)retval.start);
 
             state._fsp--;
@@ -1389,44 +1312,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "classScopeDeclarations"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:84:1: classScopeDeclarations : ( ^( CLASS_INSTANCE_INITIALIZER block ) | ^( CLASS_STATIC_INITIALIZER block ) | ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | ^( CONSTRUCTOR_DECL modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) | typeDeclaration );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:84:1: classScopeDeclarations : ( ^( CLASS_INSTANCE_INITIALIZER block ) | ^( CLASS_STATIC_INITIALIZER block ) | methodScopeDeclarations | globalVariableDeclaration | typeDeclaration );
     public final IntegrityVariablesParser.classScopeDeclarations_return classScopeDeclarations() throws RecognitionException {
         IntegrityVariablesParser.classScopeDeclarations_return retval = new IntegrityVariablesParser.classScopeDeclarations_return();
         retval.start = input.LT(1);
         int classScopeDeclarations_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 13) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:85:5: ( ^( CLASS_INSTANCE_INITIALIZER block ) | ^( CLASS_STATIC_INITIALIZER block ) | ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | ^( CONSTRUCTOR_DECL modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) | typeDeclaration )
-            int alt32=7;
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:85:5: ( ^( CLASS_INSTANCE_INITIALIZER block ) | ^( CLASS_STATIC_INITIALIZER block ) | methodScopeDeclarations | globalVariableDeclaration | typeDeclaration )
+            int alt20=5;
             switch ( input.LA(1) ) {
             case CLASS_INSTANCE_INITIALIZER:
                 {
-                alt32=1;
+                alt20=1;
                 }
                 break;
             case CLASS_STATIC_INITIALIZER:
                 {
-                alt32=2;
+                alt20=2;
                 }
                 break;
+            case CONSTRUCTOR_DECL:
             case FUNCTION_METHOD_DECL:
-                {
-                alt32=3;
-                }
-                break;
             case VOID_METHOD_DECL:
                 {
-                alt32=4;
+                alt20=3;
                 }
                 break;
             case VAR_DECLARATION:
                 {
-                alt32=5;
-                }
-                break;
-            case CONSTRUCTOR_DECL:
-                {
-                alt32=6;
+                alt20=4;
                 }
                 break;
             case AT:
@@ -1434,25 +1349,25 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             case ENUM:
             case INTERFACE:
                 {
-                alt32=7;
+                alt20=5;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 32, 0, input);
+                    new NoViableAltException("", 20, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt32) {
+            switch (alt20) {
                 case 1 :
                     // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:85:9: ^( CLASS_INSTANCE_INITIALIZER block )
                     {
-                    match(input,CLASS_INSTANCE_INITIALIZER,FOLLOW_CLASS_INSTANCE_INITIALIZER_in_classScopeDeclarations579); if (state.failed) return retval;
+                    match(input,CLASS_INSTANCE_INITIALIZER,FOLLOW_CLASS_INSTANCE_INITIALIZER_in_classScopeDeclarations562); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_block_in_classScopeDeclarations581);
+                    pushFollow(FOLLOW_block_in_classScopeDeclarations564);
                     block();
 
                     state._fsp--;
@@ -1465,10 +1380,10 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 case 2 :
                     // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:86:9: ^( CLASS_STATIC_INITIALIZER block )
                     {
-                    match(input,CLASS_STATIC_INITIALIZER,FOLLOW_CLASS_STATIC_INITIALIZER_in_classScopeDeclarations593); if (state.failed) return retval;
+                    match(input,CLASS_STATIC_INITIALIZER,FOLLOW_CLASS_STATIC_INITIALIZER_in_classScopeDeclarations576); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_block_in_classScopeDeclarations595);
+                    pushFollow(FOLLOW_block_in_classScopeDeclarations578);
                     block();
 
                     state._fsp--;
@@ -1479,308 +1394,31 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 3 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:87:9: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:87:9: methodScopeDeclarations
                     {
-                    match(input,FUNCTION_METHOD_DECL,FOLLOW_FUNCTION_METHOD_DECL_in_classScopeDeclarations607); if (state.failed) return retval;
-
-                    match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations609);
-                    modifierList();
+                    pushFollow(FOLLOW_methodScopeDeclarations_in_classScopeDeclarations589);
+                    methodScopeDeclarations();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:87:45: ( genericTypeParameterList )?
-                    int alt23=2;
-                    int LA23_0 = input.LA(1);
-
-                    if ( (LA23_0==GENERIC_TYPE_PARAM_LIST) ) {
-                        alt23=1;
-                    }
-                    switch (alt23) {
-                        case 1 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeParameterList
-                            {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_classScopeDeclarations611);
-                            genericTypeParameterList();
-
-                            state._fsp--;
-                            if (state.failed) return retval;
-
-                            }
-                            break;
-
-                    }
-
-                    pushFollow(FOLLOW_type_in_classScopeDeclarations614);
-                    type();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations616); if (state.failed) return retval;
-                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations618);
-                    formalParameterList();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:87:102: ( arrayDeclaratorList )?
-                    int alt24=2;
-                    int LA24_0 = input.LA(1);
-
-                    if ( (LA24_0==ARRAY_DECLARATOR_LIST) ) {
-                        alt24=1;
-                    }
-                    switch (alt24) {
-                        case 1 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: arrayDeclaratorList
-                            {
-                            pushFollow(FOLLOW_arrayDeclaratorList_in_classScopeDeclarations620);
-                            arrayDeclaratorList();
-
-                            state._fsp--;
-                            if (state.failed) return retval;
-
-                            }
-                            break;
-
-                    }
-
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:87:123: ( throwsClause )?
-                    int alt25=2;
-                    int LA25_0 = input.LA(1);
-
-                    if ( (LA25_0==THROWS_CLAUSE) ) {
-                        alt25=1;
-                    }
-                    switch (alt25) {
-                        case 1 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: throwsClause
-                            {
-                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations623);
-                            throwsClause();
-
-                            state._fsp--;
-                            if (state.failed) return retval;
-
-                            }
-                            break;
-
-                    }
-
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:87:137: ( block )?
-                    int alt26=2;
-                    int LA26_0 = input.LA(1);
-
-                    if ( (LA26_0==BLOCK_SCOPE) ) {
-                        alt26=1;
-                    }
-                    switch (alt26) {
-                        case 1 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: block
-                            {
-                            pushFollow(FOLLOW_block_in_classScopeDeclarations626);
-                            block();
-
-                            state._fsp--;
-                            if (state.failed) return retval;
-
-                            }
-                            break;
-
-                    }
-
-
-                    match(input, Token.UP, null); if (state.failed) return retval;
 
                     }
                     break;
                 case 4 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:88:9: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:88:9: globalVariableDeclaration
                     {
-                    match(input,VOID_METHOD_DECL,FOLLOW_VOID_METHOD_DECL_in_classScopeDeclarations639); if (state.failed) return retval;
-
-                    match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations641);
-                    modifierList();
+                    pushFollow(FOLLOW_globalVariableDeclaration_in_classScopeDeclarations599);
+                    globalVariableDeclaration();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:88:41: ( genericTypeParameterList )?
-                    int alt27=2;
-                    int LA27_0 = input.LA(1);
-
-                    if ( (LA27_0==GENERIC_TYPE_PARAM_LIST) ) {
-                        alt27=1;
-                    }
-                    switch (alt27) {
-                        case 1 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeParameterList
-                            {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_classScopeDeclarations643);
-                            genericTypeParameterList();
-
-                            state._fsp--;
-                            if (state.failed) return retval;
-
-                            }
-                            break;
-
-                    }
-
-                    match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations646); if (state.failed) return retval;
-                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations648);
-                    formalParameterList();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:88:93: ( throwsClause )?
-                    int alt28=2;
-                    int LA28_0 = input.LA(1);
-
-                    if ( (LA28_0==THROWS_CLAUSE) ) {
-                        alt28=1;
-                    }
-                    switch (alt28) {
-                        case 1 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: throwsClause
-                            {
-                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations650);
-                            throwsClause();
-
-                            state._fsp--;
-                            if (state.failed) return retval;
-
-                            }
-                            break;
-
-                    }
-
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:88:107: ( block )?
-                    int alt29=2;
-                    int LA29_0 = input.LA(1);
-
-                    if ( (LA29_0==BLOCK_SCOPE) ) {
-                        alt29=1;
-                    }
-                    switch (alt29) {
-                        case 1 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: block
-                            {
-                            pushFollow(FOLLOW_block_in_classScopeDeclarations653);
-                            block();
-
-                            state._fsp--;
-                            if (state.failed) return retval;
-
-                            }
-                            break;
-
-                    }
-
-
-                    match(input, Token.UP, null); if (state.failed) return retval;
 
                     }
                     break;
                 case 5 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:89:9: ^( VAR_DECLARATION modifierList type variableDeclaratorList )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:89:9: typeDeclaration
                     {
-                    match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_classScopeDeclarations666); if (state.failed) return retval;
-
-                    match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations668);
-                    modifierList();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_classScopeDeclarations670);
-                    type();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    pushFollow(FOLLOW_variableDeclaratorList_in_classScopeDeclarations672);
-                    variableDeclaratorList();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-
-                    match(input, Token.UP, null); if (state.failed) return retval;
-
-                    }
-                    break;
-                case 6 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:90:9: ^( CONSTRUCTOR_DECL modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block )
-                    {
-                    match(input,CONSTRUCTOR_DECL,FOLLOW_CONSTRUCTOR_DECL_in_classScopeDeclarations684); if (state.failed) return retval;
-
-                    match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations686);
-                    modifierList();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:90:41: ( genericTypeParameterList )?
-                    int alt30=2;
-                    int LA30_0 = input.LA(1);
-
-                    if ( (LA30_0==GENERIC_TYPE_PARAM_LIST) ) {
-                        alt30=1;
-                    }
-                    switch (alt30) {
-                        case 1 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeParameterList
-                            {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_classScopeDeclarations688);
-                            genericTypeParameterList();
-
-                            state._fsp--;
-                            if (state.failed) return retval;
-
-                            }
-                            break;
-
-                    }
-
-                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations691);
-                    formalParameterList();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:90:87: ( throwsClause )?
-                    int alt31=2;
-                    int LA31_0 = input.LA(1);
-
-                    if ( (LA31_0==THROWS_CLAUSE) ) {
-                        alt31=1;
-                    }
-                    switch (alt31) {
-                        case 1 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: throwsClause
-                            {
-                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations693);
-                            throwsClause();
-
-                            state._fsp--;
-                            if (state.failed) return retval;
-
-                            }
-                            break;
-
-                    }
-
-                    pushFollow(FOLLOW_block_in_classScopeDeclarations696);
-                    block();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-
-                    match(input, Token.UP, null); if (state.failed) return retval;
-
-                    }
-                    break;
-                case 7 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:91:9: typeDeclaration
-                    {
-                    pushFollow(FOLLOW_typeDeclaration_in_classScopeDeclarations707);
+                    pushFollow(FOLLOW_typeDeclaration_in_classScopeDeclarations609);
                     typeDeclaration();
 
                     state._fsp--;
@@ -1809,36 +1447,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "interfaceTopLevelScope"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:94:1: interfaceTopLevelScope : ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:92:1: interfaceTopLevelScope : ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* ) ;
     public final IntegrityVariablesParser.interfaceTopLevelScope_return interfaceTopLevelScope() throws RecognitionException {
         IntegrityVariablesParser.interfaceTopLevelScope_return retval = new IntegrityVariablesParser.interfaceTopLevelScope_return();
         retval.start = input.LT(1);
         int interfaceTopLevelScope_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:95:5: ( ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:95:9: ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:93:5: ( ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:93:9: ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* )
             {
-            match(input,INTERFACE_TOP_LEVEL_SCOPE,FOLLOW_INTERFACE_TOP_LEVEL_SCOPE_in_interfaceTopLevelScope731); if (state.failed) return retval;
+            match(input,INTERFACE_TOP_LEVEL_SCOPE,FOLLOW_INTERFACE_TOP_LEVEL_SCOPE_in_interfaceTopLevelScope633); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:95:37: ( interfaceScopeDeclarations )*
-                loop33:
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:93:37: ( interfaceScopeDeclarations )*
+                loop21:
                 do {
-                    int alt33=2;
-                    int LA33_0 = input.LA(1);
+                    int alt21=2;
+                    int LA21_0 = input.LA(1);
 
-                    if ( (LA33_0==AT||LA33_0==CLASS||LA33_0==ENUM||LA33_0==INTERFACE||LA33_0==FUNCTION_METHOD_DECL||LA33_0==VAR_DECLARATION||LA33_0==VOID_METHOD_DECL) ) {
-                        alt33=1;
+                    if ( (LA21_0==AT||LA21_0==CLASS||LA21_0==ENUM||LA21_0==INTERFACE||LA21_0==FUNCTION_METHOD_DECL||LA21_0==VAR_DECLARATION||LA21_0==VOID_METHOD_DECL) ) {
+                        alt21=1;
                     }
 
 
-                    switch (alt33) {
+                    switch (alt21) {
                 	case 1 :
                 	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: interfaceScopeDeclarations
                 	    {
-                	    pushFollow(FOLLOW_interfaceScopeDeclarations_in_interfaceTopLevelScope733);
+                	    pushFollow(FOLLOW_interfaceScopeDeclarations_in_interfaceTopLevelScope635);
                 	    interfaceScopeDeclarations();
 
                 	    state._fsp--;
@@ -1848,7 +1486,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 	    break;
 
                 	default :
-                	    break loop33;
+                	    break loop21;
                     }
                 } while (true);
 
@@ -1877,29 +1515,29 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "interfaceScopeDeclarations"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:98:1: interfaceScopeDeclarations : ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:96:1: interfaceScopeDeclarations : ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) | globalVariableDeclaration | typeDeclaration );
     public final IntegrityVariablesParser.interfaceScopeDeclarations_return interfaceScopeDeclarations() throws RecognitionException {
         IntegrityVariablesParser.interfaceScopeDeclarations_return retval = new IntegrityVariablesParser.interfaceScopeDeclarations_return();
         retval.start = input.LT(1);
         int interfaceScopeDeclarations_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 15) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:99:5: ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration )
-            int alt39=4;
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:97:5: ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) | globalVariableDeclaration | typeDeclaration )
+            int alt27=4;
             switch ( input.LA(1) ) {
             case FUNCTION_METHOD_DECL:
                 {
-                alt39=1;
+                alt27=1;
                 }
                 break;
             case VOID_METHOD_DECL:
                 {
-                alt39=2;
+                alt27=2;
                 }
                 break;
             case VAR_DECLARATION:
                 {
-                alt39=3;
+                alt27=3;
                 }
                 break;
             case AT:
@@ -1907,41 +1545,41 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             case ENUM:
             case INTERFACE:
                 {
-                alt39=4;
+                alt27=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 39, 0, input);
+                    new NoViableAltException("", 27, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt39) {
+            switch (alt27) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:99:9: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:97:9: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? )
                     {
-                    match(input,FUNCTION_METHOD_DECL,FOLLOW_FUNCTION_METHOD_DECL_in_interfaceScopeDeclarations759); if (state.failed) return retval;
+                    match(input,FUNCTION_METHOD_DECL,FOLLOW_FUNCTION_METHOD_DECL_in_interfaceScopeDeclarations661); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations761);
+                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations663);
                     modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:99:45: ( genericTypeParameterList )?
-                    int alt34=2;
-                    int LA34_0 = input.LA(1);
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:97:45: ( genericTypeParameterList )?
+                    int alt22=2;
+                    int LA22_0 = input.LA(1);
 
-                    if ( (LA34_0==GENERIC_TYPE_PARAM_LIST) ) {
-                        alt34=1;
+                    if ( (LA22_0==GENERIC_TYPE_PARAM_LIST) ) {
+                        alt22=1;
                     }
-                    switch (alt34) {
+                    switch (alt22) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeParameterList
                             {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations763);
+                            pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations665);
                             genericTypeParameterList();
 
                             state._fsp--;
@@ -1952,29 +1590,29 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_type_in_interfaceScopeDeclarations766);
+                    pushFollow(FOLLOW_type_in_interfaceScopeDeclarations668);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations768); if (state.failed) return retval;
-                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations770);
+                    match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations670); if (state.failed) return retval;
+                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations672);
                     formalParameterList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:99:102: ( arrayDeclaratorList )?
-                    int alt35=2;
-                    int LA35_0 = input.LA(1);
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:97:102: ( arrayDeclaratorList )?
+                    int alt23=2;
+                    int LA23_0 = input.LA(1);
 
-                    if ( (LA35_0==ARRAY_DECLARATOR_LIST) ) {
-                        alt35=1;
+                    if ( (LA23_0==ARRAY_DECLARATOR_LIST) ) {
+                        alt23=1;
                     }
-                    switch (alt35) {
+                    switch (alt23) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: arrayDeclaratorList
                             {
-                            pushFollow(FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations772);
+                            pushFollow(FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations674);
                             arrayDeclaratorList();
 
                             state._fsp--;
@@ -1985,18 +1623,18 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     }
 
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:99:123: ( throwsClause )?
-                    int alt36=2;
-                    int LA36_0 = input.LA(1);
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:97:123: ( throwsClause )?
+                    int alt24=2;
+                    int LA24_0 = input.LA(1);
 
-                    if ( (LA36_0==THROWS_CLAUSE) ) {
-                        alt36=1;
+                    if ( (LA24_0==THROWS_CLAUSE) ) {
+                        alt24=1;
                     }
-                    switch (alt36) {
+                    switch (alt24) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations775);
+                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations677);
                             throwsClause();
 
                             state._fsp--;
@@ -2013,28 +1651,28 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:100:9: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:98:9: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? )
                     {
-                    match(input,VOID_METHOD_DECL,FOLLOW_VOID_METHOD_DECL_in_interfaceScopeDeclarations788); if (state.failed) return retval;
+                    match(input,VOID_METHOD_DECL,FOLLOW_VOID_METHOD_DECL_in_interfaceScopeDeclarations690); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations790);
+                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations692);
                     modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:100:41: ( genericTypeParameterList )?
-                    int alt37=2;
-                    int LA37_0 = input.LA(1);
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:98:41: ( genericTypeParameterList )?
+                    int alt25=2;
+                    int LA25_0 = input.LA(1);
 
-                    if ( (LA37_0==GENERIC_TYPE_PARAM_LIST) ) {
-                        alt37=1;
+                    if ( (LA25_0==GENERIC_TYPE_PARAM_LIST) ) {
+                        alt25=1;
                     }
-                    switch (alt37) {
+                    switch (alt25) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeParameterList
                             {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations792);
+                            pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations694);
                             genericTypeParameterList();
 
                             state._fsp--;
@@ -2045,24 +1683,24 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     }
 
-                    match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations795); if (state.failed) return retval;
-                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations797);
+                    match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations697); if (state.failed) return retval;
+                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations699);
                     formalParameterList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:100:93: ( throwsClause )?
-                    int alt38=2;
-                    int LA38_0 = input.LA(1);
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:98:93: ( throwsClause )?
+                    int alt26=2;
+                    int LA26_0 = input.LA(1);
 
-                    if ( (LA38_0==THROWS_CLAUSE) ) {
-                        alt38=1;
+                    if ( (LA26_0==THROWS_CLAUSE) ) {
+                        alt26=1;
                     }
-                    switch (alt38) {
+                    switch (alt26) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations799);
+                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations701);
                             throwsClause();
 
                             state._fsp--;
@@ -2079,35 +1717,20 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 3 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:104:9: ^( VAR_DECLARATION modifierList type variableDeclaratorList )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:102:9: globalVariableDeclaration
                     {
-                    match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_interfaceScopeDeclarations890); if (state.failed) return retval;
-
-                    match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations892);
-                    modifierList();
+                    pushFollow(FOLLOW_globalVariableDeclaration_in_interfaceScopeDeclarations791);
+                    globalVariableDeclaration();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_interfaceScopeDeclarations894);
-                    type();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    pushFollow(FOLLOW_variableDeclaratorList_in_interfaceScopeDeclarations896);
-                    variableDeclaratorList();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-
-                    match(input, Token.UP, null); if (state.failed) return retval;
 
                     }
                     break;
                 case 4 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:105:9: typeDeclaration
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:103:9: typeDeclaration
                     {
-                    pushFollow(FOLLOW_typeDeclaration_in_interfaceScopeDeclarations907);
+                    pushFollow(FOLLOW_typeDeclaration_in_interfaceScopeDeclarations801);
                     typeDeclaration();
 
                     state._fsp--;
@@ -2136,36 +1759,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "variableDeclaratorList"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:108:1: variableDeclaratorList : ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:106:1: variableDeclaratorList : ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ ) ;
     public final IntegrityVariablesParser.variableDeclaratorList_return variableDeclaratorList() throws RecognitionException {
         IntegrityVariablesParser.variableDeclaratorList_return retval = new IntegrityVariablesParser.variableDeclaratorList_return();
         retval.start = input.LT(1);
         int variableDeclaratorList_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 16) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:109:5: ( ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:109:9: ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:107:5: ( ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:107:9: ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ )
             {
-            match(input,VAR_DECLARATOR_LIST,FOLLOW_VAR_DECLARATOR_LIST_in_variableDeclaratorList927); if (state.failed) return retval;
+            match(input,VAR_DECLARATOR_LIST,FOLLOW_VAR_DECLARATOR_LIST_in_variableDeclaratorList821); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:109:31: ( variableDeclarator )+
-            int cnt40=0;
-            loop40:
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:107:31: ( variableDeclarator )+
+            int cnt28=0;
+            loop28:
             do {
-                int alt40=2;
-                int LA40_0 = input.LA(1);
+                int alt28=2;
+                int LA28_0 = input.LA(1);
 
-                if ( (LA40_0==VAR_DECLARATOR) ) {
-                    alt40=1;
+                if ( (LA28_0==VAR_DECLARATOR) ) {
+                    alt28=1;
                 }
 
 
-                switch (alt40) {
+                switch (alt28) {
             	case 1 :
             	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: variableDeclarator
             	    {
-            	    pushFollow(FOLLOW_variableDeclarator_in_variableDeclaratorList929);
+            	    pushFollow(FOLLOW_variableDeclarator_in_variableDeclaratorList823);
             	    variableDeclarator();
 
             	    state._fsp--;
@@ -2175,13 +1798,13 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             	    break;
 
             	default :
-            	    if ( cnt40 >= 1 ) break loop40;
+            	    if ( cnt28 >= 1 ) break loop28;
             	    if (state.backtracking>0) {state.failed=true; return retval;}
                         EarlyExitException eee =
-                            new EarlyExitException(40, input);
+                            new EarlyExitException(28, input);
                         throw eee;
                 }
-                cnt40++;
+                cnt28++;
             } while (true);
 
 
@@ -2208,36 +1831,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "variableDeclarator"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:112:1: variableDeclarator : ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:110:1: variableDeclarator : ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) ;
     public final IntegrityVariablesParser.variableDeclarator_return variableDeclarator() throws RecognitionException {
         IntegrityVariablesParser.variableDeclarator_return retval = new IntegrityVariablesParser.variableDeclarator_return();
         retval.start = input.LT(1);
         int variableDeclarator_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 17) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:113:5: ( ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:113:9: ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:111:5: ( ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:111:9: ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
             {
-            match(input,VAR_DECLARATOR,FOLLOW_VAR_DECLARATOR_in_variableDeclarator951); if (state.failed) return retval;
+            match(input,VAR_DECLARATOR,FOLLOW_VAR_DECLARATOR_in_variableDeclarator845); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_variableDeclaratorId_in_variableDeclarator953);
+            pushFollow(FOLLOW_variableDeclaratorId_in_variableDeclarator847);
             variableDeclaratorId();
 
             state._fsp--;
             if (state.failed) return retval;
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:113:47: ( variableInitializer )?
-            int alt41=2;
-            int LA41_0 = input.LA(1);
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:111:47: ( variableInitializer )?
+            int alt29=2;
+            int LA29_0 = input.LA(1);
 
-            if ( (LA41_0==ARRAY_INITIALIZER||LA41_0==EXPR) ) {
-                alt41=1;
+            if ( (LA29_0==ARRAY_INITIALIZER||LA29_0==EXPR) ) {
+                alt29=1;
             }
-            switch (alt41) {
+            switch (alt29) {
                 case 1 :
                     // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: variableInitializer
                     {
-                    pushFollow(FOLLOW_variableInitializer_in_variableDeclarator955);
+                    pushFollow(FOLLOW_variableInitializer_in_variableDeclarator849);
                     variableInitializer();
 
                     state._fsp--;
@@ -2272,32 +1895,32 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "variableDeclaratorId"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:116:1: variableDeclaratorId : ^( IDENT ( arrayDeclaratorList )? ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:114:1: variableDeclaratorId : ^( IDENT ( arrayDeclaratorList )? ) ;
     public final IntegrityVariablesParser.variableDeclaratorId_return variableDeclaratorId() throws RecognitionException {
         IntegrityVariablesParser.variableDeclaratorId_return retval = new IntegrityVariablesParser.variableDeclaratorId_return();
         retval.start = input.LT(1);
         int variableDeclaratorId_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 18) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:117:5: ( ^( IDENT ( arrayDeclaratorList )? ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:117:9: ^( IDENT ( arrayDeclaratorList )? )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:115:5: ( ^( IDENT ( arrayDeclaratorList )? ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:115:9: ^( IDENT ( arrayDeclaratorList )? )
             {
-            match(input,IDENT,FOLLOW_IDENT_in_variableDeclaratorId981); if (state.failed) return retval;
+            match(input,IDENT,FOLLOW_IDENT_in_variableDeclaratorId875); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:117:17: ( arrayDeclaratorList )?
-                int alt42=2;
-                int LA42_0 = input.LA(1);
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:115:17: ( arrayDeclaratorList )?
+                int alt30=2;
+                int LA30_0 = input.LA(1);
 
-                if ( (LA42_0==ARRAY_DECLARATOR_LIST) ) {
-                    alt42=1;
+                if ( (LA30_0==ARRAY_DECLARATOR_LIST) ) {
+                    alt30=1;
                 }
-                switch (alt42) {
+                switch (alt30) {
                     case 1 :
                         // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: arrayDeclaratorList
                         {
-                        pushFollow(FOLLOW_arrayDeclaratorList_in_variableDeclaratorId983);
+                        pushFollow(FOLLOW_arrayDeclaratorList_in_variableDeclaratorId877);
                         arrayDeclaratorList();
 
                         state._fsp--;
@@ -2333,35 +1956,35 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "variableInitializer"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:120:1: variableInitializer : ( arrayInitializer | expression );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:118:1: variableInitializer : ( arrayInitializer | expression );
     public final IntegrityVariablesParser.variableInitializer_return variableInitializer() throws RecognitionException {
         IntegrityVariablesParser.variableInitializer_return retval = new IntegrityVariablesParser.variableInitializer_return();
         retval.start = input.LT(1);
         int variableInitializer_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 19) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:121:5: ( arrayInitializer | expression )
-            int alt43=2;
-            int LA43_0 = input.LA(1);
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:119:5: ( arrayInitializer | expression )
+            int alt31=2;
+            int LA31_0 = input.LA(1);
 
-            if ( (LA43_0==ARRAY_INITIALIZER) ) {
-                alt43=1;
+            if ( (LA31_0==ARRAY_INITIALIZER) ) {
+                alt31=1;
             }
-            else if ( (LA43_0==EXPR) ) {
-                alt43=2;
+            else if ( (LA31_0==EXPR) ) {
+                alt31=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 43, 0, input);
+                    new NoViableAltException("", 31, 0, input);
 
                 throw nvae;
             }
-            switch (alt43) {
+            switch (alt31) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:121:9: arrayInitializer
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:119:9: arrayInitializer
                     {
-                    pushFollow(FOLLOW_arrayInitializer_in_variableInitializer1004);
+                    pushFollow(FOLLOW_arrayInitializer_in_variableInitializer898);
                     arrayInitializer();
 
                     state._fsp--;
@@ -2370,9 +1993,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:122:9: expression
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:120:9: expression
                     {
-                    pushFollow(FOLLOW_expression_in_variableInitializer1014);
+                    pushFollow(FOLLOW_expression_in_variableInitializer908);
                     expression();
 
                     state._fsp--;
@@ -2401,18 +2024,18 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "arrayDeclarator"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:125:1: arrayDeclarator : LBRACK RBRACK ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:123:1: arrayDeclarator : LBRACK RBRACK ;
     public final IntegrityVariablesParser.arrayDeclarator_return arrayDeclarator() throws RecognitionException {
         IntegrityVariablesParser.arrayDeclarator_return retval = new IntegrityVariablesParser.arrayDeclarator_return();
         retval.start = input.LT(1);
         int arrayDeclarator_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 20) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:126:5: ( LBRACK RBRACK )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:126:9: LBRACK RBRACK
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:124:5: ( LBRACK RBRACK )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:124:9: LBRACK RBRACK
             {
-            match(input,LBRACK,FOLLOW_LBRACK_in_arrayDeclarator1033); if (state.failed) return retval;
-            match(input,RBRACK,FOLLOW_RBRACK_in_arrayDeclarator1035); if (state.failed) return retval;
+            match(input,LBRACK,FOLLOW_LBRACK_in_arrayDeclarator927); if (state.failed) return retval;
+            match(input,RBRACK,FOLLOW_RBRACK_in_arrayDeclarator929); if (state.failed) return retval;
 
             }
 
@@ -2435,42 +2058,42 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "arrayDeclaratorList"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:129:1: arrayDeclaratorList : ^( ARRAY_DECLARATOR_LIST ( ARRAY_DECLARATOR )* ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:127:1: arrayDeclaratorList : ^( ARRAY_DECLARATOR_LIST ( ARRAY_DECLARATOR )* ) ;
     public final IntegrityVariablesParser.arrayDeclaratorList_return arrayDeclaratorList() throws RecognitionException {
         IntegrityVariablesParser.arrayDeclaratorList_return retval = new IntegrityVariablesParser.arrayDeclaratorList_return();
         retval.start = input.LT(1);
         int arrayDeclaratorList_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 21) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:130:5: ( ^( ARRAY_DECLARATOR_LIST ( ARRAY_DECLARATOR )* ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:130:9: ^( ARRAY_DECLARATOR_LIST ( ARRAY_DECLARATOR )* )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:128:5: ( ^( ARRAY_DECLARATOR_LIST ( ARRAY_DECLARATOR )* ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:128:9: ^( ARRAY_DECLARATOR_LIST ( ARRAY_DECLARATOR )* )
             {
-            match(input,ARRAY_DECLARATOR_LIST,FOLLOW_ARRAY_DECLARATOR_LIST_in_arrayDeclaratorList1055); if (state.failed) return retval;
+            match(input,ARRAY_DECLARATOR_LIST,FOLLOW_ARRAY_DECLARATOR_LIST_in_arrayDeclaratorList949); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:130:33: ( ARRAY_DECLARATOR )*
-                loop44:
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:128:33: ( ARRAY_DECLARATOR )*
+                loop32:
                 do {
-                    int alt44=2;
-                    int LA44_0 = input.LA(1);
+                    int alt32=2;
+                    int LA32_0 = input.LA(1);
 
-                    if ( (LA44_0==ARRAY_DECLARATOR) ) {
-                        alt44=1;
+                    if ( (LA32_0==ARRAY_DECLARATOR) ) {
+                        alt32=1;
                     }
 
 
-                    switch (alt44) {
+                    switch (alt32) {
                 	case 1 :
                 	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: ARRAY_DECLARATOR
                 	    {
-                	    match(input,ARRAY_DECLARATOR,FOLLOW_ARRAY_DECLARATOR_in_arrayDeclaratorList1057); if (state.failed) return retval;
+                	    match(input,ARRAY_DECLARATOR,FOLLOW_ARRAY_DECLARATOR_in_arrayDeclaratorList951); if (state.failed) return retval;
 
                 	    }
                 	    break;
 
                 	default :
-                	    break loop44;
+                	    break loop32;
                     }
                 } while (true);
 
@@ -2499,36 +2122,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "arrayInitializer"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:133:1: arrayInitializer : ^( ARRAY_INITIALIZER ( variableInitializer )* ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:131:1: arrayInitializer : ^( ARRAY_INITIALIZER ( variableInitializer )* ) ;
     public final IntegrityVariablesParser.arrayInitializer_return arrayInitializer() throws RecognitionException {
         IntegrityVariablesParser.arrayInitializer_return retval = new IntegrityVariablesParser.arrayInitializer_return();
         retval.start = input.LT(1);
         int arrayInitializer_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 22) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:134:5: ( ^( ARRAY_INITIALIZER ( variableInitializer )* ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:134:9: ^( ARRAY_INITIALIZER ( variableInitializer )* )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:132:5: ( ^( ARRAY_INITIALIZER ( variableInitializer )* ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:132:9: ^( ARRAY_INITIALIZER ( variableInitializer )* )
             {
-            match(input,ARRAY_INITIALIZER,FOLLOW_ARRAY_INITIALIZER_in_arrayInitializer1085); if (state.failed) return retval;
+            match(input,ARRAY_INITIALIZER,FOLLOW_ARRAY_INITIALIZER_in_arrayInitializer979); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:134:29: ( variableInitializer )*
-                loop45:
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:132:29: ( variableInitializer )*
+                loop33:
                 do {
-                    int alt45=2;
-                    int LA45_0 = input.LA(1);
+                    int alt33=2;
+                    int LA33_0 = input.LA(1);
 
-                    if ( (LA45_0==ARRAY_INITIALIZER||LA45_0==EXPR) ) {
-                        alt45=1;
+                    if ( (LA33_0==ARRAY_INITIALIZER||LA33_0==EXPR) ) {
+                        alt33=1;
                     }
 
 
-                    switch (alt45) {
+                    switch (alt33) {
                 	case 1 :
                 	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: variableInitializer
                 	    {
-                	    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer1087);
+                	    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer981);
                 	    variableInitializer();
 
                 	    state._fsp--;
@@ -2538,7 +2161,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 	    break;
 
                 	default :
-                	    break loop45;
+                	    break loop33;
                     }
                 } while (true);
 
@@ -2567,36 +2190,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "throwsClause"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:137:1: throwsClause : ^( THROWS_CLAUSE ( qualifiedIdentifier )+ ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:135:1: throwsClause : ^( THROWS_CLAUSE ( qualifiedIdentifier )+ ) ;
     public final IntegrityVariablesParser.throwsClause_return throwsClause() throws RecognitionException {
         IntegrityVariablesParser.throwsClause_return retval = new IntegrityVariablesParser.throwsClause_return();
         retval.start = input.LT(1);
         int throwsClause_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 23) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:138:5: ( ^( THROWS_CLAUSE ( qualifiedIdentifier )+ ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:138:9: ^( THROWS_CLAUSE ( qualifiedIdentifier )+ )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:136:5: ( ^( THROWS_CLAUSE ( qualifiedIdentifier )+ ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:136:9: ^( THROWS_CLAUSE ( qualifiedIdentifier )+ )
             {
-            match(input,THROWS_CLAUSE,FOLLOW_THROWS_CLAUSE_in_throwsClause1109); if (state.failed) return retval;
+            match(input,THROWS_CLAUSE,FOLLOW_THROWS_CLAUSE_in_throwsClause1003); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:138:25: ( qualifiedIdentifier )+
-            int cnt46=0;
-            loop46:
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:136:25: ( qualifiedIdentifier )+
+            int cnt34=0;
+            loop34:
             do {
-                int alt46=2;
-                int LA46_0 = input.LA(1);
+                int alt34=2;
+                int LA34_0 = input.LA(1);
 
-                if ( (LA46_0==DOT||LA46_0==IDENT) ) {
-                    alt46=1;
+                if ( (LA34_0==DOT||LA34_0==IDENT) ) {
+                    alt34=1;
                 }
 
 
-                switch (alt46) {
+                switch (alt34) {
             	case 1 :
             	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: qualifiedIdentifier
             	    {
-            	    pushFollow(FOLLOW_qualifiedIdentifier_in_throwsClause1111);
+            	    pushFollow(FOLLOW_qualifiedIdentifier_in_throwsClause1005);
             	    qualifiedIdentifier();
 
             	    state._fsp--;
@@ -2606,13 +2229,13 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             	    break;
 
             	default :
-            	    if ( cnt46 >= 1 ) break loop46;
+            	    if ( cnt34 >= 1 ) break loop34;
             	    if (state.backtracking>0) {state.failed=true; return retval;}
                         EarlyExitException eee =
-                            new EarlyExitException(46, input);
+                            new EarlyExitException(34, input);
                         throw eee;
                 }
-                cnt46++;
+                cnt34++;
             } while (true);
 
 
@@ -2639,36 +2262,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "modifierList"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:141:1: modifierList : ^( MODIFIER_LIST ( modifier )* ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:139:1: modifierList : ^( MODIFIER_LIST ( modifier )* ) ;
     public final IntegrityVariablesParser.modifierList_return modifierList() throws RecognitionException {
         IntegrityVariablesParser.modifierList_return retval = new IntegrityVariablesParser.modifierList_return();
         retval.start = input.LT(1);
         int modifierList_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 24) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:142:5: ( ^( MODIFIER_LIST ( modifier )* ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:142:9: ^( MODIFIER_LIST ( modifier )* )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:140:5: ( ^( MODIFIER_LIST ( modifier )* ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:140:9: ^( MODIFIER_LIST ( modifier )* )
             {
-            match(input,MODIFIER_LIST,FOLLOW_MODIFIER_LIST_in_modifierList1133); if (state.failed) return retval;
+            match(input,MODIFIER_LIST,FOLLOW_MODIFIER_LIST_in_modifierList1027); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:142:25: ( modifier )*
-                loop47:
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:140:25: ( modifier )*
+                loop35:
                 do {
-                    int alt47=2;
-                    int LA47_0 = input.LA(1);
+                    int alt35=2;
+                    int LA35_0 = input.LA(1);
 
-                    if ( (LA47_0==AT||LA47_0==ABSTRACT||LA47_0==FINAL||LA47_0==NATIVE||(LA47_0>=PRIVATE && LA47_0<=PUBLIC)||(LA47_0>=STATIC && LA47_0<=STRICTFP)||LA47_0==SYNCHRONIZED||LA47_0==TRANSIENT||LA47_0==VOLATILE) ) {
-                        alt47=1;
+                    if ( (LA35_0==AT||LA35_0==ABSTRACT||LA35_0==FINAL||LA35_0==NATIVE||(LA35_0>=PRIVATE && LA35_0<=PUBLIC)||(LA35_0>=STATIC && LA35_0<=STRICTFP)||LA35_0==SYNCHRONIZED||LA35_0==TRANSIENT||LA35_0==VOLATILE) ) {
+                        alt35=1;
                     }
 
 
-                    switch (alt47) {
+                    switch (alt35) {
                 	case 1 :
                 	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: modifier
                 	    {
-                	    pushFollow(FOLLOW_modifier_in_modifierList1135);
+                	    pushFollow(FOLLOW_modifier_in_modifierList1029);
                 	    modifier();
 
                 	    state._fsp--;
@@ -2678,7 +2301,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 	    break;
 
                 	default :
-                	    break loop47;
+                	    break loop35;
                     }
                 } while (true);
 
@@ -2707,91 +2330,91 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "modifier"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:145:1: modifier : ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:143:1: modifier : ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier );
     public final IntegrityVariablesParser.modifier_return modifier() throws RecognitionException {
         IntegrityVariablesParser.modifier_return retval = new IntegrityVariablesParser.modifier_return();
         retval.start = input.LT(1);
         int modifier_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 25) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:146:5: ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier )
-            int alt48=11;
-            alt48 = dfa48.predict(input);
-            switch (alt48) {
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:144:5: ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier )
+            int alt36=11;
+            alt36 = dfa36.predict(input);
+            switch (alt36) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:146:9: PUBLIC
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:144:9: PUBLIC
                     {
-                    match(input,PUBLIC,FOLLOW_PUBLIC_in_modifier1156); if (state.failed) return retval;
+                    match(input,PUBLIC,FOLLOW_PUBLIC_in_modifier1050); if (state.failed) return retval;
 
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:147:9: PROTECTED
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:145:9: PROTECTED
                     {
-                    match(input,PROTECTED,FOLLOW_PROTECTED_in_modifier1166); if (state.failed) return retval;
+                    match(input,PROTECTED,FOLLOW_PROTECTED_in_modifier1060); if (state.failed) return retval;
 
                     }
                     break;
                 case 3 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:148:9: PRIVATE
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:146:9: PRIVATE
                     {
-                    match(input,PRIVATE,FOLLOW_PRIVATE_in_modifier1176); if (state.failed) return retval;
+                    match(input,PRIVATE,FOLLOW_PRIVATE_in_modifier1070); if (state.failed) return retval;
 
                     }
                     break;
                 case 4 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:149:9: STATIC
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:147:9: STATIC
                     {
-                    match(input,STATIC,FOLLOW_STATIC_in_modifier1186); if (state.failed) return retval;
+                    match(input,STATIC,FOLLOW_STATIC_in_modifier1080); if (state.failed) return retval;
 
                     }
                     break;
                 case 5 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:150:9: ABSTRACT
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:148:9: ABSTRACT
                     {
-                    match(input,ABSTRACT,FOLLOW_ABSTRACT_in_modifier1196); if (state.failed) return retval;
+                    match(input,ABSTRACT,FOLLOW_ABSTRACT_in_modifier1090); if (state.failed) return retval;
 
                     }
                     break;
                 case 6 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:151:9: NATIVE
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:149:9: NATIVE
                     {
-                    match(input,NATIVE,FOLLOW_NATIVE_in_modifier1206); if (state.failed) return retval;
+                    match(input,NATIVE,FOLLOW_NATIVE_in_modifier1100); if (state.failed) return retval;
 
                     }
                     break;
                 case 7 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:152:9: SYNCHRONIZED
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:150:9: SYNCHRONIZED
                     {
-                    match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_modifier1216); if (state.failed) return retval;
+                    match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_modifier1110); if (state.failed) return retval;
 
                     }
                     break;
                 case 8 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:153:9: TRANSIENT
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:151:9: TRANSIENT
                     {
-                    match(input,TRANSIENT,FOLLOW_TRANSIENT_in_modifier1226); if (state.failed) return retval;
+                    match(input,TRANSIENT,FOLLOW_TRANSIENT_in_modifier1120); if (state.failed) return retval;
 
                     }
                     break;
                 case 9 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:154:9: VOLATILE
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:152:9: VOLATILE
                     {
-                    match(input,VOLATILE,FOLLOW_VOLATILE_in_modifier1236); if (state.failed) return retval;
+                    match(input,VOLATILE,FOLLOW_VOLATILE_in_modifier1130); if (state.failed) return retval;
 
                     }
                     break;
                 case 10 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:155:9: STRICTFP
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:153:9: STRICTFP
                     {
-                    match(input,STRICTFP,FOLLOW_STRICTFP_in_modifier1246); if (state.failed) return retval;
+                    match(input,STRICTFP,FOLLOW_STRICTFP_in_modifier1140); if (state.failed) return retval;
 
                     }
                     break;
                 case 11 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:156:9: localModifier
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:154:9: localModifier
                     {
-                    pushFollow(FOLLOW_localModifier_in_modifier1256);
+                    pushFollow(FOLLOW_localModifier_in_modifier1150);
                     localModifier();
 
                     state._fsp--;
@@ -2820,36 +2443,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "localModifierList"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:159:1: localModifierList : ^( LOCAL_MODIFIER_LIST ( localModifier )* ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:157:1: localModifierList : ^( LOCAL_MODIFIER_LIST ( localModifier )* ) ;
     public final IntegrityVariablesParser.localModifierList_return localModifierList() throws RecognitionException {
         IntegrityVariablesParser.localModifierList_return retval = new IntegrityVariablesParser.localModifierList_return();
         retval.start = input.LT(1);
         int localModifierList_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 26) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:160:5: ( ^( LOCAL_MODIFIER_LIST ( localModifier )* ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:160:9: ^( LOCAL_MODIFIER_LIST ( localModifier )* )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:158:5: ( ^( LOCAL_MODIFIER_LIST ( localModifier )* ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:158:9: ^( LOCAL_MODIFIER_LIST ( localModifier )* )
             {
-            match(input,LOCAL_MODIFIER_LIST,FOLLOW_LOCAL_MODIFIER_LIST_in_localModifierList1276); if (state.failed) return retval;
+            match(input,LOCAL_MODIFIER_LIST,FOLLOW_LOCAL_MODIFIER_LIST_in_localModifierList1170); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:160:31: ( localModifier )*
-                loop49:
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:158:31: ( localModifier )*
+                loop37:
                 do {
-                    int alt49=2;
-                    int LA49_0 = input.LA(1);
+                    int alt37=2;
+                    int LA37_0 = input.LA(1);
 
-                    if ( (LA49_0==AT||LA49_0==FINAL) ) {
-                        alt49=1;
+                    if ( (LA37_0==AT||LA37_0==FINAL) ) {
+                        alt37=1;
                     }
 
 
-                    switch (alt49) {
+                    switch (alt37) {
                 	case 1 :
                 	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: localModifier
                 	    {
-                	    pushFollow(FOLLOW_localModifier_in_localModifierList1278);
+                	    pushFollow(FOLLOW_localModifier_in_localModifierList1172);
                 	    localModifier();
 
                 	    state._fsp--;
@@ -2859,7 +2482,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 	    break;
 
                 	default :
-                	    break loop49;
+                	    break loop37;
                     }
                 } while (true);
 
@@ -2888,42 +2511,42 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "localModifier"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:163:1: localModifier : ( FINAL | annotation );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:161:1: localModifier : ( FINAL | annotation );
     public final IntegrityVariablesParser.localModifier_return localModifier() throws RecognitionException {
         IntegrityVariablesParser.localModifier_return retval = new IntegrityVariablesParser.localModifier_return();
         retval.start = input.LT(1);
         int localModifier_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 27) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:164:5: ( FINAL | annotation )
-            int alt50=2;
-            int LA50_0 = input.LA(1);
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:162:5: ( FINAL | annotation )
+            int alt38=2;
+            int LA38_0 = input.LA(1);
 
-            if ( (LA50_0==FINAL) ) {
-                alt50=1;
+            if ( (LA38_0==FINAL) ) {
+                alt38=1;
             }
-            else if ( (LA50_0==AT) ) {
-                alt50=2;
+            else if ( (LA38_0==AT) ) {
+                alt38=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 50, 0, input);
+                    new NoViableAltException("", 38, 0, input);
 
                 throw nvae;
             }
-            switch (alt50) {
+            switch (alt38) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:164:9: FINAL
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:162:9: FINAL
                     {
-                    match(input,FINAL,FOLLOW_FINAL_in_localModifier1299); if (state.failed) return retval;
+                    match(input,FINAL,FOLLOW_FINAL_in_localModifier1193); if (state.failed) return retval;
 
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:165:9: annotation
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:163:9: annotation
                     {
-                    pushFollow(FOLLOW_annotation_in_localModifier1309);
+                    pushFollow(FOLLOW_annotation_in_localModifier1203);
                     annotation();
 
                     state._fsp--;
@@ -2952,41 +2575,41 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "type"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:168:1: type : ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:166:1: type : ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? ) ;
     public final IntegrityVariablesParser.type_return type() throws RecognitionException {
         IntegrityVariablesParser.type_return retval = new IntegrityVariablesParser.type_return();
         retval.start = input.LT(1);
         int type_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 28) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:169:5: ( ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:169:9: ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:167:5: ( ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:167:9: ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? )
             {
-            match(input,TYPE,FOLLOW_TYPE_in_type1329); if (state.failed) return retval;
+            match(input,TYPE,FOLLOW_TYPE_in_type1223); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:169:16: ( primitiveType | qualifiedTypeIdent )
-            int alt51=2;
-            int LA51_0 = input.LA(1);
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:167:16: ( primitiveType | qualifiedTypeIdent )
+            int alt39=2;
+            int LA39_0 = input.LA(1);
 
-            if ( (LA51_0==BOOLEAN||LA51_0==BYTE||LA51_0==CHAR||LA51_0==DOUBLE||LA51_0==FLOAT||(LA51_0>=INT && LA51_0<=LONG)||LA51_0==SHORT) ) {
-                alt51=1;
+            if ( (LA39_0==BOOLEAN||LA39_0==BYTE||LA39_0==CHAR||LA39_0==DOUBLE||LA39_0==FLOAT||(LA39_0>=INT && LA39_0<=LONG)||LA39_0==SHORT) ) {
+                alt39=1;
             }
-            else if ( (LA51_0==QUALIFIED_TYPE_IDENT) ) {
-                alt51=2;
+            else if ( (LA39_0==QUALIFIED_TYPE_IDENT) ) {
+                alt39=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 51, 0, input);
+                    new NoViableAltException("", 39, 0, input);
 
                 throw nvae;
             }
-            switch (alt51) {
+            switch (alt39) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:169:17: primitiveType
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:167:17: primitiveType
                     {
-                    pushFollow(FOLLOW_primitiveType_in_type1332);
+                    pushFollow(FOLLOW_primitiveType_in_type1226);
                     primitiveType();
 
                     state._fsp--;
@@ -2995,9 +2618,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:169:33: qualifiedTypeIdent
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:167:33: qualifiedTypeIdent
                     {
-                    pushFollow(FOLLOW_qualifiedTypeIdent_in_type1336);
+                    pushFollow(FOLLOW_qualifiedTypeIdent_in_type1230);
                     qualifiedTypeIdent();
 
                     state._fsp--;
@@ -3008,18 +2631,18 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
             }
 
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:169:53: ( arrayDeclaratorList )?
-            int alt52=2;
-            int LA52_0 = input.LA(1);
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:167:53: ( arrayDeclaratorList )?
+            int alt40=2;
+            int LA40_0 = input.LA(1);
 
-            if ( (LA52_0==ARRAY_DECLARATOR_LIST) ) {
-                alt52=1;
+            if ( (LA40_0==ARRAY_DECLARATOR_LIST) ) {
+                alt40=1;
             }
-            switch (alt52) {
+            switch (alt40) {
                 case 1 :
                     // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: arrayDeclaratorList
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_type1339);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_type1233);
                     arrayDeclaratorList();
 
                     state._fsp--;
@@ -3054,36 +2677,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "qualifiedTypeIdent"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:172:1: qualifiedTypeIdent : ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:170:1: qualifiedTypeIdent : ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) ;
     public final IntegrityVariablesParser.qualifiedTypeIdent_return qualifiedTypeIdent() throws RecognitionException {
         IntegrityVariablesParser.qualifiedTypeIdent_return retval = new IntegrityVariablesParser.qualifiedTypeIdent_return();
         retval.start = input.LT(1);
         int qualifiedTypeIdent_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 29) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:173:5: ( ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:173:9: ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:171:5: ( ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:171:9: ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
             {
-            match(input,QUALIFIED_TYPE_IDENT,FOLLOW_QUALIFIED_TYPE_IDENT_in_qualifiedTypeIdent1361); if (state.failed) return retval;
+            match(input,QUALIFIED_TYPE_IDENT,FOLLOW_QUALIFIED_TYPE_IDENT_in_qualifiedTypeIdent1255); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:173:32: ( typeIdent )+
-            int cnt53=0;
-            loop53:
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:171:32: ( typeIdent )+
+            int cnt41=0;
+            loop41:
             do {
-                int alt53=2;
-                int LA53_0 = input.LA(1);
+                int alt41=2;
+                int LA41_0 = input.LA(1);
 
-                if ( (LA53_0==IDENT) ) {
-                    alt53=1;
+                if ( (LA41_0==IDENT) ) {
+                    alt41=1;
                 }
 
 
-                switch (alt53) {
+                switch (alt41) {
             	case 1 :
             	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: typeIdent
             	    {
-            	    pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent1363);
+            	    pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent1257);
             	    typeIdent();
 
             	    state._fsp--;
@@ -3093,13 +2716,13 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             	    break;
 
             	default :
-            	    if ( cnt53 >= 1 ) break loop53;
+            	    if ( cnt41 >= 1 ) break loop41;
             	    if (state.backtracking>0) {state.failed=true; return retval;}
                         EarlyExitException eee =
-                            new EarlyExitException(53, input);
+                            new EarlyExitException(41, input);
                         throw eee;
                 }
-                cnt53++;
+                cnt41++;
             } while (true);
 
 
@@ -3126,32 +2749,32 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "typeIdent"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:176:1: typeIdent : ^( IDENT ( genericTypeArgumentList )? ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:174:1: typeIdent : ^( IDENT ( genericTypeArgumentList )? ) ;
     public final IntegrityVariablesParser.typeIdent_return typeIdent() throws RecognitionException {
         IntegrityVariablesParser.typeIdent_return retval = new IntegrityVariablesParser.typeIdent_return();
         retval.start = input.LT(1);
         int typeIdent_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 30) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:177:5: ( ^( IDENT ( genericTypeArgumentList )? ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:177:9: ^( IDENT ( genericTypeArgumentList )? )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:175:5: ( ^( IDENT ( genericTypeArgumentList )? ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:175:9: ^( IDENT ( genericTypeArgumentList )? )
             {
-            match(input,IDENT,FOLLOW_IDENT_in_typeIdent1386); if (state.failed) return retval;
+            match(input,IDENT,FOLLOW_IDENT_in_typeIdent1280); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:177:17: ( genericTypeArgumentList )?
-                int alt54=2;
-                int LA54_0 = input.LA(1);
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:175:17: ( genericTypeArgumentList )?
+                int alt42=2;
+                int LA42_0 = input.LA(1);
 
-                if ( (LA54_0==GENERIC_TYPE_ARG_LIST) ) {
-                    alt54=1;
+                if ( (LA42_0==GENERIC_TYPE_ARG_LIST) ) {
+                    alt42=1;
                 }
-                switch (alt54) {
+                switch (alt42) {
                     case 1 :
                         // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeArgumentList
                         {
-                        pushFollow(FOLLOW_genericTypeArgumentList_in_typeIdent1388);
+                        pushFollow(FOLLOW_genericTypeArgumentList_in_typeIdent1282);
                         genericTypeArgumentList();
 
                         state._fsp--;
@@ -3187,14 +2810,14 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "primitiveType"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:180:1: primitiveType : ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:178:1: primitiveType : ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE );
     public final IntegrityVariablesParser.primitiveType_return primitiveType() throws RecognitionException {
         IntegrityVariablesParser.primitiveType_return retval = new IntegrityVariablesParser.primitiveType_return();
         retval.start = input.LT(1);
         int primitiveType_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 31) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:181:5: ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:179:5: ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE )
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:
             {
             if ( input.LA(1)==BOOLEAN||input.LA(1)==BYTE||input.LA(1)==CHAR||input.LA(1)==DOUBLE||input.LA(1)==FLOAT||(input.LA(1)>=INT && input.LA(1)<=LONG)||input.LA(1)==SHORT ) {
@@ -3229,36 +2852,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "genericTypeArgumentList"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:191:1: genericTypeArgumentList : ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:189:1: genericTypeArgumentList : ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ ) ;
     public final IntegrityVariablesParser.genericTypeArgumentList_return genericTypeArgumentList() throws RecognitionException {
         IntegrityVariablesParser.genericTypeArgumentList_return retval = new IntegrityVariablesParser.genericTypeArgumentList_return();
         retval.start = input.LT(1);
         int genericTypeArgumentList_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 32) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:192:5: ( ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:192:9: ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:190:5: ( ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:190:9: ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ )
             {
-            match(input,GENERIC_TYPE_ARG_LIST,FOLLOW_GENERIC_TYPE_ARG_LIST_in_genericTypeArgumentList1499); if (state.failed) return retval;
+            match(input,GENERIC_TYPE_ARG_LIST,FOLLOW_GENERIC_TYPE_ARG_LIST_in_genericTypeArgumentList1393); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:192:33: ( genericTypeArgument )+
-            int cnt55=0;
-            loop55:
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:190:33: ( genericTypeArgument )+
+            int cnt43=0;
+            loop43:
             do {
-                int alt55=2;
-                int LA55_0 = input.LA(1);
+                int alt43=2;
+                int LA43_0 = input.LA(1);
 
-                if ( (LA55_0==QUESTION||LA55_0==TYPE) ) {
-                    alt55=1;
+                if ( (LA43_0==QUESTION||LA43_0==TYPE) ) {
+                    alt43=1;
                 }
 
 
-                switch (alt55) {
+                switch (alt43) {
             	case 1 :
             	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeArgument
             	    {
-            	    pushFollow(FOLLOW_genericTypeArgument_in_genericTypeArgumentList1501);
+            	    pushFollow(FOLLOW_genericTypeArgument_in_genericTypeArgumentList1395);
             	    genericTypeArgument();
 
             	    state._fsp--;
@@ -3268,13 +2891,13 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             	    break;
 
             	default :
-            	    if ( cnt55 >= 1 ) break loop55;
+            	    if ( cnt43 >= 1 ) break loop43;
             	    if (state.backtracking>0) {state.failed=true; return retval;}
                         EarlyExitException eee =
-                            new EarlyExitException(55, input);
+                            new EarlyExitException(43, input);
                         throw eee;
                 }
-                cnt55++;
+                cnt43++;
             } while (true);
 
 
@@ -3301,35 +2924,35 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "genericTypeArgument"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:195:1: genericTypeArgument : ( type | ^( QUESTION ( genericWildcardBoundType )? ) );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:193:1: genericTypeArgument : ( type | ^( QUESTION ( genericWildcardBoundType )? ) );
     public final IntegrityVariablesParser.genericTypeArgument_return genericTypeArgument() throws RecognitionException {
         IntegrityVariablesParser.genericTypeArgument_return retval = new IntegrityVariablesParser.genericTypeArgument_return();
         retval.start = input.LT(1);
         int genericTypeArgument_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 33) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:196:5: ( type | ^( QUESTION ( genericWildcardBoundType )? ) )
-            int alt57=2;
-            int LA57_0 = input.LA(1);
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:194:5: ( type | ^( QUESTION ( genericWildcardBoundType )? ) )
+            int alt45=2;
+            int LA45_0 = input.LA(1);
 
-            if ( (LA57_0==TYPE) ) {
-                alt57=1;
+            if ( (LA45_0==TYPE) ) {
+                alt45=1;
             }
-            else if ( (LA57_0==QUESTION) ) {
-                alt57=2;
+            else if ( (LA45_0==QUESTION) ) {
+                alt45=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 57, 0, input);
+                    new NoViableAltException("", 45, 0, input);
 
                 throw nvae;
             }
-            switch (alt57) {
+            switch (alt45) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:196:9: type
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:194:9: type
                     {
-                    pushFollow(FOLLOW_type_in_genericTypeArgument1526);
+                    pushFollow(FOLLOW_type_in_genericTypeArgument1420);
                     type();
 
                     state._fsp--;
@@ -3338,24 +2961,24 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:197:9: ^( QUESTION ( genericWildcardBoundType )? )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:195:9: ^( QUESTION ( genericWildcardBoundType )? )
                     {
-                    match(input,QUESTION,FOLLOW_QUESTION_in_genericTypeArgument1537); if (state.failed) return retval;
+                    match(input,QUESTION,FOLLOW_QUESTION_in_genericTypeArgument1431); if (state.failed) return retval;
 
                     if ( input.LA(1)==Token.DOWN ) {
                         match(input, Token.DOWN, null); if (state.failed) return retval;
-                        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:197:20: ( genericWildcardBoundType )?
-                        int alt56=2;
-                        int LA56_0 = input.LA(1);
+                        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:195:20: ( genericWildcardBoundType )?
+                        int alt44=2;
+                        int LA44_0 = input.LA(1);
 
-                        if ( (LA56_0==EXTENDS||LA56_0==SUPER) ) {
-                            alt56=1;
+                        if ( (LA44_0==EXTENDS||LA44_0==SUPER) ) {
+                            alt44=1;
                         }
-                        switch (alt56) {
+                        switch (alt44) {
                             case 1 :
                                 // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericWildcardBoundType
                                 {
-                                pushFollow(FOLLOW_genericWildcardBoundType_in_genericTypeArgument1539);
+                                pushFollow(FOLLOW_genericWildcardBoundType_in_genericTypeArgument1433);
                                 genericWildcardBoundType();
 
                                 state._fsp--;
@@ -3393,38 +3016,38 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "genericWildcardBoundType"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:200:1: genericWildcardBoundType : ( ^( EXTENDS type ) | ^( SUPER type ) );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:198:1: genericWildcardBoundType : ( ^( EXTENDS type ) | ^( SUPER type ) );
     public final IntegrityVariablesParser.genericWildcardBoundType_return genericWildcardBoundType() throws RecognitionException {
         IntegrityVariablesParser.genericWildcardBoundType_return retval = new IntegrityVariablesParser.genericWildcardBoundType_return();
         retval.start = input.LT(1);
         int genericWildcardBoundType_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 34) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:201:5: ( ^( EXTENDS type ) | ^( SUPER type ) )
-            int alt58=2;
-            int LA58_0 = input.LA(1);
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:199:5: ( ^( EXTENDS type ) | ^( SUPER type ) )
+            int alt46=2;
+            int LA46_0 = input.LA(1);
 
-            if ( (LA58_0==EXTENDS) ) {
-                alt58=1;
+            if ( (LA46_0==EXTENDS) ) {
+                alt46=1;
             }
-            else if ( (LA58_0==SUPER) ) {
-                alt58=2;
+            else if ( (LA46_0==SUPER) ) {
+                alt46=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 58, 0, input);
+                    new NoViableAltException("", 46, 0, input);
 
                 throw nvae;
             }
-            switch (alt58) {
+            switch (alt46) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:201:9: ^( EXTENDS type )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:199:9: ^( EXTENDS type )
                     {
-                    match(input,EXTENDS,FOLLOW_EXTENDS_in_genericWildcardBoundType1679); if (state.failed) return retval;
+                    match(input,EXTENDS,FOLLOW_EXTENDS_in_genericWildcardBoundType1573); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_genericWildcardBoundType1681);
+                    pushFollow(FOLLOW_type_in_genericWildcardBoundType1575);
                     type();
 
                     state._fsp--;
@@ -3435,12 +3058,12 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:202:9: ^( SUPER type )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:200:9: ^( SUPER type )
                     {
-                    match(input,SUPER,FOLLOW_SUPER_in_genericWildcardBoundType1693); if (state.failed) return retval;
+                    match(input,SUPER,FOLLOW_SUPER_in_genericWildcardBoundType1587); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_genericWildcardBoundType1695);
+                    pushFollow(FOLLOW_type_in_genericWildcardBoundType1589);
                     type();
 
                     state._fsp--;
@@ -3471,36 +3094,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "formalParameterList"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:205:1: formalParameterList : ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:203:1: formalParameterList : ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? ) ;
     public final IntegrityVariablesParser.formalParameterList_return formalParameterList() throws RecognitionException {
         IntegrityVariablesParser.formalParameterList_return retval = new IntegrityVariablesParser.formalParameterList_return();
         retval.start = input.LT(1);
         int formalParameterList_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 35) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:206:5: ( ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:206:9: ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:204:5: ( ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:204:9: ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? )
             {
-            match(input,FORMAL_PARAM_LIST,FOLLOW_FORMAL_PARAM_LIST_in_formalParameterList1716); if (state.failed) return retval;
+            match(input,FORMAL_PARAM_LIST,FOLLOW_FORMAL_PARAM_LIST_in_formalParameterList1610); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:206:29: ( formalParameterStandardDecl )*
-                loop59:
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:204:29: ( formalParameterStandardDecl )*
+                loop47:
                 do {
-                    int alt59=2;
-                    int LA59_0 = input.LA(1);
+                    int alt47=2;
+                    int LA47_0 = input.LA(1);
 
-                    if ( (LA59_0==FORMAL_PARAM_STD_DECL) ) {
-                        alt59=1;
+                    if ( (LA47_0==FORMAL_PARAM_STD_DECL) ) {
+                        alt47=1;
                     }
 
 
-                    switch (alt59) {
+                    switch (alt47) {
                 	case 1 :
                 	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: formalParameterStandardDecl
                 	    {
-                	    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList1718);
+                	    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList1612);
                 	    formalParameterStandardDecl();
 
                 	    state._fsp--;
@@ -3510,22 +3133,22 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 	    break;
 
                 	default :
-                	    break loop59;
+                	    break loop47;
                     }
                 } while (true);
 
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:206:58: ( formalParameterVarargDecl )?
-                int alt60=2;
-                int LA60_0 = input.LA(1);
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:204:58: ( formalParameterVarargDecl )?
+                int alt48=2;
+                int LA48_0 = input.LA(1);
 
-                if ( (LA60_0==FORMAL_PARAM_VARARG_DECL) ) {
-                    alt60=1;
+                if ( (LA48_0==FORMAL_PARAM_VARARG_DECL) ) {
+                    alt48=1;
                 }
-                switch (alt60) {
+                switch (alt48) {
                     case 1 :
                         // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: formalParameterVarargDecl
                         {
-                        pushFollow(FOLLOW_formalParameterVarargDecl_in_formalParameterList1721);
+                        pushFollow(FOLLOW_formalParameterVarargDecl_in_formalParameterList1615);
                         formalParameterVarargDecl();
 
                         state._fsp--;
@@ -3561,30 +3184,30 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "formalParameterStandardDecl"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:209:1: formalParameterStandardDecl : ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:207:1: formalParameterStandardDecl : ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) ;
     public final IntegrityVariablesParser.formalParameterStandardDecl_return formalParameterStandardDecl() throws RecognitionException {
         IntegrityVariablesParser.formalParameterStandardDecl_return retval = new IntegrityVariablesParser.formalParameterStandardDecl_return();
         retval.start = input.LT(1);
         int formalParameterStandardDecl_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 36) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:210:5: ( ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:210:9: ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:208:5: ( ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:208:9: ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
             {
-            match(input,FORMAL_PARAM_STD_DECL,FOLLOW_FORMAL_PARAM_STD_DECL_in_formalParameterStandardDecl1748); if (state.failed) return retval;
+            match(input,FORMAL_PARAM_STD_DECL,FOLLOW_FORMAL_PARAM_STD_DECL_in_formalParameterStandardDecl1642); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_localModifierList_in_formalParameterStandardDecl1750);
+            pushFollow(FOLLOW_localModifierList_in_formalParameterStandardDecl1644);
             localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_type_in_formalParameterStandardDecl1752);
+            pushFollow(FOLLOW_type_in_formalParameterStandardDecl1646);
             type();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl1754);
+            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl1648);
             variableDeclaratorId();
 
             state._fsp--;
@@ -3613,30 +3236,30 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "formalParameterVarargDecl"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:213:1: formalParameterVarargDecl : ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:211:1: formalParameterVarargDecl : ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) ;
     public final IntegrityVariablesParser.formalParameterVarargDecl_return formalParameterVarargDecl() throws RecognitionException {
         IntegrityVariablesParser.formalParameterVarargDecl_return retval = new IntegrityVariablesParser.formalParameterVarargDecl_return();
         retval.start = input.LT(1);
         int formalParameterVarargDecl_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 37) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:214:5: ( ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:214:9: ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:212:5: ( ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:212:9: ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId )
             {
-            match(input,FORMAL_PARAM_VARARG_DECL,FOLLOW_FORMAL_PARAM_VARARG_DECL_in_formalParameterVarargDecl1779); if (state.failed) return retval;
+            match(input,FORMAL_PARAM_VARARG_DECL,FOLLOW_FORMAL_PARAM_VARARG_DECL_in_formalParameterVarargDecl1673); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_localModifierList_in_formalParameterVarargDecl1781);
+            pushFollow(FOLLOW_localModifierList_in_formalParameterVarargDecl1675);
             localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_type_in_formalParameterVarargDecl1783);
+            pushFollow(FOLLOW_type_in_formalParameterVarargDecl1677);
             type();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterVarargDecl1785);
+            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterVarargDecl1679);
             variableDeclaratorId();
 
             state._fsp--;
@@ -3665,50 +3288,50 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "qualifiedIdentifier"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:217:1: qualifiedIdentifier : ( IDENT | ^( DOT qualifiedIdentifier IDENT ) );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:215:1: qualifiedIdentifier : ( IDENT | ^( DOT qualifiedIdentifier IDENT ) );
     public final IntegrityVariablesParser.qualifiedIdentifier_return qualifiedIdentifier() throws RecognitionException {
         IntegrityVariablesParser.qualifiedIdentifier_return retval = new IntegrityVariablesParser.qualifiedIdentifier_return();
         retval.start = input.LT(1);
         int qualifiedIdentifier_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 38) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:218:5: ( IDENT | ^( DOT qualifiedIdentifier IDENT ) )
-            int alt61=2;
-            int LA61_0 = input.LA(1);
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:216:5: ( IDENT | ^( DOT qualifiedIdentifier IDENT ) )
+            int alt49=2;
+            int LA49_0 = input.LA(1);
 
-            if ( (LA61_0==IDENT) ) {
-                alt61=1;
+            if ( (LA49_0==IDENT) ) {
+                alt49=1;
             }
-            else if ( (LA61_0==DOT) ) {
-                alt61=2;
+            else if ( (LA49_0==DOT) ) {
+                alt49=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 61, 0, input);
+                    new NoViableAltException("", 49, 0, input);
 
                 throw nvae;
             }
-            switch (alt61) {
+            switch (alt49) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:218:9: IDENT
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:216:9: IDENT
                     {
-                    match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier1809); if (state.failed) return retval;
+                    match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier1703); if (state.failed) return retval;
 
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:219:9: ^( DOT qualifiedIdentifier IDENT )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:217:9: ^( DOT qualifiedIdentifier IDENT )
                     {
-                    match(input,DOT,FOLLOW_DOT_in_qualifiedIdentifier1820); if (state.failed) return retval;
+                    match(input,DOT,FOLLOW_DOT_in_qualifiedIdentifier1714); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentifier1822);
+                    pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentifier1716);
                     qualifiedIdentifier();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier1824); if (state.failed) return retval;
+                    match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier1718); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
@@ -3735,36 +3358,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "annotationList"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:224:1: annotationList : ^( ANNOTATION_LIST ( annotation )* ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:222:1: annotationList : ^( ANNOTATION_LIST ( annotation )* ) ;
     public final IntegrityVariablesParser.annotationList_return annotationList() throws RecognitionException {
         IntegrityVariablesParser.annotationList_return retval = new IntegrityVariablesParser.annotationList_return();
         retval.start = input.LT(1);
         int annotationList_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 39) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:225:5: ( ^( ANNOTATION_LIST ( annotation )* ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:225:9: ^( ANNOTATION_LIST ( annotation )* )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:223:5: ( ^( ANNOTATION_LIST ( annotation )* ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:223:9: ^( ANNOTATION_LIST ( annotation )* )
             {
-            match(input,ANNOTATION_LIST,FOLLOW_ANNOTATION_LIST_in_annotationList1851); if (state.failed) return retval;
+            match(input,ANNOTATION_LIST,FOLLOW_ANNOTATION_LIST_in_annotationList1745); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:225:27: ( annotation )*
-                loop62:
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:223:27: ( annotation )*
+                loop50:
                 do {
-                    int alt62=2;
-                    int LA62_0 = input.LA(1);
+                    int alt50=2;
+                    int LA50_0 = input.LA(1);
 
-                    if ( (LA62_0==AT) ) {
-                        alt62=1;
+                    if ( (LA50_0==AT) ) {
+                        alt50=1;
                     }
 
 
-                    switch (alt62) {
+                    switch (alt50) {
                 	case 1 :
                 	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: annotation
                 	    {
-                	    pushFollow(FOLLOW_annotation_in_annotationList1853);
+                	    pushFollow(FOLLOW_annotation_in_annotationList1747);
                 	    annotation();
 
                 	    state._fsp--;
@@ -3774,7 +3397,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 	    break;
 
                 	default :
-                	    break loop62;
+                	    break loop50;
                     }
                 } while (true);
 
@@ -3803,36 +3426,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "annotation"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:228:1: annotation : ^( AT qualifiedIdentifier ( annotationInit )? ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:226:1: annotation : ^( AT qualifiedIdentifier ( annotationInit )? ) ;
     public final IntegrityVariablesParser.annotation_return annotation() throws RecognitionException {
         IntegrityVariablesParser.annotation_return retval = new IntegrityVariablesParser.annotation_return();
         retval.start = input.LT(1);
         int annotation_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 40) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:229:5: ( ^( AT qualifiedIdentifier ( annotationInit )? ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:229:9: ^( AT qualifiedIdentifier ( annotationInit )? )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:227:5: ( ^( AT qualifiedIdentifier ( annotationInit )? ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:227:9: ^( AT qualifiedIdentifier ( annotationInit )? )
             {
-            match(input,AT,FOLLOW_AT_in_annotation1875); if (state.failed) return retval;
+            match(input,AT,FOLLOW_AT_in_annotation1769); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_qualifiedIdentifier_in_annotation1877);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_annotation1771);
             qualifiedIdentifier();
 
             state._fsp--;
             if (state.failed) return retval;
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:229:34: ( annotationInit )?
-            int alt63=2;
-            int LA63_0 = input.LA(1);
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:227:34: ( annotationInit )?
+            int alt51=2;
+            int LA51_0 = input.LA(1);
 
-            if ( (LA63_0==ANNOTATION_INIT_BLOCK) ) {
-                alt63=1;
+            if ( (LA51_0==ANNOTATION_INIT_BLOCK) ) {
+                alt51=1;
             }
-            switch (alt63) {
+            switch (alt51) {
                 case 1 :
                     // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: annotationInit
                     {
-                    pushFollow(FOLLOW_annotationInit_in_annotation1879);
+                    pushFollow(FOLLOW_annotationInit_in_annotation1773);
                     annotationInit();
 
                     state._fsp--;
@@ -3867,20 +3490,20 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "annotationInit"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:232:1: annotationInit : ^( ANNOTATION_INIT_BLOCK annotationInitializers ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:230:1: annotationInit : ^( ANNOTATION_INIT_BLOCK annotationInitializers ) ;
     public final IntegrityVariablesParser.annotationInit_return annotationInit() throws RecognitionException {
         IntegrityVariablesParser.annotationInit_return retval = new IntegrityVariablesParser.annotationInit_return();
         retval.start = input.LT(1);
         int annotationInit_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 41) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:233:5: ( ^( ANNOTATION_INIT_BLOCK annotationInitializers ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:233:9: ^( ANNOTATION_INIT_BLOCK annotationInitializers )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:231:5: ( ^( ANNOTATION_INIT_BLOCK annotationInitializers ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:231:9: ^( ANNOTATION_INIT_BLOCK annotationInitializers )
             {
-            match(input,ANNOTATION_INIT_BLOCK,FOLLOW_ANNOTATION_INIT_BLOCK_in_annotationInit1905); if (state.failed) return retval;
+            match(input,ANNOTATION_INIT_BLOCK,FOLLOW_ANNOTATION_INIT_BLOCK_in_annotationInit1799); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_annotationInitializers_in_annotationInit1907);
+            pushFollow(FOLLOW_annotationInitializers_in_annotationInit1801);
             annotationInitializers();
 
             state._fsp--;
@@ -3909,54 +3532,54 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "annotationInitializers"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:236:1: annotationInitializers : ( ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:234:1: annotationInitializers : ( ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) );
     public final IntegrityVariablesParser.annotationInitializers_return annotationInitializers() throws RecognitionException {
         IntegrityVariablesParser.annotationInitializers_return retval = new IntegrityVariablesParser.annotationInitializers_return();
         retval.start = input.LT(1);
         int annotationInitializers_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 42) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:237:5: ( ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) )
-            int alt65=2;
-            int LA65_0 = input.LA(1);
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:235:5: ( ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) )
+            int alt53=2;
+            int LA53_0 = input.LA(1);
 
-            if ( (LA65_0==ANNOTATION_INIT_KEY_LIST) ) {
-                alt65=1;
+            if ( (LA53_0==ANNOTATION_INIT_KEY_LIST) ) {
+                alt53=1;
             }
-            else if ( (LA65_0==ANNOTATION_INIT_DEFAULT_KEY) ) {
-                alt65=2;
+            else if ( (LA53_0==ANNOTATION_INIT_DEFAULT_KEY) ) {
+                alt53=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 65, 0, input);
+                    new NoViableAltException("", 53, 0, input);
 
                 throw nvae;
             }
-            switch (alt65) {
+            switch (alt53) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:237:9: ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:235:9: ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ )
                     {
-                    match(input,ANNOTATION_INIT_KEY_LIST,FOLLOW_ANNOTATION_INIT_KEY_LIST_in_annotationInitializers1928); if (state.failed) return retval;
+                    match(input,ANNOTATION_INIT_KEY_LIST,FOLLOW_ANNOTATION_INIT_KEY_LIST_in_annotationInitializers1822); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:237:36: ( annotationInitializer )+
-                    int cnt64=0;
-                    loop64:
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:235:36: ( annotationInitializer )+
+                    int cnt52=0;
+                    loop52:
                     do {
-                        int alt64=2;
-                        int LA64_0 = input.LA(1);
+                        int alt52=2;
+                        int LA52_0 = input.LA(1);
 
-                        if ( (LA64_0==IDENT) ) {
-                            alt64=1;
+                        if ( (LA52_0==IDENT) ) {
+                            alt52=1;
                         }
 
 
-                        switch (alt64) {
+                        switch (alt52) {
                     	case 1 :
                     	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: annotationInitializer
                     	    {
-                    	    pushFollow(FOLLOW_annotationInitializer_in_annotationInitializers1930);
+                    	    pushFollow(FOLLOW_annotationInitializer_in_annotationInitializers1824);
                     	    annotationInitializer();
 
                     	    state._fsp--;
@@ -3966,13 +3589,13 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt64 >= 1 ) break loop64;
+                    	    if ( cnt52 >= 1 ) break loop52;
                     	    if (state.backtracking>0) {state.failed=true; return retval;}
                                 EarlyExitException eee =
-                                    new EarlyExitException(64, input);
+                                    new EarlyExitException(52, input);
                                 throw eee;
                         }
-                        cnt64++;
+                        cnt52++;
                     } while (true);
 
 
@@ -3981,12 +3604,12 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:238:9: ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:236:9: ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue )
                     {
-                    match(input,ANNOTATION_INIT_DEFAULT_KEY,FOLLOW_ANNOTATION_INIT_DEFAULT_KEY_in_annotationInitializers1943); if (state.failed) return retval;
+                    match(input,ANNOTATION_INIT_DEFAULT_KEY,FOLLOW_ANNOTATION_INIT_DEFAULT_KEY_in_annotationInitializers1837); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_annotationElementValue_in_annotationInitializers1945);
+                    pushFollow(FOLLOW_annotationElementValue_in_annotationInitializers1839);
                     annotationElementValue();
 
                     state._fsp--;
@@ -4017,20 +3640,20 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "annotationInitializer"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:241:1: annotationInitializer : ^( IDENT annotationElementValue ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:239:1: annotationInitializer : ^( IDENT annotationElementValue ) ;
     public final IntegrityVariablesParser.annotationInitializer_return annotationInitializer() throws RecognitionException {
         IntegrityVariablesParser.annotationInitializer_return retval = new IntegrityVariablesParser.annotationInitializer_return();
         retval.start = input.LT(1);
         int annotationInitializer_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 43) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:242:5: ( ^( IDENT annotationElementValue ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:242:9: ^( IDENT annotationElementValue )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:240:5: ( ^( IDENT annotationElementValue ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:240:9: ^( IDENT annotationElementValue )
             {
-            match(input,IDENT,FOLLOW_IDENT_in_annotationInitializer1970); if (state.failed) return retval;
+            match(input,IDENT,FOLLOW_IDENT_in_annotationInitializer1864); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_annotationElementValue_in_annotationInitializer1972);
+            pushFollow(FOLLOW_annotationElementValue_in_annotationInitializer1866);
             annotationElementValue();
 
             state._fsp--;
@@ -4059,63 +3682,63 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "annotationElementValue"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:245:1: annotationElementValue : ( ^( ANNOTATION_INIT_ARRAY_ELEMENT ( annotationElementValue )* ) | annotation | expression );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:243:1: annotationElementValue : ( ^( ANNOTATION_INIT_ARRAY_ELEMENT ( annotationElementValue )* ) | annotation | expression );
     public final IntegrityVariablesParser.annotationElementValue_return annotationElementValue() throws RecognitionException {
         IntegrityVariablesParser.annotationElementValue_return retval = new IntegrityVariablesParser.annotationElementValue_return();
         retval.start = input.LT(1);
         int annotationElementValue_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 44) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:246:5: ( ^( ANNOTATION_INIT_ARRAY_ELEMENT ( annotationElementValue )* ) | annotation | expression )
-            int alt67=3;
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:244:5: ( ^( ANNOTATION_INIT_ARRAY_ELEMENT ( annotationElementValue )* ) | annotation | expression )
+            int alt55=3;
             switch ( input.LA(1) ) {
             case ANNOTATION_INIT_ARRAY_ELEMENT:
                 {
-                alt67=1;
+                alt55=1;
                 }
                 break;
             case AT:
                 {
-                alt67=2;
+                alt55=2;
                 }
                 break;
             case EXPR:
                 {
-                alt67=3;
+                alt55=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 67, 0, input);
+                    new NoViableAltException("", 55, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt67) {
+            switch (alt55) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:246:9: ^( ANNOTATION_INIT_ARRAY_ELEMENT ( annotationElementValue )* )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:244:9: ^( ANNOTATION_INIT_ARRAY_ELEMENT ( annotationElementValue )* )
                     {
-                    match(input,ANNOTATION_INIT_ARRAY_ELEMENT,FOLLOW_ANNOTATION_INIT_ARRAY_ELEMENT_in_annotationElementValue1997); if (state.failed) return retval;
+                    match(input,ANNOTATION_INIT_ARRAY_ELEMENT,FOLLOW_ANNOTATION_INIT_ARRAY_ELEMENT_in_annotationElementValue1891); if (state.failed) return retval;
 
                     if ( input.LA(1)==Token.DOWN ) {
                         match(input, Token.DOWN, null); if (state.failed) return retval;
-                        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:246:41: ( annotationElementValue )*
-                        loop66:
+                        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:244:41: ( annotationElementValue )*
+                        loop54:
                         do {
-                            int alt66=2;
-                            int LA66_0 = input.LA(1);
+                            int alt54=2;
+                            int LA54_0 = input.LA(1);
 
-                            if ( (LA66_0==AT||LA66_0==ANNOTATION_INIT_ARRAY_ELEMENT||LA66_0==EXPR) ) {
-                                alt66=1;
+                            if ( (LA54_0==AT||LA54_0==ANNOTATION_INIT_ARRAY_ELEMENT||LA54_0==EXPR) ) {
+                                alt54=1;
                             }
 
 
-                            switch (alt66) {
+                            switch (alt54) {
                         	case 1 :
                         	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: annotationElementValue
                         	    {
-                        	    pushFollow(FOLLOW_annotationElementValue_in_annotationElementValue1999);
+                        	    pushFollow(FOLLOW_annotationElementValue_in_annotationElementValue1893);
                         	    annotationElementValue();
 
                         	    state._fsp--;
@@ -4125,7 +3748,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                         	    break;
 
                         	default :
-                        	    break loop66;
+                        	    break loop54;
                             }
                         } while (true);
 
@@ -4136,9 +3759,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:247:9: annotation
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:245:9: annotation
                     {
-                    pushFollow(FOLLOW_annotation_in_annotationElementValue2011);
+                    pushFollow(FOLLOW_annotation_in_annotationElementValue1905);
                     annotation();
 
                     state._fsp--;
@@ -4147,9 +3770,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 3 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:248:9: expression
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:246:9: expression
                     {
-                    pushFollow(FOLLOW_expression_in_annotationElementValue2021);
+                    pushFollow(FOLLOW_expression_in_annotationElementValue1915);
                     expression();
 
                     state._fsp--;
@@ -4178,36 +3801,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "annotationTopLevelScope"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:251:1: annotationTopLevelScope : ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:249:1: annotationTopLevelScope : ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* ) ;
     public final IntegrityVariablesParser.annotationTopLevelScope_return annotationTopLevelScope() throws RecognitionException {
         IntegrityVariablesParser.annotationTopLevelScope_return retval = new IntegrityVariablesParser.annotationTopLevelScope_return();
         retval.start = input.LT(1);
         int annotationTopLevelScope_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 45) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:252:5: ( ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:252:9: ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:250:5: ( ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:250:9: ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* )
             {
-            match(input,ANNOTATION_TOP_LEVEL_SCOPE,FOLLOW_ANNOTATION_TOP_LEVEL_SCOPE_in_annotationTopLevelScope2045); if (state.failed) return retval;
+            match(input,ANNOTATION_TOP_LEVEL_SCOPE,FOLLOW_ANNOTATION_TOP_LEVEL_SCOPE_in_annotationTopLevelScope1939); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:252:38: ( annotationScopeDeclarations )*
-                loop68:
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:250:38: ( annotationScopeDeclarations )*
+                loop56:
                 do {
-                    int alt68=2;
-                    int LA68_0 = input.LA(1);
+                    int alt56=2;
+                    int LA56_0 = input.LA(1);
 
-                    if ( (LA68_0==AT||LA68_0==CLASS||LA68_0==ENUM||LA68_0==INTERFACE||LA68_0==ANNOTATION_METHOD_DECL||LA68_0==VAR_DECLARATION) ) {
-                        alt68=1;
+                    if ( (LA56_0==AT||LA56_0==CLASS||LA56_0==ENUM||LA56_0==INTERFACE||LA56_0==ANNOTATION_METHOD_DECL||LA56_0==VAR_DECLARATION) ) {
+                        alt56=1;
                     }
 
 
-                    switch (alt68) {
+                    switch (alt56) {
                 	case 1 :
                 	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: annotationScopeDeclarations
                 	    {
-                	    pushFollow(FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope2047);
+                	    pushFollow(FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope1941);
                 	    annotationScopeDeclarations();
 
                 	    state._fsp--;
@@ -4217,7 +3840,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 	    break;
 
                 	default :
-                	    break loop68;
+                	    break loop56;
                     }
                 } while (true);
 
@@ -4246,24 +3869,24 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "annotationScopeDeclarations"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:255:1: annotationScopeDeclarations : ( ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:253:1: annotationScopeDeclarations : ( ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration );
     public final IntegrityVariablesParser.annotationScopeDeclarations_return annotationScopeDeclarations() throws RecognitionException {
         IntegrityVariablesParser.annotationScopeDeclarations_return retval = new IntegrityVariablesParser.annotationScopeDeclarations_return();
         retval.start = input.LT(1);
         int annotationScopeDeclarations_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 46) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:256:5: ( ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration )
-            int alt70=3;
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:254:5: ( ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration )
+            int alt58=3;
             switch ( input.LA(1) ) {
             case ANNOTATION_METHOD_DECL:
                 {
-                alt70=1;
+                alt58=1;
                 }
                 break;
             case VAR_DECLARATION:
                 {
-                alt70=2;
+                alt58=2;
                 }
                 break;
             case AT:
@@ -4271,47 +3894,47 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             case ENUM:
             case INTERFACE:
                 {
-                alt70=3;
+                alt58=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 70, 0, input);
+                    new NoViableAltException("", 58, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt70) {
+            switch (alt58) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:256:9: ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:254:9: ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? )
                     {
-                    match(input,ANNOTATION_METHOD_DECL,FOLLOW_ANNOTATION_METHOD_DECL_in_annotationScopeDeclarations2073); if (state.failed) return retval;
+                    match(input,ANNOTATION_METHOD_DECL,FOLLOW_ANNOTATION_METHOD_DECL_in_annotationScopeDeclarations1967); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_annotationScopeDeclarations2075);
+                    pushFollow(FOLLOW_modifierList_in_annotationScopeDeclarations1969);
                     modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_annotationScopeDeclarations2077);
+                    pushFollow(FOLLOW_type_in_annotationScopeDeclarations1971);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_annotationScopeDeclarations2079); if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:256:58: ( annotationDefaultValue )?
-                    int alt69=2;
-                    int LA69_0 = input.LA(1);
+                    match(input,IDENT,FOLLOW_IDENT_in_annotationScopeDeclarations1973); if (state.failed) return retval;
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:254:58: ( annotationDefaultValue )?
+                    int alt57=2;
+                    int LA57_0 = input.LA(1);
 
-                    if ( (LA69_0==DEFAULT) ) {
-                        alt69=1;
+                    if ( (LA57_0==DEFAULT) ) {
+                        alt57=1;
                     }
-                    switch (alt69) {
+                    switch (alt57) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: annotationDefaultValue
                             {
-                            pushFollow(FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations2081);
+                            pushFollow(FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations1975);
                             annotationDefaultValue();
 
                             state._fsp--;
@@ -4328,22 +3951,22 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:257:9: ^( VAR_DECLARATION modifierList type variableDeclaratorList )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:255:9: ^( VAR_DECLARATION modifierList type variableDeclaratorList )
                     {
-                    match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_annotationScopeDeclarations2094); if (state.failed) return retval;
+                    match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_annotationScopeDeclarations1988); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_annotationScopeDeclarations2096);
+                    pushFollow(FOLLOW_modifierList_in_annotationScopeDeclarations1990);
                     modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_annotationScopeDeclarations2098);
+                    pushFollow(FOLLOW_type_in_annotationScopeDeclarations1992);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_variableDeclaratorList_in_annotationScopeDeclarations2100);
+                    pushFollow(FOLLOW_variableDeclaratorList_in_annotationScopeDeclarations1994);
                     variableDeclaratorList();
 
                     state._fsp--;
@@ -4354,9 +3977,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 3 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:258:9: typeDeclaration
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:256:9: typeDeclaration
                     {
-                    pushFollow(FOLLOW_typeDeclaration_in_annotationScopeDeclarations2111);
+                    pushFollow(FOLLOW_typeDeclaration_in_annotationScopeDeclarations2005);
                     typeDeclaration();
 
                     state._fsp--;
@@ -4385,20 +4008,20 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "annotationDefaultValue"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:261:1: annotationDefaultValue : ^( DEFAULT annotationElementValue ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:259:1: annotationDefaultValue : ^( DEFAULT annotationElementValue ) ;
     public final IntegrityVariablesParser.annotationDefaultValue_return annotationDefaultValue() throws RecognitionException {
         IntegrityVariablesParser.annotationDefaultValue_return retval = new IntegrityVariablesParser.annotationDefaultValue_return();
         retval.start = input.LT(1);
         int annotationDefaultValue_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 47) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:262:5: ( ^( DEFAULT annotationElementValue ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:262:9: ^( DEFAULT annotationElementValue )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:260:5: ( ^( DEFAULT annotationElementValue ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:260:9: ^( DEFAULT annotationElementValue )
             {
-            match(input,DEFAULT,FOLLOW_DEFAULT_in_annotationDefaultValue2135); if (state.failed) return retval;
+            match(input,DEFAULT,FOLLOW_DEFAULT_in_annotationDefaultValue2029); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_annotationElementValue_in_annotationDefaultValue2137);
+            pushFollow(FOLLOW_annotationElementValue_in_annotationDefaultValue2031);
             annotationElementValue();
 
             state._fsp--;
@@ -4427,36 +4050,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "block"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:267:1: block : ^( BLOCK_SCOPE ( blockStatement )* ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:265:1: block : ^( BLOCK_SCOPE ( blockStatement )* ) ;
     public final IntegrityVariablesParser.block_return block() throws RecognitionException {
         IntegrityVariablesParser.block_return retval = new IntegrityVariablesParser.block_return();
         retval.start = input.LT(1);
         int block_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 48) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:268:5: ( ^( BLOCK_SCOPE ( blockStatement )* ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:268:9: ^( BLOCK_SCOPE ( blockStatement )* )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:266:5: ( ^( BLOCK_SCOPE ( blockStatement )* ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:266:9: ^( BLOCK_SCOPE ( blockStatement )* )
             {
-            match(input,BLOCK_SCOPE,FOLLOW_BLOCK_SCOPE_in_block2160); if (state.failed) return retval;
+            match(input,BLOCK_SCOPE,FOLLOW_BLOCK_SCOPE_in_block2054); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:268:23: ( blockStatement )*
-                loop71:
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:266:23: ( blockStatement )*
+                loop59:
                 do {
-                    int alt71=2;
-                    int LA71_0 = input.LA(1);
+                    int alt59=2;
+                    int LA59_0 = input.LA(1);
 
-                    if ( (LA71_0==AT||LA71_0==SEMI||LA71_0==ASSERT||LA71_0==BREAK||(LA71_0>=CLASS && LA71_0<=CONTINUE)||LA71_0==DO||LA71_0==ENUM||(LA71_0>=FOR && LA71_0<=IF)||LA71_0==INTERFACE||LA71_0==RETURN||(LA71_0>=SWITCH && LA71_0<=SYNCHRONIZED)||LA71_0==THROW||LA71_0==TRY||LA71_0==WHILE||LA71_0==BLOCK_SCOPE||LA71_0==EXPR||LA71_0==FOR_EACH||LA71_0==LABELED_STATEMENT||LA71_0==VAR_DECLARATION) ) {
-                        alt71=1;
+                    if ( (LA59_0==AT||LA59_0==SEMI||LA59_0==ASSERT||LA59_0==BREAK||(LA59_0>=CLASS && LA59_0<=CONTINUE)||LA59_0==DO||LA59_0==ENUM||(LA59_0>=FOR && LA59_0<=IF)||LA59_0==INTERFACE||LA59_0==RETURN||(LA59_0>=SWITCH && LA59_0<=SYNCHRONIZED)||LA59_0==THROW||LA59_0==TRY||LA59_0==WHILE||LA59_0==BLOCK_SCOPE||LA59_0==EXPR||LA59_0==FOR_EACH||LA59_0==LABELED_STATEMENT||LA59_0==VAR_DECLARATION) ) {
+                        alt59=1;
                     }
 
 
-                    switch (alt71) {
+                    switch (alt59) {
                 	case 1 :
                 	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: blockStatement
                 	    {
-                	    pushFollow(FOLLOW_blockStatement_in_block2162);
+                	    pushFollow(FOLLOW_blockStatement_in_block2056);
                 	    blockStatement();
 
                 	    state._fsp--;
@@ -4466,7 +4089,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 	    break;
 
                 	default :
-                	    break loop71;
+                	    break loop59;
                     }
                 } while (true);
 
@@ -4495,19 +4118,19 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "blockStatement"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:271:1: blockStatement : ( localVariableDeclaration | typeDeclaration | statement );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:269:1: blockStatement : ( localVariableDeclaration | typeDeclaration | statement );
     public final IntegrityVariablesParser.blockStatement_return blockStatement() throws RecognitionException {
         IntegrityVariablesParser.blockStatement_return retval = new IntegrityVariablesParser.blockStatement_return();
         retval.start = input.LT(1);
         int blockStatement_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 49) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:272:5: ( localVariableDeclaration | typeDeclaration | statement )
-            int alt72=3;
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:270:5: ( localVariableDeclaration | typeDeclaration | statement )
+            int alt60=3;
             switch ( input.LA(1) ) {
             case VAR_DECLARATION:
                 {
-                alt72=1;
+                alt60=1;
                 }
                 break;
             case AT:
@@ -4515,7 +4138,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             case ENUM:
             case INTERFACE:
                 {
-                alt72=2;
+                alt60=2;
                 }
                 break;
             case SEMI:
@@ -4536,22 +4159,22 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             case FOR_EACH:
             case LABELED_STATEMENT:
                 {
-                alt72=3;
+                alt60=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 72, 0, input);
+                    new NoViableAltException("", 60, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt72) {
+            switch (alt60) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:272:9: localVariableDeclaration
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:270:9: localVariableDeclaration
                     {
-                    pushFollow(FOLLOW_localVariableDeclaration_in_blockStatement2187);
+                    pushFollow(FOLLOW_localVariableDeclaration_in_blockStatement2081);
                     localVariableDeclaration();
 
                     state._fsp--;
@@ -4560,9 +4183,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:273:9: typeDeclaration
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:271:9: typeDeclaration
                     {
-                    pushFollow(FOLLOW_typeDeclaration_in_blockStatement2197);
+                    pushFollow(FOLLOW_typeDeclaration_in_blockStatement2091);
                     typeDeclaration();
 
                     state._fsp--;
@@ -4571,9 +4194,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 3 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:274:9: statement
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:272:9: statement
                     {
-                    pushFollow(FOLLOW_statement_in_blockStatement2207);
+                    pushFollow(FOLLOW_statement_in_blockStatement2101);
                     statement();
 
                     state._fsp--;
@@ -4602,30 +4225,30 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "localVariableDeclaration"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:277:1: localVariableDeclaration : ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:275:1: localVariableDeclaration : ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) ;
     public final IntegrityVariablesParser.localVariableDeclaration_return localVariableDeclaration() throws RecognitionException {
         IntegrityVariablesParser.localVariableDeclaration_return retval = new IntegrityVariablesParser.localVariableDeclaration_return();
         retval.start = input.LT(1);
         int localVariableDeclaration_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 50) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:278:5: ( ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:278:9: ^( VAR_DECLARATION localModifierList type variableDeclaratorList )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:276:5: ( ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:276:9: ^( VAR_DECLARATION localModifierList type variableDeclaratorList )
             {
-            match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2231); if (state.failed) return retval;
+            match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2125); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_localModifierList_in_localVariableDeclaration2233);
+            pushFollow(FOLLOW_localModifierList_in_localVariableDeclaration2127);
             localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_type_in_localVariableDeclaration2235);
+            pushFollow(FOLLOW_type_in_localVariableDeclaration2129);
             type();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_variableDeclaratorList_in_localVariableDeclaration2237);
+            pushFollow(FOLLOW_variableDeclaratorList_in_localVariableDeclaration2131);
             variableDeclaratorList();
 
             state._fsp--;
@@ -4654,21 +4277,21 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "statement"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:282:1: statement : ( block | ^( ASSERT expression ( expression )? ) | ^( IF parenthesizedExpression statement ( statement )? ) | ^( FOR forInit forCondition forUpdater statement ) | ^( FOR_EACH localModifierList type IDENT expression statement ) | ^( WHILE parenthesizedExpression statement ) | ^( DO statement parenthesizedExpression ) | ^( TRY block ( catches )? ( block )? ) | ^( SWITCH parenthesizedExpression switchBlockLabels ) | ^( SYNCHRONIZED parenthesizedExpression block ) | ^( RETURN ( expression )? ) | ^( THROW expression ) | ^( BREAK ( IDENT )? ) | ^( CONTINUE ( IDENT )? ) | ^( LABELED_STATEMENT IDENT statement ) | expression | SEMI );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:280:1: statement : ( block | ^( ASSERT expression ( expression )? ) | ^( IF parenthesizedExpression statement ( statement )? ) | ^( FOR forInit forCondition forUpdater statement ) | ^( FOR_EACH localModifierList type IDENT expression statement ) | ^( WHILE parenthesizedExpression statement ) | ^( DO statement parenthesizedExpression ) | ^( TRY block ( catches )? ( block )? ) | ^( SWITCH parenthesizedExpression switchBlockLabels ) | ^( SYNCHRONIZED parenthesizedExpression block ) | ^( RETURN ( expression )? ) | ^( THROW expression ) | ^( BREAK ( IDENT )? ) | ^( CONTINUE ( IDENT )? ) | ^( LABELED_STATEMENT IDENT statement ) | expression | SEMI );
     public final IntegrityVariablesParser.statement_return statement() throws RecognitionException {
         IntegrityVariablesParser.statement_return retval = new IntegrityVariablesParser.statement_return();
         retval.start = input.LT(1);
         int statement_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 51) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:283:5: ( block | ^( ASSERT expression ( expression )? ) | ^( IF parenthesizedExpression statement ( statement )? ) | ^( FOR forInit forCondition forUpdater statement ) | ^( FOR_EACH localModifierList type IDENT expression statement ) | ^( WHILE parenthesizedExpression statement ) | ^( DO statement parenthesizedExpression ) | ^( TRY block ( catches )? ( block )? ) | ^( SWITCH parenthesizedExpression switchBlockLabels ) | ^( SYNCHRONIZED parenthesizedExpression block ) | ^( RETURN ( expression )? ) | ^( THROW expression ) | ^( BREAK ( IDENT )? ) | ^( CONTINUE ( IDENT )? ) | ^( LABELED_STATEMENT IDENT statement ) | expression | SEMI )
-            int alt80=17;
-            alt80 = dfa80.predict(input);
-            switch (alt80) {
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:281:5: ( block | ^( ASSERT expression ( expression )? ) | ^( IF parenthesizedExpression statement ( statement )? ) | ^( FOR forInit forCondition forUpdater statement ) | ^( FOR_EACH localModifierList type IDENT expression statement ) | ^( WHILE parenthesizedExpression statement ) | ^( DO statement parenthesizedExpression ) | ^( TRY block ( catches )? ( block )? ) | ^( SWITCH parenthesizedExpression switchBlockLabels ) | ^( SYNCHRONIZED parenthesizedExpression block ) | ^( RETURN ( expression )? ) | ^( THROW expression ) | ^( BREAK ( IDENT )? ) | ^( CONTINUE ( IDENT )? ) | ^( LABELED_STATEMENT IDENT statement ) | expression | SEMI )
+            int alt68=17;
+            alt68 = dfa68.predict(input);
+            switch (alt68) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:283:9: block
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:281:9: block
                     {
-                    pushFollow(FOLLOW_block_in_statement2270);
+                    pushFollow(FOLLOW_block_in_statement2164);
                     block();
 
                     state._fsp--;
@@ -4677,28 +4300,28 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:284:9: ^( ASSERT expression ( expression )? )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:282:9: ^( ASSERT expression ( expression )? )
                     {
-                    match(input,ASSERT,FOLLOW_ASSERT_in_statement2281); if (state.failed) return retval;
+                    match(input,ASSERT,FOLLOW_ASSERT_in_statement2175); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expression_in_statement2283);
+                    pushFollow(FOLLOW_expression_in_statement2177);
                     expression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:284:29: ( expression )?
-                    int alt73=2;
-                    int LA73_0 = input.LA(1);
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:282:29: ( expression )?
+                    int alt61=2;
+                    int LA61_0 = input.LA(1);
 
-                    if ( (LA73_0==EXPR) ) {
-                        alt73=1;
+                    if ( (LA61_0==EXPR) ) {
+                        alt61=1;
                     }
-                    switch (alt73) {
+                    switch (alt61) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: expression
                             {
-                            pushFollow(FOLLOW_expression_in_statement2285);
+                            pushFollow(FOLLOW_expression_in_statement2179);
                             expression();
 
                             state._fsp--;
@@ -4715,33 +4338,33 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 3 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:285:9: ^( IF parenthesizedExpression statement ( statement )? )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:283:9: ^( IF parenthesizedExpression statement ( statement )? )
                     {
-                    match(input,IF,FOLLOW_IF_in_statement2298); if (state.failed) return retval;
+                    match(input,IF,FOLLOW_IF_in_statement2192); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement2300);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement2194);
                     parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement2302);
+                    pushFollow(FOLLOW_statement_in_statement2196);
                     statement();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:285:48: ( statement )?
-                    int alt74=2;
-                    int LA74_0 = input.LA(1);
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:283:48: ( statement )?
+                    int alt62=2;
+                    int LA62_0 = input.LA(1);
 
-                    if ( (LA74_0==SEMI||LA74_0==ASSERT||LA74_0==BREAK||LA74_0==CONTINUE||LA74_0==DO||(LA74_0>=FOR && LA74_0<=IF)||LA74_0==RETURN||(LA74_0>=SWITCH && LA74_0<=SYNCHRONIZED)||LA74_0==THROW||LA74_0==TRY||LA74_0==WHILE||LA74_0==BLOCK_SCOPE||LA74_0==EXPR||LA74_0==FOR_EACH||LA74_0==LABELED_STATEMENT) ) {
-                        alt74=1;
+                    if ( (LA62_0==SEMI||LA62_0==ASSERT||LA62_0==BREAK||LA62_0==CONTINUE||LA62_0==DO||(LA62_0>=FOR && LA62_0<=IF)||LA62_0==RETURN||(LA62_0>=SWITCH && LA62_0<=SYNCHRONIZED)||LA62_0==THROW||LA62_0==TRY||LA62_0==WHILE||LA62_0==BLOCK_SCOPE||LA62_0==EXPR||LA62_0==FOR_EACH||LA62_0==LABELED_STATEMENT) ) {
+                        alt62=1;
                     }
-                    switch (alt74) {
+                    switch (alt62) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: statement
                             {
-                            pushFollow(FOLLOW_statement_in_statement2304);
+                            pushFollow(FOLLOW_statement_in_statement2198);
                             statement();
 
                             state._fsp--;
@@ -4758,27 +4381,27 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 4 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:286:9: ^( FOR forInit forCondition forUpdater statement )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:284:9: ^( FOR forInit forCondition forUpdater statement )
                     {
-                    match(input,FOR,FOLLOW_FOR_in_statement2317); if (state.failed) return retval;
+                    match(input,FOR,FOLLOW_FOR_in_statement2211); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_forInit_in_statement2319);
+                    pushFollow(FOLLOW_forInit_in_statement2213);
                     forInit();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_forCondition_in_statement2321);
+                    pushFollow(FOLLOW_forCondition_in_statement2215);
                     forCondition();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_forUpdater_in_statement2323);
+                    pushFollow(FOLLOW_forUpdater_in_statement2217);
                     forUpdater();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement2325);
+                    pushFollow(FOLLOW_statement_in_statement2219);
                     statement();
 
                     state._fsp--;
@@ -4789,28 +4412,28 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 5 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:287:9: ^( FOR_EACH localModifierList type IDENT expression statement )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:285:9: ^( FOR_EACH localModifierList type IDENT expression statement )
                     {
-                    match(input,FOR_EACH,FOLLOW_FOR_EACH_in_statement2337); if (state.failed) return retval;
+                    match(input,FOR_EACH,FOLLOW_FOR_EACH_in_statement2231); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_localModifierList_in_statement2339);
+                    pushFollow(FOLLOW_localModifierList_in_statement2233);
                     localModifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_statement2341);
+                    pushFollow(FOLLOW_type_in_statement2235);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_statement2343); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expression_in_statement2345);
+                    match(input,IDENT,FOLLOW_IDENT_in_statement2237); if (state.failed) return retval;
+                    pushFollow(FOLLOW_expression_in_statement2239);
                     expression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement2347);
+                    pushFollow(FOLLOW_statement_in_statement2241);
                     statement();
 
                     state._fsp--;
@@ -4821,17 +4444,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 6 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:288:9: ^( WHILE parenthesizedExpression statement )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:286:9: ^( WHILE parenthesizedExpression statement )
                     {
-                    match(input,WHILE,FOLLOW_WHILE_in_statement2360); if (state.failed) return retval;
+                    match(input,WHILE,FOLLOW_WHILE_in_statement2254); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement2362);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement2256);
                     parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement2364);
+                    pushFollow(FOLLOW_statement_in_statement2258);
                     statement();
 
                     state._fsp--;
@@ -4842,17 +4465,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 7 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:289:9: ^( DO statement parenthesizedExpression )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:287:9: ^( DO statement parenthesizedExpression )
                     {
-                    match(input,DO,FOLLOW_DO_in_statement2376); if (state.failed) return retval;
+                    match(input,DO,FOLLOW_DO_in_statement2270); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement2378);
+                    pushFollow(FOLLOW_statement_in_statement2272);
                     statement();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement2380);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement2274);
                     parenthesizedExpression();
 
                     state._fsp--;
@@ -4863,28 +4486,28 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 8 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:290:9: ^( TRY block ( catches )? ( block )? )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:288:9: ^( TRY block ( catches )? ( block )? )
                     {
-                    match(input,TRY,FOLLOW_TRY_in_statement2392); if (state.failed) return retval;
+                    match(input,TRY,FOLLOW_TRY_in_statement2286); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_block_in_statement2394);
+                    pushFollow(FOLLOW_block_in_statement2288);
                     block();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:290:21: ( catches )?
-                    int alt75=2;
-                    int LA75_0 = input.LA(1);
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:288:21: ( catches )?
+                    int alt63=2;
+                    int LA63_0 = input.LA(1);
 
-                    if ( (LA75_0==CATCH_CLAUSE_LIST) ) {
-                        alt75=1;
+                    if ( (LA63_0==CATCH_CLAUSE_LIST) ) {
+                        alt63=1;
                     }
-                    switch (alt75) {
+                    switch (alt63) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: catches
                             {
-                            pushFollow(FOLLOW_catches_in_statement2396);
+                            pushFollow(FOLLOW_catches_in_statement2290);
                             catches();
 
                             state._fsp--;
@@ -4895,18 +4518,18 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     }
 
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:290:30: ( block )?
-                    int alt76=2;
-                    int LA76_0 = input.LA(1);
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:288:30: ( block )?
+                    int alt64=2;
+                    int LA64_0 = input.LA(1);
 
-                    if ( (LA76_0==BLOCK_SCOPE) ) {
-                        alt76=1;
+                    if ( (LA64_0==BLOCK_SCOPE) ) {
+                        alt64=1;
                     }
-                    switch (alt76) {
+                    switch (alt64) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: block
                             {
-                            pushFollow(FOLLOW_block_in_statement2399);
+                            pushFollow(FOLLOW_block_in_statement2293);
                             block();
 
                             state._fsp--;
@@ -4923,17 +4546,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 9 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:291:9: ^( SWITCH parenthesizedExpression switchBlockLabels )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:289:9: ^( SWITCH parenthesizedExpression switchBlockLabels )
                     {
-                    match(input,SWITCH,FOLLOW_SWITCH_in_statement2414); if (state.failed) return retval;
+                    match(input,SWITCH,FOLLOW_SWITCH_in_statement2308); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement2416);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement2310);
                     parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_switchBlockLabels_in_statement2418);
+                    pushFollow(FOLLOW_switchBlockLabels_in_statement2312);
                     switchBlockLabels();
 
                     state._fsp--;
@@ -4944,17 +4567,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 10 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:292:9: ^( SYNCHRONIZED parenthesizedExpression block )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:290:9: ^( SYNCHRONIZED parenthesizedExpression block )
                     {
-                    match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_statement2430); if (state.failed) return retval;
+                    match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_statement2324); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement2432);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement2326);
                     parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_block_in_statement2434);
+                    pushFollow(FOLLOW_block_in_statement2328);
                     block();
 
                     state._fsp--;
@@ -4965,24 +4588,24 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 11 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:293:9: ^( RETURN ( expression )? )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:291:9: ^( RETURN ( expression )? )
                     {
-                    match(input,RETURN,FOLLOW_RETURN_in_statement2446); if (state.failed) return retval;
+                    match(input,RETURN,FOLLOW_RETURN_in_statement2340); if (state.failed) return retval;
 
                     if ( input.LA(1)==Token.DOWN ) {
                         match(input, Token.DOWN, null); if (state.failed) return retval;
-                        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:293:18: ( expression )?
-                        int alt77=2;
-                        int LA77_0 = input.LA(1);
+                        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:291:18: ( expression )?
+                        int alt65=2;
+                        int LA65_0 = input.LA(1);
 
-                        if ( (LA77_0==EXPR) ) {
-                            alt77=1;
+                        if ( (LA65_0==EXPR) ) {
+                            alt65=1;
                         }
-                        switch (alt77) {
+                        switch (alt65) {
                             case 1 :
                                 // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: expression
                                 {
-                                pushFollow(FOLLOW_expression_in_statement2448);
+                                pushFollow(FOLLOW_expression_in_statement2342);
                                 expression();
 
                                 state._fsp--;
@@ -5000,12 +4623,12 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 12 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:294:9: ^( THROW expression )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:292:9: ^( THROW expression )
                     {
-                    match(input,THROW,FOLLOW_THROW_in_statement2461); if (state.failed) return retval;
+                    match(input,THROW,FOLLOW_THROW_in_statement2355); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expression_in_statement2463);
+                    pushFollow(FOLLOW_expression_in_statement2357);
                     expression();
 
                     state._fsp--;
@@ -5016,24 +4639,24 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 13 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:295:9: ^( BREAK ( IDENT )? )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:293:9: ^( BREAK ( IDENT )? )
                     {
-                    match(input,BREAK,FOLLOW_BREAK_in_statement2475); if (state.failed) return retval;
+                    match(input,BREAK,FOLLOW_BREAK_in_statement2369); if (state.failed) return retval;
 
                     if ( input.LA(1)==Token.DOWN ) {
                         match(input, Token.DOWN, null); if (state.failed) return retval;
-                        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:295:17: ( IDENT )?
-                        int alt78=2;
-                        int LA78_0 = input.LA(1);
+                        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:293:17: ( IDENT )?
+                        int alt66=2;
+                        int LA66_0 = input.LA(1);
 
-                        if ( (LA78_0==IDENT) ) {
-                            alt78=1;
+                        if ( (LA66_0==IDENT) ) {
+                            alt66=1;
                         }
-                        switch (alt78) {
+                        switch (alt66) {
                             case 1 :
                                 // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: IDENT
                                 {
-                                match(input,IDENT,FOLLOW_IDENT_in_statement2477); if (state.failed) return retval;
+                                match(input,IDENT,FOLLOW_IDENT_in_statement2371); if (state.failed) return retval;
 
                                 }
                                 break;
@@ -5047,24 +4670,24 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 14 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:296:9: ^( CONTINUE ( IDENT )? )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:294:9: ^( CONTINUE ( IDENT )? )
                     {
-                    match(input,CONTINUE,FOLLOW_CONTINUE_in_statement2490); if (state.failed) return retval;
+                    match(input,CONTINUE,FOLLOW_CONTINUE_in_statement2384); if (state.failed) return retval;
 
                     if ( input.LA(1)==Token.DOWN ) {
                         match(input, Token.DOWN, null); if (state.failed) return retval;
-                        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:296:20: ( IDENT )?
-                        int alt79=2;
-                        int LA79_0 = input.LA(1);
+                        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:294:20: ( IDENT )?
+                        int alt67=2;
+                        int LA67_0 = input.LA(1);
 
-                        if ( (LA79_0==IDENT) ) {
-                            alt79=1;
+                        if ( (LA67_0==IDENT) ) {
+                            alt67=1;
                         }
-                        switch (alt79) {
+                        switch (alt67) {
                             case 1 :
                                 // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: IDENT
                                 {
-                                match(input,IDENT,FOLLOW_IDENT_in_statement2492); if (state.failed) return retval;
+                                match(input,IDENT,FOLLOW_IDENT_in_statement2386); if (state.failed) return retval;
 
                                 }
                                 break;
@@ -5078,13 +4701,13 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 15 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:297:9: ^( LABELED_STATEMENT IDENT statement )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:295:9: ^( LABELED_STATEMENT IDENT statement )
                     {
-                    match(input,LABELED_STATEMENT,FOLLOW_LABELED_STATEMENT_in_statement2505); if (state.failed) return retval;
+                    match(input,LABELED_STATEMENT,FOLLOW_LABELED_STATEMENT_in_statement2399); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_statement2507); if (state.failed) return retval;
-                    pushFollow(FOLLOW_statement_in_statement2509);
+                    match(input,IDENT,FOLLOW_IDENT_in_statement2401); if (state.failed) return retval;
+                    pushFollow(FOLLOW_statement_in_statement2403);
                     statement();
 
                     state._fsp--;
@@ -5095,9 +4718,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 16 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:298:9: expression
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:296:9: expression
                     {
-                    pushFollow(FOLLOW_expression_in_statement2520);
+                    pushFollow(FOLLOW_expression_in_statement2414);
                     expression();
 
                     state._fsp--;
@@ -5106,9 +4729,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 17 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:299:9: SEMI
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:297:9: SEMI
                     {
-                    match(input,SEMI,FOLLOW_SEMI_in_statement2530); if (state.failed) return retval;
+                    match(input,SEMI,FOLLOW_SEMI_in_statement2424); if (state.failed) return retval;
 
                     }
                     break;
@@ -5133,36 +4756,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "catches"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:302:1: catches : ^( CATCH_CLAUSE_LIST ( catchClause )+ ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:300:1: catches : ^( CATCH_CLAUSE_LIST ( catchClause )+ ) ;
     public final IntegrityVariablesParser.catches_return catches() throws RecognitionException {
         IntegrityVariablesParser.catches_return retval = new IntegrityVariablesParser.catches_return();
         retval.start = input.LT(1);
         int catches_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 52) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:303:5: ( ^( CATCH_CLAUSE_LIST ( catchClause )+ ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:303:9: ^( CATCH_CLAUSE_LIST ( catchClause )+ )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:301:5: ( ^( CATCH_CLAUSE_LIST ( catchClause )+ ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:301:9: ^( CATCH_CLAUSE_LIST ( catchClause )+ )
             {
-            match(input,CATCH_CLAUSE_LIST,FOLLOW_CATCH_CLAUSE_LIST_in_catches2559); if (state.failed) return retval;
+            match(input,CATCH_CLAUSE_LIST,FOLLOW_CATCH_CLAUSE_LIST_in_catches2453); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:303:29: ( catchClause )+
-            int cnt81=0;
-            loop81:
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:301:29: ( catchClause )+
+            int cnt69=0;
+            loop69:
             do {
-                int alt81=2;
-                int LA81_0 = input.LA(1);
+                int alt69=2;
+                int LA69_0 = input.LA(1);
 
-                if ( (LA81_0==CATCH) ) {
-                    alt81=1;
+                if ( (LA69_0==CATCH) ) {
+                    alt69=1;
                 }
 
 
-                switch (alt81) {
+                switch (alt69) {
             	case 1 :
             	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: catchClause
             	    {
-            	    pushFollow(FOLLOW_catchClause_in_catches2561);
+            	    pushFollow(FOLLOW_catchClause_in_catches2455);
             	    catchClause();
 
             	    state._fsp--;
@@ -5172,13 +4795,13 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             	    break;
 
             	default :
-            	    if ( cnt81 >= 1 ) break loop81;
+            	    if ( cnt69 >= 1 ) break loop69;
             	    if (state.backtracking>0) {state.failed=true; return retval;}
                         EarlyExitException eee =
-                            new EarlyExitException(81, input);
+                            new EarlyExitException(69, input);
                         throw eee;
                 }
-                cnt81++;
+                cnt69++;
             } while (true);
 
 
@@ -5205,25 +4828,25 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "catchClause"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:306:1: catchClause : ^( CATCH formalParameterStandardDecl block ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:304:1: catchClause : ^( CATCH formalParameterStandardDecl block ) ;
     public final IntegrityVariablesParser.catchClause_return catchClause() throws RecognitionException {
         IntegrityVariablesParser.catchClause_return retval = new IntegrityVariablesParser.catchClause_return();
         retval.start = input.LT(1);
         int catchClause_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 53) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:307:5: ( ^( CATCH formalParameterStandardDecl block ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:307:9: ^( CATCH formalParameterStandardDecl block )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:305:5: ( ^( CATCH formalParameterStandardDecl block ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:305:9: ^( CATCH formalParameterStandardDecl block )
             {
-            match(input,CATCH,FOLLOW_CATCH_in_catchClause2587); if (state.failed) return retval;
+            match(input,CATCH,FOLLOW_CATCH_in_catchClause2481); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_formalParameterStandardDecl_in_catchClause2589);
+            pushFollow(FOLLOW_formalParameterStandardDecl_in_catchClause2483);
             formalParameterStandardDecl();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_block_in_catchClause2591);
+            pushFollow(FOLLOW_block_in_catchClause2485);
             block();
 
             state._fsp--;
@@ -5252,42 +4875,42 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "switchBlockLabels"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:310:1: switchBlockLabels : ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:308:1: switchBlockLabels : ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* ) ;
     public final IntegrityVariablesParser.switchBlockLabels_return switchBlockLabels() throws RecognitionException {
         IntegrityVariablesParser.switchBlockLabels_return retval = new IntegrityVariablesParser.switchBlockLabels_return();
         retval.start = input.LT(1);
         int switchBlockLabels_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 54) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:311:5: ( ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:311:9: ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:309:5: ( ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:309:9: ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* )
             {
-            match(input,SWITCH_BLOCK_LABEL_LIST,FOLLOW_SWITCH_BLOCK_LABEL_LIST_in_switchBlockLabels2612); if (state.failed) return retval;
+            match(input,SWITCH_BLOCK_LABEL_LIST,FOLLOW_SWITCH_BLOCK_LABEL_LIST_in_switchBlockLabels2506); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:311:35: ( switchCaseLabel )*
-                loop82:
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:309:35: ( switchCaseLabel )*
+                loop70:
                 do {
-                    int alt82=2;
-                    int LA82_0 = input.LA(1);
+                    int alt70=2;
+                    int LA70_0 = input.LA(1);
 
-                    if ( (LA82_0==CASE) ) {
-                        int LA82_2 = input.LA(2);
+                    if ( (LA70_0==CASE) ) {
+                        int LA70_2 = input.LA(2);
 
-                        if ( (synpred125_IntegrityVariablesParser()) ) {
-                            alt82=1;
+                        if ( (synpred111_IntegrityVariablesParser()) ) {
+                            alt70=1;
                         }
 
 
                     }
 
 
-                    switch (alt82) {
+                    switch (alt70) {
                 	case 1 :
                 	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: switchCaseLabel
                 	    {
-                	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels2614);
+                	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels2508);
                 	    switchCaseLabel();
 
                 	    state._fsp--;
@@ -5297,22 +4920,22 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 	    break;
 
                 	default :
-                	    break loop82;
+                	    break loop70;
                     }
                 } while (true);
 
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:311:52: ( switchDefaultLabel )?
-                int alt83=2;
-                int LA83_0 = input.LA(1);
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:309:52: ( switchDefaultLabel )?
+                int alt71=2;
+                int LA71_0 = input.LA(1);
 
-                if ( (LA83_0==DEFAULT) ) {
-                    alt83=1;
+                if ( (LA71_0==DEFAULT) ) {
+                    alt71=1;
                 }
-                switch (alt83) {
+                switch (alt71) {
                     case 1 :
                         // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: switchDefaultLabel
                         {
-                        pushFollow(FOLLOW_switchDefaultLabel_in_switchBlockLabels2617);
+                        pushFollow(FOLLOW_switchDefaultLabel_in_switchBlockLabels2511);
                         switchDefaultLabel();
 
                         state._fsp--;
@@ -5323,22 +4946,22 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                 }
 
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:311:72: ( switchCaseLabel )*
-                loop84:
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:309:72: ( switchCaseLabel )*
+                loop72:
                 do {
-                    int alt84=2;
-                    int LA84_0 = input.LA(1);
+                    int alt72=2;
+                    int LA72_0 = input.LA(1);
 
-                    if ( (LA84_0==CASE) ) {
-                        alt84=1;
+                    if ( (LA72_0==CASE) ) {
+                        alt72=1;
                     }
 
 
-                    switch (alt84) {
+                    switch (alt72) {
                 	case 1 :
                 	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: switchCaseLabel
                 	    {
-                	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels2620);
+                	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels2514);
                 	    switchCaseLabel();
 
                 	    state._fsp--;
@@ -5348,7 +4971,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 	    break;
 
                 	default :
-                	    break loop84;
+                	    break loop72;
                     }
                 } while (true);
 
@@ -5377,40 +5000,40 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "switchCaseLabel"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:314:1: switchCaseLabel : ^( CASE expression ( blockStatement )* ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:312:1: switchCaseLabel : ^( CASE expression ( blockStatement )* ) ;
     public final IntegrityVariablesParser.switchCaseLabel_return switchCaseLabel() throws RecognitionException {
         IntegrityVariablesParser.switchCaseLabel_return retval = new IntegrityVariablesParser.switchCaseLabel_return();
         retval.start = input.LT(1);
         int switchCaseLabel_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 55) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:315:5: ( ^( CASE expression ( blockStatement )* ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:315:9: ^( CASE expression ( blockStatement )* )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:313:5: ( ^( CASE expression ( blockStatement )* ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:313:9: ^( CASE expression ( blockStatement )* )
             {
-            match(input,CASE,FOLLOW_CASE_in_switchCaseLabel2650); if (state.failed) return retval;
+            match(input,CASE,FOLLOW_CASE_in_switchCaseLabel2544); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_expression_in_switchCaseLabel2652);
+            pushFollow(FOLLOW_expression_in_switchCaseLabel2546);
             expression();
 
             state._fsp--;
             if (state.failed) return retval;
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:315:27: ( blockStatement )*
-            loop85:
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:313:27: ( blockStatement )*
+            loop73:
             do {
-                int alt85=2;
-                int LA85_0 = input.LA(1);
+                int alt73=2;
+                int LA73_0 = input.LA(1);
 
-                if ( (LA85_0==AT||LA85_0==SEMI||LA85_0==ASSERT||LA85_0==BREAK||(LA85_0>=CLASS && LA85_0<=CONTINUE)||LA85_0==DO||LA85_0==ENUM||(LA85_0>=FOR && LA85_0<=IF)||LA85_0==INTERFACE||LA85_0==RETURN||(LA85_0>=SWITCH && LA85_0<=SYNCHRONIZED)||LA85_0==THROW||LA85_0==TRY||LA85_0==WHILE||LA85_0==BLOCK_SCOPE||LA85_0==EXPR||LA85_0==FOR_EACH||LA85_0==LABELED_STATEMENT||LA85_0==VAR_DECLARATION) ) {
-                    alt85=1;
+                if ( (LA73_0==AT||LA73_0==SEMI||LA73_0==ASSERT||LA73_0==BREAK||(LA73_0>=CLASS && LA73_0<=CONTINUE)||LA73_0==DO||LA73_0==ENUM||(LA73_0>=FOR && LA73_0<=IF)||LA73_0==INTERFACE||LA73_0==RETURN||(LA73_0>=SWITCH && LA73_0<=SYNCHRONIZED)||LA73_0==THROW||LA73_0==TRY||LA73_0==WHILE||LA73_0==BLOCK_SCOPE||LA73_0==EXPR||LA73_0==FOR_EACH||LA73_0==LABELED_STATEMENT||LA73_0==VAR_DECLARATION) ) {
+                    alt73=1;
                 }
 
 
-                switch (alt85) {
+                switch (alt73) {
             	case 1 :
             	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: blockStatement
             	    {
-            	    pushFollow(FOLLOW_blockStatement_in_switchCaseLabel2654);
+            	    pushFollow(FOLLOW_blockStatement_in_switchCaseLabel2548);
             	    blockStatement();
 
             	    state._fsp--;
@@ -5420,7 +5043,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             	    break;
 
             	default :
-            	    break loop85;
+            	    break loop73;
                 }
             } while (true);
 
@@ -5448,36 +5071,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "switchDefaultLabel"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:318:1: switchDefaultLabel : ^( DEFAULT ( blockStatement )* ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:316:1: switchDefaultLabel : ^( DEFAULT ( blockStatement )* ) ;
     public final IntegrityVariablesParser.switchDefaultLabel_return switchDefaultLabel() throws RecognitionException {
         IntegrityVariablesParser.switchDefaultLabel_return retval = new IntegrityVariablesParser.switchDefaultLabel_return();
         retval.start = input.LT(1);
         int switchDefaultLabel_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 56) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:319:5: ( ^( DEFAULT ( blockStatement )* ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:319:9: ^( DEFAULT ( blockStatement )* )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:317:5: ( ^( DEFAULT ( blockStatement )* ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:317:9: ^( DEFAULT ( blockStatement )* )
             {
-            match(input,DEFAULT,FOLLOW_DEFAULT_in_switchDefaultLabel2680); if (state.failed) return retval;
+            match(input,DEFAULT,FOLLOW_DEFAULT_in_switchDefaultLabel2574); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:319:19: ( blockStatement )*
-                loop86:
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:317:19: ( blockStatement )*
+                loop74:
                 do {
-                    int alt86=2;
-                    int LA86_0 = input.LA(1);
+                    int alt74=2;
+                    int LA74_0 = input.LA(1);
 
-                    if ( (LA86_0==AT||LA86_0==SEMI||LA86_0==ASSERT||LA86_0==BREAK||(LA86_0>=CLASS && LA86_0<=CONTINUE)||LA86_0==DO||LA86_0==ENUM||(LA86_0>=FOR && LA86_0<=IF)||LA86_0==INTERFACE||LA86_0==RETURN||(LA86_0>=SWITCH && LA86_0<=SYNCHRONIZED)||LA86_0==THROW||LA86_0==TRY||LA86_0==WHILE||LA86_0==BLOCK_SCOPE||LA86_0==EXPR||LA86_0==FOR_EACH||LA86_0==LABELED_STATEMENT||LA86_0==VAR_DECLARATION) ) {
-                        alt86=1;
+                    if ( (LA74_0==AT||LA74_0==SEMI||LA74_0==ASSERT||LA74_0==BREAK||(LA74_0>=CLASS && LA74_0<=CONTINUE)||LA74_0==DO||LA74_0==ENUM||(LA74_0>=FOR && LA74_0<=IF)||LA74_0==INTERFACE||LA74_0==RETURN||(LA74_0>=SWITCH && LA74_0<=SYNCHRONIZED)||LA74_0==THROW||LA74_0==TRY||LA74_0==WHILE||LA74_0==BLOCK_SCOPE||LA74_0==EXPR||LA74_0==FOR_EACH||LA74_0==LABELED_STATEMENT||LA74_0==VAR_DECLARATION) ) {
+                        alt74=1;
                     }
 
 
-                    switch (alt86) {
+                    switch (alt74) {
                 	case 1 :
                 	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: blockStatement
                 	    {
-                	    pushFollow(FOLLOW_blockStatement_in_switchDefaultLabel2682);
+                	    pushFollow(FOLLOW_blockStatement_in_switchDefaultLabel2576);
                 	    blockStatement();
 
                 	    state._fsp--;
@@ -5487,7 +5110,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 	    break;
 
                 	default :
-                	    break loop86;
+                	    break loop74;
                     }
                 } while (true);
 
@@ -5516,49 +5139,49 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "forInit"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:322:1: forInit : ^( FOR_INIT ( localVariableDeclaration | ( expression )* )? ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:320:1: forInit : ^( FOR_INIT ( localVariableDeclaration | ( expression )* )? ) ;
     public final IntegrityVariablesParser.forInit_return forInit() throws RecognitionException {
         IntegrityVariablesParser.forInit_return retval = new IntegrityVariablesParser.forInit_return();
         retval.start = input.LT(1);
         int forInit_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 57) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:323:5: ( ^( FOR_INIT ( localVariableDeclaration | ( expression )* )? ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:323:9: ^( FOR_INIT ( localVariableDeclaration | ( expression )* )? )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:321:5: ( ^( FOR_INIT ( localVariableDeclaration | ( expression )* )? ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:321:9: ^( FOR_INIT ( localVariableDeclaration | ( expression )* )? )
             {
-            match(input,FOR_INIT,FOLLOW_FOR_INIT_in_forInit2708); if (state.failed) return retval;
+            match(input,FOR_INIT,FOLLOW_FOR_INIT_in_forInit2602); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:323:20: ( localVariableDeclaration | ( expression )* )?
-                int alt88=3;
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:321:20: ( localVariableDeclaration | ( expression )* )?
+                int alt76=3;
                 switch ( input.LA(1) ) {
                     case VAR_DECLARATION:
                         {
-                        alt88=1;
+                        alt76=1;
                         }
                         break;
                     case EXPR:
                         {
-                        alt88=2;
+                        alt76=2;
                         }
                         break;
                     case UP:
                         {
-                        int LA88_3 = input.LA(2);
+                        int LA76_3 = input.LA(2);
 
-                        if ( (synpred132_IntegrityVariablesParser()) ) {
-                            alt88=2;
+                        if ( (synpred118_IntegrityVariablesParser()) ) {
+                            alt76=2;
                         }
                         }
                         break;
                 }
 
-                switch (alt88) {
+                switch (alt76) {
                     case 1 :
-                        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:323:21: localVariableDeclaration
+                        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:321:21: localVariableDeclaration
                         {
-                        pushFollow(FOLLOW_localVariableDeclaration_in_forInit2711);
+                        pushFollow(FOLLOW_localVariableDeclaration_in_forInit2605);
                         localVariableDeclaration();
 
                         state._fsp--;
@@ -5567,24 +5190,24 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                         }
                         break;
                     case 2 :
-                        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:323:48: ( expression )*
+                        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:321:48: ( expression )*
                         {
-                        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:323:48: ( expression )*
-                        loop87:
+                        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:321:48: ( expression )*
+                        loop75:
                         do {
-                            int alt87=2;
-                            int LA87_0 = input.LA(1);
+                            int alt75=2;
+                            int LA75_0 = input.LA(1);
 
-                            if ( (LA87_0==EXPR) ) {
-                                alt87=1;
+                            if ( (LA75_0==EXPR) ) {
+                                alt75=1;
                             }
 
 
-                            switch (alt87) {
+                            switch (alt75) {
                         	case 1 :
                         	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: expression
                         	    {
-                        	    pushFollow(FOLLOW_expression_in_forInit2715);
+                        	    pushFollow(FOLLOW_expression_in_forInit2609);
                         	    expression();
 
                         	    state._fsp--;
@@ -5594,7 +5217,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                         	    break;
 
                         	default :
-                        	    break loop87;
+                        	    break loop75;
                             }
                         } while (true);
 
@@ -5629,32 +5252,32 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "forCondition"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:326:1: forCondition : ^( FOR_CONDITION ( expression )? ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:324:1: forCondition : ^( FOR_CONDITION ( expression )? ) ;
     public final IntegrityVariablesParser.forCondition_return forCondition() throws RecognitionException {
         IntegrityVariablesParser.forCondition_return retval = new IntegrityVariablesParser.forCondition_return();
         retval.start = input.LT(1);
         int forCondition_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 58) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:327:5: ( ^( FOR_CONDITION ( expression )? ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:327:9: ^( FOR_CONDITION ( expression )? )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:325:5: ( ^( FOR_CONDITION ( expression )? ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:325:9: ^( FOR_CONDITION ( expression )? )
             {
-            match(input,FOR_CONDITION,FOLLOW_FOR_CONDITION_in_forCondition2743); if (state.failed) return retval;
+            match(input,FOR_CONDITION,FOLLOW_FOR_CONDITION_in_forCondition2637); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:327:25: ( expression )?
-                int alt89=2;
-                int LA89_0 = input.LA(1);
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:325:25: ( expression )?
+                int alt77=2;
+                int LA77_0 = input.LA(1);
 
-                if ( (LA89_0==EXPR) ) {
-                    alt89=1;
+                if ( (LA77_0==EXPR) ) {
+                    alt77=1;
                 }
-                switch (alt89) {
+                switch (alt77) {
                     case 1 :
                         // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: expression
                         {
-                        pushFollow(FOLLOW_expression_in_forCondition2745);
+                        pushFollow(FOLLOW_expression_in_forCondition2639);
                         expression();
 
                         state._fsp--;
@@ -5690,36 +5313,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "forUpdater"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:330:1: forUpdater : ^( FOR_UPDATE ( expression )* ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:328:1: forUpdater : ^( FOR_UPDATE ( expression )* ) ;
     public final IntegrityVariablesParser.forUpdater_return forUpdater() throws RecognitionException {
         IntegrityVariablesParser.forUpdater_return retval = new IntegrityVariablesParser.forUpdater_return();
         retval.start = input.LT(1);
         int forUpdater_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 59) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:331:5: ( ^( FOR_UPDATE ( expression )* ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:331:9: ^( FOR_UPDATE ( expression )* )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:329:5: ( ^( FOR_UPDATE ( expression )* ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:329:9: ^( FOR_UPDATE ( expression )* )
             {
-            match(input,FOR_UPDATE,FOLLOW_FOR_UPDATE_in_forUpdater2771); if (state.failed) return retval;
+            match(input,FOR_UPDATE,FOLLOW_FOR_UPDATE_in_forUpdater2665); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:331:22: ( expression )*
-                loop90:
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:329:22: ( expression )*
+                loop78:
                 do {
-                    int alt90=2;
-                    int LA90_0 = input.LA(1);
+                    int alt78=2;
+                    int LA78_0 = input.LA(1);
 
-                    if ( (LA90_0==EXPR) ) {
-                        alt90=1;
+                    if ( (LA78_0==EXPR) ) {
+                        alt78=1;
                     }
 
 
-                    switch (alt90) {
+                    switch (alt78) {
                 	case 1 :
                 	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: expression
                 	    {
-                	    pushFollow(FOLLOW_expression_in_forUpdater2773);
+                	    pushFollow(FOLLOW_expression_in_forUpdater2667);
                 	    expression();
 
                 	    state._fsp--;
@@ -5729,7 +5352,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 	    break;
 
                 	default :
-                	    break loop90;
+                	    break loop78;
                     }
                 } while (true);
 
@@ -5758,20 +5381,20 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "parenthesizedExpression"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:336:1: parenthesizedExpression : ^( PARENTESIZED_EXPR expression ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:334:1: parenthesizedExpression : ^( PARENTESIZED_EXPR expression ) ;
     public final IntegrityVariablesParser.parenthesizedExpression_return parenthesizedExpression() throws RecognitionException {
         IntegrityVariablesParser.parenthesizedExpression_return retval = new IntegrityVariablesParser.parenthesizedExpression_return();
         retval.start = input.LT(1);
         int parenthesizedExpression_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 60) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:337:5: ( ^( PARENTESIZED_EXPR expression ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:337:9: ^( PARENTESIZED_EXPR expression )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:335:5: ( ^( PARENTESIZED_EXPR expression ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:335:9: ^( PARENTESIZED_EXPR expression )
             {
-            match(input,PARENTESIZED_EXPR,FOLLOW_PARENTESIZED_EXPR_in_parenthesizedExpression2801); if (state.failed) return retval;
+            match(input,PARENTESIZED_EXPR,FOLLOW_PARENTESIZED_EXPR_in_parenthesizedExpression2695); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_expression_in_parenthesizedExpression2803);
+            pushFollow(FOLLOW_expression_in_parenthesizedExpression2697);
             expression();
 
             state._fsp--;
@@ -5800,20 +5423,20 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "expression"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:340:1: expression : ^( EXPR expr ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:338:1: expression : ^( EXPR expr ) ;
     public final IntegrityVariablesParser.expression_return expression() throws RecognitionException {
         IntegrityVariablesParser.expression_return retval = new IntegrityVariablesParser.expression_return();
         retval.start = input.LT(1);
         int expression_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 61) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:341:5: ( ^( EXPR expr ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:341:9: ^( EXPR expr )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:339:5: ( ^( EXPR expr ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:339:9: ^( EXPR expr )
             {
-            match(input,EXPR,FOLLOW_EXPR_in_expression2828); if (state.failed) return retval;
+            match(input,EXPR,FOLLOW_EXPR_in_expression2722); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_expr_in_expression2830);
+            pushFollow(FOLLOW_expr_in_expression2724);
             expr();
 
             state._fsp--;
@@ -5842,29 +5465,29 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "expr"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:344:1: expr : ( ^( ASSIGN expr expr ) | ^( PLUS_ASSIGN expr expr ) | ^( MINUS_ASSIGN expr expr ) | ^( STAR_ASSIGN expr expr ) | ^( DIV_ASSIGN expr expr ) | ^( AND_ASSIGN expr expr ) | ^( OR_ASSIGN expr expr ) | ^( XOR_ASSIGN expr expr ) | ^( MOD_ASSIGN expr expr ) | ^( BIT_SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_LEFT_ASSIGN expr expr ) | ^( QUESTION expr expr expr ) | ^( LOGICAL_OR expr expr ) | ^( LOGICAL_AND expr expr ) | ^( OR expr expr ) | ^( XOR expr expr ) | ^( AND expr expr ) | ^( EQUAL expr expr ) | ^( NOT_EQUAL expr expr ) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL expr expr ) | ^( GREATER_OR_EQUAL expr expr ) | ^( BIT_SHIFT_RIGHT expr expr ) | ^( SHIFT_RIGHT expr expr ) | ^( GREATER_THAN expr expr ) | ^( SHIFT_LEFT expr expr ) | ^( LESS_THAN expr expr ) | ^( PLUS expr expr ) | ^( MINUS expr expr ) | ^( STAR expr expr ) | ^( DIV expr expr ) | ^( MOD expr expr ) | ^( UNARY_PLUS expr ) | ^( UNARY_MINUS expr ) | ^( PRE_INC expr ) | ^( PRE_DEC expr ) | ^( POST_INC expr ) | ^( POST_DEC expr ) | ^( NOT expr ) | ^( LOGICAL_NOT expr ) | ^( CAST_EXPR type expr ) | primaryExpression );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:342:1: expr : ( ^( ASSIGN expr expr ) | ^( PLUS_ASSIGN expr expr ) | ^( MINUS_ASSIGN expr expr ) | ^( STAR_ASSIGN expr expr ) | ^( DIV_ASSIGN expr expr ) | ^( AND_ASSIGN expr expr ) | ^( OR_ASSIGN expr expr ) | ^( XOR_ASSIGN expr expr ) | ^( MOD_ASSIGN expr expr ) | ^( BIT_SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_LEFT_ASSIGN expr expr ) | ^( QUESTION expr expr expr ) | ^( LOGICAL_OR expr expr ) | ^( LOGICAL_AND expr expr ) | ^( OR expr expr ) | ^( XOR expr expr ) | ^( AND expr expr ) | ^( EQUAL expr expr ) | ^( NOT_EQUAL expr expr ) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL expr expr ) | ^( GREATER_OR_EQUAL expr expr ) | ^( BIT_SHIFT_RIGHT expr expr ) | ^( SHIFT_RIGHT expr expr ) | ^( GREATER_THAN expr expr ) | ^( SHIFT_LEFT expr expr ) | ^( LESS_THAN expr expr ) | ^( PLUS expr expr ) | ^( MINUS expr expr ) | ^( STAR expr expr ) | ^( DIV expr expr ) | ^( MOD expr expr ) | ^( UNARY_PLUS expr ) | ^( UNARY_MINUS expr ) | ^( PRE_INC expr ) | ^( PRE_DEC expr ) | ^( POST_INC expr ) | ^( POST_DEC expr ) | ^( NOT expr ) | ^( LOGICAL_NOT expr ) | ^( CAST_EXPR type expr ) | primaryExpression );
     public final IntegrityVariablesParser.expr_return expr() throws RecognitionException {
         IntegrityVariablesParser.expr_return retval = new IntegrityVariablesParser.expr_return();
         retval.start = input.LT(1);
         int expr_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 62) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:345:5: ( ^( ASSIGN expr expr ) | ^( PLUS_ASSIGN expr expr ) | ^( MINUS_ASSIGN expr expr ) | ^( STAR_ASSIGN expr expr ) | ^( DIV_ASSIGN expr expr ) | ^( AND_ASSIGN expr expr ) | ^( OR_ASSIGN expr expr ) | ^( XOR_ASSIGN expr expr ) | ^( MOD_ASSIGN expr expr ) | ^( BIT_SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_LEFT_ASSIGN expr expr ) | ^( QUESTION expr expr expr ) | ^( LOGICAL_OR expr expr ) | ^( LOGICAL_AND expr expr ) | ^( OR expr expr ) | ^( XOR expr expr ) | ^( AND expr expr ) | ^( EQUAL expr expr ) | ^( NOT_EQUAL expr expr ) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL expr expr ) | ^( GREATER_OR_EQUAL expr expr ) | ^( BIT_SHIFT_RIGHT expr expr ) | ^( SHIFT_RIGHT expr expr ) | ^( GREATER_THAN expr expr ) | ^( SHIFT_LEFT expr expr ) | ^( LESS_THAN expr expr ) | ^( PLUS expr expr ) | ^( MINUS expr expr ) | ^( STAR expr expr ) | ^( DIV expr expr ) | ^( MOD expr expr ) | ^( UNARY_PLUS expr ) | ^( UNARY_MINUS expr ) | ^( PRE_INC expr ) | ^( PRE_DEC expr ) | ^( POST_INC expr ) | ^( POST_DEC expr ) | ^( NOT expr ) | ^( LOGICAL_NOT expr ) | ^( CAST_EXPR type expr ) | primaryExpression )
-            int alt91=43;
-            alt91 = dfa91.predict(input);
-            switch (alt91) {
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:343:5: ( ^( ASSIGN expr expr ) | ^( PLUS_ASSIGN expr expr ) | ^( MINUS_ASSIGN expr expr ) | ^( STAR_ASSIGN expr expr ) | ^( DIV_ASSIGN expr expr ) | ^( AND_ASSIGN expr expr ) | ^( OR_ASSIGN expr expr ) | ^( XOR_ASSIGN expr expr ) | ^( MOD_ASSIGN expr expr ) | ^( BIT_SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_LEFT_ASSIGN expr expr ) | ^( QUESTION expr expr expr ) | ^( LOGICAL_OR expr expr ) | ^( LOGICAL_AND expr expr ) | ^( OR expr expr ) | ^( XOR expr expr ) | ^( AND expr expr ) | ^( EQUAL expr expr ) | ^( NOT_EQUAL expr expr ) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL expr expr ) | ^( GREATER_OR_EQUAL expr expr ) | ^( BIT_SHIFT_RIGHT expr expr ) | ^( SHIFT_RIGHT expr expr ) | ^( GREATER_THAN expr expr ) | ^( SHIFT_LEFT expr expr ) | ^( LESS_THAN expr expr ) | ^( PLUS expr expr ) | ^( MINUS expr expr ) | ^( STAR expr expr ) | ^( DIV expr expr ) | ^( MOD expr expr ) | ^( UNARY_PLUS expr ) | ^( UNARY_MINUS expr ) | ^( PRE_INC expr ) | ^( PRE_DEC expr ) | ^( POST_INC expr ) | ^( POST_DEC expr ) | ^( NOT expr ) | ^( LOGICAL_NOT expr ) | ^( CAST_EXPR type expr ) | primaryExpression )
+            int alt79=43;
+            alt79 = dfa79.predict(input);
+            switch (alt79) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:345:9: ^( ASSIGN expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:343:9: ^( ASSIGN expr expr )
                     {
-                    match(input,ASSIGN,FOLLOW_ASSIGN_in_expr2851); if (state.failed) return retval;
+                    match(input,ASSIGN,FOLLOW_ASSIGN_in_expr2745); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2853);
+                    pushFollow(FOLLOW_expr_in_expr2747);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2855);
+                    pushFollow(FOLLOW_expr_in_expr2749);
                     expr();
 
                     state._fsp--;
@@ -5875,17 +5498,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:346:9: ^( PLUS_ASSIGN expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:344:9: ^( PLUS_ASSIGN expr expr )
                     {
-                    match(input,PLUS_ASSIGN,FOLLOW_PLUS_ASSIGN_in_expr2867); if (state.failed) return retval;
+                    match(input,PLUS_ASSIGN,FOLLOW_PLUS_ASSIGN_in_expr2761); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2869);
+                    pushFollow(FOLLOW_expr_in_expr2763);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2871);
+                    pushFollow(FOLLOW_expr_in_expr2765);
                     expr();
 
                     state._fsp--;
@@ -5896,17 +5519,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 3 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:347:9: ^( MINUS_ASSIGN expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:345:9: ^( MINUS_ASSIGN expr expr )
                     {
-                    match(input,MINUS_ASSIGN,FOLLOW_MINUS_ASSIGN_in_expr2883); if (state.failed) return retval;
+                    match(input,MINUS_ASSIGN,FOLLOW_MINUS_ASSIGN_in_expr2777); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2885);
+                    pushFollow(FOLLOW_expr_in_expr2779);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2887);
+                    pushFollow(FOLLOW_expr_in_expr2781);
                     expr();
 
                     state._fsp--;
@@ -5917,17 +5540,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 4 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:348:9: ^( STAR_ASSIGN expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:346:9: ^( STAR_ASSIGN expr expr )
                     {
-                    match(input,STAR_ASSIGN,FOLLOW_STAR_ASSIGN_in_expr2899); if (state.failed) return retval;
+                    match(input,STAR_ASSIGN,FOLLOW_STAR_ASSIGN_in_expr2793); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2901);
+                    pushFollow(FOLLOW_expr_in_expr2795);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2903);
+                    pushFollow(FOLLOW_expr_in_expr2797);
                     expr();
 
                     state._fsp--;
@@ -5938,17 +5561,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 5 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:349:9: ^( DIV_ASSIGN expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:347:9: ^( DIV_ASSIGN expr expr )
                     {
-                    match(input,DIV_ASSIGN,FOLLOW_DIV_ASSIGN_in_expr2915); if (state.failed) return retval;
+                    match(input,DIV_ASSIGN,FOLLOW_DIV_ASSIGN_in_expr2809); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2917);
+                    pushFollow(FOLLOW_expr_in_expr2811);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2919);
+                    pushFollow(FOLLOW_expr_in_expr2813);
                     expr();
 
                     state._fsp--;
@@ -5959,17 +5582,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 6 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:350:9: ^( AND_ASSIGN expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:348:9: ^( AND_ASSIGN expr expr )
                     {
-                    match(input,AND_ASSIGN,FOLLOW_AND_ASSIGN_in_expr2931); if (state.failed) return retval;
+                    match(input,AND_ASSIGN,FOLLOW_AND_ASSIGN_in_expr2825); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2933);
+                    pushFollow(FOLLOW_expr_in_expr2827);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2935);
+                    pushFollow(FOLLOW_expr_in_expr2829);
                     expr();
 
                     state._fsp--;
@@ -5980,17 +5603,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 7 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:351:9: ^( OR_ASSIGN expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:349:9: ^( OR_ASSIGN expr expr )
                     {
-                    match(input,OR_ASSIGN,FOLLOW_OR_ASSIGN_in_expr2947); if (state.failed) return retval;
+                    match(input,OR_ASSIGN,FOLLOW_OR_ASSIGN_in_expr2841); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2949);
+                    pushFollow(FOLLOW_expr_in_expr2843);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2951);
+                    pushFollow(FOLLOW_expr_in_expr2845);
                     expr();
 
                     state._fsp--;
@@ -6001,17 +5624,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 8 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:352:9: ^( XOR_ASSIGN expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:350:9: ^( XOR_ASSIGN expr expr )
                     {
-                    match(input,XOR_ASSIGN,FOLLOW_XOR_ASSIGN_in_expr2963); if (state.failed) return retval;
+                    match(input,XOR_ASSIGN,FOLLOW_XOR_ASSIGN_in_expr2857); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2965);
+                    pushFollow(FOLLOW_expr_in_expr2859);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2967);
+                    pushFollow(FOLLOW_expr_in_expr2861);
                     expr();
 
                     state._fsp--;
@@ -6022,17 +5645,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 9 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:353:9: ^( MOD_ASSIGN expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:351:9: ^( MOD_ASSIGN expr expr )
                     {
-                    match(input,MOD_ASSIGN,FOLLOW_MOD_ASSIGN_in_expr2979); if (state.failed) return retval;
+                    match(input,MOD_ASSIGN,FOLLOW_MOD_ASSIGN_in_expr2873); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2981);
+                    pushFollow(FOLLOW_expr_in_expr2875);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2983);
+                    pushFollow(FOLLOW_expr_in_expr2877);
                     expr();
 
                     state._fsp--;
@@ -6043,17 +5666,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 10 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:354:9: ^( BIT_SHIFT_RIGHT_ASSIGN expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:352:9: ^( BIT_SHIFT_RIGHT_ASSIGN expr expr )
                     {
-                    match(input,BIT_SHIFT_RIGHT_ASSIGN,FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_expr2995); if (state.failed) return retval;
+                    match(input,BIT_SHIFT_RIGHT_ASSIGN,FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_expr2889); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2997);
+                    pushFollow(FOLLOW_expr_in_expr2891);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2999);
+                    pushFollow(FOLLOW_expr_in_expr2893);
                     expr();
 
                     state._fsp--;
@@ -6064,17 +5687,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 11 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:355:9: ^( SHIFT_RIGHT_ASSIGN expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:353:9: ^( SHIFT_RIGHT_ASSIGN expr expr )
                     {
-                    match(input,SHIFT_RIGHT_ASSIGN,FOLLOW_SHIFT_RIGHT_ASSIGN_in_expr3011); if (state.failed) return retval;
+                    match(input,SHIFT_RIGHT_ASSIGN,FOLLOW_SHIFT_RIGHT_ASSIGN_in_expr2905); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3013);
+                    pushFollow(FOLLOW_expr_in_expr2907);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3015);
+                    pushFollow(FOLLOW_expr_in_expr2909);
                     expr();
 
                     state._fsp--;
@@ -6085,17 +5708,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 12 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:356:9: ^( SHIFT_LEFT_ASSIGN expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:354:9: ^( SHIFT_LEFT_ASSIGN expr expr )
                     {
-                    match(input,SHIFT_LEFT_ASSIGN,FOLLOW_SHIFT_LEFT_ASSIGN_in_expr3027); if (state.failed) return retval;
+                    match(input,SHIFT_LEFT_ASSIGN,FOLLOW_SHIFT_LEFT_ASSIGN_in_expr2921); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3029);
+                    pushFollow(FOLLOW_expr_in_expr2923);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3031);
+                    pushFollow(FOLLOW_expr_in_expr2925);
                     expr();
 
                     state._fsp--;
@@ -6106,22 +5729,22 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 13 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:357:9: ^( QUESTION expr expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:355:9: ^( QUESTION expr expr expr )
                     {
-                    match(input,QUESTION,FOLLOW_QUESTION_in_expr3043); if (state.failed) return retval;
+                    match(input,QUESTION,FOLLOW_QUESTION_in_expr2937); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3045);
+                    pushFollow(FOLLOW_expr_in_expr2939);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3047);
+                    pushFollow(FOLLOW_expr_in_expr2941);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3049);
+                    pushFollow(FOLLOW_expr_in_expr2943);
                     expr();
 
                     state._fsp--;
@@ -6132,17 +5755,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 14 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:358:9: ^( LOGICAL_OR expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:356:9: ^( LOGICAL_OR expr expr )
                     {
-                    match(input,LOGICAL_OR,FOLLOW_LOGICAL_OR_in_expr3061); if (state.failed) return retval;
+                    match(input,LOGICAL_OR,FOLLOW_LOGICAL_OR_in_expr2955); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3063);
+                    pushFollow(FOLLOW_expr_in_expr2957);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3065);
+                    pushFollow(FOLLOW_expr_in_expr2959);
                     expr();
 
                     state._fsp--;
@@ -6153,17 +5776,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 15 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:359:9: ^( LOGICAL_AND expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:357:9: ^( LOGICAL_AND expr expr )
                     {
-                    match(input,LOGICAL_AND,FOLLOW_LOGICAL_AND_in_expr3077); if (state.failed) return retval;
+                    match(input,LOGICAL_AND,FOLLOW_LOGICAL_AND_in_expr2971); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3079);
+                    pushFollow(FOLLOW_expr_in_expr2973);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3081);
+                    pushFollow(FOLLOW_expr_in_expr2975);
                     expr();
 
                     state._fsp--;
@@ -6174,17 +5797,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 16 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:360:9: ^( OR expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:358:9: ^( OR expr expr )
                     {
-                    match(input,OR,FOLLOW_OR_in_expr3093); if (state.failed) return retval;
+                    match(input,OR,FOLLOW_OR_in_expr2987); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3095);
+                    pushFollow(FOLLOW_expr_in_expr2989);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3097);
+                    pushFollow(FOLLOW_expr_in_expr2991);
                     expr();
 
                     state._fsp--;
@@ -6195,17 +5818,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 17 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:361:9: ^( XOR expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:359:9: ^( XOR expr expr )
                     {
-                    match(input,XOR,FOLLOW_XOR_in_expr3109); if (state.failed) return retval;
+                    match(input,XOR,FOLLOW_XOR_in_expr3003); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3111);
+                    pushFollow(FOLLOW_expr_in_expr3005);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3113);
+                    pushFollow(FOLLOW_expr_in_expr3007);
                     expr();
 
                     state._fsp--;
@@ -6216,17 +5839,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 18 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:362:9: ^( AND expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:360:9: ^( AND expr expr )
                     {
-                    match(input,AND,FOLLOW_AND_in_expr3125); if (state.failed) return retval;
+                    match(input,AND,FOLLOW_AND_in_expr3019); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3127);
+                    pushFollow(FOLLOW_expr_in_expr3021);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3129);
+                    pushFollow(FOLLOW_expr_in_expr3023);
                     expr();
 
                     state._fsp--;
@@ -6237,17 +5860,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 19 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:363:9: ^( EQUAL expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:361:9: ^( EQUAL expr expr )
                     {
-                    match(input,EQUAL,FOLLOW_EQUAL_in_expr3141); if (state.failed) return retval;
+                    match(input,EQUAL,FOLLOW_EQUAL_in_expr3035); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3143);
+                    pushFollow(FOLLOW_expr_in_expr3037);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3145);
+                    pushFollow(FOLLOW_expr_in_expr3039);
                     expr();
 
                     state._fsp--;
@@ -6258,17 +5881,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 20 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:364:9: ^( NOT_EQUAL expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:362:9: ^( NOT_EQUAL expr expr )
                     {
-                    match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_expr3157); if (state.failed) return retval;
+                    match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_expr3051); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3159);
+                    pushFollow(FOLLOW_expr_in_expr3053);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3161);
+                    pushFollow(FOLLOW_expr_in_expr3055);
                     expr();
 
                     state._fsp--;
@@ -6279,17 +5902,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 21 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:365:9: ^( INSTANCEOF expr type )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:363:9: ^( INSTANCEOF expr type )
                     {
-                    match(input,INSTANCEOF,FOLLOW_INSTANCEOF_in_expr3173); if (state.failed) return retval;
+                    match(input,INSTANCEOF,FOLLOW_INSTANCEOF_in_expr3067); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3175);
+                    pushFollow(FOLLOW_expr_in_expr3069);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_expr3177);
+                    pushFollow(FOLLOW_type_in_expr3071);
                     type();
 
                     state._fsp--;
@@ -6300,17 +5923,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 22 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:366:9: ^( LESS_OR_EQUAL expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:364:9: ^( LESS_OR_EQUAL expr expr )
                     {
-                    match(input,LESS_OR_EQUAL,FOLLOW_LESS_OR_EQUAL_in_expr3189); if (state.failed) return retval;
+                    match(input,LESS_OR_EQUAL,FOLLOW_LESS_OR_EQUAL_in_expr3083); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3191);
+                    pushFollow(FOLLOW_expr_in_expr3085);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3193);
+                    pushFollow(FOLLOW_expr_in_expr3087);
                     expr();
 
                     state._fsp--;
@@ -6321,17 +5944,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 23 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:367:9: ^( GREATER_OR_EQUAL expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:365:9: ^( GREATER_OR_EQUAL expr expr )
                     {
-                    match(input,GREATER_OR_EQUAL,FOLLOW_GREATER_OR_EQUAL_in_expr3205); if (state.failed) return retval;
+                    match(input,GREATER_OR_EQUAL,FOLLOW_GREATER_OR_EQUAL_in_expr3099); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3207);
+                    pushFollow(FOLLOW_expr_in_expr3101);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3209);
+                    pushFollow(FOLLOW_expr_in_expr3103);
                     expr();
 
                     state._fsp--;
@@ -6342,17 +5965,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 24 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:368:9: ^( BIT_SHIFT_RIGHT expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:366:9: ^( BIT_SHIFT_RIGHT expr expr )
                     {
-                    match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_expr3221); if (state.failed) return retval;
+                    match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_expr3115); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3223);
+                    pushFollow(FOLLOW_expr_in_expr3117);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3225);
+                    pushFollow(FOLLOW_expr_in_expr3119);
                     expr();
 
                     state._fsp--;
@@ -6363,17 +5986,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 25 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:369:9: ^( SHIFT_RIGHT expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:367:9: ^( SHIFT_RIGHT expr expr )
                     {
-                    match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_expr3237); if (state.failed) return retval;
+                    match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_expr3131); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3239);
+                    pushFollow(FOLLOW_expr_in_expr3133);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3241);
+                    pushFollow(FOLLOW_expr_in_expr3135);
                     expr();
 
                     state._fsp--;
@@ -6384,17 +6007,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 26 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:370:9: ^( GREATER_THAN expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:368:9: ^( GREATER_THAN expr expr )
                     {
-                    match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_expr3253); if (state.failed) return retval;
+                    match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_expr3147); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3255);
+                    pushFollow(FOLLOW_expr_in_expr3149);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3257);
+                    pushFollow(FOLLOW_expr_in_expr3151);
                     expr();
 
                     state._fsp--;
@@ -6405,17 +6028,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 27 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:371:9: ^( SHIFT_LEFT expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:369:9: ^( SHIFT_LEFT expr expr )
                     {
-                    match(input,SHIFT_LEFT,FOLLOW_SHIFT_LEFT_in_expr3269); if (state.failed) return retval;
+                    match(input,SHIFT_LEFT,FOLLOW_SHIFT_LEFT_in_expr3163); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3271);
+                    pushFollow(FOLLOW_expr_in_expr3165);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3273);
+                    pushFollow(FOLLOW_expr_in_expr3167);
                     expr();
 
                     state._fsp--;
@@ -6426,17 +6049,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 28 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:372:9: ^( LESS_THAN expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:370:9: ^( LESS_THAN expr expr )
                     {
-                    match(input,LESS_THAN,FOLLOW_LESS_THAN_in_expr3285); if (state.failed) return retval;
+                    match(input,LESS_THAN,FOLLOW_LESS_THAN_in_expr3179); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3287);
+                    pushFollow(FOLLOW_expr_in_expr3181);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3289);
+                    pushFollow(FOLLOW_expr_in_expr3183);
                     expr();
 
                     state._fsp--;
@@ -6447,17 +6070,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 29 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:373:9: ^( PLUS expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:371:9: ^( PLUS expr expr )
                     {
-                    match(input,PLUS,FOLLOW_PLUS_in_expr3301); if (state.failed) return retval;
+                    match(input,PLUS,FOLLOW_PLUS_in_expr3195); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3303);
+                    pushFollow(FOLLOW_expr_in_expr3197);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3305);
+                    pushFollow(FOLLOW_expr_in_expr3199);
                     expr();
 
                     state._fsp--;
@@ -6468,17 +6091,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 30 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:374:9: ^( MINUS expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:372:9: ^( MINUS expr expr )
                     {
-                    match(input,MINUS,FOLLOW_MINUS_in_expr3317); if (state.failed) return retval;
+                    match(input,MINUS,FOLLOW_MINUS_in_expr3211); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3319);
+                    pushFollow(FOLLOW_expr_in_expr3213);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3321);
+                    pushFollow(FOLLOW_expr_in_expr3215);
                     expr();
 
                     state._fsp--;
@@ -6489,17 +6112,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 31 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:375:9: ^( STAR expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:373:9: ^( STAR expr expr )
                     {
-                    match(input,STAR,FOLLOW_STAR_in_expr3333); if (state.failed) return retval;
+                    match(input,STAR,FOLLOW_STAR_in_expr3227); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3335);
+                    pushFollow(FOLLOW_expr_in_expr3229);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3337);
+                    pushFollow(FOLLOW_expr_in_expr3231);
                     expr();
 
                     state._fsp--;
@@ -6510,17 +6133,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 32 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:376:9: ^( DIV expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:374:9: ^( DIV expr expr )
                     {
-                    match(input,DIV,FOLLOW_DIV_in_expr3349); if (state.failed) return retval;
+                    match(input,DIV,FOLLOW_DIV_in_expr3243); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3351);
+                    pushFollow(FOLLOW_expr_in_expr3245);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3353);
+                    pushFollow(FOLLOW_expr_in_expr3247);
                     expr();
 
                     state._fsp--;
@@ -6531,17 +6154,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 33 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:377:9: ^( MOD expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:375:9: ^( MOD expr expr )
                     {
-                    match(input,MOD,FOLLOW_MOD_in_expr3365); if (state.failed) return retval;
+                    match(input,MOD,FOLLOW_MOD_in_expr3259); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3367);
+                    pushFollow(FOLLOW_expr_in_expr3261);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3369);
+                    pushFollow(FOLLOW_expr_in_expr3263);
                     expr();
 
                     state._fsp--;
@@ -6552,12 +6175,12 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 34 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:378:9: ^( UNARY_PLUS expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:376:9: ^( UNARY_PLUS expr )
                     {
-                    match(input,UNARY_PLUS,FOLLOW_UNARY_PLUS_in_expr3381); if (state.failed) return retval;
+                    match(input,UNARY_PLUS,FOLLOW_UNARY_PLUS_in_expr3275); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3383);
+                    pushFollow(FOLLOW_expr_in_expr3277);
                     expr();
 
                     state._fsp--;
@@ -6568,12 +6191,12 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 35 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:379:9: ^( UNARY_MINUS expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:377:9: ^( UNARY_MINUS expr )
                     {
-                    match(input,UNARY_MINUS,FOLLOW_UNARY_MINUS_in_expr3395); if (state.failed) return retval;
+                    match(input,UNARY_MINUS,FOLLOW_UNARY_MINUS_in_expr3289); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3397);
+                    pushFollow(FOLLOW_expr_in_expr3291);
                     expr();
 
                     state._fsp--;
@@ -6584,12 +6207,12 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 36 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:380:9: ^( PRE_INC expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:378:9: ^( PRE_INC expr )
                     {
-                    match(input,PRE_INC,FOLLOW_PRE_INC_in_expr3409); if (state.failed) return retval;
+                    match(input,PRE_INC,FOLLOW_PRE_INC_in_expr3303); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3411);
+                    pushFollow(FOLLOW_expr_in_expr3305);
                     expr();
 
                     state._fsp--;
@@ -6600,12 +6223,12 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 37 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:381:9: ^( PRE_DEC expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:379:9: ^( PRE_DEC expr )
                     {
-                    match(input,PRE_DEC,FOLLOW_PRE_DEC_in_expr3423); if (state.failed) return retval;
+                    match(input,PRE_DEC,FOLLOW_PRE_DEC_in_expr3317); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3425);
+                    pushFollow(FOLLOW_expr_in_expr3319);
                     expr();
 
                     state._fsp--;
@@ -6616,12 +6239,12 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 38 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:382:9: ^( POST_INC expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:380:9: ^( POST_INC expr )
                     {
-                    match(input,POST_INC,FOLLOW_POST_INC_in_expr3437); if (state.failed) return retval;
+                    match(input,POST_INC,FOLLOW_POST_INC_in_expr3331); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3439);
+                    pushFollow(FOLLOW_expr_in_expr3333);
                     expr();
 
                     state._fsp--;
@@ -6632,12 +6255,12 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 39 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:383:9: ^( POST_DEC expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:381:9: ^( POST_DEC expr )
                     {
-                    match(input,POST_DEC,FOLLOW_POST_DEC_in_expr3451); if (state.failed) return retval;
+                    match(input,POST_DEC,FOLLOW_POST_DEC_in_expr3345); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3453);
+                    pushFollow(FOLLOW_expr_in_expr3347);
                     expr();
 
                     state._fsp--;
@@ -6648,12 +6271,12 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 40 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:384:9: ^( NOT expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:382:9: ^( NOT expr )
                     {
-                    match(input,NOT,FOLLOW_NOT_in_expr3465); if (state.failed) return retval;
+                    match(input,NOT,FOLLOW_NOT_in_expr3359); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3467);
+                    pushFollow(FOLLOW_expr_in_expr3361);
                     expr();
 
                     state._fsp--;
@@ -6664,12 +6287,12 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 41 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:385:9: ^( LOGICAL_NOT expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:383:9: ^( LOGICAL_NOT expr )
                     {
-                    match(input,LOGICAL_NOT,FOLLOW_LOGICAL_NOT_in_expr3479); if (state.failed) return retval;
+                    match(input,LOGICAL_NOT,FOLLOW_LOGICAL_NOT_in_expr3373); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3481);
+                    pushFollow(FOLLOW_expr_in_expr3375);
                     expr();
 
                     state._fsp--;
@@ -6680,17 +6303,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 42 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:386:9: ^( CAST_EXPR type expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:384:9: ^( CAST_EXPR type expr )
                     {
-                    match(input,CAST_EXPR,FOLLOW_CAST_EXPR_in_expr3493); if (state.failed) return retval;
+                    match(input,CAST_EXPR,FOLLOW_CAST_EXPR_in_expr3387); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_expr3495);
+                    pushFollow(FOLLOW_type_in_expr3389);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3497);
+                    pushFollow(FOLLOW_expr_in_expr3391);
                     expr();
 
                     state._fsp--;
@@ -6701,9 +6324,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 43 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:387:9: primaryExpression
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:385:9: primaryExpression
                     {
-                    pushFollow(FOLLOW_primaryExpression_in_expr3508);
+                    pushFollow(FOLLOW_primaryExpression_in_expr3402);
                     primaryExpression();
 
                     state._fsp--;
@@ -6732,25 +6355,25 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "primaryExpression"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:390:1: primaryExpression : ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS | arrayTypeDeclarator | SUPER );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:388:1: primaryExpression : ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS | arrayTypeDeclarator | SUPER );
     public final IntegrityVariablesParser.primaryExpression_return primaryExpression() throws RecognitionException {
         IntegrityVariablesParser.primaryExpression_return retval = new IntegrityVariablesParser.primaryExpression_return();
         retval.start = input.LT(1);
         int primaryExpression_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 63) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:391:5: ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS | arrayTypeDeclarator | SUPER )
-            int alt95=11;
-            alt95 = dfa95.predict(input);
-            switch (alt95) {
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:389:5: ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS | arrayTypeDeclarator | SUPER )
+            int alt83=11;
+            alt83 = dfa83.predict(input);
+            switch (alt83) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:391:9: ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:389:9: ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) )
                     {
-                    match(input,DOT,FOLLOW_DOT_in_primaryExpression3534); if (state.failed) return retval;
+                    match(input,DOT,FOLLOW_DOT_in_primaryExpression3428); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:392:13: ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS )
-                    int alt93=3;
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:390:13: ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS )
+                    int alt81=3;
                     switch ( input.LA(1) ) {
                     case DOT:
                     case FALSE:
@@ -6774,7 +6397,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     case CHARACTER_LITERAL:
                     case STRING_LITERAL:
                         {
-                        alt93=1;
+                        alt81=1;
                         }
                         break;
                     case BOOLEAN:
@@ -6786,93 +6409,93 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     case LONG:
                     case SHORT:
                         {
-                        alt93=2;
+                        alt81=2;
                         }
                         break;
                     case VOID:
                         {
-                        alt93=3;
+                        alt81=3;
                         }
                         break;
                     default:
                         if (state.backtracking>0) {state.failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 93, 0, input);
+                            new NoViableAltException("", 81, 0, input);
 
                         throw nvae;
                     }
 
-                    switch (alt93) {
+                    switch (alt81) {
                         case 1 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:392:17: primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS )
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:390:17: primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS )
                             {
-                            pushFollow(FOLLOW_primaryExpression_in_primaryExpression3552);
+                            pushFollow(FOLLOW_primaryExpression_in_primaryExpression3446);
                             primaryExpression();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:393:17: ( IDENT | THIS | SUPER | innerNewExpression | CLASS )
-                            int alt92=5;
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:391:17: ( IDENT | THIS | SUPER | innerNewExpression | CLASS )
+                            int alt80=5;
                             switch ( input.LA(1) ) {
                             case IDENT:
                                 {
-                                alt92=1;
+                                alt80=1;
                                 }
                                 break;
                             case THIS:
                                 {
-                                alt92=2;
+                                alt80=2;
                                 }
                                 break;
                             case SUPER:
                                 {
-                                alt92=3;
+                                alt80=3;
                                 }
                                 break;
                             case CLASS_CONSTRUCTOR_CALL:
                                 {
-                                alt92=4;
+                                alt80=4;
                                 }
                                 break;
                             case CLASS:
                                 {
-                                alt92=5;
+                                alt80=5;
                                 }
                                 break;
                             default:
                                 if (state.backtracking>0) {state.failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("", 92, 0, input);
+                                    new NoViableAltException("", 80, 0, input);
 
                                 throw nvae;
                             }
 
-                            switch (alt92) {
+                            switch (alt80) {
                                 case 1 :
-                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:393:21: IDENT
+                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:391:21: IDENT
                                     {
-                                    match(input,IDENT,FOLLOW_IDENT_in_primaryExpression3574); if (state.failed) return retval;
+                                    match(input,IDENT,FOLLOW_IDENT_in_primaryExpression3468); if (state.failed) return retval;
 
                                     }
                                     break;
                                 case 2 :
-                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:394:21: THIS
+                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:392:21: THIS
                                     {
-                                    match(input,THIS,FOLLOW_THIS_in_primaryExpression3596); if (state.failed) return retval;
+                                    match(input,THIS,FOLLOW_THIS_in_primaryExpression3490); if (state.failed) return retval;
 
                                     }
                                     break;
                                 case 3 :
-                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:395:21: SUPER
+                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:393:21: SUPER
                                     {
-                                    match(input,SUPER,FOLLOW_SUPER_in_primaryExpression3618); if (state.failed) return retval;
+                                    match(input,SUPER,FOLLOW_SUPER_in_primaryExpression3512); if (state.failed) return retval;
 
                                     }
                                     break;
                                 case 4 :
-                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:396:21: innerNewExpression
+                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:394:21: innerNewExpression
                                     {
-                                    pushFollow(FOLLOW_innerNewExpression_in_primaryExpression3640);
+                                    pushFollow(FOLLOW_innerNewExpression_in_primaryExpression3534);
                                     innerNewExpression();
 
                                     state._fsp--;
@@ -6881,9 +6504,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                                     }
                                     break;
                                 case 5 :
-                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:397:21: CLASS
+                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:395:21: CLASS
                                     {
-                                    match(input,CLASS,FOLLOW_CLASS_in_primaryExpression3662); if (state.failed) return retval;
+                                    match(input,CLASS,FOLLOW_CLASS_in_primaryExpression3556); if (state.failed) return retval;
 
                                     }
                                     break;
@@ -6894,22 +6517,22 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                             }
                             break;
                         case 2 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:399:17: primitiveType CLASS
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:397:17: primitiveType CLASS
                             {
-                            pushFollow(FOLLOW_primitiveType_in_primaryExpression3698);
+                            pushFollow(FOLLOW_primitiveType_in_primaryExpression3592);
                             primitiveType();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            match(input,CLASS,FOLLOW_CLASS_in_primaryExpression3700); if (state.failed) return retval;
+                            match(input,CLASS,FOLLOW_CLASS_in_primaryExpression3594); if (state.failed) return retval;
 
                             }
                             break;
                         case 3 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:400:17: VOID CLASS
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:398:17: VOID CLASS
                             {
-                            match(input,VOID,FOLLOW_VOID_in_primaryExpression3718); if (state.failed) return retval;
-                            match(input,CLASS,FOLLOW_CLASS_in_primaryExpression3720); if (state.failed) return retval;
+                            match(input,VOID,FOLLOW_VOID_in_primaryExpression3612); if (state.failed) return retval;
+                            match(input,CLASS,FOLLOW_CLASS_in_primaryExpression3614); if (state.failed) return retval;
 
                             }
                             break;
@@ -6922,9 +6545,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:403:9: parenthesizedExpression
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:401:9: parenthesizedExpression
                     {
-                    pushFollow(FOLLOW_parenthesizedExpression_in_primaryExpression3754);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_primaryExpression3648);
                     parenthesizedExpression();
 
                     state._fsp--;
@@ -6933,35 +6556,35 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 3 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:404:9: IDENT
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:402:9: IDENT
                     {
-                    match(input,IDENT,FOLLOW_IDENT_in_primaryExpression3764); if (state.failed) return retval;
+                    match(input,IDENT,FOLLOW_IDENT_in_primaryExpression3658); if (state.failed) return retval;
 
                     }
                     break;
                 case 4 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:405:9: ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:403:9: ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments )
                     {
-                    match(input,METHOD_CALL,FOLLOW_METHOD_CALL_in_primaryExpression3775); if (state.failed) return retval;
+                    match(input,METHOD_CALL,FOLLOW_METHOD_CALL_in_primaryExpression3669); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_primaryExpression_in_primaryExpression3777);
+                    pushFollow(FOLLOW_primaryExpression_in_primaryExpression3671);
                     primaryExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:405:41: ( genericTypeArgumentList )?
-                    int alt94=2;
-                    int LA94_0 = input.LA(1);
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:403:41: ( genericTypeArgumentList )?
+                    int alt82=2;
+                    int LA82_0 = input.LA(1);
 
-                    if ( (LA94_0==GENERIC_TYPE_ARG_LIST) ) {
-                        alt94=1;
+                    if ( (LA82_0==GENERIC_TYPE_ARG_LIST) ) {
+                        alt82=1;
                     }
-                    switch (alt94) {
+                    switch (alt82) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeArgumentList
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_primaryExpression3779);
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_primaryExpression3673);
                             genericTypeArgumentList();
 
                             state._fsp--;
@@ -6972,7 +6595,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_arguments_in_primaryExpression3782);
+                    pushFollow(FOLLOW_arguments_in_primaryExpression3676);
                     arguments();
 
                     state._fsp--;
@@ -6983,9 +6606,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 5 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:406:9: explicitConstructorCall
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:404:9: explicitConstructorCall
                     {
-                    pushFollow(FOLLOW_explicitConstructorCall_in_primaryExpression3793);
+                    pushFollow(FOLLOW_explicitConstructorCall_in_primaryExpression3687);
                     explicitConstructorCall();
 
                     state._fsp--;
@@ -6994,17 +6617,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 6 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:407:9: ^( ARRAY_ELEMENT_ACCESS primaryExpression expression )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:405:9: ^( ARRAY_ELEMENT_ACCESS primaryExpression expression )
                     {
-                    match(input,ARRAY_ELEMENT_ACCESS,FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression3804); if (state.failed) return retval;
+                    match(input,ARRAY_ELEMENT_ACCESS,FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression3698); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_primaryExpression_in_primaryExpression3806);
+                    pushFollow(FOLLOW_primaryExpression_in_primaryExpression3700);
                     primaryExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expression_in_primaryExpression3808);
+                    pushFollow(FOLLOW_expression_in_primaryExpression3702);
                     expression();
 
                     state._fsp--;
@@ -7015,9 +6638,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 7 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:408:9: literal
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:406:9: literal
                     {
-                    pushFollow(FOLLOW_literal_in_primaryExpression3819);
+                    pushFollow(FOLLOW_literal_in_primaryExpression3713);
                     literal();
 
                     state._fsp--;
@@ -7026,9 +6649,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 8 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:409:9: newExpression
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:407:9: newExpression
                     {
-                    pushFollow(FOLLOW_newExpression_in_primaryExpression3829);
+                    pushFollow(FOLLOW_newExpression_in_primaryExpression3723);
                     newExpression();
 
                     state._fsp--;
@@ -7037,16 +6660,16 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 9 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:410:9: THIS
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:408:9: THIS
                     {
-                    match(input,THIS,FOLLOW_THIS_in_primaryExpression3839); if (state.failed) return retval;
+                    match(input,THIS,FOLLOW_THIS_in_primaryExpression3733); if (state.failed) return retval;
 
                     }
                     break;
                 case 10 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:411:9: arrayTypeDeclarator
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:409:9: arrayTypeDeclarator
                     {
-                    pushFollow(FOLLOW_arrayTypeDeclarator_in_primaryExpression3849);
+                    pushFollow(FOLLOW_arrayTypeDeclarator_in_primaryExpression3743);
                     arrayTypeDeclarator();
 
                     state._fsp--;
@@ -7055,9 +6678,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 11 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:412:9: SUPER
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:410:9: SUPER
                     {
-                    match(input,SUPER,FOLLOW_SUPER_in_primaryExpression3859); if (state.failed) return retval;
+                    match(input,SUPER,FOLLOW_SUPER_in_primaryExpression3753); if (state.failed) return retval;
 
                     }
                     break;
@@ -7082,49 +6705,49 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "explicitConstructorCall"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:415:1: explicitConstructorCall : ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:413:1: explicitConstructorCall : ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) );
     public final IntegrityVariablesParser.explicitConstructorCall_return explicitConstructorCall() throws RecognitionException {
         IntegrityVariablesParser.explicitConstructorCall_return retval = new IntegrityVariablesParser.explicitConstructorCall_return();
         retval.start = input.LT(1);
         int explicitConstructorCall_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 64) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:416:5: ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) )
-            int alt99=2;
-            int LA99_0 = input.LA(1);
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:414:5: ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) )
+            int alt87=2;
+            int LA87_0 = input.LA(1);
 
-            if ( (LA99_0==THIS_CONSTRUCTOR_CALL) ) {
-                alt99=1;
+            if ( (LA87_0==THIS_CONSTRUCTOR_CALL) ) {
+                alt87=1;
             }
-            else if ( (LA99_0==SUPER_CONSTRUCTOR_CALL) ) {
-                alt99=2;
+            else if ( (LA87_0==SUPER_CONSTRUCTOR_CALL) ) {
+                alt87=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 99, 0, input);
+                    new NoViableAltException("", 87, 0, input);
 
                 throw nvae;
             }
-            switch (alt99) {
+            switch (alt87) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:416:9: ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:414:9: ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments )
                     {
-                    match(input,THIS_CONSTRUCTOR_CALL,FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall3883); if (state.failed) return retval;
+                    match(input,THIS_CONSTRUCTOR_CALL,FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall3777); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:416:33: ( genericTypeArgumentList )?
-                    int alt96=2;
-                    int LA96_0 = input.LA(1);
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:414:33: ( genericTypeArgumentList )?
+                    int alt84=2;
+                    int LA84_0 = input.LA(1);
 
-                    if ( (LA96_0==GENERIC_TYPE_ARG_LIST) ) {
-                        alt96=1;
+                    if ( (LA84_0==GENERIC_TYPE_ARG_LIST) ) {
+                        alt84=1;
                     }
-                    switch (alt96) {
+                    switch (alt84) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeArgumentList
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3885);
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3779);
                             genericTypeArgumentList();
 
                             state._fsp--;
@@ -7135,7 +6758,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall3888);
+                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall3782);
                     arguments();
 
                     state._fsp--;
@@ -7146,23 +6769,23 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:417:9: ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:415:9: ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments )
                     {
-                    match(input,SUPER_CONSTRUCTOR_CALL,FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall3900); if (state.failed) return retval;
+                    match(input,SUPER_CONSTRUCTOR_CALL,FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall3794); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:417:34: ( primaryExpression )?
-                    int alt97=2;
-                    int LA97_0 = input.LA(1);
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:415:34: ( primaryExpression )?
+                    int alt85=2;
+                    int LA85_0 = input.LA(1);
 
-                    if ( (LA97_0==DOT||LA97_0==FALSE||LA97_0==NULL||LA97_0==SUPER||LA97_0==THIS||LA97_0==TRUE||LA97_0==ARRAY_DECLARATOR||LA97_0==ARRAY_ELEMENT_ACCESS||LA97_0==CLASS_CONSTRUCTOR_CALL||LA97_0==METHOD_CALL||LA97_0==PARENTESIZED_EXPR||(LA97_0>=STATIC_ARRAY_CREATOR && LA97_0<=SUPER_CONSTRUCTOR_CALL)||LA97_0==THIS_CONSTRUCTOR_CALL||(LA97_0>=IDENT && LA97_0<=STRING_LITERAL)) ) {
-                        alt97=1;
+                    if ( (LA85_0==DOT||LA85_0==FALSE||LA85_0==NULL||LA85_0==SUPER||LA85_0==THIS||LA85_0==TRUE||LA85_0==ARRAY_DECLARATOR||LA85_0==ARRAY_ELEMENT_ACCESS||LA85_0==CLASS_CONSTRUCTOR_CALL||LA85_0==METHOD_CALL||LA85_0==PARENTESIZED_EXPR||(LA85_0>=STATIC_ARRAY_CREATOR && LA85_0<=SUPER_CONSTRUCTOR_CALL)||LA85_0==THIS_CONSTRUCTOR_CALL||(LA85_0>=IDENT && LA85_0<=STRING_LITERAL)) ) {
+                        alt85=1;
                     }
-                    switch (alt97) {
+                    switch (alt85) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: primaryExpression
                             {
-                            pushFollow(FOLLOW_primaryExpression_in_explicitConstructorCall3902);
+                            pushFollow(FOLLOW_primaryExpression_in_explicitConstructorCall3796);
                             primaryExpression();
 
                             state._fsp--;
@@ -7173,18 +6796,18 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     }
 
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:417:53: ( genericTypeArgumentList )?
-                    int alt98=2;
-                    int LA98_0 = input.LA(1);
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:415:53: ( genericTypeArgumentList )?
+                    int alt86=2;
+                    int LA86_0 = input.LA(1);
 
-                    if ( (LA98_0==GENERIC_TYPE_ARG_LIST) ) {
-                        alt98=1;
+                    if ( (LA86_0==GENERIC_TYPE_ARG_LIST) ) {
+                        alt86=1;
                     }
-                    switch (alt98) {
+                    switch (alt86) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeArgumentList
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3905);
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3799);
                             genericTypeArgumentList();
 
                             state._fsp--;
@@ -7195,7 +6818,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall3908);
+                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall3802);
                     arguments();
 
                     state._fsp--;
@@ -7226,31 +6849,31 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "arrayTypeDeclarator"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:420:1: arrayTypeDeclarator : ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:418:1: arrayTypeDeclarator : ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) ;
     public final IntegrityVariablesParser.arrayTypeDeclarator_return arrayTypeDeclarator() throws RecognitionException {
         IntegrityVariablesParser.arrayTypeDeclarator_return retval = new IntegrityVariablesParser.arrayTypeDeclarator_return();
         retval.start = input.LT(1);
         int arrayTypeDeclarator_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 65) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:421:5: ( ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:421:9: ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:419:5: ( ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:419:9: ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) )
             {
-            match(input,ARRAY_DECLARATOR,FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator3929); if (state.failed) return retval;
+            match(input,ARRAY_DECLARATOR,FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator3823); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:421:28: ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType )
-            int alt100=3;
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:419:28: ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType )
+            int alt88=3;
             switch ( input.LA(1) ) {
             case ARRAY_DECLARATOR:
                 {
-                alt100=1;
+                alt88=1;
                 }
                 break;
             case DOT:
             case IDENT:
                 {
-                alt100=2;
+                alt88=2;
                 }
                 break;
             case BOOLEAN:
@@ -7262,22 +6885,22 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             case LONG:
             case SHORT:
                 {
-                alt100=3;
+                alt88=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 100, 0, input);
+                    new NoViableAltException("", 88, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt100) {
+            switch (alt88) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:421:29: arrayTypeDeclarator
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:419:29: arrayTypeDeclarator
                     {
-                    pushFollow(FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator3932);
+                    pushFollow(FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator3826);
                     arrayTypeDeclarator();
 
                     state._fsp--;
@@ -7286,9 +6909,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:421:51: qualifiedIdentifier
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:419:51: qualifiedIdentifier
                     {
-                    pushFollow(FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator3936);
+                    pushFollow(FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator3830);
                     qualifiedIdentifier();
 
                     state._fsp--;
@@ -7297,9 +6920,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 3 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:421:73: primitiveType
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:419:73: primitiveType
                     {
-                    pushFollow(FOLLOW_primitiveType_in_arrayTypeDeclarator3940);
+                    pushFollow(FOLLOW_primitiveType_in_arrayTypeDeclarator3834);
                     primitiveType();
 
                     state._fsp--;
@@ -7334,64 +6957,64 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "newExpression"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:424:1: newExpression : ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:422:1: newExpression : ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) );
     public final IntegrityVariablesParser.newExpression_return newExpression() throws RecognitionException {
         IntegrityVariablesParser.newExpression_return retval = new IntegrityVariablesParser.newExpression_return();
         retval.start = input.LT(1);
         int newExpression_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 66) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:425:5: ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) )
-            int alt105=2;
-            int LA105_0 = input.LA(1);
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:423:5: ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) )
+            int alt93=2;
+            int LA93_0 = input.LA(1);
 
-            if ( (LA105_0==STATIC_ARRAY_CREATOR) ) {
-                alt105=1;
+            if ( (LA93_0==STATIC_ARRAY_CREATOR) ) {
+                alt93=1;
             }
-            else if ( (LA105_0==CLASS_CONSTRUCTOR_CALL) ) {
-                alt105=2;
+            else if ( (LA93_0==CLASS_CONSTRUCTOR_CALL) ) {
+                alt93=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 105, 0, input);
+                    new NoViableAltException("", 93, 0, input);
 
                 throw nvae;
             }
-            switch (alt105) {
+            switch (alt93) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:425:9: ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:423:9: ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) )
                     {
-                    match(input,STATIC_ARRAY_CREATOR,FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression3964); if (state.failed) return retval;
+                    match(input,STATIC_ARRAY_CREATOR,FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression3858); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:426:13: ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction )
-                    int alt102=2;
-                    int LA102_0 = input.LA(1);
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:424:13: ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction )
+                    int alt90=2;
+                    int LA90_0 = input.LA(1);
 
-                    if ( (LA102_0==BOOLEAN||LA102_0==BYTE||LA102_0==CHAR||LA102_0==DOUBLE||LA102_0==FLOAT||(LA102_0>=INT && LA102_0<=LONG)||LA102_0==SHORT) ) {
-                        alt102=1;
+                    if ( (LA90_0==BOOLEAN||LA90_0==BYTE||LA90_0==CHAR||LA90_0==DOUBLE||LA90_0==FLOAT||(LA90_0>=INT && LA90_0<=LONG)||LA90_0==SHORT) ) {
+                        alt90=1;
                     }
-                    else if ( (LA102_0==GENERIC_TYPE_ARG_LIST||LA102_0==QUALIFIED_TYPE_IDENT) ) {
-                        alt102=2;
+                    else if ( (LA90_0==GENERIC_TYPE_ARG_LIST||LA90_0==QUALIFIED_TYPE_IDENT) ) {
+                        alt90=2;
                     }
                     else {
                         if (state.backtracking>0) {state.failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 102, 0, input);
+                            new NoViableAltException("", 90, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt102) {
+                    switch (alt90) {
                         case 1 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:426:17: primitiveType newArrayConstruction
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:424:17: primitiveType newArrayConstruction
                             {
-                            pushFollow(FOLLOW_primitiveType_in_newExpression3982);
+                            pushFollow(FOLLOW_primitiveType_in_newExpression3876);
                             primitiveType();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression3984);
+                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression3878);
                             newArrayConstruction();
 
                             state._fsp--;
@@ -7400,20 +7023,20 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                             }
                             break;
                         case 2 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:427:17: ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:425:17: ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction
                             {
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:427:17: ( genericTypeArgumentList )?
-                            int alt101=2;
-                            int LA101_0 = input.LA(1);
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:425:17: ( genericTypeArgumentList )?
+                            int alt89=2;
+                            int LA89_0 = input.LA(1);
 
-                            if ( (LA101_0==GENERIC_TYPE_ARG_LIST) ) {
-                                alt101=1;
+                            if ( (LA89_0==GENERIC_TYPE_ARG_LIST) ) {
+                                alt89=1;
                             }
-                            switch (alt101) {
+                            switch (alt89) {
                                 case 1 :
                                     // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeArgumentList
                                     {
-                                    pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression4002);
+                                    pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression3896);
                                     genericTypeArgumentList();
 
                                     state._fsp--;
@@ -7424,12 +7047,12 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                             }
 
-                            pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression4005);
+                            pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression3899);
                             qualifiedTypeIdent();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression4007);
+                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression3901);
                             newArrayConstruction();
 
                             state._fsp--;
@@ -7446,23 +7069,23 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:430:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:428:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? )
                     {
-                    match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression4042); if (state.failed) return retval;
+                    match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression3936); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:430:34: ( genericTypeArgumentList )?
-                    int alt103=2;
-                    int LA103_0 = input.LA(1);
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:428:34: ( genericTypeArgumentList )?
+                    int alt91=2;
+                    int LA91_0 = input.LA(1);
 
-                    if ( (LA103_0==GENERIC_TYPE_ARG_LIST) ) {
-                        alt103=1;
+                    if ( (LA91_0==GENERIC_TYPE_ARG_LIST) ) {
+                        alt91=1;
                     }
-                    switch (alt103) {
+                    switch (alt91) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeArgumentList
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression4044);
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression3938);
                             genericTypeArgumentList();
 
                             state._fsp--;
@@ -7473,28 +7096,28 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     }
 
-                    pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression4047);
+                    pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression3941);
                     qualifiedTypeIdent();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_arguments_in_newExpression4049);
+                    pushFollow(FOLLOW_arguments_in_newExpression3943);
                     arguments();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:430:88: ( classTopLevelScope )?
-                    int alt104=2;
-                    int LA104_0 = input.LA(1);
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:428:88: ( classTopLevelScope )?
+                    int alt92=2;
+                    int LA92_0 = input.LA(1);
 
-                    if ( (LA104_0==CLASS_TOP_LEVEL_SCOPE) ) {
-                        alt104=1;
+                    if ( (LA92_0==CLASS_TOP_LEVEL_SCOPE) ) {
+                        alt92=1;
                     }
-                    switch (alt104) {
+                    switch (alt92) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: classTopLevelScope
                             {
-                            pushFollow(FOLLOW_classTopLevelScope_in_newExpression4051);
+                            pushFollow(FOLLOW_classTopLevelScope_in_newExpression3945);
                             classTopLevelScope();
 
                             state._fsp--;
@@ -7531,31 +7154,31 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "innerNewExpression"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:433:1: innerNewExpression : ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:431:1: innerNewExpression : ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) ;
     public final IntegrityVariablesParser.innerNewExpression_return innerNewExpression() throws RecognitionException {
         IntegrityVariablesParser.innerNewExpression_return retval = new IntegrityVariablesParser.innerNewExpression_return();
         retval.start = input.LT(1);
         int innerNewExpression_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 67) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:434:5: ( ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:434:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:432:5: ( ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:432:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? )
             {
-            match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression4074); if (state.failed) return retval;
+            match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression3968); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:434:34: ( genericTypeArgumentList )?
-            int alt106=2;
-            int LA106_0 = input.LA(1);
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:432:34: ( genericTypeArgumentList )?
+            int alt94=2;
+            int LA94_0 = input.LA(1);
 
-            if ( (LA106_0==GENERIC_TYPE_ARG_LIST) ) {
-                alt106=1;
+            if ( (LA94_0==GENERIC_TYPE_ARG_LIST) ) {
+                alt94=1;
             }
-            switch (alt106) {
+            switch (alt94) {
                 case 1 :
                     // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeArgumentList
                     {
-                    pushFollow(FOLLOW_genericTypeArgumentList_in_innerNewExpression4076);
+                    pushFollow(FOLLOW_genericTypeArgumentList_in_innerNewExpression3970);
                     genericTypeArgumentList();
 
                     state._fsp--;
@@ -7566,24 +7189,24 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
             }
 
-            match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression4079); if (state.failed) return retval;
-            pushFollow(FOLLOW_arguments_in_innerNewExpression4081);
+            match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression3973); if (state.failed) return retval;
+            pushFollow(FOLLOW_arguments_in_innerNewExpression3975);
             arguments();
 
             state._fsp--;
             if (state.failed) return retval;
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:434:75: ( classTopLevelScope )?
-            int alt107=2;
-            int LA107_0 = input.LA(1);
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:432:75: ( classTopLevelScope )?
+            int alt95=2;
+            int LA95_0 = input.LA(1);
 
-            if ( (LA107_0==CLASS_TOP_LEVEL_SCOPE) ) {
-                alt107=1;
+            if ( (LA95_0==CLASS_TOP_LEVEL_SCOPE) ) {
+                alt95=1;
             }
-            switch (alt107) {
+            switch (alt95) {
                 case 1 :
                     // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: classTopLevelScope
                     {
-                    pushFollow(FOLLOW_classTopLevelScope_in_innerNewExpression4083);
+                    pushFollow(FOLLOW_classTopLevelScope_in_innerNewExpression3977);
                     classTopLevelScope();
 
                     state._fsp--;
@@ -7618,40 +7241,40 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "newArrayConstruction"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:437:1: newArrayConstruction : ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:435:1: newArrayConstruction : ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? );
     public final IntegrityVariablesParser.newArrayConstruction_return newArrayConstruction() throws RecognitionException {
         IntegrityVariablesParser.newArrayConstruction_return retval = new IntegrityVariablesParser.newArrayConstruction_return();
         retval.start = input.LT(1);
         int newArrayConstruction_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 68) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:438:5: ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? )
-            int alt110=2;
-            int LA110_0 = input.LA(1);
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:436:5: ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? )
+            int alt98=2;
+            int LA98_0 = input.LA(1);
 
-            if ( (LA110_0==ARRAY_DECLARATOR_LIST) ) {
-                alt110=1;
+            if ( (LA98_0==ARRAY_DECLARATOR_LIST) ) {
+                alt98=1;
             }
-            else if ( (LA110_0==EXPR) ) {
-                alt110=2;
+            else if ( (LA98_0==EXPR) ) {
+                alt98=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 110, 0, input);
+                    new NoViableAltException("", 98, 0, input);
 
                 throw nvae;
             }
-            switch (alt110) {
+            switch (alt98) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:438:9: arrayDeclaratorList arrayInitializer
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:436:9: arrayDeclaratorList arrayInitializer
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction4108);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction4002);
                     arrayDeclaratorList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction4110);
+                    pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction4004);
                     arrayInitializer();
 
                     state._fsp--;
@@ -7660,25 +7283,25 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:439:9: ( expression )+ ( arrayDeclaratorList )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:437:9: ( expression )+ ( arrayDeclaratorList )?
                     {
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:439:9: ( expression )+
-                    int cnt108=0;
-                    loop108:
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:437:9: ( expression )+
+                    int cnt96=0;
+                    loop96:
                     do {
-                        int alt108=2;
-                        int LA108_0 = input.LA(1);
+                        int alt96=2;
+                        int LA96_0 = input.LA(1);
 
-                        if ( (LA108_0==EXPR) ) {
-                            alt108=1;
+                        if ( (LA96_0==EXPR) ) {
+                            alt96=1;
                         }
 
 
-                        switch (alt108) {
+                        switch (alt96) {
                     	case 1 :
                     	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: expression
                     	    {
-                    	    pushFollow(FOLLOW_expression_in_newArrayConstruction4120);
+                    	    pushFollow(FOLLOW_expression_in_newArrayConstruction4014);
                     	    expression();
 
                     	    state._fsp--;
@@ -7688,27 +7311,27 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt108 >= 1 ) break loop108;
+                    	    if ( cnt96 >= 1 ) break loop96;
                     	    if (state.backtracking>0) {state.failed=true; return retval;}
                                 EarlyExitException eee =
-                                    new EarlyExitException(108, input);
+                                    new EarlyExitException(96, input);
                                 throw eee;
                         }
-                        cnt108++;
+                        cnt96++;
                     } while (true);
 
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:439:21: ( arrayDeclaratorList )?
-                    int alt109=2;
-                    int LA109_0 = input.LA(1);
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:437:21: ( arrayDeclaratorList )?
+                    int alt97=2;
+                    int LA97_0 = input.LA(1);
 
-                    if ( (LA109_0==ARRAY_DECLARATOR_LIST) ) {
-                        alt109=1;
+                    if ( (LA97_0==ARRAY_DECLARATOR_LIST) ) {
+                        alt97=1;
                     }
-                    switch (alt109) {
+                    switch (alt97) {
                         case 1 :
                             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: arrayDeclaratorList
                             {
-                            pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction4123);
+                            pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction4017);
                             arrayDeclaratorList();
 
                             state._fsp--;
@@ -7743,36 +7366,36 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "arguments"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:442:1: arguments : ^( ARGUMENT_LIST ( expression )* ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:440:1: arguments : ^( ARGUMENT_LIST ( expression )* ) ;
     public final IntegrityVariablesParser.arguments_return arguments() throws RecognitionException {
         IntegrityVariablesParser.arguments_return retval = new IntegrityVariablesParser.arguments_return();
         retval.start = input.LT(1);
         int arguments_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 69) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:443:5: ( ^( ARGUMENT_LIST ( expression )* ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:443:9: ^( ARGUMENT_LIST ( expression )* )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:441:5: ( ^( ARGUMENT_LIST ( expression )* ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:441:9: ^( ARGUMENT_LIST ( expression )* )
             {
-            match(input,ARGUMENT_LIST,FOLLOW_ARGUMENT_LIST_in_arguments4144); if (state.failed) return retval;
+            match(input,ARGUMENT_LIST,FOLLOW_ARGUMENT_LIST_in_arguments4038); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:443:25: ( expression )*
-                loop111:
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:441:25: ( expression )*
+                loop99:
                 do {
-                    int alt111=2;
-                    int LA111_0 = input.LA(1);
+                    int alt99=2;
+                    int LA99_0 = input.LA(1);
 
-                    if ( (LA111_0==EXPR) ) {
-                        alt111=1;
+                    if ( (LA99_0==EXPR) ) {
+                        alt99=1;
                     }
 
 
-                    switch (alt111) {
+                    switch (alt99) {
                 	case 1 :
                 	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: expression
                 	    {
-                	    pushFollow(FOLLOW_expression_in_arguments4146);
+                	    pushFollow(FOLLOW_expression_in_arguments4040);
                 	    expression();
 
                 	    state._fsp--;
@@ -7782,7 +7405,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 	    break;
 
                 	default :
-                	    break loop111;
+                	    break loop99;
                     }
                 } while (true);
 
@@ -7811,14 +7434,14 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "literal"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:446:1: literal : ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | TRUE | FALSE | NULL );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:444:1: literal : ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | TRUE | FALSE | NULL );
     public final IntegrityVariablesParser.literal_return literal() throws RecognitionException {
         IntegrityVariablesParser.literal_return retval = new IntegrityVariablesParser.literal_return();
         retval.start = input.LT(1);
         int literal_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 70) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:447:5: ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | TRUE | FALSE | NULL )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:445:5: ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | TRUE | FALSE | NULL )
             // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:
             {
             if ( input.LA(1)==FALSE||input.LA(1)==NULL||input.LA(1)==TRUE||(input.LA(1)>=HEX_LITERAL && input.LA(1)<=STRING_LITERAL) ) {
@@ -7853,15 +7476,15 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "additionalImports"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:458:1: additionalImports[CommonTree tree] : ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:456:1: additionalImports[CommonTree tree] : ;
     public final IntegrityVariablesParser.additionalImports_return additionalImports(CommonTree tree) throws RecognitionException {
         IntegrityVariablesParser.additionalImports_return retval = new IntegrityVariablesParser.additionalImports_return();
         retval.start = input.LT(1);
         int additionalImports_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 71) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:462:5: ()
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:463:9: 
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:460:5: ()
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:461:9: 
             {
             if ( state.backtracking==0 ) {
 
@@ -7890,15 +7513,15 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "classAdditionalCode"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:472:1: classAdditionalCode[CommonTree tree] : ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:470:1: classAdditionalCode[CommonTree tree] : ;
     public final IntegrityVariablesParser.classAdditionalCode_return classAdditionalCode(CommonTree tree) throws RecognitionException {
         IntegrityVariablesParser.classAdditionalCode_return retval = new IntegrityVariablesParser.classAdditionalCode_return();
         retval.start = input.LT(1);
         int classAdditionalCode_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 72) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:476:5: ()
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:477:9: 
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:474:5: ()
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:475:9: 
             {
             if ( state.backtracking==0 ) {
 
@@ -7921,6 +7544,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                           st = getTemplateLib().getInstanceOf("declareByteGetter");
                           st.setAttribute("mask", "0x55");
                           tokens.insertAfter(tree.getTokenStartIndex(), st);
+
+                          // TODO: static variables
+                          // TODO: protection of a type short
                       
             }
 
@@ -7934,12 +7560,528 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     }
     // $ANTLR end "classAdditionalCode"
 
-    // $ANTLR start synpred125_IntegrityVariablesParser
-    public final void synpred125_IntegrityVariablesParser_fragment() throws RecognitionException {   
-        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:311:35: ( switchCaseLabel )
-        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:311:35: switchCaseLabel
+    protected static class classDeclaration_scope {
+        Map<String, String> globalVariablesTypes;
+        Map<String, String> localVariablesTypes;
+    }
+    protected Stack classDeclaration_stack = new Stack();
+
+    public static class classDeclaration_return extends TreeRuleReturnScope {
+        public StringTemplate st;
+        public Object getTemplate() { return st; }
+        public String toString() { return st==null?null:st.toString(); }
+    };
+
+    // $ANTLR start "classDeclaration"
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:501:1: classDeclaration : ^( CLASS modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? ( implementsClause )? classTopLevelScope ) ;
+    public final IntegrityVariablesParser.classDeclaration_return classDeclaration() throws RecognitionException {
+        classDeclaration_stack.push(new classDeclaration_scope());
+        IntegrityVariablesParser.classDeclaration_return retval = new IntegrityVariablesParser.classDeclaration_return();
+        retval.start = input.LT(1);
+        int classDeclaration_StartIndex = input.index();
+        	
+        		((classDeclaration_scope)classDeclaration_stack.peek()).globalVariablesTypes = new HashMap<String, String>();
+                        ((classDeclaration_scope)classDeclaration_stack.peek()).localVariablesTypes = new HashMap<String, String>();
+        	
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 73) ) { return retval; }
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:513:2: ( ^( CLASS modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? ( implementsClause )? classTopLevelScope ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:514:3: ^( CLASS modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? ( implementsClause )? classTopLevelScope )
+            {
+            match(input,CLASS,FOLLOW_CLASS_in_classDeclaration4228); if (state.failed) return retval;
+
+            match(input, Token.DOWN, null); if (state.failed) return retval;
+            pushFollow(FOLLOW_modifierList_in_classDeclaration4230);
+            modifierList();
+
+            state._fsp--;
+            if (state.failed) return retval;
+            match(input,IDENT,FOLLOW_IDENT_in_classDeclaration4232); if (state.failed) return retval;
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:514:30: ( genericTypeParameterList )?
+            int alt100=2;
+            int LA100_0 = input.LA(1);
+
+            if ( (LA100_0==GENERIC_TYPE_PARAM_LIST) ) {
+                alt100=1;
+            }
+            switch (alt100) {
+                case 1 :
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeParameterList
+                    {
+                    pushFollow(FOLLOW_genericTypeParameterList_in_classDeclaration4234);
+                    genericTypeParameterList();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+
+                    }
+                    break;
+
+            }
+
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:514:56: ( extendsClause )?
+            int alt101=2;
+            int LA101_0 = input.LA(1);
+
+            if ( (LA101_0==EXTENDS_CLAUSE) ) {
+                alt101=1;
+            }
+            switch (alt101) {
+                case 1 :
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: extendsClause
+                    {
+                    pushFollow(FOLLOW_extendsClause_in_classDeclaration4237);
+                    extendsClause();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+
+                    }
+                    break;
+
+            }
+
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:514:71: ( implementsClause )?
+            int alt102=2;
+            int LA102_0 = input.LA(1);
+
+            if ( (LA102_0==IMPLEMENTS_CLAUSE) ) {
+                alt102=1;
+            }
+            switch (alt102) {
+                case 1 :
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: implementsClause
+                    {
+                    pushFollow(FOLLOW_implementsClause_in_classDeclaration4240);
+                    implementsClause();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+
+                    }
+                    break;
+
+            }
+
+            pushFollow(FOLLOW_classTopLevelScope_in_classDeclaration4243);
+            classTopLevelScope();
+
+            state._fsp--;
+            if (state.failed) return retval;
+
+            match(input, Token.UP, null); if (state.failed) return retval;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+            if ( state.backtracking>0 ) { memoize(input, 73, classDeclaration_StartIndex); }
+            classDeclaration_stack.pop();
+        }
+        return retval;
+    }
+    // $ANTLR end "classDeclaration"
+
+    protected static class methodScopeDeclarations_scope {
+        Map<String, String> localVariablesTypes;
+    }
+    protected Stack methodScopeDeclarations_stack = new Stack();
+
+    public static class methodScopeDeclarations_return extends TreeRuleReturnScope {
+        public StringTemplate st;
+        public Object getTemplate() { return st; }
+        public String toString() { return st==null?null:st.toString(); }
+    };
+
+    // $ANTLR start "methodScopeDeclarations"
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:517:1: methodScopeDeclarations : ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ^( CONSTRUCTOR_DECL modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) );
+    public final IntegrityVariablesParser.methodScopeDeclarations_return methodScopeDeclarations() throws RecognitionException {
+        methodScopeDeclarations_stack.push(new methodScopeDeclarations_scope());
+        IntegrityVariablesParser.methodScopeDeclarations_return retval = new IntegrityVariablesParser.methodScopeDeclarations_return();
+        retval.start = input.LT(1);
+        int methodScopeDeclarations_StartIndex = input.index();
+
+                        ((methodScopeDeclarations_scope)methodScopeDeclarations_stack.peek()).localVariablesTypes = new HashMap<String, String>();
+        	
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 74) ) { return retval; }
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:524:2: ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ^( CONSTRUCTOR_DECL modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) )
+            int alt112=3;
+            switch ( input.LA(1) ) {
+            case FUNCTION_METHOD_DECL:
+                {
+                alt112=1;
+                }
+                break;
+            case VOID_METHOD_DECL:
+                {
+                alt112=2;
+                }
+                break;
+            case CONSTRUCTOR_DECL:
+                {
+                alt112=3;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return retval;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 112, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt112) {
+                case 1 :
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:525:3: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? )
+                    {
+                    match(input,FUNCTION_METHOD_DECL,FOLLOW_FUNCTION_METHOD_DECL_in_methodScopeDeclarations4276); if (state.failed) return retval;
+
+                    match(input, Token.DOWN, null); if (state.failed) return retval;
+                    pushFollow(FOLLOW_modifierList_in_methodScopeDeclarations4278);
+                    modifierList();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:525:39: ( genericTypeParameterList )?
+                    int alt103=2;
+                    int LA103_0 = input.LA(1);
+
+                    if ( (LA103_0==GENERIC_TYPE_PARAM_LIST) ) {
+                        alt103=1;
+                    }
+                    switch (alt103) {
+                        case 1 :
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeParameterList
+                            {
+                            pushFollow(FOLLOW_genericTypeParameterList_in_methodScopeDeclarations4280);
+                            genericTypeParameterList();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+
+                            }
+                            break;
+
+                    }
+
+                    pushFollow(FOLLOW_type_in_methodScopeDeclarations4283);
+                    type();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    match(input,IDENT,FOLLOW_IDENT_in_methodScopeDeclarations4285); if (state.failed) return retval;
+                    pushFollow(FOLLOW_formalParameterList_in_methodScopeDeclarations4287);
+                    formalParameterList();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:525:96: ( arrayDeclaratorList )?
+                    int alt104=2;
+                    int LA104_0 = input.LA(1);
+
+                    if ( (LA104_0==ARRAY_DECLARATOR_LIST) ) {
+                        alt104=1;
+                    }
+                    switch (alt104) {
+                        case 1 :
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: arrayDeclaratorList
+                            {
+                            pushFollow(FOLLOW_arrayDeclaratorList_in_methodScopeDeclarations4289);
+                            arrayDeclaratorList();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+
+                            }
+                            break;
+
+                    }
+
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:525:117: ( throwsClause )?
+                    int alt105=2;
+                    int LA105_0 = input.LA(1);
+
+                    if ( (LA105_0==THROWS_CLAUSE) ) {
+                        alt105=1;
+                    }
+                    switch (alt105) {
+                        case 1 :
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: throwsClause
+                            {
+                            pushFollow(FOLLOW_throwsClause_in_methodScopeDeclarations4292);
+                            throwsClause();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+
+                            }
+                            break;
+
+                    }
+
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:525:131: ( block )?
+                    int alt106=2;
+                    int LA106_0 = input.LA(1);
+
+                    if ( (LA106_0==BLOCK_SCOPE) ) {
+                        alt106=1;
+                    }
+                    switch (alt106) {
+                        case 1 :
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: block
+                            {
+                            pushFollow(FOLLOW_block_in_methodScopeDeclarations4295);
+                            block();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+
+                            }
+                            break;
+
+                    }
+
+
+                    match(input, Token.UP, null); if (state.failed) return retval;
+
+                    }
+                    break;
+                case 2 :
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:526:4: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? )
+                    {
+                    match(input,VOID_METHOD_DECL,FOLLOW_VOID_METHOD_DECL_in_methodScopeDeclarations4303); if (state.failed) return retval;
+
+                    match(input, Token.DOWN, null); if (state.failed) return retval;
+                    pushFollow(FOLLOW_modifierList_in_methodScopeDeclarations4305);
+                    modifierList();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:526:36: ( genericTypeParameterList )?
+                    int alt107=2;
+                    int LA107_0 = input.LA(1);
+
+                    if ( (LA107_0==GENERIC_TYPE_PARAM_LIST) ) {
+                        alt107=1;
+                    }
+                    switch (alt107) {
+                        case 1 :
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeParameterList
+                            {
+                            pushFollow(FOLLOW_genericTypeParameterList_in_methodScopeDeclarations4307);
+                            genericTypeParameterList();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+
+                            }
+                            break;
+
+                    }
+
+                    match(input,IDENT,FOLLOW_IDENT_in_methodScopeDeclarations4310); if (state.failed) return retval;
+                    pushFollow(FOLLOW_formalParameterList_in_methodScopeDeclarations4312);
+                    formalParameterList();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:526:88: ( throwsClause )?
+                    int alt108=2;
+                    int LA108_0 = input.LA(1);
+
+                    if ( (LA108_0==THROWS_CLAUSE) ) {
+                        alt108=1;
+                    }
+                    switch (alt108) {
+                        case 1 :
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: throwsClause
+                            {
+                            pushFollow(FOLLOW_throwsClause_in_methodScopeDeclarations4314);
+                            throwsClause();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+
+                            }
+                            break;
+
+                    }
+
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:526:102: ( block )?
+                    int alt109=2;
+                    int LA109_0 = input.LA(1);
+
+                    if ( (LA109_0==BLOCK_SCOPE) ) {
+                        alt109=1;
+                    }
+                    switch (alt109) {
+                        case 1 :
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: block
+                            {
+                            pushFollow(FOLLOW_block_in_methodScopeDeclarations4317);
+                            block();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+
+                            }
+                            break;
+
+                    }
+
+
+                    match(input, Token.UP, null); if (state.failed) return retval;
+
+                    }
+                    break;
+                case 3 :
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:527:4: ^( CONSTRUCTOR_DECL modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block )
+                    {
+                    match(input,CONSTRUCTOR_DECL,FOLLOW_CONSTRUCTOR_DECL_in_methodScopeDeclarations4325); if (state.failed) return retval;
+
+                    match(input, Token.DOWN, null); if (state.failed) return retval;
+                    pushFollow(FOLLOW_modifierList_in_methodScopeDeclarations4327);
+                    modifierList();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:527:36: ( genericTypeParameterList )?
+                    int alt110=2;
+                    int LA110_0 = input.LA(1);
+
+                    if ( (LA110_0==GENERIC_TYPE_PARAM_LIST) ) {
+                        alt110=1;
+                    }
+                    switch (alt110) {
+                        case 1 :
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: genericTypeParameterList
+                            {
+                            pushFollow(FOLLOW_genericTypeParameterList_in_methodScopeDeclarations4329);
+                            genericTypeParameterList();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+
+                            }
+                            break;
+
+                    }
+
+                    pushFollow(FOLLOW_formalParameterList_in_methodScopeDeclarations4332);
+                    formalParameterList();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:527:82: ( throwsClause )?
+                    int alt111=2;
+                    int LA111_0 = input.LA(1);
+
+                    if ( (LA111_0==THROWS_CLAUSE) ) {
+                        alt111=1;
+                    }
+                    switch (alt111) {
+                        case 1 :
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: throwsClause
+                            {
+                            pushFollow(FOLLOW_throwsClause_in_methodScopeDeclarations4334);
+                            throwsClause();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+
+                            }
+                            break;
+
+                    }
+
+                    pushFollow(FOLLOW_block_in_methodScopeDeclarations4337);
+                    block();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+
+                    match(input, Token.UP, null); if (state.failed) return retval;
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+            if ( state.backtracking>0 ) { memoize(input, 74, methodScopeDeclarations_StartIndex); }
+            methodScopeDeclarations_stack.pop();
+        }
+        return retval;
+    }
+    // $ANTLR end "methodScopeDeclarations"
+
+    public static class globalVariableDeclaration_return extends TreeRuleReturnScope {
+        public StringTemplate st;
+        public Object getTemplate() { return st; }
+        public String toString() { return st==null?null:st.toString(); }
+    };
+
+    // $ANTLR start "globalVariableDeclaration"
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:530:1: globalVariableDeclaration : ^( VAR_DECLARATION modifierList type variableDeclaratorList ) ;
+    public final IntegrityVariablesParser.globalVariableDeclaration_return globalVariableDeclaration() throws RecognitionException {
+        IntegrityVariablesParser.globalVariableDeclaration_return retval = new IntegrityVariablesParser.globalVariableDeclaration_return();
+        retval.start = input.LT(1);
+        int globalVariableDeclaration_StartIndex = input.index();
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 75) ) { return retval; }
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:534:2: ( ^( VAR_DECLARATION modifierList type variableDeclaratorList ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:535:3: ^( VAR_DECLARATION modifierList type variableDeclaratorList )
+            {
+            match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_globalVariableDeclaration4354); if (state.failed) return retval;
+
+            match(input, Token.DOWN, null); if (state.failed) return retval;
+            pushFollow(FOLLOW_modifierList_in_globalVariableDeclaration4360);
+            modifierList();
+
+            state._fsp--;
+            if (state.failed) return retval;
+            pushFollow(FOLLOW_type_in_globalVariableDeclaration4366);
+            type();
+
+            state._fsp--;
+            if (state.failed) return retval;
+            pushFollow(FOLLOW_variableDeclaratorList_in_globalVariableDeclaration4371);
+            variableDeclaratorList();
+
+            state._fsp--;
+            if (state.failed) return retval;
+
+            match(input, Token.UP, null); if (state.failed) return retval;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+            if ( state.backtracking>0 ) { memoize(input, 75, globalVariableDeclaration_StartIndex); }
+        }
+        return retval;
+    }
+    // $ANTLR end "globalVariableDeclaration"
+
+    // $ANTLR start synpred111_IntegrityVariablesParser
+    public final void synpred111_IntegrityVariablesParser_fragment() throws RecognitionException {   
+        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:309:35: ( switchCaseLabel )
+        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:309:35: switchCaseLabel
         {
-        pushFollow(FOLLOW_switchCaseLabel_in_synpred125_IntegrityVariablesParser2614);
+        pushFollow(FOLLOW_switchCaseLabel_in_synpred111_IntegrityVariablesParser2508);
         switchCaseLabel();
 
         state._fsp--;
@@ -7947,29 +8089,29 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
         }
     }
-    // $ANTLR end synpred125_IntegrityVariablesParser
+    // $ANTLR end synpred111_IntegrityVariablesParser
 
-    // $ANTLR start synpred132_IntegrityVariablesParser
-    public final void synpred132_IntegrityVariablesParser_fragment() throws RecognitionException {   
-        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:323:48: ( ( expression )* )
-        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:323:48: ( expression )*
+    // $ANTLR start synpred118_IntegrityVariablesParser
+    public final void synpred118_IntegrityVariablesParser_fragment() throws RecognitionException {   
+        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:321:48: ( ( expression )* )
+        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:321:48: ( expression )*
         {
-        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:323:48: ( expression )*
-        loop142:
+        // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:321:48: ( expression )*
+        loop131:
         do {
-            int alt142=2;
-            int LA142_0 = input.LA(1);
+            int alt131=2;
+            int LA131_0 = input.LA(1);
 
-            if ( (LA142_0==EXPR) ) {
-                alt142=1;
+            if ( (LA131_0==EXPR) ) {
+                alt131=1;
             }
 
 
-            switch (alt142) {
+            switch (alt131) {
         	case 1 :
         	    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:0:0: expression
         	    {
-        	    pushFollow(FOLLOW_expression_in_synpred132_IntegrityVariablesParser2715);
+        	    pushFollow(FOLLOW_expression_in_synpred118_IntegrityVariablesParser2609);
         	    expression();
 
         	    state._fsp--;
@@ -7979,22 +8121,22 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
         	    break;
 
         	default :
-        	    break loop142;
+        	    break loop131;
             }
         } while (true);
 
 
         }
     }
-    // $ANTLR end synpred132_IntegrityVariablesParser
+    // $ANTLR end synpred118_IntegrityVariablesParser
 
     // Delegated rules
 
-    public final boolean synpred132_IntegrityVariablesParser() {
+    public final boolean synpred118_IntegrityVariablesParser() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred132_IntegrityVariablesParser_fragment(); // can never throw exception
+            synpred118_IntegrityVariablesParser_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -8004,11 +8146,11 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred125_IntegrityVariablesParser() {
+    public final boolean synpred111_IntegrityVariablesParser() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred125_IntegrityVariablesParser_fragment(); // can never throw exception
+            synpred111_IntegrityVariablesParser_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -8020,23 +8162,23 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     }
 
 
-    protected DFA48 dfa48 = new DFA48(this);
-    protected DFA80 dfa80 = new DFA80(this);
-    protected DFA91 dfa91 = new DFA91(this);
-    protected DFA95 dfa95 = new DFA95(this);
-    static final String DFA48_eotS =
+    protected DFA36 dfa36 = new DFA36(this);
+    protected DFA68 dfa68 = new DFA68(this);
+    protected DFA79 dfa79 = new DFA79(this);
+    protected DFA83 dfa83 = new DFA83(this);
+    static final String DFA36_eotS =
         "\14\uffff";
-    static final String DFA48_eofS =
+    static final String DFA36_eofS =
         "\14\uffff";
-    static final String DFA48_minS =
+    static final String DFA36_minS =
         "\1\7\13\uffff";
-    static final String DFA48_maxS =
+    static final String DFA36_maxS =
         "\1\146\13\uffff";
-    static final String DFA48_acceptS =
+    static final String DFA36_acceptS =
         "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13";
-    static final String DFA48_specialS =
+    static final String DFA36_specialS =
         "\14\uffff}>";
-    static final String[] DFA48_transitionS = {
+    static final String[] DFA36_transitionS = {
             "\1\13\55\uffff\1\5\20\uffff\1\13\12\uffff\1\6\3\uffff\1\3\1"+
             "\2\1\1\2\uffff\1\4\1\12\2\uffff\1\7\3\uffff\1\10\3\uffff\1\11",
             "",
@@ -8052,53 +8194,53 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             ""
     };
 
-    static final short[] DFA48_eot = DFA.unpackEncodedString(DFA48_eotS);
-    static final short[] DFA48_eof = DFA.unpackEncodedString(DFA48_eofS);
-    static final char[] DFA48_min = DFA.unpackEncodedStringToUnsignedChars(DFA48_minS);
-    static final char[] DFA48_max = DFA.unpackEncodedStringToUnsignedChars(DFA48_maxS);
-    static final short[] DFA48_accept = DFA.unpackEncodedString(DFA48_acceptS);
-    static final short[] DFA48_special = DFA.unpackEncodedString(DFA48_specialS);
-    static final short[][] DFA48_transition;
+    static final short[] DFA36_eot = DFA.unpackEncodedString(DFA36_eotS);
+    static final short[] DFA36_eof = DFA.unpackEncodedString(DFA36_eofS);
+    static final char[] DFA36_min = DFA.unpackEncodedStringToUnsignedChars(DFA36_minS);
+    static final char[] DFA36_max = DFA.unpackEncodedStringToUnsignedChars(DFA36_maxS);
+    static final short[] DFA36_accept = DFA.unpackEncodedString(DFA36_acceptS);
+    static final short[] DFA36_special = DFA.unpackEncodedString(DFA36_specialS);
+    static final short[][] DFA36_transition;
 
     static {
-        int numStates = DFA48_transitionS.length;
-        DFA48_transition = new short[numStates][];
+        int numStates = DFA36_transitionS.length;
+        DFA36_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA48_transition[i] = DFA.unpackEncodedString(DFA48_transitionS[i]);
+            DFA36_transition[i] = DFA.unpackEncodedString(DFA36_transitionS[i]);
         }
     }
 
-    class DFA48 extends DFA {
+    class DFA36 extends DFA {
 
-        public DFA48(BaseRecognizer recognizer) {
+        public DFA36(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 48;
-            this.eot = DFA48_eot;
-            this.eof = DFA48_eof;
-            this.min = DFA48_min;
-            this.max = DFA48_max;
-            this.accept = DFA48_accept;
-            this.special = DFA48_special;
-            this.transition = DFA48_transition;
+            this.decisionNumber = 36;
+            this.eot = DFA36_eot;
+            this.eof = DFA36_eof;
+            this.min = DFA36_min;
+            this.max = DFA36_max;
+            this.accept = DFA36_accept;
+            this.special = DFA36_special;
+            this.transition = DFA36_transition;
         }
         public String getDescription() {
-            return "145:1: modifier : ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier );";
+            return "143:1: modifier : ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier );";
         }
     }
-    static final String DFA80_eotS =
+    static final String DFA68_eotS =
         "\22\uffff";
-    static final String DFA80_eofS =
+    static final String DFA68_eofS =
         "\22\uffff";
-    static final String DFA80_minS =
+    static final String DFA68_minS =
         "\1\54\21\uffff";
-    static final String DFA80_maxS =
+    static final String DFA68_maxS =
         "\1\u008d\21\uffff";
-    static final String DFA80_acceptS =
+    static final String DFA68_acceptS =
         "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1"+
         "\15\1\16\1\17\1\20\1\21";
-    static final String DFA80_specialS =
+    static final String DFA68_specialS =
         "\22\uffff}>";
-    static final String[] DFA80_transitionS = {
+    static final String[] DFA68_transitionS = {
             "\1\21\11\uffff\1\2\1\uffff\1\15\5\uffff\1\16\1\uffff\1\7\10"+
             "\uffff\1\4\1\3\15\uffff\1\13\4\uffff\1\11\1\12\1\uffff\1\14"+
             "\3\uffff\1\10\2\uffff\1\6\15\uffff\1\1\10\uffff\1\20\3\uffff"+
@@ -8122,55 +8264,55 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             ""
     };
 
-    static final short[] DFA80_eot = DFA.unpackEncodedString(DFA80_eotS);
-    static final short[] DFA80_eof = DFA.unpackEncodedString(DFA80_eofS);
-    static final char[] DFA80_min = DFA.unpackEncodedStringToUnsignedChars(DFA80_minS);
-    static final char[] DFA80_max = DFA.unpackEncodedStringToUnsignedChars(DFA80_maxS);
-    static final short[] DFA80_accept = DFA.unpackEncodedString(DFA80_acceptS);
-    static final short[] DFA80_special = DFA.unpackEncodedString(DFA80_specialS);
-    static final short[][] DFA80_transition;
+    static final short[] DFA68_eot = DFA.unpackEncodedString(DFA68_eotS);
+    static final short[] DFA68_eof = DFA.unpackEncodedString(DFA68_eofS);
+    static final char[] DFA68_min = DFA.unpackEncodedStringToUnsignedChars(DFA68_minS);
+    static final char[] DFA68_max = DFA.unpackEncodedStringToUnsignedChars(DFA68_maxS);
+    static final short[] DFA68_accept = DFA.unpackEncodedString(DFA68_acceptS);
+    static final short[] DFA68_special = DFA.unpackEncodedString(DFA68_specialS);
+    static final short[][] DFA68_transition;
 
     static {
-        int numStates = DFA80_transitionS.length;
-        DFA80_transition = new short[numStates][];
+        int numStates = DFA68_transitionS.length;
+        DFA68_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA80_transition[i] = DFA.unpackEncodedString(DFA80_transitionS[i]);
+            DFA68_transition[i] = DFA.unpackEncodedString(DFA68_transitionS[i]);
         }
     }
 
-    class DFA80 extends DFA {
+    class DFA68 extends DFA {
 
-        public DFA80(BaseRecognizer recognizer) {
+        public DFA68(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 80;
-            this.eot = DFA80_eot;
-            this.eof = DFA80_eof;
-            this.min = DFA80_min;
-            this.max = DFA80_max;
-            this.accept = DFA80_accept;
-            this.special = DFA80_special;
-            this.transition = DFA80_transition;
+            this.decisionNumber = 68;
+            this.eot = DFA68_eot;
+            this.eof = DFA68_eof;
+            this.min = DFA68_min;
+            this.max = DFA68_max;
+            this.accept = DFA68_accept;
+            this.special = DFA68_special;
+            this.transition = DFA68_transition;
         }
         public String getDescription() {
-            return "282:1: statement : ( block | ^( ASSERT expression ( expression )? ) | ^( IF parenthesizedExpression statement ( statement )? ) | ^( FOR forInit forCondition forUpdater statement ) | ^( FOR_EACH localModifierList type IDENT expression statement ) | ^( WHILE parenthesizedExpression statement ) | ^( DO statement parenthesizedExpression ) | ^( TRY block ( catches )? ( block )? ) | ^( SWITCH parenthesizedExpression switchBlockLabels ) | ^( SYNCHRONIZED parenthesizedExpression block ) | ^( RETURN ( expression )? ) | ^( THROW expression ) | ^( BREAK ( IDENT )? ) | ^( CONTINUE ( IDENT )? ) | ^( LABELED_STATEMENT IDENT statement ) | expression | SEMI );";
+            return "280:1: statement : ( block | ^( ASSERT expression ( expression )? ) | ^( IF parenthesizedExpression statement ( statement )? ) | ^( FOR forInit forCondition forUpdater statement ) | ^( FOR_EACH localModifierList type IDENT expression statement ) | ^( WHILE parenthesizedExpression statement ) | ^( DO statement parenthesizedExpression ) | ^( TRY block ( catches )? ( block )? ) | ^( SWITCH parenthesizedExpression switchBlockLabels ) | ^( SYNCHRONIZED parenthesizedExpression block ) | ^( RETURN ( expression )? ) | ^( THROW expression ) | ^( BREAK ( IDENT )? ) | ^( CONTINUE ( IDENT )? ) | ^( LABELED_STATEMENT IDENT statement ) | expression | SEMI );";
         }
     }
-    static final String DFA91_eotS =
+    static final String DFA79_eotS =
         "\54\uffff";
-    static final String DFA91_eofS =
+    static final String DFA79_eofS =
         "\54\uffff";
-    static final String DFA91_minS =
+    static final String DFA79_minS =
         "\1\4\53\uffff";
-    static final String DFA91_maxS =
+    static final String DFA79_maxS =
         "\1\u00aa\53\uffff";
-    static final String DFA91_acceptS =
+    static final String DFA79_acceptS =
         "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1"+
         "\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31"+
         "\1\32\1\33\1\34\1\35\1\36\1\37\1\40\1\41\1\42\1\43\1\44\1\45\1\46"+
         "\1\47\1\50\1\51\1\52\1\53";
-    static final String DFA91_specialS =
+    static final String DFA79_specialS =
         "\54\uffff}>";
-    static final String[] DFA91_transitionS = {
+    static final String[] DFA79_transitionS = {
             "\1\22\1\6\1\1\1\uffff\1\30\1\12\3\uffff\1\40\1\5\1\53\2\uffff"+
             "\1\23\1\27\1\32\3\uffff\1\26\1\34\1\17\1\51\1\16\1\uffff\1\36"+
             "\1\3\1\41\1\11\1\50\1\24\1\20\1\7\1\35\1\2\1\15\4\uffff\1\33"+
@@ -8224,52 +8366,52 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             ""
     };
 
-    static final short[] DFA91_eot = DFA.unpackEncodedString(DFA91_eotS);
-    static final short[] DFA91_eof = DFA.unpackEncodedString(DFA91_eofS);
-    static final char[] DFA91_min = DFA.unpackEncodedStringToUnsignedChars(DFA91_minS);
-    static final char[] DFA91_max = DFA.unpackEncodedStringToUnsignedChars(DFA91_maxS);
-    static final short[] DFA91_accept = DFA.unpackEncodedString(DFA91_acceptS);
-    static final short[] DFA91_special = DFA.unpackEncodedString(DFA91_specialS);
-    static final short[][] DFA91_transition;
+    static final short[] DFA79_eot = DFA.unpackEncodedString(DFA79_eotS);
+    static final short[] DFA79_eof = DFA.unpackEncodedString(DFA79_eofS);
+    static final char[] DFA79_min = DFA.unpackEncodedStringToUnsignedChars(DFA79_minS);
+    static final char[] DFA79_max = DFA.unpackEncodedStringToUnsignedChars(DFA79_maxS);
+    static final short[] DFA79_accept = DFA.unpackEncodedString(DFA79_acceptS);
+    static final short[] DFA79_special = DFA.unpackEncodedString(DFA79_specialS);
+    static final short[][] DFA79_transition;
 
     static {
-        int numStates = DFA91_transitionS.length;
-        DFA91_transition = new short[numStates][];
+        int numStates = DFA79_transitionS.length;
+        DFA79_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA91_transition[i] = DFA.unpackEncodedString(DFA91_transitionS[i]);
+            DFA79_transition[i] = DFA.unpackEncodedString(DFA79_transitionS[i]);
         }
     }
 
-    class DFA91 extends DFA {
+    class DFA79 extends DFA {
 
-        public DFA91(BaseRecognizer recognizer) {
+        public DFA79(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 91;
-            this.eot = DFA91_eot;
-            this.eof = DFA91_eof;
-            this.min = DFA91_min;
-            this.max = DFA91_max;
-            this.accept = DFA91_accept;
-            this.special = DFA91_special;
-            this.transition = DFA91_transition;
+            this.decisionNumber = 79;
+            this.eot = DFA79_eot;
+            this.eof = DFA79_eof;
+            this.min = DFA79_min;
+            this.max = DFA79_max;
+            this.accept = DFA79_accept;
+            this.special = DFA79_special;
+            this.transition = DFA79_transition;
         }
         public String getDescription() {
-            return "344:1: expr : ( ^( ASSIGN expr expr ) | ^( PLUS_ASSIGN expr expr ) | ^( MINUS_ASSIGN expr expr ) | ^( STAR_ASSIGN expr expr ) | ^( DIV_ASSIGN expr expr ) | ^( AND_ASSIGN expr expr ) | ^( OR_ASSIGN expr expr ) | ^( XOR_ASSIGN expr expr ) | ^( MOD_ASSIGN expr expr ) | ^( BIT_SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_LEFT_ASSIGN expr expr ) | ^( QUESTION expr expr expr ) | ^( LOGICAL_OR expr expr ) | ^( LOGICAL_AND expr expr ) | ^( OR expr expr ) | ^( XOR expr expr ) | ^( AND expr expr ) | ^( EQUAL expr expr ) | ^( NOT_EQUAL expr expr ) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL expr expr ) | ^( GREATER_OR_EQUAL expr expr ) | ^( BIT_SHIFT_RIGHT expr expr ) | ^( SHIFT_RIGHT expr expr ) | ^( GREATER_THAN expr expr ) | ^( SHIFT_LEFT expr expr ) | ^( LESS_THAN expr expr ) | ^( PLUS expr expr ) | ^( MINUS expr expr ) | ^( STAR expr expr ) | ^( DIV expr expr ) | ^( MOD expr expr ) | ^( UNARY_PLUS expr ) | ^( UNARY_MINUS expr ) | ^( PRE_INC expr ) | ^( PRE_DEC expr ) | ^( POST_INC expr ) | ^( POST_DEC expr ) | ^( NOT expr ) | ^( LOGICAL_NOT expr ) | ^( CAST_EXPR type expr ) | primaryExpression );";
+            return "342:1: expr : ( ^( ASSIGN expr expr ) | ^( PLUS_ASSIGN expr expr ) | ^( MINUS_ASSIGN expr expr ) | ^( STAR_ASSIGN expr expr ) | ^( DIV_ASSIGN expr expr ) | ^( AND_ASSIGN expr expr ) | ^( OR_ASSIGN expr expr ) | ^( XOR_ASSIGN expr expr ) | ^( MOD_ASSIGN expr expr ) | ^( BIT_SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_LEFT_ASSIGN expr expr ) | ^( QUESTION expr expr expr ) | ^( LOGICAL_OR expr expr ) | ^( LOGICAL_AND expr expr ) | ^( OR expr expr ) | ^( XOR expr expr ) | ^( AND expr expr ) | ^( EQUAL expr expr ) | ^( NOT_EQUAL expr expr ) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL expr expr ) | ^( GREATER_OR_EQUAL expr expr ) | ^( BIT_SHIFT_RIGHT expr expr ) | ^( SHIFT_RIGHT expr expr ) | ^( GREATER_THAN expr expr ) | ^( SHIFT_LEFT expr expr ) | ^( LESS_THAN expr expr ) | ^( PLUS expr expr ) | ^( MINUS expr expr ) | ^( STAR expr expr ) | ^( DIV expr expr ) | ^( MOD expr expr ) | ^( UNARY_PLUS expr ) | ^( UNARY_MINUS expr ) | ^( PRE_INC expr ) | ^( PRE_DEC expr ) | ^( POST_INC expr ) | ^( POST_DEC expr ) | ^( NOT expr ) | ^( LOGICAL_NOT expr ) | ^( CAST_EXPR type expr ) | primaryExpression );";
         }
     }
-    static final String DFA95_eotS =
+    static final String DFA83_eotS =
         "\14\uffff";
-    static final String DFA95_eofS =
+    static final String DFA83_eofS =
         "\14\uffff";
-    static final String DFA95_minS =
+    static final String DFA83_minS =
         "\1\17\13\uffff";
-    static final String DFA95_maxS =
+    static final String DFA83_maxS =
         "\1\u00aa\13\uffff";
-    static final String DFA95_acceptS =
+    static final String DFA83_acceptS =
         "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13";
-    static final String DFA95_specialS =
+    static final String DFA83_specialS =
         "\14\uffff}>";
-    static final String[] DFA95_transitionS = {
+    static final String[] DFA83_transitionS = {
             "\1\1\65\uffff\1\7\15\uffff\1\7\10\uffff\1\13\2\uffff\1\11\3"+
             "\uffff\1\7\15\uffff\1\12\1\uffff\1\6\4\uffff\1\10\27\uffff\1"+
             "\4\1\uffff\1\2\5\uffff\1\10\1\5\1\uffff\1\5\10\uffff\1\3\6\7",
@@ -8286,37 +8428,37 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             ""
     };
 
-    static final short[] DFA95_eot = DFA.unpackEncodedString(DFA95_eotS);
-    static final short[] DFA95_eof = DFA.unpackEncodedString(DFA95_eofS);
-    static final char[] DFA95_min = DFA.unpackEncodedStringToUnsignedChars(DFA95_minS);
-    static final char[] DFA95_max = DFA.unpackEncodedStringToUnsignedChars(DFA95_maxS);
-    static final short[] DFA95_accept = DFA.unpackEncodedString(DFA95_acceptS);
-    static final short[] DFA95_special = DFA.unpackEncodedString(DFA95_specialS);
-    static final short[][] DFA95_transition;
+    static final short[] DFA83_eot = DFA.unpackEncodedString(DFA83_eotS);
+    static final short[] DFA83_eof = DFA.unpackEncodedString(DFA83_eofS);
+    static final char[] DFA83_min = DFA.unpackEncodedStringToUnsignedChars(DFA83_minS);
+    static final char[] DFA83_max = DFA.unpackEncodedStringToUnsignedChars(DFA83_maxS);
+    static final short[] DFA83_accept = DFA.unpackEncodedString(DFA83_acceptS);
+    static final short[] DFA83_special = DFA.unpackEncodedString(DFA83_specialS);
+    static final short[][] DFA83_transition;
 
     static {
-        int numStates = DFA95_transitionS.length;
-        DFA95_transition = new short[numStates][];
+        int numStates = DFA83_transitionS.length;
+        DFA83_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA95_transition[i] = DFA.unpackEncodedString(DFA95_transitionS[i]);
+            DFA83_transition[i] = DFA.unpackEncodedString(DFA83_transitionS[i]);
         }
     }
 
-    class DFA95 extends DFA {
+    class DFA83 extends DFA {
 
-        public DFA95(BaseRecognizer recognizer) {
+        public DFA83(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 95;
-            this.eot = DFA95_eot;
-            this.eof = DFA95_eof;
-            this.min = DFA95_min;
-            this.max = DFA95_max;
-            this.accept = DFA95_accept;
-            this.special = DFA95_special;
-            this.transition = DFA95_transition;
+            this.decisionNumber = 83;
+            this.eot = DFA83_eot;
+            this.eof = DFA83_eof;
+            this.min = DFA83_min;
+            this.max = DFA83_max;
+            this.accept = DFA83_accept;
+            this.special = DFA83_special;
+            this.transition = DFA83_transition;
         }
         public String getDescription() {
-            return "390:1: primaryExpression : ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS | arrayTypeDeclarator | SUPER );";
+            return "388:1: primaryExpression : ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS | arrayTypeDeclarator | SUPER );";
         }
     }
  
@@ -8333,461 +8475,461 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     public static final BitSet FOLLOW_STATIC_in_importDeclaration190 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_qualifiedIdentifier_in_importDeclaration193 = new BitSet(new long[]{0x0000000000010008L});
     public static final BitSet FOLLOW_DOTSTAR_in_importDeclaration195 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_in_typeDeclaration221 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_typeDeclaration223 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_typeDeclaration225 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L,0x0000000000001401L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_typeDeclaration227 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L,0x0000000000001401L});
-    public static final BitSet FOLLOW_extendsClause_in_typeDeclaration230 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L,0x0000000000001401L});
-    public static final BitSet FOLLOW_implementsClause_in_typeDeclaration233 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L,0x0000000000001401L});
-    public static final BitSet FOLLOW_classTopLevelScope_in_typeDeclaration236 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_INTERFACE_in_typeDeclaration248 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_typeDeclaration250 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_typeDeclaration252 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000C01L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_typeDeclaration254 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000C01L});
-    public static final BitSet FOLLOW_extendsClause_in_typeDeclaration257 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000C01L});
-    public static final BitSet FOLLOW_interfaceTopLevelScope_in_typeDeclaration260 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ENUM_in_typeDeclaration272 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_typeDeclaration274 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_typeDeclaration276 = new BitSet(new long[]{0x0000000000000000L,0x2000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_implementsClause_in_typeDeclaration278 = new BitSet(new long[]{0x0000000000000000L,0x2000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_enumTopLevelScope_in_typeDeclaration281 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_AT_in_typeDeclaration293 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_typeDeclaration295 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_typeDeclaration297 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L});
-    public static final BitSet FOLLOW_annotationTopLevelScope_in_typeDeclaration299 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_EXTENDS_CLAUSE_in_extendsClause336 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_type_in_extendsClause338 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_IMPLEMENTS_CLAUSE_in_implementsClause367 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_type_in_implementsClause369 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_GENERIC_TYPE_PARAM_LIST_in_genericTypeParameterList399 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeParameter_in_genericTypeParameterList401 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_genericTypeParameter423 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_bound_in_genericTypeParameter425 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_EXTENDS_BOUND_LIST_in_bound455 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_type_in_bound457 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_ENUM_TOP_LEVEL_SCOPE_in_enumTopLevelScope479 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_enumConstant_in_enumTopLevelScope481 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000001000001401L});
-    public static final BitSet FOLLOW_classTopLevelScope_in_enumTopLevelScope484 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_IDENT_in_enumConstant510 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationList_in_enumConstant512 = new BitSet(new long[]{0x0000000000000008L,0x0801000000000000L,0x0000000000001401L});
-    public static final BitSet FOLLOW_arguments_in_enumConstant514 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000000000001401L});
-    public static final BitSet FOLLOW_classTopLevelScope_in_enumConstant517 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_TOP_LEVEL_SCOPE_in_classTopLevelScope548 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_classScopeDeclarations_in_classTopLevelScope550 = new BitSet(new long[]{0x2000000000000088L,0x1600000000002008L,0x0000000900000100L});
-    public static final BitSet FOLLOW_classAdditionalCode_in_classTopLevelScope554 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CLASS_INSTANCE_INITIALIZER_in_classScopeDeclarations579 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations581 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_STATIC_INITIALIZER_in_classScopeDeclarations593 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations595 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FUNCTION_METHOD_DECL_in_classScopeDeclarations607 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations609 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000400L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_classScopeDeclarations611 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_classScopeDeclarations614 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations616 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations618 = new BitSet(new long[]{0x0000000000000008L,0x0024000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_classScopeDeclarations620 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations623 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations626 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VOID_METHOD_DECL_in_classScopeDeclarations639 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations641 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000400L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_classScopeDeclarations643 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations646 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations648 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations650 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations653 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VAR_DECLARATION_in_classScopeDeclarations666 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations668 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_classScopeDeclarations670 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
-    public static final BitSet FOLLOW_variableDeclaratorList_in_classScopeDeclarations672 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CONSTRUCTOR_DECL_in_classScopeDeclarations684 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations686 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000420L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_classScopeDeclarations688 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations691 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations693 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations696 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_typeDeclaration_in_classScopeDeclarations707 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INTERFACE_TOP_LEVEL_SCOPE_in_interfaceTopLevelScope731 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_interfaceScopeDeclarations_in_interfaceTopLevelScope733 = new BitSet(new long[]{0x2000000000000088L,0x0000000000002008L,0x0000000900000100L});
-    public static final BitSet FOLLOW_FUNCTION_METHOD_DECL_in_interfaceScopeDeclarations759 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations761 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000400L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations763 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations766 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations768 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations770 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations772 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations775 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VOID_METHOD_DECL_in_interfaceScopeDeclarations788 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations790 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000400L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations792 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations795 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations797 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations799 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VAR_DECLARATION_in_interfaceScopeDeclarations890 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations892 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations894 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
-    public static final BitSet FOLLOW_variableDeclaratorList_in_interfaceScopeDeclarations896 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_typeDeclaration_in_interfaceScopeDeclarations907 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VAR_DECLARATOR_LIST_in_variableDeclaratorList927 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_variableDeclarator_in_variableDeclaratorList929 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_VAR_DECLARATOR_in_variableDeclarator951 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_variableDeclarator953 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_variableInitializer_in_variableDeclarator955 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_IDENT_in_variableDeclaratorId981 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_variableDeclaratorId983 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_arrayInitializer_in_variableInitializer1004 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_variableInitializer1014 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LBRACK_in_arrayDeclarator1033 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_arrayDeclarator1035 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ARRAY_DECLARATOR_LIST_in_arrayDeclaratorList1055 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_ARRAY_DECLARATOR_in_arrayDeclaratorList1057 = new BitSet(new long[]{0x0000000000000008L,0x0002000000000000L});
-    public static final BitSet FOLLOW_ARRAY_INITIALIZER_in_arrayInitializer1085 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer1087 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_THROWS_CLAUSE_in_throwsClause1109 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_throwsClause1111 = new BitSet(new long[]{0x0000000000008008L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_MODIFIER_LIST_in_modifierList1133 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifier_in_modifierList1135 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
-    public static final BitSet FOLLOW_PUBLIC_in_modifier1156 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PROTECTED_in_modifier1166 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PRIVATE_in_modifier1176 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STATIC_in_modifier1186 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ABSTRACT_in_modifier1196 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NATIVE_in_modifier1206 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SYNCHRONIZED_in_modifier1216 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TRANSIENT_in_modifier1226 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOLATILE_in_modifier1236 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRICTFP_in_modifier1246 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifier_in_modifier1256 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LOCAL_MODIFIER_LIST_in_localModifierList1276 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifier_in_localModifierList1278 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
-    public static final BitSet FOLLOW_FINAL_in_localModifier1299 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotation_in_localModifier1309 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TYPE_in_type1329 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primitiveType_in_type1332 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_type1336 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_type1339 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_QUALIFIED_TYPE_IDENT_in_qualifiedTypeIdent1361 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent1363 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_typeIdent1386 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_typeIdent1388 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_classDeclaration_in_typeDeclaration220 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INTERFACE_in_typeDeclaration231 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_typeDeclaration233 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_typeDeclaration235 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000C01L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_typeDeclaration237 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000C01L});
+    public static final BitSet FOLLOW_extendsClause_in_typeDeclaration240 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000C01L});
+    public static final BitSet FOLLOW_interfaceTopLevelScope_in_typeDeclaration243 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ENUM_in_typeDeclaration255 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_typeDeclaration257 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_typeDeclaration259 = new BitSet(new long[]{0x0000000000000000L,0x2000000000000000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_implementsClause_in_typeDeclaration261 = new BitSet(new long[]{0x0000000000000000L,0x2000000000000000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_enumTopLevelScope_in_typeDeclaration264 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_AT_in_typeDeclaration276 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_typeDeclaration278 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_typeDeclaration280 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L});
+    public static final BitSet FOLLOW_annotationTopLevelScope_in_typeDeclaration282 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_EXTENDS_CLAUSE_in_extendsClause319 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_type_in_extendsClause321 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_IMPLEMENTS_CLAUSE_in_implementsClause350 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_type_in_implementsClause352 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_GENERIC_TYPE_PARAM_LIST_in_genericTypeParameterList382 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeParameter_in_genericTypeParameterList384 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_genericTypeParameter406 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_bound_in_genericTypeParameter408 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_EXTENDS_BOUND_LIST_in_bound438 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_type_in_bound440 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_ENUM_TOP_LEVEL_SCOPE_in_enumTopLevelScope462 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_enumConstant_in_enumTopLevelScope464 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_classTopLevelScope_in_enumTopLevelScope467 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_IDENT_in_enumConstant493 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationList_in_enumConstant495 = new BitSet(new long[]{0x0000000000000008L,0x0801000000000000L});
+    public static final BitSet FOLLOW_arguments_in_enumConstant497 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L});
+    public static final BitSet FOLLOW_classTopLevelScope_in_enumConstant500 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_TOP_LEVEL_SCOPE_in_classTopLevelScope531 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_classScopeDeclarations_in_classTopLevelScope533 = new BitSet(new long[]{0x2000000000000088L,0x1600000000002008L,0x0000000900000100L});
+    public static final BitSet FOLLOW_classAdditionalCode_in_classTopLevelScope537 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CLASS_INSTANCE_INITIALIZER_in_classScopeDeclarations562 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations564 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_STATIC_INITIALIZER_in_classScopeDeclarations576 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations578 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_methodScopeDeclarations_in_classScopeDeclarations589 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_globalVariableDeclaration_in_classScopeDeclarations599 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_classScopeDeclarations609 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INTERFACE_TOP_LEVEL_SCOPE_in_interfaceTopLevelScope633 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_interfaceScopeDeclarations_in_interfaceTopLevelScope635 = new BitSet(new long[]{0x2000000000000088L,0x0000000000002008L,0x0000000900000100L});
+    public static final BitSet FOLLOW_FUNCTION_METHOD_DECL_in_interfaceScopeDeclarations661 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations663 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000400L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations665 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations668 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations670 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations672 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations674 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations677 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VOID_METHOD_DECL_in_interfaceScopeDeclarations690 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations692 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000400L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations694 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations697 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations699 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations701 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_globalVariableDeclaration_in_interfaceScopeDeclarations791 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_interfaceScopeDeclarations801 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VAR_DECLARATOR_LIST_in_variableDeclaratorList821 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_variableDeclarator_in_variableDeclaratorList823 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_VAR_DECLARATOR_in_variableDeclarator845 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_variableDeclarator847 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_variableInitializer_in_variableDeclarator849 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_IDENT_in_variableDeclaratorId875 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_variableDeclaratorId877 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_arrayInitializer_in_variableInitializer898 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_variableInitializer908 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LBRACK_in_arrayDeclarator927 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_arrayDeclarator929 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ARRAY_DECLARATOR_LIST_in_arrayDeclaratorList949 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_ARRAY_DECLARATOR_in_arrayDeclaratorList951 = new BitSet(new long[]{0x0000000000000008L,0x0002000000000000L});
+    public static final BitSet FOLLOW_ARRAY_INITIALIZER_in_arrayInitializer979 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer981 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_THROWS_CLAUSE_in_throwsClause1003 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_throwsClause1005 = new BitSet(new long[]{0x0000000000008008L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_MODIFIER_LIST_in_modifierList1027 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifier_in_modifierList1029 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_PUBLIC_in_modifier1050 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PROTECTED_in_modifier1060 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PRIVATE_in_modifier1070 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STATIC_in_modifier1080 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ABSTRACT_in_modifier1090 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NATIVE_in_modifier1100 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SYNCHRONIZED_in_modifier1110 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TRANSIENT_in_modifier1120 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOLATILE_in_modifier1130 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRICTFP_in_modifier1140 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifier_in_modifier1150 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LOCAL_MODIFIER_LIST_in_localModifierList1170 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localModifier_in_localModifierList1172 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_FINAL_in_localModifier1193 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotation_in_localModifier1203 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TYPE_in_type1223 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primitiveType_in_type1226 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_type1230 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_type1233 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_QUALIFIED_TYPE_IDENT_in_qualifiedTypeIdent1255 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent1257 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_typeIdent1280 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_typeIdent1282 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_set_in_primitiveType0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_GENERIC_TYPE_ARG_LIST_in_genericTypeArgumentList1499 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgument_in_genericTypeArgumentList1501 = new BitSet(new long[]{0x0000010000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_genericTypeArgument1526 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_QUESTION_in_genericTypeArgument1537 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericWildcardBoundType_in_genericTypeArgument1539 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_EXTENDS_in_genericWildcardBoundType1679 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_type_in_genericWildcardBoundType1681 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SUPER_in_genericWildcardBoundType1693 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_type_in_genericWildcardBoundType1695 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FORMAL_PARAM_LIST_in_formalParameterList1716 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList1718 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x00000000000000C0L});
-    public static final BitSet FOLLOW_formalParameterVarargDecl_in_formalParameterList1721 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FORMAL_PARAM_STD_DECL_in_formalParameterStandardDecl1748 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifierList_in_formalParameterStandardDecl1750 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_formalParameterStandardDecl1752 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl1754 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FORMAL_PARAM_VARARG_DECL_in_formalParameterVarargDecl1779 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifierList_in_formalParameterVarargDecl1781 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_formalParameterVarargDecl1783 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterVarargDecl1785 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier1809 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedIdentifier1820 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentifier1822 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier1824 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ANNOTATION_LIST_in_annotationList1851 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotation_in_annotationList1853 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
-    public static final BitSet FOLLOW_AT_in_annotation1875 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_annotation1877 = new BitSet(new long[]{0x0000000000000008L,0x0000020000000000L});
-    public static final BitSet FOLLOW_annotationInit_in_annotation1879 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ANNOTATION_INIT_BLOCK_in_annotationInit1905 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationInitializers_in_annotationInit1907 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ANNOTATION_INIT_KEY_LIST_in_annotationInitializers1928 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationInitializer_in_annotationInitializers1930 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_ANNOTATION_INIT_DEFAULT_KEY_in_annotationInitializers1943 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializers1945 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_IDENT_in_annotationInitializer1970 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializer1972 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ANNOTATION_INIT_ARRAY_ELEMENT_in_annotationElementValue1997 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValue1999 = new BitSet(new long[]{0x0020000000000088L,0x401001444CE20040L});
-    public static final BitSet FOLLOW_annotation_in_annotationElementValue2011 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_annotationElementValue2021 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ANNOTATION_TOP_LEVEL_SCOPE_in_annotationTopLevelScope2045 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope2047 = new BitSet(new long[]{0x2000000000000088L,0x0000200000002008L,0x0000000100000000L});
-    public static final BitSet FOLLOW_ANNOTATION_METHOD_DECL_in_annotationScopeDeclarations2073 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2075 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_annotationScopeDeclarations2077 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_annotationScopeDeclarations2079 = new BitSet(new long[]{0x8000000000000008L});
-    public static final BitSet FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations2081 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VAR_DECLARATION_in_annotationScopeDeclarations2094 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2096 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_annotationScopeDeclarations2098 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
-    public static final BitSet FOLLOW_variableDeclaratorList_in_annotationScopeDeclarations2100 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_typeDeclaration_in_annotationScopeDeclarations2111 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DEFAULT_in_annotationDefaultValue2135 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationDefaultValue2137 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BLOCK_SCOPE_in_block2160 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_blockStatement_in_block2162 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_localVariableDeclaration_in_blockStatement2187 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_blockStatement2197 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_statement_in_blockStatement2207 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2231 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifierList_in_localVariableDeclaration2233 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_localVariableDeclaration2235 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
-    public static final BitSet FOLLOW_variableDeclaratorList_in_localVariableDeclaration2237 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_block_in_statement2270 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ASSERT_in_statement2281 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_statement2283 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_expression_in_statement2285 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_IF_in_statement2298 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement2300 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement2302 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement2304 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FOR_in_statement2317 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_forInit_in_statement2319 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_forCondition_in_statement2321 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_forUpdater_in_statement2323 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement2325 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FOR_EACH_in_statement2337 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifierList_in_statement2339 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_statement2341 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_statement2343 = new BitSet(new long[]{0x0000000000000000L,0x4010000000000000L});
-    public static final BitSet FOLLOW_expression_in_statement2345 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement2347 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_WHILE_in_statement2360 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement2362 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement2364 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DO_in_statement2376 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_statement_in_statement2378 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000040000L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement2380 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TRY_in_statement2392 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_block_in_statement2394 = new BitSet(new long[]{0x0000000000000008L,0x00A0000000000000L});
-    public static final BitSet FOLLOW_catches_in_statement2396 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L});
-    public static final BitSet FOLLOW_block_in_statement2399 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SWITCH_in_statement2414 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement2416 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000004000000L});
-    public static final BitSet FOLLOW_switchBlockLabels_in_statement2418 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SYNCHRONIZED_in_statement2430 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement2432 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
-    public static final BitSet FOLLOW_block_in_statement2434 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_RETURN_in_statement2446 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_statement2448 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_THROW_in_statement2461 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_statement2463 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BREAK_in_statement2475 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_IDENT_in_statement2477 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CONTINUE_in_statement2490 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_IDENT_in_statement2492 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LABELED_STATEMENT_in_statement2505 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_IDENT_in_statement2507 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_statement_in_statement2509 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_expression_in_statement2520 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_statement2530 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CATCH_CLAUSE_LIST_in_catches2559 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_catchClause_in_catches2561 = new BitSet(new long[]{0x0800000000000008L});
-    public static final BitSet FOLLOW_CATCH_in_catchClause2587 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_catchClause2589 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
-    public static final BitSet FOLLOW_block_in_catchClause2591 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SWITCH_BLOCK_LABEL_LIST_in_switchBlockLabels2612 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels2614 = new BitSet(new long[]{0x8400000000000008L});
-    public static final BitSet FOLLOW_switchDefaultLabel_in_switchBlockLabels2617 = new BitSet(new long[]{0x0400000000000008L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels2620 = new BitSet(new long[]{0x0400000000000008L});
-    public static final BitSet FOLLOW_CASE_in_switchCaseLabel2650 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_switchCaseLabel2652 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel2654 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_DEFAULT_in_switchDefaultLabel2680 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel2682 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
-    public static final BitSet FOLLOW_FOR_INIT_in_forInit2708 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localVariableDeclaration_in_forInit2711 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_expression_in_forInit2715 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_FOR_CONDITION_in_forCondition2743 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_forCondition2745 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FOR_UPDATE_in_forUpdater2771 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_forUpdater2773 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_PARENTESIZED_EXPR_in_parenthesizedExpression2801 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_parenthesizedExpression2803 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_EXPR_in_expression2828 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expression2830 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ASSIGN_in_expr2851 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2853 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2855 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PLUS_ASSIGN_in_expr2867 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2869 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2871 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_MINUS_ASSIGN_in_expr2883 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2885 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2887 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_STAR_ASSIGN_in_expr2899 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2901 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2903 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIV_ASSIGN_in_expr2915 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2917 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2919 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_AND_ASSIGN_in_expr2931 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2933 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2935 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_OR_ASSIGN_in_expr2947 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2949 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2951 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_XOR_ASSIGN_in_expr2963 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2965 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2967 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_MOD_ASSIGN_in_expr2979 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2981 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2983 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_expr2995 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2997 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2999 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SHIFT_RIGHT_ASSIGN_in_expr3011 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3013 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3015 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SHIFT_LEFT_ASSIGN_in_expr3027 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3029 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3031 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_QUESTION_in_expr3043 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3045 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3047 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3049 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LOGICAL_OR_in_expr3061 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3063 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3065 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LOGICAL_AND_in_expr3077 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3079 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3081 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_OR_in_expr3093 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3095 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3097 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_XOR_in_expr3109 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3111 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3113 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_AND_in_expr3125 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3127 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3129 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_EQUAL_in_expr3141 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3143 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3145 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_NOT_EQUAL_in_expr3157 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3159 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3161 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_INSTANCEOF_in_expr3173 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3175 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_expr3177 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LESS_OR_EQUAL_in_expr3189 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3191 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3193 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_GREATER_OR_EQUAL_in_expr3205 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3207 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3209 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_expr3221 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3223 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3225 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SHIFT_RIGHT_in_expr3237 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3239 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3241 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_GREATER_THAN_in_expr3253 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3255 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3257 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SHIFT_LEFT_in_expr3269 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3271 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3273 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LESS_THAN_in_expr3285 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3287 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3289 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PLUS_in_expr3301 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3303 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_GENERIC_TYPE_ARG_LIST_in_genericTypeArgumentList1393 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgument_in_genericTypeArgumentList1395 = new BitSet(new long[]{0x0000010000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_genericTypeArgument1420 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_QUESTION_in_genericTypeArgument1431 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericWildcardBoundType_in_genericTypeArgument1433 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_EXTENDS_in_genericWildcardBoundType1573 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_type_in_genericWildcardBoundType1575 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SUPER_in_genericWildcardBoundType1587 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_type_in_genericWildcardBoundType1589 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FORMAL_PARAM_LIST_in_formalParameterList1610 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList1612 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_formalParameterVarargDecl_in_formalParameterList1615 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FORMAL_PARAM_STD_DECL_in_formalParameterStandardDecl1642 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localModifierList_in_formalParameterStandardDecl1644 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_formalParameterStandardDecl1646 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl1648 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FORMAL_PARAM_VARARG_DECL_in_formalParameterVarargDecl1673 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localModifierList_in_formalParameterVarargDecl1675 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_formalParameterVarargDecl1677 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterVarargDecl1679 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier1703 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedIdentifier1714 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentifier1716 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier1718 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ANNOTATION_LIST_in_annotationList1745 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotation_in_annotationList1747 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_AT_in_annotation1769 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_annotation1771 = new BitSet(new long[]{0x0000000000000008L,0x0000020000000000L});
+    public static final BitSet FOLLOW_annotationInit_in_annotation1773 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ANNOTATION_INIT_BLOCK_in_annotationInit1799 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationInitializers_in_annotationInit1801 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ANNOTATION_INIT_KEY_LIST_in_annotationInitializers1822 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationInitializer_in_annotationInitializers1824 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_ANNOTATION_INIT_DEFAULT_KEY_in_annotationInitializers1837 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializers1839 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_IDENT_in_annotationInitializer1864 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializer1866 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ANNOTATION_INIT_ARRAY_ELEMENT_in_annotationElementValue1891 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValue1893 = new BitSet(new long[]{0x0020000000000088L,0x401001444CE20040L});
+    public static final BitSet FOLLOW_annotation_in_annotationElementValue1905 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_annotationElementValue1915 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ANNOTATION_TOP_LEVEL_SCOPE_in_annotationTopLevelScope1939 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope1941 = new BitSet(new long[]{0x2000000000000088L,0x0000200000002008L,0x0000000100000000L});
+    public static final BitSet FOLLOW_ANNOTATION_METHOD_DECL_in_annotationScopeDeclarations1967 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations1969 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_annotationScopeDeclarations1971 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_annotationScopeDeclarations1973 = new BitSet(new long[]{0x8000000000000008L});
+    public static final BitSet FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations1975 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VAR_DECLARATION_in_annotationScopeDeclarations1988 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations1990 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_annotationScopeDeclarations1992 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
+    public static final BitSet FOLLOW_variableDeclaratorList_in_annotationScopeDeclarations1994 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_typeDeclaration_in_annotationScopeDeclarations2005 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DEFAULT_in_annotationDefaultValue2029 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationDefaultValue2031 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BLOCK_SCOPE_in_block2054 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_blockStatement_in_block2056 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_localVariableDeclaration_in_blockStatement2081 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_blockStatement2091 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_statement_in_blockStatement2101 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2125 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localModifierList_in_localVariableDeclaration2127 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_localVariableDeclaration2129 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
+    public static final BitSet FOLLOW_variableDeclaratorList_in_localVariableDeclaration2131 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_block_in_statement2164 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ASSERT_in_statement2175 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_statement2177 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_expression_in_statement2179 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_IF_in_statement2192 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement2194 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement2196 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement2198 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FOR_in_statement2211 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_forInit_in_statement2213 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_forCondition_in_statement2215 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_forUpdater_in_statement2217 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement2219 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FOR_EACH_in_statement2231 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localModifierList_in_statement2233 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_statement2235 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_statement2237 = new BitSet(new long[]{0x0000000000000000L,0x4010000000000000L});
+    public static final BitSet FOLLOW_expression_in_statement2239 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement2241 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_WHILE_in_statement2254 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement2256 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement2258 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DO_in_statement2270 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_statement_in_statement2272 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000040000L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement2274 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TRY_in_statement2286 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_block_in_statement2288 = new BitSet(new long[]{0x0000000000000008L,0x00A0000000000000L});
+    public static final BitSet FOLLOW_catches_in_statement2290 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L});
+    public static final BitSet FOLLOW_block_in_statement2293 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SWITCH_in_statement2308 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement2310 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000004000000L});
+    public static final BitSet FOLLOW_switchBlockLabels_in_statement2312 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SYNCHRONIZED_in_statement2324 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement2326 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_block_in_statement2328 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_RETURN_in_statement2340 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_statement2342 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_THROW_in_statement2355 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_statement2357 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BREAK_in_statement2369 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_IDENT_in_statement2371 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CONTINUE_in_statement2384 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_IDENT_in_statement2386 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LABELED_STATEMENT_in_statement2399 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_IDENT_in_statement2401 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_statement_in_statement2403 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_expression_in_statement2414 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_statement2424 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CATCH_CLAUSE_LIST_in_catches2453 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_catchClause_in_catches2455 = new BitSet(new long[]{0x0800000000000008L});
+    public static final BitSet FOLLOW_CATCH_in_catchClause2481 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_catchClause2483 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_block_in_catchClause2485 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SWITCH_BLOCK_LABEL_LIST_in_switchBlockLabels2506 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels2508 = new BitSet(new long[]{0x8400000000000008L});
+    public static final BitSet FOLLOW_switchDefaultLabel_in_switchBlockLabels2511 = new BitSet(new long[]{0x0400000000000008L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels2514 = new BitSet(new long[]{0x0400000000000008L});
+    public static final BitSet FOLLOW_CASE_in_switchCaseLabel2544 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_switchCaseLabel2546 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel2548 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_DEFAULT_in_switchDefaultLabel2574 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel2576 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_FOR_INIT_in_forInit2602 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localVariableDeclaration_in_forInit2605 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_expression_in_forInit2609 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_FOR_CONDITION_in_forCondition2637 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_forCondition2639 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FOR_UPDATE_in_forUpdater2665 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_forUpdater2667 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_PARENTESIZED_EXPR_in_parenthesizedExpression2695 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_parenthesizedExpression2697 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_EXPR_in_expression2722 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expression2724 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ASSIGN_in_expr2745 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2747 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2749 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_PLUS_ASSIGN_in_expr2761 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2763 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2765 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_MINUS_ASSIGN_in_expr2777 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2779 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2781 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_STAR_ASSIGN_in_expr2793 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2795 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2797 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DIV_ASSIGN_in_expr2809 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2811 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2813 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_AND_ASSIGN_in_expr2825 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2827 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2829 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_OR_ASSIGN_in_expr2841 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2843 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2845 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_XOR_ASSIGN_in_expr2857 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2859 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2861 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_MOD_ASSIGN_in_expr2873 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2875 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2877 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_expr2889 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2891 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2893 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SHIFT_RIGHT_ASSIGN_in_expr2905 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2907 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2909 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SHIFT_LEFT_ASSIGN_in_expr2921 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2923 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2925 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_QUESTION_in_expr2937 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2939 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2941 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2943 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LOGICAL_OR_in_expr2955 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2957 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2959 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LOGICAL_AND_in_expr2971 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2973 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2975 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_OR_in_expr2987 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2989 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2991 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_XOR_in_expr3003 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3005 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3007 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_AND_in_expr3019 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3021 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3023 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_EQUAL_in_expr3035 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3037 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3039 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_NOT_EQUAL_in_expr3051 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3053 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3055 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_INSTANCEOF_in_expr3067 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3069 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_expr3071 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LESS_OR_EQUAL_in_expr3083 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3085 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3087 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_GREATER_OR_EQUAL_in_expr3099 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3101 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3103 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_expr3115 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3117 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3119 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SHIFT_RIGHT_in_expr3131 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3133 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3135 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_GREATER_THAN_in_expr3147 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3149 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3151 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SHIFT_LEFT_in_expr3163 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3165 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3167 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LESS_THAN_in_expr3179 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3181 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3183 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_PLUS_in_expr3195 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3197 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3199 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_MINUS_in_expr3211 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3213 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3215 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_STAR_in_expr3227 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3229 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3231 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DIV_in_expr3243 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3245 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3247 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_MOD_in_expr3259 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3261 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3263 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_UNARY_PLUS_in_expr3275 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3277 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_UNARY_MINUS_in_expr3289 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3291 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_PRE_INC_in_expr3303 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr3305 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_MINUS_in_expr3317 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3319 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3321 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_STAR_in_expr3333 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3335 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3337 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIV_in_expr3349 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3351 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3353 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_MOD_in_expr3365 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3367 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3369 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_UNARY_PLUS_in_expr3381 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3383 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_UNARY_MINUS_in_expr3395 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3397 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PRE_INC_in_expr3409 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3411 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PRE_DEC_in_expr3423 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3425 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_POST_INC_in_expr3437 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3439 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_POST_DEC_in_expr3451 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3453 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_NOT_in_expr3465 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3467 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LOGICAL_NOT_in_expr3479 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3481 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CAST_EXPR_in_expr3493 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_type_in_expr3495 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3497 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_primaryExpression_in_expr3508 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_primaryExpression3534 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression3552 = new BitSet(new long[]{0x2000000000000000L,0x0100000090000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_primaryExpression3574 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_THIS_in_primaryExpression3596 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression3618 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_innerNewExpression_in_primaryExpression3640 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression3662 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_primitiveType_in_primaryExpression3698 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression3700 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VOID_in_primaryExpression3718 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression3720 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_primaryExpression3754 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_primaryExpression3764 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_METHOD_CALL_in_primaryExpression3775 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression3777 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_primaryExpression3779 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression3782 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_explicitConstructorCall_in_primaryExpression3793 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression3804 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression3806 = new BitSet(new long[]{0x0000000000000000L,0x4010000000000000L});
-    public static final BitSet FOLLOW_expression_in_primaryExpression3808 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_literal_in_primaryExpression3819 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_newExpression_in_primaryExpression3829 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_primaryExpression3839 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayTypeDeclarator_in_primaryExpression3849 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression3859 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall3883 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3885 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall3888 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall3900 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_explicitConstructorCall3902 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3905 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall3908 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator3929 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator3932 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator3936 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_primitiveType_in_arrayTypeDeclarator3940 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression3964 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primitiveType_in_newExpression3982 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
-    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression3984 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression4002 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression4005 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
-    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression4007 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression4042 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression4044 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression4047 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_newExpression4049 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000000000001401L});
-    public static final BitSet FOLLOW_classTopLevelScope_in_newExpression4051 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression4074 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_innerNewExpression4076 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_innerNewExpression4079 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_innerNewExpression4081 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000000000001401L});
-    public static final BitSet FOLLOW_classTopLevelScope_in_innerNewExpression4083 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction4108 = new BitSet(new long[]{0x0000000000000000L,0x0010000000000000L});
-    public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction4110 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_newArrayConstruction4120 = new BitSet(new long[]{0x0000000000000002L,0x4014000000000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction4123 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ARGUMENT_LIST_in_arguments4144 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_arguments4146 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_PRE_DEC_in_expr3317 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3319 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_POST_INC_in_expr3331 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3333 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_POST_DEC_in_expr3345 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3347 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_NOT_in_expr3359 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3361 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LOGICAL_NOT_in_expr3373 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3375 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CAST_EXPR_in_expr3387 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_type_in_expr3389 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3391 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_primaryExpression_in_expr3402 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_primaryExpression3428 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression3446 = new BitSet(new long[]{0x2000000000000000L,0x0100000090000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_primaryExpression3468 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_THIS_in_primaryExpression3490 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression3512 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_innerNewExpression_in_primaryExpression3534 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression3556 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_primitiveType_in_primaryExpression3592 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression3594 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VOID_in_primaryExpression3612 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression3614 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_primaryExpression3648 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_primaryExpression3658 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_METHOD_CALL_in_primaryExpression3669 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression3671 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_primaryExpression3673 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression3676 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_explicitConstructorCall_in_primaryExpression3687 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression3698 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression3700 = new BitSet(new long[]{0x0000000000000000L,0x4010000000000000L});
+    public static final BitSet FOLLOW_expression_in_primaryExpression3702 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_literal_in_primaryExpression3713 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_newExpression_in_primaryExpression3723 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_primaryExpression3733 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayTypeDeclarator_in_primaryExpression3743 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression3753 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall3777 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3779 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall3782 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall3794 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primaryExpression_in_explicitConstructorCall3796 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3799 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall3802 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator3823 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator3826 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator3830 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_primitiveType_in_arrayTypeDeclarator3834 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression3858 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primitiveType_in_newExpression3876 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
+    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression3878 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression3896 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression3899 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
+    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression3901 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression3936 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression3938 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression3941 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_newExpression3943 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L});
+    public static final BitSet FOLLOW_classTopLevelScope_in_newExpression3945 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression3968 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_innerNewExpression3970 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_innerNewExpression3973 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_innerNewExpression3975 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L});
+    public static final BitSet FOLLOW_classTopLevelScope_in_innerNewExpression3977 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction4002 = new BitSet(new long[]{0x0000000000000000L,0x0010000000000000L});
+    public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction4004 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_newArrayConstruction4014 = new BitSet(new long[]{0x0000000000000002L,0x4014000000000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction4017 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ARGUMENT_LIST_in_arguments4038 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_arguments4040 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
     public static final BitSet FOLLOW_set_in_literal0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_synpred125_IntegrityVariablesParser2614 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_synpred132_IntegrityVariablesParser2715 = new BitSet(new long[]{0x0000000000000002L,0x4010000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_classDeclaration4228 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_classDeclaration4230 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_classDeclaration4232 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L,0x0000000000001401L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_classDeclaration4234 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L,0x0000000000001001L});
+    public static final BitSet FOLLOW_extendsClause_in_classDeclaration4237 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_implementsClause_in_classDeclaration4240 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L});
+    public static final BitSet FOLLOW_classTopLevelScope_in_classDeclaration4243 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FUNCTION_METHOD_DECL_in_methodScopeDeclarations4276 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_methodScopeDeclarations4278 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000400L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_methodScopeDeclarations4280 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_methodScopeDeclarations4283 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_methodScopeDeclarations4285 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_formalParameterList_in_methodScopeDeclarations4287 = new BitSet(new long[]{0x0000000000000008L,0x0024000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_methodScopeDeclarations4289 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_throwsClause_in_methodScopeDeclarations4292 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L});
+    public static final BitSet FOLLOW_block_in_methodScopeDeclarations4295 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VOID_METHOD_DECL_in_methodScopeDeclarations4303 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_methodScopeDeclarations4305 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000400L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_methodScopeDeclarations4307 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_methodScopeDeclarations4310 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_formalParameterList_in_methodScopeDeclarations4312 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_throwsClause_in_methodScopeDeclarations4314 = new BitSet(new long[]{0x0000000000000008L,0x0020000000000000L});
+    public static final BitSet FOLLOW_block_in_methodScopeDeclarations4317 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CONSTRUCTOR_DECL_in_methodScopeDeclarations4325 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_methodScopeDeclarations4327 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000420L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_methodScopeDeclarations4329 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_formalParameterList_in_methodScopeDeclarations4332 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_throwsClause_in_methodScopeDeclarations4334 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_block_in_methodScopeDeclarations4337 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VAR_DECLARATION_in_globalVariableDeclaration4354 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_globalVariableDeclaration4360 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_globalVariableDeclaration4366 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
+    public static final BitSet FOLLOW_variableDeclaratorList_in_globalVariableDeclaration4371 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_synpred111_IntegrityVariablesParser2508 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_synpred118_IntegrityVariablesParser2609 = new BitSet(new long[]{0x0000000000000002L,0x4010000000000000L});
 
 }
