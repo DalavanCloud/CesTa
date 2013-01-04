@@ -63,14 +63,8 @@ public class CheckTransactions extends AbstractRewriteTransformation {
      */
     @Override
     public void transform(MappedFile filePair) throws TransformationException {
-        ANTLRInputStream inputStream = null;
-        try {
-            inputStream = new ANTLRInputStream(new FileInputStream(filePair.getFrom()));
-        } catch (IOException ex) {
-            throw new TransformationException("Could not open input file.", ex);
-        }
-
-        TreeNodeStream nodes = prepareTreeNodeStream(inputStream);
+        
+        TreeNodeStream nodes = prepareTreeNodeStream(filePair);
 
         logger.fine("Calling CheckTransactions tree parser");
         try {
@@ -82,17 +76,7 @@ public class CheckTransactions extends AbstractRewriteTransformation {
             throw new TransformationException("Parser could not process file.", ex);
         }
 
-        try {
-            ANTLRHelper.writeTokens(tokens, filePair.getTo());
-        } catch (IOException ex) {
-            throw new TransformationException("Could not save transformed file", ex);
-        }
-
-        try {
-            ANTLRJavaHelper.checkSyntax(tokens);
-        } catch (TransformationException ex){
-            throw new TransformationException("Transformation resulted in broken code and contains syntax errors.", ex);
-        }
+        writeTo(filePair);
     }
     /**
      * Returns default parameters

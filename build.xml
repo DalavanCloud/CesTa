@@ -146,7 +146,8 @@
     <target name="antlr-grammars" description="Compiling parser" depends="init">
         <antlr3-compile grammar.name="Java.g" grammar.package="org.cesta.grammars.java" parser.package="org.cesta.parsers.java"/>
         <antlr3-compile grammar.name="Dot.g" grammar.package="org.cesta.grammars.dot" parser.package="org.cesta.parsers.dot"/>
-        <!--<antlr3-compile grammar.name="CSharp4.g" grammar.package="org.cesta.grammars.csharp" parser.package="org.cesta.parsers.csharp"/>-->
+        <antlr3-compile grammar.name="CSharp4.g" grammar.package="org.cesta.grammars.csharp" parser.package="org.cesta.parsers.csharp"/>
+        <!--<antlr3-compile grammar.name="CSharp4PreProcessor.g" grammar.package="org.cesta.grammars.csharp" parser.package="org.cesta.parsers.csharp"/>-->
     </target>
     <target name="antlr-transformations" description="Compiling transformations" depends="init,antlr-grammars">
         <antlr3-compile grammar.name="CheckTransactionsParser.g" grammar.package="org.cesta.grammars.java" parser.package="org.cesta.parsers.java"/>
@@ -155,8 +156,7 @@
         <antlr3-compile grammar.name="IdentifyBlocksParser.g" grammar.package="org.cesta.grammars.java" parser.package="org.cesta.parsers.java"/>
         <antlr3-compile grammar.name="ValidateStateTransitionsParser.g" grammar.package="org.cesta.grammars.java" parser.package="org.cesta.parsers.java"/>
         <antlr3-compile grammar.name="DotTree.g" grammar.package="org.cesta.grammars.dot" parser.package="org.cesta.parsers.dot"/>
-        <!--<antlr3-compile grammar.name="CSharp4AST.g" grammar.package="org.cesta.grammars.csharp" parser.package="org.cesta.parsers.csharp"/>-->
-        <!--<antlr3-compile grammar.name="CSharp4PreProcessor.g" grammar.package="org.cesta.grammars.csharp" parser.package="org.cesta.parsers.csharp"/>-->
+        <!--<antlr3-compile grammar.name="MyCsharpTransformation.g" grammar.package="org.cesta.grammars.csharp" parser.package="org.cesta.parsers.csharp"/>-->
         <antlr3-compile grammar.name="IntegrityVariablesParser.g" grammar.package="org.cesta.grammars.java" parser.package="org.cesta.parsers.java"/>
     </target>
     <target name="-pre-compile" depends="antlr-transformations">

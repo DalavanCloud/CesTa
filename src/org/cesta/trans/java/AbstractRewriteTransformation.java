@@ -1,6 +1,8 @@
 
 package org.cesta.trans.java;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import org.cesta.util.antlr.java.ANTLRJavaHelper;
 import org.cesta.util.antlr.StringTemplateHelper;
 import org.cesta.trans.AbstractTransformation;
@@ -10,6 +12,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import org.antlr.runtime.*;
 import org.antlr.runtime.tree.*;
+import org.cesta.util.antlr.ANTLRHelper;
 
 /**
  * Abstract class for Java Card rewrite transformations.
@@ -100,6 +103,54 @@ public abstract class AbstractRewriteTransformation extends AbstractTransformati
         return nodes;
     }
 
+    /**
+     * Prepares tree node stream from filePair.
+     * @param filePair pair of files (only "from" file is used to create stream)
+     * @return initialized tree node stream
+     * @throws TransformationException in case input stream could not be read
+     * or contains errors
+     */
+    protected TreeNodeStream prepareTreeNodeStream(MappedFile filePair) throws TransformationException {
+        return prepareTreeNodeStream(getInputStream(filePair));
+    }
+    
+    /**
+     * Prepares tree node stream from tokens for sending to another parser.
+     * @return initialized tree node stream
+     * @throws TransformationException in case input stream could not be read
+     * or contains errors
+     */
+    protected TreeNodeStream prepareTreeNodeStream() throws TransformationException {
+        return prepareTreeNodeStream(new ANTLRStringStream(tokens.toString()));
+    }
+    
+    private ANTLRInputStream getInputStream(MappedFile filePair) throws TransformationException {
+        try {
+            return new ANTLRInputStream(new FileInputStream(filePair.getFrom()));
+        } catch (IOException ex) {
+            throw new TransformationException("Could not open input file.", ex);
+        }
+    }
+    
+    /**
+     * Writes tokens to the output file and checks the syntax.
+     * @param filePair pair of files (only "to" file is used for writing)
+     * @throws TransformationException
+     */
+    protected void writeTo(MappedFile filePair) throws TransformationException {
+        try {
+            ANTLRHelper.writeTokens(tokens, filePair.getTo());
+        } catch (IOException ex) {
+            throw new TransformationException("Could not save transformed file.", ex);
+        }
+        
+        try {
+            ANTLRJavaHelper.checkSyntax(tokens);
+        } catch (TransformationException ex){
+            throw new TransformationException("Transformation resulted in broken code and contains syntax errors.", ex);
+        }
+    }
+    
     /**
      * Transforms single file
      *
