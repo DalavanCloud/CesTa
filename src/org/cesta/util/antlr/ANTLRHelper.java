@@ -3,6 +3,7 @@ package org.cesta.util.antlr;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.antlr.runtime.TokenStream;
 
@@ -21,14 +22,17 @@ public class ANTLRHelper {
         FileOutputStream fos = null;
         try {
             file.getParentFile().mkdirs();
-            Logger.getLogger(ANTLRHelper.class.getName()).fine("Writing tokens to "+file.getPath());
+            Logger.getLogger(ANTLRHelper.class.getName()).log(
+                    Level.FINE, "Writing tokens to {0}", file.getPath());
             fos = new FileOutputStream(file);
             fos.write(tokens.toString().getBytes());
         } finally {
-            if (fos != null) try {
-                fos.close();
-            } catch (IOException ex) {
-
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException ex) {
+                    // TODO: catch IOException
+                }
             }
         }
     }

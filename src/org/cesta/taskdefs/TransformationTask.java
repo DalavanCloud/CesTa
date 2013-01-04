@@ -1,37 +1,23 @@
 package org.cesta.taskdefs;
 
-import org.cesta.util.ant.TaskLogHandler;
-import org.cesta.util.TaskLogFormatter;
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.apache.tools.ant.*;
+import org.apache.tools.ant.types.*;
+import org.apache.tools.ant.types.resources.FileResource;
+import org.apache.tools.ant.util.FileNameMapper;
+import org.apache.tools.ant.util.IdentityMapper;
 import org.cesta.loader.TransformationLoader;
 import org.cesta.trans.Transformation;
 import org.cesta.trans.TransformationException;
 import org.cesta.types.MappedFile;
 import org.cesta.types.Parameter;
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Vector;
-import java.util.logging.Handler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.apache.tools.ant.AntClassLoader;
-import org.apache.tools.ant.BuildException;
-import org.apache.tools.ant.DirectoryScanner;
-import org.apache.tools.ant.Project;
-import org.apache.tools.ant.Task;
-import org.apache.tools.ant.types.FileSet;
-import org.apache.tools.ant.types.Mapper;
-import org.apache.tools.ant.types.Path;
-import org.apache.tools.ant.types.Reference;
-import org.apache.tools.ant.types.Resource;
-import org.apache.tools.ant.types.ResourceCollection;
-import org.apache.tools.ant.types.resources.FileResource;
-import org.apache.tools.ant.util.FileNameMapper;
-import org.apache.tools.ant.util.IdentityMapper;
+import org.cesta.util.TaskLogFormatter;
+import org.cesta.util.ant.TaskLogHandler;
 
 /**
  * TransformationTask ANT task. It provides simple interface for executing
@@ -41,44 +27,56 @@ import org.apache.tools.ant.util.IdentityMapper;
  * @author Tobias Smolka
  */
 public class TransformationTask extends Task {
+    
     /**
      * Resources (files) which should be transformed.
      */
     private List<ResourceCollection> resources = new Vector<ResourceCollection>();
+    
     /**
      * Mapper element, which can be used to map filenames.
      */
     private Mapper mapperElement = null;
+    
     /**
      * Output directory, where transformed files should be written.
      */
     private File destDir = null;
+    
     /**
      * Output file, where transformed file should be written.
      */
     private File destFile = null;
+    
     /**
      * Directory, from which source files should be read.
      */
     private File srcDir = null;
+    
     /**
      * One single source file.
      */
     private File srcFile = null;
+    
     /**
      * Classname of transformation to execute.
      * Simple classname can be used in case that transformation is from package
      * cz.muni.fi.codetrans.trans. Otherwise full classname has to specified.
      */
     private String classname = null;
+    
     /** classpath, which can be used to load transformation or templates */
     private Path classpath = null;
+    
     /** the parameters to pass to the new transformation */
     private Map<String, Object> parameters = new HashMap<String, Object>();
+    
     /** whether failure to execute the task should throw a BuildException or just print an error */
     private boolean failOnError = true;
+    
     /** list of files, that should be transformed */
     private List<MappedFile> mappedFiles = new LinkedList<MappedFile>();
+    
     /** saved classpath, that was used before this task was loaded */
     private String savedClasspath = null;
 
@@ -123,7 +121,7 @@ public class TransformationTask extends Task {
     }
 
     /**
-     * the classpath to use when looking up a resource,
+     * The classpath to use when looking up a resource,
      * given as reference to a &lt;path&gt; defined elsewhere
      * @param r a reference to a classpath
      */
@@ -162,7 +160,7 @@ public class TransformationTask extends Task {
      * flatten attribute.
      */
     private FileNameMapper getMapper() {
-        FileNameMapper mapper = null;
+        FileNameMapper mapper;
         if (mapperElement != null) {
             mapper = mapperElement.getImplementation();
         } else {
@@ -188,6 +186,7 @@ public class TransformationTask extends Task {
     public void setFailonerror(boolean failOnError){
         this.failOnError = failOnError;
     }
+    
     /**
      * Returns current value of failOnError flag.
      * @return failOnError flag
@@ -228,7 +227,6 @@ public class TransformationTask extends Task {
         this.destFile = destFile;
     }
 
-
     /**
      * Returns source directory
      * @return the srcDir
@@ -244,7 +242,6 @@ public class TransformationTask extends Task {
     public void setSrcDir(File srcDir) {
         this.srcDir = srcDir;
     }
-
 
     /**
      * Returns source file
@@ -299,7 +296,7 @@ public class TransformationTask extends Task {
         ClassLoader classLoader = getClass().getClassLoader();
         if (classLoader instanceof AntClassLoader){
             // add defined classpath 
-            AntClassLoader antClassLoader = (AntClassLoader)classLoader;
+            AntClassLoader antClassLoader = (AntClassLoader) classLoader;
             antClassLoader.setParentFirst(false);
             antClassLoader.setProject(getProject());
             savedClasspath = antClassLoader.getClasspath();
@@ -310,7 +307,8 @@ public class TransformationTask extends Task {
             antClassLoader.setClassPath(cp);
         } else {
             // create new class loader
-            classLoader = new AntClassLoader(getClass().getClassLoader(), getProject(), getClasspath(), false);
+            classLoader = new AntClassLoader(
+                    getClass().getClassLoader(), getProject(), getClasspath(), false);
         }
 
         // set this class loader as new class loader for whole thread
@@ -323,8 +321,8 @@ public class TransformationTask extends Task {
      */
     protected void restoreClassloader(){
         ClassLoader classLoader = getClass().getClassLoader();
-        if (classLoader instanceof AntClassLoader && savedClasspath!=null){
-            AntClassLoader antClassLoader = (AntClassLoader)classLoader;
+        if (classLoader instanceof AntClassLoader && savedClasspath != null){
+            AntClassLoader antClassLoader = (AntClassLoader) classLoader;
             antClassLoader.setClassPath(new Path(getProject(), savedClasspath));
             savedClasspath = null;
         }
@@ -337,19 +335,25 @@ public class TransformationTask extends Task {
      */
     protected void addMappedFile(File file, File baseDir){
         if (file.isFile()){
-            if (baseDir == null) baseDir = file.getParentFile();
+            if (baseDir == null) {
+                baseDir = file.getParentFile();
+            }
             MappedFile mappedFile = new MappedFile();
             mappedFile.setFrom(file);
             String filename = file.getName();
 
             String[] names = getMapper().mapFileName(filename);
             // we don't use original filename if no mapping is available
-            if (names == null || names.length==0) return;   
+            if (names == null || names.length == 0) {
+                return;
+            }   
 
-            File newFile = new File(file.getParent()+System.getProperty("file.separator")+names[0]);
-            if (getDestDir()!=null){
+            File newFile = new File(
+                    file.getParent() + System.getProperty("file.separator") + names[0]);
+            if (getDestDir() != null){
                 try {
-                    newFile = new File(newFile.getCanonicalPath().replace(baseDir.getCanonicalPath(), getDestDir().getCanonicalPath()));
+                    newFile = new File(newFile.getCanonicalPath().replace(
+                            baseDir.getCanonicalPath(), getDestDir().getCanonicalPath()));
                 } catch (IOException ex) {
                     log("Couldn't map file", ex, Project.MSG_WARN);
                     return;
@@ -358,16 +362,21 @@ public class TransformationTask extends Task {
             mappedFile.setTo(newFile);
             mappedFiles.add(mappedFile);
         } else if (file.isDirectory()){
-            if (baseDir == null) baseDir = file;
+            if (baseDir == null) {
+                baseDir = file;
+            }
             DirectoryScanner ds = new DirectoryScanner();
             ds.setBasedir(file);
             ds.scan();
 
-            for (String fileName:ds.getIncludedFiles()){
-                addMappedFile(new File(file+System.getProperty("file.separator")+fileName), baseDir);
+            for (String fileName : ds.getIncludedFiles()){
+                addMappedFile(new File(
+                        file + System.getProperty("file.separator") + fileName),
+                        baseDir);
             }
         }
     }
+    
     /**
      * Simplyfied method for adding file without base directory
      * @param file file to add
@@ -388,11 +397,13 @@ public class TransformationTask extends Task {
         mappedFiles.clear();
 
         // one src file
-        if (getSrcFile()!=null)
+        if (getSrcFile() != null) {
             addMappedFile(getSrcFile());
+        }
 
-        if (getSrcDir()!=null)
+        if (getSrcDir() != null) {
             addMappedFile(getSrcDir());
+        }
 
         Iterator element = resources.iterator();
         while (element.hasNext()) {
@@ -400,15 +411,20 @@ public class TransformationTask extends Task {
             if (rc instanceof FileSet && rc.isFilesystemOnly()) {
                 FileSet fs = (FileSet) rc;
                 File fromDir = fs.getDir(getProject());
-                DirectoryScanner ds = null;
+                
+                DirectoryScanner ds;
                 try {
                     ds = fs.getDirectoryScanner(getProject());
                 } catch (BuildException ex) {
-                    log("Could not scan directory "+fromDir, ex, Project.MSG_ERR);
+                    log("Could not scan directory " + fromDir, ex, Project.MSG_ERR);
                     continue;
                 }
-                for (String f:ds.getIncludedFiles())
-                    addMappedFile(new File(fromDir+System.getProperty("file.separator")+f), fromDir);
+                
+                for (String f : ds.getIncludedFiles()) {
+                    addMappedFile(new File(
+                            fromDir + System.getProperty("file.separator") + f),
+                            fromDir);
+                }
             } else {
                 if (!rc.isFilesystemOnly()){
                     log("Only filesystem resources are supported", Project.MSG_WARN);
@@ -427,7 +443,9 @@ public class TransformationTask extends Task {
                         FileResource fr = (FileResource) r;
                         addMappedFile(fr.getFile(), fr.getBaseDir());
                     } else {
-                        log("Only file resources are supported ("+r.getClass().getSimpleName()+" found)", Project.MSG_WARN);
+                        log("Only file resources are supported ("
+                                + r.getClass().getSimpleName() + " found)",
+                                Project.MSG_WARN);
                         continue;
                     }
                }
@@ -448,7 +466,7 @@ public class TransformationTask extends Task {
         baselogger.setLevel(Level.ALL);
 
         // we want to disable other handlers and pass everything to Ant
-        for(Handler h:baselogger.getHandlers())
+        for(Handler h : baselogger.getHandlers())
             baselogger.removeHandler(h);
         
         // create TaskLogHandler, which forwards all messages to Ant logging subsystem
@@ -466,22 +484,27 @@ public class TransformationTask extends Task {
      */
     @Override
     public void execute() throws BuildException {
-        if (getClassname()==null)
+        if (getClassname() == null) {
             throw new BuildException("Classname of transformation is not set.");
+        }
 
-        if (getSrcFile()!=null && getSrcDir()!=null)
+        if (getSrcFile() != null && getSrcDir() != null) {
             throw new BuildException("Both srcFile and srcDir were set.");
+        }
 
-        if (getDestFile()!=null && getDestDir()!=null)
+        if (getDestFile() != null && getDestDir() != null) {
             throw new BuildException("Both destFile and destDir were set.");
+        }
 
-        if (!resources.isEmpty() && (getSrcFile()!=null || getSrcDir()!=null ))
+        if (!resources.isEmpty() && (getSrcFile() != null || getSrcDir() != null )) {
             throw new BuildException("Resources can't be combined with srcFile or srcDir.");
+        }
         
         initClassloader();
 
         try {
-            TransformationLoader loader = new TransformationLoader(Thread.currentThread().getContextClassLoader());
+            TransformationLoader loader = new TransformationLoader(
+                    Thread.currentThread().getContextClassLoader());
             Transformation transObj = null;
             try {
                 transObj = loader.getInstance(getClassname());
@@ -491,31 +514,40 @@ public class TransformationTask extends Task {
                 throw new BuildException("Transformation couldn't be accessed", ex);
             }
 
-            if (transObj==null)
-                throw new BuildException("Transformation "+getClassname()+" couldn't be loaded");
+            if (transObj == null) {
+                throw new BuildException("Transformation "
+                        + getClassname() + " couldn't be loaded");
+            }
 
             List<MappedFile> files = getMappedFiles();
-            if (files.size()==0){
-                log("No files specified, "+transObj.getClass().getSimpleName()+" skipped", Project.MSG_INFO);
+            if (files.isEmpty()){
+                log("No files specified, " + transObj.getClass().getSimpleName()
+                        + " skipped", Project.MSG_INFO);
                 return;
             }
-            for (MappedFile mf:files)
-                log("Mapped file "+mf.getFrom()+" to "+mf.getTo(), Project.MSG_VERBOSE);
+            for (MappedFile mf : files) {
+                log("Mapped file " + mf.getFrom() + " to " + mf.getTo(), Project.MSG_VERBOSE);
+            }
 
             transObj.setParam("baseDir", getProject().getBaseDir().getPath());
             transObj.setMappedFiles(files);
             transObj.setParams(parameters);
 
-            for (String key:parameters.keySet())
-                log("Parsed parameter "+key+" = "+parameters.get(key)+" ("+parameters.get(key).getClass().getName()+")", Project.MSG_VERBOSE);
+            for (String key : parameters.keySet())
+                log("Parsed parameter " + key + " = " + parameters.get(key)
+                        + " (" + parameters.get(key).getClass().getName() + ")",
+                        Project.MSG_VERBOSE);
 
             try {
-                log("Executing transformation "+transObj.getClass().getSimpleName()+" on "+mappedFiles.size()+" files");
+                log("Executing transformation "
+                        + transObj.getClass().getSimpleName() + " on "
+                        + mappedFiles.size() + " files");
                 transObj.execute();
             } catch (TransformationException ex){
                 log("Transformation has failed", ex, Project.MSG_ERR);
-                if (isFailonerror())
+                if (isFailonerror()) {
                     throw new BuildException("Transformation has failed.", ex);
+                }
             }
         } finally {
             restoreClassloader();

@@ -1,26 +1,22 @@
 package org.cesta.trans;
 
-import org.cesta.types.MappedFile;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Vector;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.cesta.types.MappedFile;
 
 /**
  * Abstract transformation, which can be base of any transformation.
  * It implements part of the Transformation interface.
- *
  */
 abstract public class AbstractTransformation implements Transformation {
     /** Default logger for transformation */
     protected Logger logger = null;
+    
     /** List of file pairs, which should be transformed */
     private List<MappedFile> filePairs = new Vector<MappedFile>();
+    
     /** Map of parameters, which were set */
     private Map<String, Object> parameters = new HashMap<String, Object>();
 
@@ -47,6 +43,7 @@ abstract public class AbstractTransformation implements Transformation {
     public void addMappedFile(MappedFile filePair) {
         filePairs.add(filePair);
     }
+    
     /**
      * Returns all set parameters for this transformation
      * @return collection of parameters
@@ -55,6 +52,7 @@ abstract public class AbstractTransformation implements Transformation {
     public Map<String, Object> getParams(){
         return Collections.unmodifiableMap(parameters);
     }
+    
     /**
      * Returns previously set parameter with given name
      * @param name name of parameter
@@ -82,18 +80,21 @@ abstract public class AbstractTransformation implements Transformation {
     public String getParamS(String name){
         return getParamS(name, null);
     }
+    
     /**
      * Helper method for getting String parameters
      */
     public String getParamS(String name, String defaultValue){
         return String.valueOf(getParam(name, defaultValue));
     }
+    
     /**
      * Helper method for getting Boolean parameters
      */
     public Boolean getParamB(String name){
         return getParamB(name, null);
     }
+    
     /**
      * Helper method for getting Boolean parameters
      */
@@ -108,11 +109,12 @@ abstract public class AbstractTransformation implements Transformation {
      */
     @Override
     public void setParams(Map<String, Object> params){
-        for (Iterator i=params.entrySet().iterator();i.hasNext();){
+        for (Iterator i = params.entrySet().iterator(); i.hasNext();){
             Entry<String,Object> param = (Entry<String, Object>) i.next();
             setParam(param.getKey(), param.getValue());
         }
     }
+    
     /**
      * Sets one single parameter
      * @param name name of parameter
@@ -122,6 +124,7 @@ abstract public class AbstractTransformation implements Transformation {
     public void setParam(String name, Object value){
         parameters.put(name, value);
     }
+    
     /**
      * Clears all parameters
      */
@@ -129,6 +132,7 @@ abstract public class AbstractTransformation implements Transformation {
     public void clearParams(){
         parameters.clear();
     }
+    
     /**
      * Returns default parameters
      * @return map of parameters

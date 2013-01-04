@@ -1,15 +1,11 @@
 package org.cesta.trans.java;
 
-import org.cesta.util.antlr.ANTLRHelper;
-import org.cesta.util.antlr.java.ANTLRJavaHelper;
+import java.util.Map;
+import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.tree.TreeNodeStream;
+import org.cesta.parsers.java.ShadowVariablesParser;
 import org.cesta.trans.TransformationException;
 import org.cesta.types.MappedFile;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Map;
-import org.antlr.runtime.*;
-import org.antlr.runtime.tree.*;
-import org.cesta.parsers.java.ShadowVariablesParser;
 
 /**
  * This transformation adds protection against memory fault induction.

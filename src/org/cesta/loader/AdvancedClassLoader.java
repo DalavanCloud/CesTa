@@ -48,7 +48,6 @@ public class AdvancedClassLoader<C> extends SecureClassLoader {
         this.serviceLoader = serviceLoader;
     }
 
-
     /**
      * Returns class with given name or null, if not found.
      * The name can be full class name (with package) or name of class from
@@ -63,44 +62,53 @@ public class AdvancedClassLoader<C> extends SecureClassLoader {
         try {
             c = super.loadClass(name);
         } catch (ClassNotFoundException ex) {
-            
+            // TODO: catch ClassNotFoundException exception
         }
 
         try {
-            if (c==null) c = super.loadClass(innerClass.getPackage().getName()+"."+name);
+            if (c == null) {
+                c = super.loadClass(
+                        innerClass.getPackage().getName() + "." + name);
+            }
         } catch (ClassNotFoundException ex) {
-
+            // TODO: catch ClassNotFoundException exception
         }
 
-        if (c!=null) {
+        if (c != null) {
             try {
-                ret = (Class<C>)c;
-            } catch (ClassCastException ex){
-                Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "Inner class doesn't have proper type", ex);
+                ret = (Class<C>) c;
+            } catch (ClassCastException ex) {
+                Logger.getLogger(this.getClass().getName()).log(Level.WARNING,
+                        "Inner class doesn't have proper type", ex);
             }
         }
 
         return ret;
     }
 
-    public C getInstance(String name) throws InstantiationException, IllegalAccessException{
+    public C getInstance(String name) throws InstantiationException,
+            IllegalAccessException {
         /*
         // service loader is not working very well
         ServiceLoader<C> sl = getServiceLoader();
-        for (C obj:sl){
+        for (C obj : sl){
             if (obj.getClass().getName().equals(name) ||
-                    obj.getClass().getName().equals(innerClass.getPackage().getName()+"."+name))
-            return obj;
+                    obj.getClass().getName().equals(
+                    innerClass.getPackage().getName() + "." + name)) {
+                return obj;
+            }
         }
         */
+        
         Class<C> cl = loadInnerClass(name);
-        if (cl == null) return null;
+        if (cl == null) {
+            return null;
+        }
 
         C obj = cl.newInstance();
 
         return obj;
     }
-
 
     /**
      *  Return static field object with given name from given class.
@@ -113,7 +121,6 @@ public class AdvancedClassLoader<C> extends SecureClassLoader {
         return getStaticField(loadInnerClass(className), fieldName);
     }
 
-
     /**
      *  Returns static field object with given name from given class.
      *
@@ -123,15 +130,19 @@ public class AdvancedClassLoader<C> extends SecureClassLoader {
      */
     public Object getStaticField(Class<C> cl, String fieldName) {
         Object obj = null;
-        if (cl!=null) try {
-            Field field = cl.getDeclaredField(fieldName);
-            if (field!=null)
-                obj = field.get(cl);
-
-        } catch (NoSuchFieldException ex){
-            // description field is not set
-        } catch (IllegalAccessException ex){
-            // access to description field is illegal
+        if (cl != null) {
+            try {
+                Field field = cl.getDeclaredField(fieldName);
+                if (field != null) {
+                    obj = field.get(cl);
+                }
+            } catch (NoSuchFieldException ex){
+                // description field is not set
+                // TODO: catch NoSuchFieldException exception
+            } catch (IllegalAccessException ex){
+                // access to description field is illegal
+                // TODO: catch IllegalAccessException exception
+            }
         }
         return obj;
     }

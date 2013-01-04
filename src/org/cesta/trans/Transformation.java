@@ -1,8 +1,8 @@
 package org.cesta.trans;
 
-import org.cesta.types.MappedFile;
 import java.util.List;
 import java.util.Map;
+import org.cesta.types.MappedFile;
 
 /**
  * Interface for all transformations. Before the transformation
@@ -31,11 +31,13 @@ public interface Transformation {
      * @return List of mapped files
      */
     public List<MappedFile> getMappedFiles();
+    
     /**
      * Sets list of mapped files, which should be transformed
      * @param mappedFiles mapped files
      */
     public void setMappedFiles(List<MappedFile> mappedFiles);
+    
     /**
      * Adds one mapped fileswhich should be transformed
      * @param mappedFile mapped file
@@ -47,11 +49,13 @@ public interface Transformation {
      * @return map of parameters
      */
     public Map<String, Object> getParams();
+    
     /**
      * Sets set of parameters
      * @param params set of parameters
      */
     public void setParams(Map<String, Object> params);
+    
     /**
      * Sets one single parameter
      * @param name name of parameter
@@ -84,5 +88,4 @@ public interface Transformation {
      * @throws TransformationException if transformation has failed
      */
     public void execute() throws TransformationException;
-
 }

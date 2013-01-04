@@ -9,8 +9,10 @@ import java.io.File;
  * @author Tobias Smolka
  */
 public class MappedFile {
+    
     /** Input file (read)*/
     protected File from;
+    
     /** Output file (write)*/
     protected File to;
 
@@ -30,6 +32,7 @@ public class MappedFile {
     public MappedFile(String from, String to){
         this(new File(from), new File(to));
     }
+    
     /**
      * Default constructor
      *

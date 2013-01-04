@@ -28,11 +28,13 @@ public class StringTemplateHelper {
             new CommonGroupLoader(templateDirs, new StringTemplateErrorListener() {
                 @Override
                 public void error(String message, Throwable cause) {
-                    Logger.getLogger(StringTemplateHelper.class.getName()).log(Level.SEVERE, "Error in templates: "+message, cause);
+                    Logger.getLogger(StringTemplateHelper.class.getName()).log(
+                            Level.SEVERE, "Error in templates: "+message, cause);
                 }
                 @Override
                 public void warning(String message) {
-                    Logger.getLogger(StringTemplateHelper.class.getName()).log(Level.WARNING, message);
+                    Logger.getLogger(StringTemplateHelper.class.getName()).log(
+                            Level.WARNING, message);
                 }
             });
 

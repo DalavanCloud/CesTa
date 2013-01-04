@@ -1,15 +1,10 @@
 package org.cesta.trans.java;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.TreeNodeStream;
 import org.cesta.parsers.java.IntegrityVariablesParser;
 import org.cesta.trans.TransformationException;
 import org.cesta.types.MappedFile;
-import org.cesta.util.antlr.ANTLRHelper;
-import org.cesta.util.antlr.java.ANTLRJavaHelper;
 
 /**
  * This transformation adds protection against memory fault induction.
@@ -49,4 +44,3 @@ public class IntegrityVariables extends AbstractRewriteTransformation {
         return params;
      }*/
 }
-

@@ -8,10 +8,10 @@ import org.cesta.trans.Transformation;
  * @author Tobias Smolka
  */
 public class TransformationLoader extends AdvancedClassLoader<Transformation> {
-    public TransformationLoader(){
+    public TransformationLoader() {
         super(Transformation.class);
     }
-    public TransformationLoader(ClassLoader parent){
+    public TransformationLoader(ClassLoader parent) {
         super(Transformation.class, parent);
     }
 }

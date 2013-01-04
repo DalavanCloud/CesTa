@@ -35,8 +35,11 @@ public final class Parameter {
                 || "no".equalsIgnoreCase(value)
                 || "0".equalsIgnoreCase(value));
 
-       if (isTrue || isFalse) return isTrue || !isFalse;
-       else return null;
+       if (isTrue || isFalse) {
+           return isTrue || !isFalse;
+       } else {
+           return null;
+       }
     }
 
     /**
@@ -57,7 +60,7 @@ public final class Parameter {
            number = Double.valueOf(value);
            return number;
        } catch (NumberFormatException ex){
-
+           // TODO: catch NumberFormatException exception
        }
        return null;
     }
@@ -73,12 +76,12 @@ public final class Parameter {
     public void setValue(final String value) {        
         this.value = value;
 
-        Object valueObj = null;
-        if ((valueObj = getBooleanValue(value))!=null)
+        Object valueObj;
+        if ((valueObj = getBooleanValue(value)) != null) {
             this.value = valueObj;
-        else if ((valueObj = getNumberValue(value))!=null)
+        } else if ((valueObj = getNumberValue(value)) != null) {
             this.value = valueObj;
-
+        }
     }
 
     /**

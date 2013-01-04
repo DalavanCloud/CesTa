@@ -1,16 +1,11 @@
 package org.cesta.trans.java;
 
-import org.cesta.util.antlr.ANTLRHelper;
-import org.cesta.util.antlr.java.ANTLRJavaHelper;
-import org.cesta.trans.TransformationException;
-import org.cesta.types.MappedFile;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Map;
-import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.TreeNodeStream;
 import org.cesta.parsers.java.CheckTransactionsParser;
+import org.cesta.trans.TransformationException;
+import org.cesta.types.MappedFile;
 
 /**
  * This transformation is used to automatically detect and possibly repair
@@ -85,7 +80,8 @@ public class CheckTransactions extends AbstractRewriteTransformation {
     @Override
      public Map<String, Object> getDefaultParams(){
         Map<String, Object> params = super.getDefaultParams();
-        params.put("nonatomicMethods", "javacard\\.framework\\.Util\\.arrayFillNonAtomic,javacard\\.framework\\.Util\\.arrayCopyNonAtomic:2");
+        params.put("nonatomicMethods", "javacard\\.framework\\.Util"
+                + "\\.arrayFillNonAtomic,javacard\\.framework\\.Util\\.arrayCopyNonAtomic:2");
         params.put("startMethods", "javacard\\.framework\\.JCSystem\\.beginTransaction");
         params.put("endMethods", ".*(commit|abort)Transaction");
         return params;

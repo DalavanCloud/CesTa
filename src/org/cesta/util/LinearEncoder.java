@@ -24,7 +24,8 @@ package org.cesta.util;
  *</p>
  *<p>
  *  You can use Richard Tervo's online tool to see how the codes actualy look.
- *  <a href="http://www.ee.unb.ca/cgi-bin/tervo/polygen.pl">http://www.ee.unb.ca/cgi-bin/tervo/polygen.pl</a>
+ *  <a href="http://www.ee.unb.ca/cgi-bin/tervo/polygen.pl">
+ *  http://www.ee.unb.ca/cgi-bin/tervo/polygen.pl</a>
  *</p>
  *@author Tobias Smolka
  */
@@ -91,13 +92,21 @@ public class LinearEncoder {
      * @param wordCount number of possible words
      */
     public LinearEncoder(int wordCount){
-        if (wordCount<0) throw new IllegalArgumentException("Number of words can't be negative.");
+        if (wordCount < 0) {
+            throw new IllegalArgumentException("Number of words can't be negative.");
+        }
 
-        if (wordCount<128) setCode(CODE_15_7);
-        else if (wordCount<1024) setCode(CODE_15_10);
-        else if (wordCount<2048) setCode(CODE_15_11);
-        else if (wordCount<16384) setCode(CODE_15_14);
-        else throw new IllegalArgumentException("Only less than 16384 words are supported.");
+        if (wordCount < 128) {
+            setCode(CODE_15_7);
+        } else if (wordCount < 1024) {
+            setCode(CODE_15_10);
+        } else if (wordCount < 2048) {
+            setCode(CODE_15_11);
+        } else if (wordCount < 16384) {
+            setCode(CODE_15_14);
+        } else {
+            throw new IllegalArgumentException("Only less than 16384 words are supported.");
+        }
     }
 
     /**
@@ -106,10 +115,11 @@ public class LinearEncoder {
      * @param code
      */
     public void setCode(int[][] code){
-        if (code==null || code.length==0)
+        if (code == null || code.length == 0)
             throw new IllegalArgumentException("Code is not valid");
         this.code = code;
     }
+    
     /**
      * Returns currently used code (generator matrix)
      * @return code
@@ -117,6 +127,7 @@ public class LinearEncoder {
     public int[][] getCode(){
         return code;
     }
+    
     /**
      * Encodes provided number
      * @param number
@@ -129,6 +140,7 @@ public class LinearEncoder {
         
         return matrix2int(R);
     }
+    
     /**
      * Decodes provided number. The algorithm doesn't currently support
      * error correction.
@@ -139,11 +151,10 @@ public class LinearEncoder {
         int G[][] = getCode();
         int A[][] = int2matrix(number, G[0].length);
         int B[][] = new int[1][G.length];
-        // cut away parity bites
-        for (int i=0;i<G.length;i++)
-            B[0][i]=A[0][i];
+        System.arraycopy(A[0], 0, B[0], 0, G.length);
         return matrix2int(B);
     }
+    
     /**
      * Converts number to binary matrix with one row and bitLength columns
      * @param number number to convert
@@ -153,28 +164,31 @@ public class LinearEncoder {
     public static int[][] int2matrix(int number, int bitLength) {
         int[][] result = new int[1][bitLength];
         int n = Math.abs(number);
-        for (int i=bitLength-1;i>=0;i--){
-            result[0][i]=n%2;
-            n = n>>1;
+        for (int i = bitLength - 1; i >= 0; i--) {
+            result[0][i]=n % 2;
+            n = n >> 1;
         }
         return result;
     }
+    
     /**
      * Converts binary row matrix to number
      * @param matrix matrix to convert
      * @return number
      */
     public static int matrix2int(int[][] matrix) {
-        if (matrix.length!=1)
+        if (matrix.length!=1) {
             throw new IllegalArgumentException("Matrix doesn't have exactly one row");
-        int res = 0;
-        int mult = 1;
-        for (int i=matrix[0].length-1;i>=0;i--){
-            res+=(matrix[0][i]%2)*mult;
-            mult*=2;
         }
-        return res;
+        int result = 0;
+        int multiple = 1;
+        for (int i = matrix[0].length - 1; i >= 0; i--) {
+            result += (matrix[0][i] % 2) * multiple;
+            multiple *= 2;
+        }
+        return result;
     }
+    
     /**
      * Multiply general matrices
      * @param m1 matrix A
@@ -186,17 +200,23 @@ public class LinearEncoder {
         int m1cols = m1[0].length;
         int m2rows = m2.length;
         int m2cols = m2[0].length;
-        if (m1cols != m2rows)
-          throw new IllegalArgumentException("Matrices don't match: " + m1cols + " != " + m2rows);
+        if (m1cols != m2rows) {
+          throw new IllegalArgumentException(
+                  "Matrices don't match: " + m1cols + " != " + m2rows);
+        }
         int[][] result = new int[m1rows][m2cols];
 
-        for (int i=0; i<m1rows; i++)
-          for (int j=0; j<m2cols; j++)
-            for (int k=0; k<m1cols; k++)
-            result[i][j] += m1[i][k] * m2[k][j];
+        for (int i = 0; i < m1rows; i++) {
+          for (int j = 0; j < m2cols; j++) {
+            for (int k = 0; k < m1cols; k++) {
+                result[i][j] += m1[i][k] * m2[k][j];
+            }
+          }
+        }
 
         return result;
     }
+    
     /**
      * Returns Hamming distance between two numbers
      * @param a non negative number
@@ -207,13 +227,13 @@ public class LinearEncoder {
         int sum = 0;
         int diff = (a ^ b); // & 0xFFFF
 
-        //if (diff<0){
-        //    diff*=-diff;
+        //if (diff < 0){
+        //    diff *= -diff;
         //    sum++;
         //}
-        while (diff>0){
-            sum += diff%2;
-            diff = diff>>1;
+        while (diff > 0) {
+            sum += diff % 2;
+            diff = diff >> 1;
         }
         return sum;
     }

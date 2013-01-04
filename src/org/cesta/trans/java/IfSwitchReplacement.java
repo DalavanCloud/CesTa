@@ -1,17 +1,12 @@
 package org.cesta.trans.java;
 
-import org.cesta.util.antlr.ANTLRHelper;
-import org.cesta.util.antlr.java.ANTLRJavaHelper;
-import org.cesta.trans.TransformationException;
-import org.cesta.types.MappedFile;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
-import org.antlr.runtime.*;
-import org.antlr.runtime.tree.*;
+import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.tree.TreeNodeStream;
 import org.cesta.parsers.java.IdentifyBlocksParser;
 import org.cesta.parsers.java.IfSwitchReplacementParser;
+import org.cesta.trans.TransformationException;
+import org.cesta.types.MappedFile;
 
 /**
  * This transfromation replaces potentially vulnerable if constructions

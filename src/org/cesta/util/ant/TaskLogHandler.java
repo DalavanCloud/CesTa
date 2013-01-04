@@ -42,15 +42,25 @@ public class TaskLogHandler extends Handler {
 
 	try {
             int msgLevel = Project.MSG_INFO;
-            if (record.getLevel()==Level.SEVERE) msgLevel=Project.MSG_ERR;
-            else if (record.getLevel()==Level.WARNING) msgLevel=Project.MSG_WARN;
-            else if (record.getLevel()==Level.FINEST) msgLevel=Project.MSG_DEBUG;
-            else if (record.getLevel()==Level.FINER) msgLevel=Project.MSG_VERBOSE;  // or debug?
-            else if (record.getLevel()==Level.CONFIG) msgLevel=Project.MSG_VERBOSE;
-            else if (record.getLevel()==Level.FINE) msgLevel=Project.MSG_VERBOSE;
+            if (record.getLevel() == Level.SEVERE) {
+                msgLevel = Project.MSG_ERR;
+            } else if (record.getLevel() == Level.WARNING) {
+                msgLevel = Project.MSG_WARN;
+            } else if (record.getLevel() == Level.FINEST) {
+                msgLevel = Project.MSG_DEBUG;
+            } else if (record.getLevel() == Level.FINER) {
+                msgLevel = Project.MSG_VERBOSE; // or debug?
+            } else if (record.getLevel() == Level.CONFIG) {
+                msgLevel = Project.MSG_VERBOSE;
+            } else if (record.getLevel() == Level.FINE) {
+                msgLevel = Project.MSG_VERBOSE;
+            }
             
-            if (record.getThrown()!=null) getTask().log(msg, record.getThrown(), msgLevel);
-            else getTask().log(msg, msgLevel);
+            if (record.getThrown() != null) {
+                getTask().log(msg, record.getThrown(), msgLevel);
+            } else {
+                getTask().log(msg, msgLevel);
+            }
 	} catch (Exception ex) {
 	    // We don't want to throw an exception here, but we
 	    // report the exception to any registered ErrorManager.
@@ -89,7 +99,4 @@ public class TaskLogHandler extends Handler {
     public void setTask(Task task) {
         this.task = task;
     }
-
-    
-
 }

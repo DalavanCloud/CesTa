@@ -1,19 +1,21 @@
 package org.cesta.trans.java;
 
-import org.cesta.parsers.dot.DotLexer;
-import org.cesta.parsers.dot.DotParser;
-import org.cesta.util.antlr.ANTLRHelper;
-import org.cesta.util.antlr.java.ANTLRJavaHelper;
-import org.cesta.trans.TransformationException;
-import org.cesta.types.MappedFile;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Map;
-import org.antlr.runtime.*;
-import org.antlr.runtime.tree.*;
+import java.util.logging.Level;
+import org.antlr.runtime.ANTLRFileStream;
+import org.antlr.runtime.CommonTokenStream;
+import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.tree.CommonTree;
+import org.antlr.runtime.tree.CommonTreeNodeStream;
+import org.antlr.runtime.tree.TreeNodeStream;
+import org.cesta.parsers.dot.DotLexer;
+import org.cesta.parsers.dot.DotParser;
 import org.cesta.parsers.dot.DotTree;
 import org.cesta.parsers.java.ValidateStateTransitionsParser;
+import org.cesta.trans.TransformationException;
+import org.cesta.types.MappedFile;
 
 /**
  * Transformation, which can check state transitions in class
@@ -128,7 +130,7 @@ public class ValidateStateTransitions extends AbstractRewriteTransformation {
             throw new TransformationException("Parameter dotGrammar has to be specified");
         }
 
-        logger.info("Loading DOT grammar file from " + dotGrammarFile);
+        logger.log(Level.INFO, "Loading DOT grammar file from {0}", dotGrammarFile);
 
         File f = new File(getParam("baseDir", "").toString(), dotGrammarFile);
         if (f.exists()) {
@@ -176,7 +178,7 @@ public class ValidateStateTransitions extends AbstractRewriteTransformation {
             throw new TransformationException("Graph from DOT file doesn't have any edges");
         }
 
-        logger.finer("Successfully loaded " + getGraph());
+        logger.log(Level.FINER, "Successfully loaded {0}", getGraph());
 
         super.execute();
     }

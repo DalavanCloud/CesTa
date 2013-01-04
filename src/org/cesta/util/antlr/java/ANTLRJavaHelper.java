@@ -1,18 +1,13 @@
 package org.cesta.util.antlr.java;
 
-import org.cesta.parsers.java.JavaLexer;
-import org.cesta.parsers.java.JavaParser;
-import org.cesta.trans.TransformationException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
-import org.antlr.runtime.ANTLRStringStream;
-import org.antlr.runtime.CharStream;
-import org.antlr.runtime.CommonTokenStream;
-import org.antlr.runtime.Token;
-import org.antlr.runtime.TokenRewriteStream;
-import org.antlr.runtime.TokenStream;
+import org.antlr.runtime.*;
 import org.antlr.runtime.tree.CommonTree;
+import org.cesta.parsers.java.JavaLexer;
+import org.cesta.parsers.java.JavaParser;
+import org.cesta.trans.TransformationException;
 
 /**
  * ANTLRJavaHelper provides some helper functions for simplified
@@ -30,11 +25,15 @@ public class ANTLRJavaHelper {
      * @throws TransformationException
      */
     public static JavaLexer tokenizeStream(CharStream stream) throws TransformationException {
-        if (stream == null) throw new NullPointerException("Stream is null");
+        if (stream == null) {
+            throw new NullPointerException("Stream is null");
+        }
 
         JavaLexer lex = new JavaLexer(stream);
-
-        if (lex == null || lex.failed()) throw new TransformationException("Lexer has failed, stream could not be tokenized.");
+        if (lex == null || lex.failed()) {
+            throw new TransformationException(
+                    "Lexer has failed, stream could not be tokenized.");
+        }
         return lex; 
     }
 
@@ -56,10 +55,11 @@ public class ANTLRJavaHelper {
             throw new TransformationException("File could not be parsed.", ex);
         }
 
-        if (parser.hasErrors())
+        if (parser.hasErrors()) {
             throw new TransformationException("File could not be parsed and contains errors.");
+        }
 
-        return (CommonTree)r.getTree();
+        return (CommonTree) r.getTree();
     }
 
     /**
@@ -89,25 +89,36 @@ public class ANTLRJavaHelper {
 
         Token t = null;
         int index = baseToken.getTokenIndex() - 1;
-        while (index > 0 && index < tokenStream.size() && (t = tokenStream.get(index)) != null && t.getType() == JavaLexer.WS) {
-            index--;
+        while (index > 0
+            && index < tokenStream.size()
+            && (t = tokenStream.get(index)) != null
+            && t.getType() == JavaLexer.WS
+            ) {
+                index--;
         }
 
         if (index != baseToken.getTokenIndex() - 1) {
-            return tokenStream.getTokens(index, baseToken.getTokenIndex() - 1, JavaLexer.WS);
+            return tokenStream.getTokens(
+                    index, baseToken.getTokenIndex() - 1, JavaLexer.WS);
         } else {
             return new LinkedList<Token>();
         }
     }
+    
     /**
      * Helper function, that returns default value for given type.     *
      * @param type type of return value
      * @return sample return value
      */
     public static String getTypeDefaultValue(String type){
-        if (type.equals("void")) return "";
-        else if (type.equals("boolean")) return "false";
-        else if (type.matches("int|short|byte")) return "0";
-        else return "null";
+        if (type.equals("void")) {
+            return "";
+        } else if (type.equals("boolean")) {
+            return "false";
+        } else if (type.matches("int|short|byte")) {
+            return "0";
+        } else {
+            return "null";
+        }
     }
 }

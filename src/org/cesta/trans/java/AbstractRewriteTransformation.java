@@ -1,18 +1,22 @@
-
 package org.cesta.trans.java;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import org.cesta.util.antlr.java.ANTLRJavaHelper;
-import org.cesta.util.antlr.StringTemplateHelper;
+import java.util.Map;
+import java.util.logging.Level;
+import org.antlr.runtime.ANTLRInputStream;
+import org.antlr.runtime.ANTLRStringStream;
+import org.antlr.runtime.CharStream;
+import org.antlr.runtime.TokenRewriteStream;
+import org.antlr.runtime.tree.CommonTree;
+import org.antlr.runtime.tree.CommonTreeNodeStream;
+import org.antlr.runtime.tree.TreeNodeStream;
 import org.cesta.trans.AbstractTransformation;
 import org.cesta.trans.TransformationException;
 import org.cesta.types.MappedFile;
-import java.util.Map;
-import java.util.logging.Level;
-import org.antlr.runtime.*;
-import org.antlr.runtime.tree.*;
 import org.cesta.util.antlr.ANTLRHelper;
+import org.cesta.util.antlr.StringTemplateHelper;
+import org.cesta.util.antlr.java.ANTLRJavaHelper;
 
 /**
  * Abstract class for Java Card rewrite transformations.
@@ -93,7 +97,8 @@ public abstract class AbstractRewriteTransformation extends AbstractTransformati
      * @throws TransformationException in case input stream could not be read
      * or contains errors
      */
-    protected TreeNodeStream prepareTreeNodeStream(CharStream inputStream) throws TransformationException {
+    protected TreeNodeStream prepareTreeNodeStream(CharStream inputStream)
+            throws TransformationException {
         logger.finer("Tokenizing stream");
         tokens = new TokenRewriteStream(ANTLRJavaHelper.tokenizeStream(inputStream));
         logger.finer("Parsing tokens");
@@ -110,7 +115,8 @@ public abstract class AbstractRewriteTransformation extends AbstractTransformati
      * @throws TransformationException in case input stream could not be read
      * or contains errors
      */
-    protected TreeNodeStream prepareTreeNodeStream(MappedFile filePair) throws TransformationException {
+    protected TreeNodeStream prepareTreeNodeStream(MappedFile filePair)
+            throws TransformationException {
         return prepareTreeNodeStream(getInputStream(filePair));
     }
     
@@ -124,7 +130,8 @@ public abstract class AbstractRewriteTransformation extends AbstractTransformati
         return prepareTreeNodeStream(new ANTLRStringStream(tokens.toString()));
     }
     
-    private ANTLRInputStream getInputStream(MappedFile filePair) throws TransformationException {
+    private ANTLRInputStream getInputStream(MappedFile filePair)
+            throws TransformationException {
         try {
             return new ANTLRInputStream(new FileInputStream(filePair.getFrom()));
         } catch (IOException ex) {
@@ -147,7 +154,8 @@ public abstract class AbstractRewriteTransformation extends AbstractTransformati
         try {
             ANTLRJavaHelper.checkSyntax(tokens);
         } catch (TransformationException ex){
-            throw new TransformationException("Transformation resulted in broken code and contains syntax errors.", ex);
+            throw new TransformationException("Transformation resulted in "
+                    + "broken code and contains syntax errors.", ex);
         }
     }
     
@@ -168,7 +176,7 @@ public abstract class AbstractRewriteTransformation extends AbstractTransformati
         registerTemplateGroupLoader();
         for (MappedFile filePair:getMappedFiles()){
             try {
-                logger.info("Transforming file "+filePair.getFrom());
+                logger.log(Level.INFO, "Transforming file {0}", filePair.getFrom());
                 transform(filePair);
             } catch (TransformationException ex){
                 logger.log(Level.SEVERE, ex.getMessage(), ex);
