@@ -40,20 +40,20 @@ tree grammar JavaTreeParser;
 options {
     backtrack = true; 
     memoize = true;
-    tokenVocab = Java;
+//    tokenVocab = Java; // ignored when imported
     ASTLabelType = CommonTree;
     output = template;
     rewrite = true;
 }
 
 
-@treeparser::header {
+//@treeparser::header {
+//
+//}
 
-}
-
-@treeparser::members {	
-    
-}
+//@treeparser::members {	
+//    
+//}
 
 // Starting point for parsing a Java file.
 javaSource
