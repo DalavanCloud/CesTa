@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 JavaTreeParser.g 2013-01-27 17:37:38
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 JavaTreeParser.g 2013-02-01 18:57:19
 
 package org.cesta.parsers.java;
 import org.cesta.util.antlr.java.ANTLRJavaHelper;
@@ -293,10 +293,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:64:5: ( ^( PACKAGE qualifiedIdentifier ) )
             // JavaTreeParser.g:64:9: ^( PACKAGE qualifiedIdentifier )
             {
-            match(input,PACKAGE,FOLLOW_PACKAGE_in_packageDeclaration125); if (state.failed) return retval;
+            match(input,PACKAGE,FOLLOW_PACKAGE_in_packageDeclaration127); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_qualifiedIdentifier_in_packageDeclaration127);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_packageDeclaration129);
             qualifiedIdentifier();
 
             state._fsp--;
@@ -335,7 +335,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:68:5: ( ^( IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? ) )
             // JavaTreeParser.g:68:9: ^( IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? )
             {
-            match(input,IMPORT,FOLLOW_IMPORT_in_importDeclaration154); if (state.failed) return retval;
+            match(input,IMPORT,FOLLOW_IMPORT_in_importDeclaration156); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // JavaTreeParser.g:68:18: ( STATIC )?
@@ -349,14 +349,14 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:0:0: STATIC
                     {
-                    match(input,STATIC,FOLLOW_STATIC_in_importDeclaration156); if (state.failed) return retval;
+                    match(input,STATIC,FOLLOW_STATIC_in_importDeclaration158); if (state.failed) return retval;
 
                     }
                     break;
 
             }
 
-            pushFollow(FOLLOW_qualifiedIdentifier_in_importDeclaration159);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_importDeclaration161);
             qualifiedIdentifier();
 
             state._fsp--;
@@ -372,7 +372,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:0:0: DOTSTAR
                     {
-                    match(input,DOTSTAR,FOLLOW_DOTSTAR_in_importDeclaration161); if (state.failed) return retval;
+                    match(input,DOTSTAR,FOLLOW_DOTSTAR_in_importDeclaration163); if (state.failed) return retval;
 
                     }
                     break;
@@ -413,7 +413,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:80:5: ( ^( EXTENDS_CLAUSE ( type )+ ) )
             // JavaTreeParser.g:80:9: ^( EXTENDS_CLAUSE ( type )+ )
             {
-            match(input,EXTENDS_CLAUSE,FOLLOW_EXTENDS_CLAUSE_in_extendsClause302); if (state.failed) return retval;
+            match(input,EXTENDS_CLAUSE,FOLLOW_EXTENDS_CLAUSE_in_extendsClause304); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // JavaTreeParser.g:80:26: ( type )+
@@ -432,7 +432,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             	case 1 :
             	    // JavaTreeParser.g:0:0: type
             	    {
-            	    pushFollow(FOLLOW_type_in_extendsClause304);
+            	    pushFollow(FOLLOW_type_in_extendsClause306);
             	    type();
 
             	    state._fsp--;
@@ -485,7 +485,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:84:5: ( ^( IMPLEMENTS_CLAUSE ( type )+ ) )
             // JavaTreeParser.g:84:9: ^( IMPLEMENTS_CLAUSE ( type )+ )
             {
-            match(input,IMPLEMENTS_CLAUSE,FOLLOW_IMPLEMENTS_CLAUSE_in_implementsClause333); if (state.failed) return retval;
+            match(input,IMPLEMENTS_CLAUSE,FOLLOW_IMPLEMENTS_CLAUSE_in_implementsClause335); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // JavaTreeParser.g:84:29: ( type )+
@@ -504,7 +504,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             	case 1 :
             	    // JavaTreeParser.g:0:0: type
             	    {
-            	    pushFollow(FOLLOW_type_in_implementsClause335);
+            	    pushFollow(FOLLOW_type_in_implementsClause337);
             	    type();
 
             	    state._fsp--;
@@ -557,7 +557,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:88:5: ( ^( GENERIC_TYPE_PARAM_LIST ( genericTypeParameter )+ ) )
             // JavaTreeParser.g:88:9: ^( GENERIC_TYPE_PARAM_LIST ( genericTypeParameter )+ )
             {
-            match(input,GENERIC_TYPE_PARAM_LIST,FOLLOW_GENERIC_TYPE_PARAM_LIST_in_genericTypeParameterList365); if (state.failed) return retval;
+            match(input,GENERIC_TYPE_PARAM_LIST,FOLLOW_GENERIC_TYPE_PARAM_LIST_in_genericTypeParameterList367); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // JavaTreeParser.g:88:35: ( genericTypeParameter )+
@@ -576,7 +576,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             	case 1 :
             	    // JavaTreeParser.g:0:0: genericTypeParameter
             	    {
-            	    pushFollow(FOLLOW_genericTypeParameter_in_genericTypeParameterList367);
+            	    pushFollow(FOLLOW_genericTypeParameter_in_genericTypeParameterList369);
             	    genericTypeParameter();
 
             	    state._fsp--;
@@ -629,7 +629,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:92:5: ( ^( IDENT ( bound )? ) )
             // JavaTreeParser.g:92:9: ^( IDENT ( bound )? )
             {
-            match(input,IDENT,FOLLOW_IDENT_in_genericTypeParameter389); if (state.failed) return retval;
+            match(input,IDENT,FOLLOW_IDENT_in_genericTypeParameter391); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -644,7 +644,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     case 1 :
                         // JavaTreeParser.g:0:0: bound
                         {
-                        pushFollow(FOLLOW_bound_in_genericTypeParameter391);
+                        pushFollow(FOLLOW_bound_in_genericTypeParameter393);
                         bound();
 
                         state._fsp--;
@@ -690,7 +690,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:96:5: ( ^( EXTENDS_BOUND_LIST ( type )+ ) )
             // JavaTreeParser.g:96:9: ^( EXTENDS_BOUND_LIST ( type )+ )
             {
-            match(input,EXTENDS_BOUND_LIST,FOLLOW_EXTENDS_BOUND_LIST_in_bound421); if (state.failed) return retval;
+            match(input,EXTENDS_BOUND_LIST,FOLLOW_EXTENDS_BOUND_LIST_in_bound423); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // JavaTreeParser.g:96:30: ( type )+
@@ -709,7 +709,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             	case 1 :
             	    // JavaTreeParser.g:0:0: type
             	    {
-            	    pushFollow(FOLLOW_type_in_bound423);
+            	    pushFollow(FOLLOW_type_in_bound425);
             	    type();
 
             	    state._fsp--;
@@ -762,7 +762,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:100:5: ( ^( ENUM_TOP_LEVEL_SCOPE ( enumConstant )+ ( classTopLevelScope )? ) )
             // JavaTreeParser.g:100:9: ^( ENUM_TOP_LEVEL_SCOPE ( enumConstant )+ ( classTopLevelScope )? )
             {
-            match(input,ENUM_TOP_LEVEL_SCOPE,FOLLOW_ENUM_TOP_LEVEL_SCOPE_in_enumTopLevelScope445); if (state.failed) return retval;
+            match(input,ENUM_TOP_LEVEL_SCOPE,FOLLOW_ENUM_TOP_LEVEL_SCOPE_in_enumTopLevelScope447); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // JavaTreeParser.g:100:32: ( enumConstant )+
@@ -781,7 +781,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             	case 1 :
             	    // JavaTreeParser.g:0:0: enumConstant
             	    {
-            	    pushFollow(FOLLOW_enumConstant_in_enumTopLevelScope447);
+            	    pushFollow(FOLLOW_enumConstant_in_enumTopLevelScope449);
             	    enumConstant();
 
             	    state._fsp--;
@@ -811,7 +811,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:0:0: classTopLevelScope
                     {
-                    pushFollow(FOLLOW_classTopLevelScope_in_enumTopLevelScope450);
+                    pushFollow(FOLLOW_classTopLevelScope_in_enumTopLevelScope452);
                     gIfSwitchReplacementParser.classTopLevelScope();
 
                     state._fsp--;
@@ -856,10 +856,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:104:5: ( ^( IDENT annotationList ( arguments )? ( classTopLevelScope )? ) )
             // JavaTreeParser.g:104:9: ^( IDENT annotationList ( arguments )? ( classTopLevelScope )? )
             {
-            match(input,IDENT,FOLLOW_IDENT_in_enumConstant476); if (state.failed) return retval;
+            match(input,IDENT,FOLLOW_IDENT_in_enumConstant478); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_annotationList_in_enumConstant478);
+            pushFollow(FOLLOW_annotationList_in_enumConstant480);
             annotationList();
 
             state._fsp--;
@@ -875,7 +875,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:0:0: arguments
                     {
-                    pushFollow(FOLLOW_arguments_in_enumConstant480);
+                    pushFollow(FOLLOW_arguments_in_enumConstant482);
                     arguments();
 
                     state._fsp--;
@@ -897,7 +897,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:0:0: classTopLevelScope
                     {
-                    pushFollow(FOLLOW_classTopLevelScope_in_enumConstant483);
+                    pushFollow(FOLLOW_classTopLevelScope_in_enumConstant485);
                     gIfSwitchReplacementParser.classTopLevelScope();
 
                     state._fsp--;
@@ -942,7 +942,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:123:5: ( ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* ) )
             // JavaTreeParser.g:123:9: ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* )
             {
-            match(input,INTERFACE_TOP_LEVEL_SCOPE,FOLLOW_INTERFACE_TOP_LEVEL_SCOPE_in_interfaceTopLevelScope694); if (state.failed) return retval;
+            match(input,INTERFACE_TOP_LEVEL_SCOPE,FOLLOW_INTERFACE_TOP_LEVEL_SCOPE_in_interfaceTopLevelScope696); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -961,7 +961,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 	case 1 :
                 	    // JavaTreeParser.g:0:0: interfaceScopeDeclarations
                 	    {
-                	    pushFollow(FOLLOW_interfaceScopeDeclarations_in_interfaceTopLevelScope696);
+                	    pushFollow(FOLLOW_interfaceScopeDeclarations_in_interfaceTopLevelScope698);
                 	    interfaceScopeDeclarations();
 
                 	    state._fsp--;
@@ -1045,10 +1045,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:127:9: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? )
                     {
-                    match(input,FUNCTION_METHOD_DECL,FOLLOW_FUNCTION_METHOD_DECL_in_interfaceScopeDeclarations722); if (state.failed) return retval;
+                    match(input,FUNCTION_METHOD_DECL,FOLLOW_FUNCTION_METHOD_DECL_in_interfaceScopeDeclarations724); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations724);
+                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations726);
                     modifierList();
 
                     state._fsp--;
@@ -1064,7 +1064,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         case 1 :
                             // JavaTreeParser.g:0:0: genericTypeParameterList
                             {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations726);
+                            pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations728);
                             genericTypeParameterList();
 
                             state._fsp--;
@@ -1075,13 +1075,13 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     }
 
-                    pushFollow(FOLLOW_type_in_interfaceScopeDeclarations729);
+                    pushFollow(FOLLOW_type_in_interfaceScopeDeclarations731);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations731); if (state.failed) return retval;
-                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations733);
+                    match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations733); if (state.failed) return retval;
+                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations735);
                     formalParameterList();
 
                     state._fsp--;
@@ -1097,7 +1097,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         case 1 :
                             // JavaTreeParser.g:0:0: arrayDeclaratorList
                             {
-                            pushFollow(FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations735);
+                            pushFollow(FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations737);
                             arrayDeclaratorList();
 
                             state._fsp--;
@@ -1119,7 +1119,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         case 1 :
                             // JavaTreeParser.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations738);
+                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations740);
                             throwsClause();
 
                             state._fsp--;
@@ -1138,10 +1138,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 2 :
                     // JavaTreeParser.g:128:9: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? )
                     {
-                    match(input,VOID_METHOD_DECL,FOLLOW_VOID_METHOD_DECL_in_interfaceScopeDeclarations751); if (state.failed) return retval;
+                    match(input,VOID_METHOD_DECL,FOLLOW_VOID_METHOD_DECL_in_interfaceScopeDeclarations753); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations753);
+                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations755);
                     modifierList();
 
                     state._fsp--;
@@ -1157,7 +1157,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         case 1 :
                             // JavaTreeParser.g:0:0: genericTypeParameterList
                             {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations755);
+                            pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations757);
                             genericTypeParameterList();
 
                             state._fsp--;
@@ -1168,8 +1168,8 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     }
 
-                    match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations758); if (state.failed) return retval;
-                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations760);
+                    match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations760); if (state.failed) return retval;
+                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations762);
                     formalParameterList();
 
                     state._fsp--;
@@ -1185,7 +1185,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         case 1 :
                             // JavaTreeParser.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations762);
+                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations764);
                             throwsClause();
 
                             state._fsp--;
@@ -1204,20 +1204,20 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 3 :
                     // JavaTreeParser.g:132:9: ^( VAR_DECLARATION modifierList type variableDeclaratorList )
                     {
-                    match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_interfaceScopeDeclarations853); if (state.failed) return retval;
+                    match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_interfaceScopeDeclarations855); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations855);
+                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations857);
                     modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_interfaceScopeDeclarations857);
+                    pushFollow(FOLLOW_type_in_interfaceScopeDeclarations859);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_variableDeclaratorList_in_interfaceScopeDeclarations859);
+                    pushFollow(FOLLOW_variableDeclaratorList_in_interfaceScopeDeclarations861);
                     variableDeclaratorList();
 
                     state._fsp--;
@@ -1230,7 +1230,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 4 :
                     // JavaTreeParser.g:133:9: typeDeclaration
                     {
-                    pushFollow(FOLLOW_typeDeclaration_in_interfaceScopeDeclarations870);
+                    pushFollow(FOLLOW_typeDeclaration_in_interfaceScopeDeclarations872);
                     gIfSwitchReplacementParser.typeDeclaration();
 
                     state._fsp--;
@@ -1269,7 +1269,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:137:5: ( ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ ) )
             // JavaTreeParser.g:137:9: ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ )
             {
-            match(input,VAR_DECLARATOR_LIST,FOLLOW_VAR_DECLARATOR_LIST_in_variableDeclaratorList890); if (state.failed) return retval;
+            match(input,VAR_DECLARATOR_LIST,FOLLOW_VAR_DECLARATOR_LIST_in_variableDeclaratorList892); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // JavaTreeParser.g:137:31: ( variableDeclarator )+
@@ -1288,7 +1288,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             	case 1 :
             	    // JavaTreeParser.g:0:0: variableDeclarator
             	    {
-            	    pushFollow(FOLLOW_variableDeclarator_in_variableDeclaratorList892);
+            	    pushFollow(FOLLOW_variableDeclarator_in_variableDeclaratorList894);
             	    variableDeclarator();
 
             	    state._fsp--;
@@ -1341,10 +1341,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:141:5: ( ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) )
             // JavaTreeParser.g:141:9: ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
             {
-            match(input,VAR_DECLARATOR,FOLLOW_VAR_DECLARATOR_in_variableDeclarator914); if (state.failed) return retval;
+            match(input,VAR_DECLARATOR,FOLLOW_VAR_DECLARATOR_in_variableDeclarator916); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_variableDeclaratorId_in_variableDeclarator916);
+            pushFollow(FOLLOW_variableDeclaratorId_in_variableDeclarator918);
             variableDeclaratorId();
 
             state._fsp--;
@@ -1360,7 +1360,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:0:0: variableInitializer
                     {
-                    pushFollow(FOLLOW_variableInitializer_in_variableDeclarator918);
+                    pushFollow(FOLLOW_variableInitializer_in_variableDeclarator920);
                     variableInitializer();
 
                     state._fsp--;
@@ -1405,7 +1405,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:145:5: ( ^( IDENT ( arrayDeclaratorList )? ) )
             // JavaTreeParser.g:145:9: ^( IDENT ( arrayDeclaratorList )? )
             {
-            match(input,IDENT,FOLLOW_IDENT_in_variableDeclaratorId944); if (state.failed) return retval;
+            match(input,IDENT,FOLLOW_IDENT_in_variableDeclaratorId946); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -1420,7 +1420,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     case 1 :
                         // JavaTreeParser.g:0:0: arrayDeclaratorList
                         {
-                        pushFollow(FOLLOW_arrayDeclaratorList_in_variableDeclaratorId946);
+                        pushFollow(FOLLOW_arrayDeclaratorList_in_variableDeclaratorId948);
                         arrayDeclaratorList();
 
                         state._fsp--;
@@ -1484,7 +1484,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:149:9: arrayInitializer
                     {
-                    pushFollow(FOLLOW_arrayInitializer_in_variableInitializer967);
+                    pushFollow(FOLLOW_arrayInitializer_in_variableInitializer969);
                     arrayInitializer();
 
                     state._fsp--;
@@ -1495,7 +1495,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 2 :
                     // JavaTreeParser.g:150:9: expression
                     {
-                    pushFollow(FOLLOW_expression_in_variableInitializer977);
+                    pushFollow(FOLLOW_expression_in_variableInitializer979);
                     expression();
 
                     state._fsp--;
@@ -1534,8 +1534,8 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:154:5: ( LBRACK RBRACK )
             // JavaTreeParser.g:154:9: LBRACK RBRACK
             {
-            match(input,LBRACK,FOLLOW_LBRACK_in_arrayDeclarator996); if (state.failed) return retval;
-            match(input,RBRACK,FOLLOW_RBRACK_in_arrayDeclarator998); if (state.failed) return retval;
+            match(input,LBRACK,FOLLOW_LBRACK_in_arrayDeclarator998); if (state.failed) return retval;
+            match(input,RBRACK,FOLLOW_RBRACK_in_arrayDeclarator1000); if (state.failed) return retval;
 
             }
 
@@ -1568,7 +1568,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:158:5: ( ^( ARRAY_DECLARATOR_LIST ( ARRAY_DECLARATOR )* ) )
             // JavaTreeParser.g:158:9: ^( ARRAY_DECLARATOR_LIST ( ARRAY_DECLARATOR )* )
             {
-            match(input,ARRAY_DECLARATOR_LIST,FOLLOW_ARRAY_DECLARATOR_LIST_in_arrayDeclaratorList1018); if (state.failed) return retval;
+            match(input,ARRAY_DECLARATOR_LIST,FOLLOW_ARRAY_DECLARATOR_LIST_in_arrayDeclaratorList1020); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -1587,7 +1587,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 	case 1 :
                 	    // JavaTreeParser.g:0:0: ARRAY_DECLARATOR
                 	    {
-                	    match(input,ARRAY_DECLARATOR,FOLLOW_ARRAY_DECLARATOR_in_arrayDeclaratorList1020); if (state.failed) return retval;
+                	    match(input,ARRAY_DECLARATOR,FOLLOW_ARRAY_DECLARATOR_in_arrayDeclaratorList1022); if (state.failed) return retval;
 
                 	    }
                 	    break;
@@ -1632,7 +1632,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:162:5: ( ^( ARRAY_INITIALIZER ( variableInitializer )* ) )
             // JavaTreeParser.g:162:9: ^( ARRAY_INITIALIZER ( variableInitializer )* )
             {
-            match(input,ARRAY_INITIALIZER,FOLLOW_ARRAY_INITIALIZER_in_arrayInitializer1048); if (state.failed) return retval;
+            match(input,ARRAY_INITIALIZER,FOLLOW_ARRAY_INITIALIZER_in_arrayInitializer1050); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -1651,7 +1651,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 	case 1 :
                 	    // JavaTreeParser.g:0:0: variableInitializer
                 	    {
-                	    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer1050);
+                	    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer1052);
                 	    variableInitializer();
 
                 	    state._fsp--;
@@ -1700,7 +1700,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:166:5: ( ^( THROWS_CLAUSE ( qualifiedIdentifier )+ ) )
             // JavaTreeParser.g:166:9: ^( THROWS_CLAUSE ( qualifiedIdentifier )+ )
             {
-            match(input,THROWS_CLAUSE,FOLLOW_THROWS_CLAUSE_in_throwsClause1072); if (state.failed) return retval;
+            match(input,THROWS_CLAUSE,FOLLOW_THROWS_CLAUSE_in_throwsClause1074); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // JavaTreeParser.g:166:25: ( qualifiedIdentifier )+
@@ -1719,7 +1719,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             	case 1 :
             	    // JavaTreeParser.g:0:0: qualifiedIdentifier
             	    {
-            	    pushFollow(FOLLOW_qualifiedIdentifier_in_throwsClause1074);
+            	    pushFollow(FOLLOW_qualifiedIdentifier_in_throwsClause1076);
             	    qualifiedIdentifier();
 
             	    state._fsp--;
@@ -1772,7 +1772,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:170:5: ( ^( MODIFIER_LIST ( modifier )* ) )
             // JavaTreeParser.g:170:9: ^( MODIFIER_LIST ( modifier )* )
             {
-            match(input,MODIFIER_LIST,FOLLOW_MODIFIER_LIST_in_modifierList1096); if (state.failed) return retval;
+            match(input,MODIFIER_LIST,FOLLOW_MODIFIER_LIST_in_modifierList1098); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -1791,7 +1791,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 	case 1 :
                 	    // JavaTreeParser.g:0:0: modifier
                 	    {
-                	    pushFollow(FOLLOW_modifier_in_modifierList1098);
+                	    pushFollow(FOLLOW_modifier_in_modifierList1100);
                 	    modifier();
 
                 	    state._fsp--;
@@ -1844,77 +1844,77 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:174:9: PUBLIC
                     {
-                    match(input,PUBLIC,FOLLOW_PUBLIC_in_modifier1119); if (state.failed) return retval;
+                    match(input,PUBLIC,FOLLOW_PUBLIC_in_modifier1121); if (state.failed) return retval;
 
                     }
                     break;
                 case 2 :
                     // JavaTreeParser.g:175:9: PROTECTED
                     {
-                    match(input,PROTECTED,FOLLOW_PROTECTED_in_modifier1129); if (state.failed) return retval;
+                    match(input,PROTECTED,FOLLOW_PROTECTED_in_modifier1131); if (state.failed) return retval;
 
                     }
                     break;
                 case 3 :
                     // JavaTreeParser.g:176:9: PRIVATE
                     {
-                    match(input,PRIVATE,FOLLOW_PRIVATE_in_modifier1139); if (state.failed) return retval;
+                    match(input,PRIVATE,FOLLOW_PRIVATE_in_modifier1141); if (state.failed) return retval;
 
                     }
                     break;
                 case 4 :
                     // JavaTreeParser.g:177:9: STATIC
                     {
-                    match(input,STATIC,FOLLOW_STATIC_in_modifier1149); if (state.failed) return retval;
+                    match(input,STATIC,FOLLOW_STATIC_in_modifier1151); if (state.failed) return retval;
 
                     }
                     break;
                 case 5 :
                     // JavaTreeParser.g:178:9: ABSTRACT
                     {
-                    match(input,ABSTRACT,FOLLOW_ABSTRACT_in_modifier1159); if (state.failed) return retval;
+                    match(input,ABSTRACT,FOLLOW_ABSTRACT_in_modifier1161); if (state.failed) return retval;
 
                     }
                     break;
                 case 6 :
                     // JavaTreeParser.g:179:9: NATIVE
                     {
-                    match(input,NATIVE,FOLLOW_NATIVE_in_modifier1169); if (state.failed) return retval;
+                    match(input,NATIVE,FOLLOW_NATIVE_in_modifier1171); if (state.failed) return retval;
 
                     }
                     break;
                 case 7 :
                     // JavaTreeParser.g:180:9: SYNCHRONIZED
                     {
-                    match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_modifier1179); if (state.failed) return retval;
+                    match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_modifier1181); if (state.failed) return retval;
 
                     }
                     break;
                 case 8 :
                     // JavaTreeParser.g:181:9: TRANSIENT
                     {
-                    match(input,TRANSIENT,FOLLOW_TRANSIENT_in_modifier1189); if (state.failed) return retval;
+                    match(input,TRANSIENT,FOLLOW_TRANSIENT_in_modifier1191); if (state.failed) return retval;
 
                     }
                     break;
                 case 9 :
                     // JavaTreeParser.g:182:9: VOLATILE
                     {
-                    match(input,VOLATILE,FOLLOW_VOLATILE_in_modifier1199); if (state.failed) return retval;
+                    match(input,VOLATILE,FOLLOW_VOLATILE_in_modifier1201); if (state.failed) return retval;
 
                     }
                     break;
                 case 10 :
                     // JavaTreeParser.g:183:9: STRICTFP
                     {
-                    match(input,STRICTFP,FOLLOW_STRICTFP_in_modifier1209); if (state.failed) return retval;
+                    match(input,STRICTFP,FOLLOW_STRICTFP_in_modifier1211); if (state.failed) return retval;
 
                     }
                     break;
                 case 11 :
                     // JavaTreeParser.g:184:9: localModifier
                     {
-                    pushFollow(FOLLOW_localModifier_in_modifier1219);
+                    pushFollow(FOLLOW_localModifier_in_modifier1221);
                     localModifier();
 
                     state._fsp--;
@@ -1953,7 +1953,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:188:5: ( ^( LOCAL_MODIFIER_LIST ( localModifier )* ) )
             // JavaTreeParser.g:188:9: ^( LOCAL_MODIFIER_LIST ( localModifier )* )
             {
-            match(input,LOCAL_MODIFIER_LIST,FOLLOW_LOCAL_MODIFIER_LIST_in_localModifierList1239); if (state.failed) return retval;
+            match(input,LOCAL_MODIFIER_LIST,FOLLOW_LOCAL_MODIFIER_LIST_in_localModifierList1241); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -1972,7 +1972,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 	case 1 :
                 	    // JavaTreeParser.g:0:0: localModifier
                 	    {
-                	    pushFollow(FOLLOW_localModifier_in_localModifierList1241);
+                	    pushFollow(FOLLOW_localModifier_in_localModifierList1243);
                 	    localModifier();
 
                 	    state._fsp--;
@@ -2039,14 +2039,14 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:192:9: FINAL
                     {
-                    match(input,FINAL,FOLLOW_FINAL_in_localModifier1262); if (state.failed) return retval;
+                    match(input,FINAL,FOLLOW_FINAL_in_localModifier1264); if (state.failed) return retval;
 
                     }
                     break;
                 case 2 :
                     // JavaTreeParser.g:193:9: annotation
                     {
-                    pushFollow(FOLLOW_annotation_in_localModifier1272);
+                    pushFollow(FOLLOW_annotation_in_localModifier1274);
                     annotation();
 
                     state._fsp--;
@@ -2085,7 +2085,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:197:5: ( ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? ) )
             // JavaTreeParser.g:197:9: ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? )
             {
-            match(input,TYPE,FOLLOW_TYPE_in_type1292); if (state.failed) return retval;
+            match(input,TYPE,FOLLOW_TYPE_in_type1294); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // JavaTreeParser.g:197:16: ( primitiveType | qualifiedTypeIdent )
@@ -2109,7 +2109,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:197:17: primitiveType
                     {
-                    pushFollow(FOLLOW_primitiveType_in_type1295);
+                    pushFollow(FOLLOW_primitiveType_in_type1297);
                     primitiveType();
 
                     state._fsp--;
@@ -2120,7 +2120,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 2 :
                     // JavaTreeParser.g:197:33: qualifiedTypeIdent
                     {
-                    pushFollow(FOLLOW_qualifiedTypeIdent_in_type1299);
+                    pushFollow(FOLLOW_qualifiedTypeIdent_in_type1301);
                     qualifiedTypeIdent();
 
                     state._fsp--;
@@ -2142,7 +2142,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:0:0: arrayDeclaratorList
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_type1302);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_type1304);
                     arrayDeclaratorList();
 
                     state._fsp--;
@@ -2187,7 +2187,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:201:5: ( ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) )
             // JavaTreeParser.g:201:9: ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
             {
-            match(input,QUALIFIED_TYPE_IDENT,FOLLOW_QUALIFIED_TYPE_IDENT_in_qualifiedTypeIdent1324); if (state.failed) return retval;
+            match(input,QUALIFIED_TYPE_IDENT,FOLLOW_QUALIFIED_TYPE_IDENT_in_qualifiedTypeIdent1326); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // JavaTreeParser.g:201:32: ( typeIdent )+
@@ -2206,7 +2206,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             	case 1 :
             	    // JavaTreeParser.g:0:0: typeIdent
             	    {
-            	    pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent1326);
+            	    pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent1328);
             	    typeIdent();
 
             	    state._fsp--;
@@ -2259,7 +2259,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:205:5: ( ^( IDENT ( genericTypeArgumentList )? ) )
             // JavaTreeParser.g:205:9: ^( IDENT ( genericTypeArgumentList )? )
             {
-            match(input,IDENT,FOLLOW_IDENT_in_typeIdent1349); if (state.failed) return retval;
+            match(input,IDENT,FOLLOW_IDENT_in_typeIdent1351); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -2274,7 +2274,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     case 1 :
                         // JavaTreeParser.g:0:0: genericTypeArgumentList
                         {
-                        pushFollow(FOLLOW_genericTypeArgumentList_in_typeIdent1351);
+                        pushFollow(FOLLOW_genericTypeArgumentList_in_typeIdent1353);
                         genericTypeArgumentList();
 
                         state._fsp--;
@@ -2362,7 +2362,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:220:5: ( ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ ) )
             // JavaTreeParser.g:220:9: ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ )
             {
-            match(input,GENERIC_TYPE_ARG_LIST,FOLLOW_GENERIC_TYPE_ARG_LIST_in_genericTypeArgumentList1462); if (state.failed) return retval;
+            match(input,GENERIC_TYPE_ARG_LIST,FOLLOW_GENERIC_TYPE_ARG_LIST_in_genericTypeArgumentList1464); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // JavaTreeParser.g:220:33: ( genericTypeArgument )+
@@ -2381,7 +2381,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             	case 1 :
             	    // JavaTreeParser.g:0:0: genericTypeArgument
             	    {
-            	    pushFollow(FOLLOW_genericTypeArgument_in_genericTypeArgumentList1464);
+            	    pushFollow(FOLLOW_genericTypeArgument_in_genericTypeArgumentList1466);
             	    genericTypeArgument();
 
             	    state._fsp--;
@@ -2452,7 +2452,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:224:9: type
                     {
-                    pushFollow(FOLLOW_type_in_genericTypeArgument1489);
+                    pushFollow(FOLLOW_type_in_genericTypeArgument1491);
                     type();
 
                     state._fsp--;
@@ -2463,7 +2463,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 2 :
                     // JavaTreeParser.g:225:9: ^( QUESTION ( genericWildcardBoundType )? )
                     {
-                    match(input,QUESTION,FOLLOW_QUESTION_in_genericTypeArgument1500); if (state.failed) return retval;
+                    match(input,QUESTION,FOLLOW_QUESTION_in_genericTypeArgument1502); if (state.failed) return retval;
 
                     if ( input.LA(1)==Token.DOWN ) {
                         match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -2478,7 +2478,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                             case 1 :
                                 // JavaTreeParser.g:0:0: genericWildcardBoundType
                                 {
-                                pushFollow(FOLLOW_genericWildcardBoundType_in_genericTypeArgument1502);
+                                pushFollow(FOLLOW_genericWildcardBoundType_in_genericTypeArgument1504);
                                 genericWildcardBoundType();
 
                                 state._fsp--;
@@ -2544,10 +2544,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:229:9: ^( EXTENDS type )
                     {
-                    match(input,EXTENDS,FOLLOW_EXTENDS_in_genericWildcardBoundType1642); if (state.failed) return retval;
+                    match(input,EXTENDS,FOLLOW_EXTENDS_in_genericWildcardBoundType1644); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_genericWildcardBoundType1644);
+                    pushFollow(FOLLOW_type_in_genericWildcardBoundType1646);
                     type();
 
                     state._fsp--;
@@ -2560,10 +2560,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 2 :
                     // JavaTreeParser.g:230:9: ^( SUPER type )
                     {
-                    match(input,SUPER,FOLLOW_SUPER_in_genericWildcardBoundType1656); if (state.failed) return retval;
+                    match(input,SUPER,FOLLOW_SUPER_in_genericWildcardBoundType1658); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_genericWildcardBoundType1658);
+                    pushFollow(FOLLOW_type_in_genericWildcardBoundType1660);
                     type();
 
                     state._fsp--;
@@ -2604,7 +2604,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:234:5: ( ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? ) )
             // JavaTreeParser.g:234:9: ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? )
             {
-            match(input,FORMAL_PARAM_LIST,FOLLOW_FORMAL_PARAM_LIST_in_formalParameterList1679); if (state.failed) return retval;
+            match(input,FORMAL_PARAM_LIST,FOLLOW_FORMAL_PARAM_LIST_in_formalParameterList1681); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -2623,7 +2623,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 	case 1 :
                 	    // JavaTreeParser.g:0:0: formalParameterStandardDecl
                 	    {
-                	    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList1681);
+                	    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList1683);
                 	    formalParameterStandardDecl();
 
                 	    state._fsp--;
@@ -2648,7 +2648,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     case 1 :
                         // JavaTreeParser.g:0:0: formalParameterVarargDecl
                         {
-                        pushFollow(FOLLOW_formalParameterVarargDecl_in_formalParameterList1684);
+                        pushFollow(FOLLOW_formalParameterVarargDecl_in_formalParameterList1686);
                         formalParameterVarargDecl();
 
                         state._fsp--;
@@ -2694,20 +2694,20 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:238:5: ( ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) )
             // JavaTreeParser.g:238:9: ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
             {
-            match(input,FORMAL_PARAM_STD_DECL,FOLLOW_FORMAL_PARAM_STD_DECL_in_formalParameterStandardDecl1711); if (state.failed) return retval;
+            match(input,FORMAL_PARAM_STD_DECL,FOLLOW_FORMAL_PARAM_STD_DECL_in_formalParameterStandardDecl1713); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_localModifierList_in_formalParameterStandardDecl1713);
+            pushFollow(FOLLOW_localModifierList_in_formalParameterStandardDecl1715);
             localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_type_in_formalParameterStandardDecl1715);
+            pushFollow(FOLLOW_type_in_formalParameterStandardDecl1717);
             type();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl1717);
+            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl1719);
             variableDeclaratorId();
 
             state._fsp--;
@@ -2746,20 +2746,20 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:242:5: ( ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) )
             // JavaTreeParser.g:242:9: ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId )
             {
-            match(input,FORMAL_PARAM_VARARG_DECL,FOLLOW_FORMAL_PARAM_VARARG_DECL_in_formalParameterVarargDecl1742); if (state.failed) return retval;
+            match(input,FORMAL_PARAM_VARARG_DECL,FOLLOW_FORMAL_PARAM_VARARG_DECL_in_formalParameterVarargDecl1744); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_localModifierList_in_formalParameterVarargDecl1744);
+            pushFollow(FOLLOW_localModifierList_in_formalParameterVarargDecl1746);
             localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_type_in_formalParameterVarargDecl1746);
+            pushFollow(FOLLOW_type_in_formalParameterVarargDecl1748);
             type();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterVarargDecl1748);
+            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterVarargDecl1750);
             variableDeclaratorId();
 
             state._fsp--;
@@ -2816,22 +2816,22 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:246:9: IDENT
                     {
-                    match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier1772); if (state.failed) return retval;
+                    match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier1774); if (state.failed) return retval;
 
                     }
                     break;
                 case 2 :
                     // JavaTreeParser.g:247:9: ^( DOT qualifiedIdentifier IDENT )
                     {
-                    match(input,DOT,FOLLOW_DOT_in_qualifiedIdentifier1783); if (state.failed) return retval;
+                    match(input,DOT,FOLLOW_DOT_in_qualifiedIdentifier1785); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentifier1785);
+                    pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentifier1787);
                     qualifiedIdentifier();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier1787); if (state.failed) return retval;
+                    match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier1789); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
@@ -2868,7 +2868,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:253:5: ( ^( ANNOTATION_LIST ( annotation )* ) )
             // JavaTreeParser.g:253:9: ^( ANNOTATION_LIST ( annotation )* )
             {
-            match(input,ANNOTATION_LIST,FOLLOW_ANNOTATION_LIST_in_annotationList1814); if (state.failed) return retval;
+            match(input,ANNOTATION_LIST,FOLLOW_ANNOTATION_LIST_in_annotationList1816); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -2887,7 +2887,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 	case 1 :
                 	    // JavaTreeParser.g:0:0: annotation
                 	    {
-                	    pushFollow(FOLLOW_annotation_in_annotationList1816);
+                	    pushFollow(FOLLOW_annotation_in_annotationList1818);
                 	    annotation();
 
                 	    state._fsp--;
@@ -2936,10 +2936,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:257:5: ( ^( AT qualifiedIdentifier ( annotationInit )? ) )
             // JavaTreeParser.g:257:9: ^( AT qualifiedIdentifier ( annotationInit )? )
             {
-            match(input,AT,FOLLOW_AT_in_annotation1838); if (state.failed) return retval;
+            match(input,AT,FOLLOW_AT_in_annotation1840); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_qualifiedIdentifier_in_annotation1840);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_annotation1842);
             qualifiedIdentifier();
 
             state._fsp--;
@@ -2955,7 +2955,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:0:0: annotationInit
                     {
-                    pushFollow(FOLLOW_annotationInit_in_annotation1842);
+                    pushFollow(FOLLOW_annotationInit_in_annotation1844);
                     annotationInit();
 
                     state._fsp--;
@@ -3000,10 +3000,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:261:5: ( ^( ANNOTATION_INIT_BLOCK annotationInitializers ) )
             // JavaTreeParser.g:261:9: ^( ANNOTATION_INIT_BLOCK annotationInitializers )
             {
-            match(input,ANNOTATION_INIT_BLOCK,FOLLOW_ANNOTATION_INIT_BLOCK_in_annotationInit1868); if (state.failed) return retval;
+            match(input,ANNOTATION_INIT_BLOCK,FOLLOW_ANNOTATION_INIT_BLOCK_in_annotationInit1870); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_annotationInitializers_in_annotationInit1870);
+            pushFollow(FOLLOW_annotationInitializers_in_annotationInit1872);
             annotationInitializers();
 
             state._fsp--;
@@ -3060,7 +3060,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:265:9: ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ )
                     {
-                    match(input,ANNOTATION_INIT_KEY_LIST,FOLLOW_ANNOTATION_INIT_KEY_LIST_in_annotationInitializers1891); if (state.failed) return retval;
+                    match(input,ANNOTATION_INIT_KEY_LIST,FOLLOW_ANNOTATION_INIT_KEY_LIST_in_annotationInitializers1893); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     // JavaTreeParser.g:265:36: ( annotationInitializer )+
@@ -3079,7 +3079,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     	case 1 :
                     	    // JavaTreeParser.g:0:0: annotationInitializer
                     	    {
-                    	    pushFollow(FOLLOW_annotationInitializer_in_annotationInitializers1893);
+                    	    pushFollow(FOLLOW_annotationInitializer_in_annotationInitializers1895);
                     	    annotationInitializer();
 
                     	    state._fsp--;
@@ -3106,10 +3106,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 2 :
                     // JavaTreeParser.g:266:9: ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue )
                     {
-                    match(input,ANNOTATION_INIT_DEFAULT_KEY,FOLLOW_ANNOTATION_INIT_DEFAULT_KEY_in_annotationInitializers1906); if (state.failed) return retval;
+                    match(input,ANNOTATION_INIT_DEFAULT_KEY,FOLLOW_ANNOTATION_INIT_DEFAULT_KEY_in_annotationInitializers1908); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_annotationElementValue_in_annotationInitializers1908);
+                    pushFollow(FOLLOW_annotationElementValue_in_annotationInitializers1910);
                     annotationElementValue();
 
                     state._fsp--;
@@ -3150,10 +3150,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:270:5: ( ^( IDENT annotationElementValue ) )
             // JavaTreeParser.g:270:9: ^( IDENT annotationElementValue )
             {
-            match(input,IDENT,FOLLOW_IDENT_in_annotationInitializer1933); if (state.failed) return retval;
+            match(input,IDENT,FOLLOW_IDENT_in_annotationInitializer1935); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_annotationElementValue_in_annotationInitializer1935);
+            pushFollow(FOLLOW_annotationElementValue_in_annotationInitializer1937);
             annotationElementValue();
 
             state._fsp--;
@@ -3219,7 +3219,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:274:9: ^( ANNOTATION_INIT_ARRAY_ELEMENT ( annotationElementValue )* )
                     {
-                    match(input,ANNOTATION_INIT_ARRAY_ELEMENT,FOLLOW_ANNOTATION_INIT_ARRAY_ELEMENT_in_annotationElementValue1960); if (state.failed) return retval;
+                    match(input,ANNOTATION_INIT_ARRAY_ELEMENT,FOLLOW_ANNOTATION_INIT_ARRAY_ELEMENT_in_annotationElementValue1962); if (state.failed) return retval;
 
                     if ( input.LA(1)==Token.DOWN ) {
                         match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -3238,7 +3238,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         	case 1 :
                         	    // JavaTreeParser.g:0:0: annotationElementValue
                         	    {
-                        	    pushFollow(FOLLOW_annotationElementValue_in_annotationElementValue1962);
+                        	    pushFollow(FOLLOW_annotationElementValue_in_annotationElementValue1964);
                         	    annotationElementValue();
 
                         	    state._fsp--;
@@ -3261,7 +3261,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 2 :
                     // JavaTreeParser.g:275:9: annotation
                     {
-                    pushFollow(FOLLOW_annotation_in_annotationElementValue1974);
+                    pushFollow(FOLLOW_annotation_in_annotationElementValue1976);
                     annotation();
 
                     state._fsp--;
@@ -3272,7 +3272,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 3 :
                     // JavaTreeParser.g:276:9: expression
                     {
-                    pushFollow(FOLLOW_expression_in_annotationElementValue1984);
+                    pushFollow(FOLLOW_expression_in_annotationElementValue1986);
                     expression();
 
                     state._fsp--;
@@ -3311,7 +3311,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:280:5: ( ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* ) )
             // JavaTreeParser.g:280:9: ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* )
             {
-            match(input,ANNOTATION_TOP_LEVEL_SCOPE,FOLLOW_ANNOTATION_TOP_LEVEL_SCOPE_in_annotationTopLevelScope2008); if (state.failed) return retval;
+            match(input,ANNOTATION_TOP_LEVEL_SCOPE,FOLLOW_ANNOTATION_TOP_LEVEL_SCOPE_in_annotationTopLevelScope2010); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -3330,7 +3330,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 	case 1 :
                 	    // JavaTreeParser.g:0:0: annotationScopeDeclarations
                 	    {
-                	    pushFollow(FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope2010);
+                	    pushFollow(FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope2012);
                 	    annotationScopeDeclarations();
 
                 	    state._fsp--;
@@ -3409,20 +3409,20 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:284:9: ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? )
                     {
-                    match(input,ANNOTATION_METHOD_DECL,FOLLOW_ANNOTATION_METHOD_DECL_in_annotationScopeDeclarations2036); if (state.failed) return retval;
+                    match(input,ANNOTATION_METHOD_DECL,FOLLOW_ANNOTATION_METHOD_DECL_in_annotationScopeDeclarations2038); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_annotationScopeDeclarations2038);
+                    pushFollow(FOLLOW_modifierList_in_annotationScopeDeclarations2040);
                     modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_annotationScopeDeclarations2040);
+                    pushFollow(FOLLOW_type_in_annotationScopeDeclarations2042);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    match(input,IDENT,FOLLOW_IDENT_in_annotationScopeDeclarations2042); if (state.failed) return retval;
+                    match(input,IDENT,FOLLOW_IDENT_in_annotationScopeDeclarations2044); if (state.failed) return retval;
                     // JavaTreeParser.g:284:58: ( annotationDefaultValue )?
                     int alt69=2;
                     int LA69_0 = input.LA(1);
@@ -3434,7 +3434,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         case 1 :
                             // JavaTreeParser.g:0:0: annotationDefaultValue
                             {
-                            pushFollow(FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations2044);
+                            pushFollow(FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations2046);
                             annotationDefaultValue();
 
                             state._fsp--;
@@ -3453,20 +3453,20 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 2 :
                     // JavaTreeParser.g:285:9: ^( VAR_DECLARATION modifierList type variableDeclaratorList )
                     {
-                    match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_annotationScopeDeclarations2057); if (state.failed) return retval;
+                    match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_annotationScopeDeclarations2059); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_modifierList_in_annotationScopeDeclarations2059);
+                    pushFollow(FOLLOW_modifierList_in_annotationScopeDeclarations2061);
                     modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_annotationScopeDeclarations2061);
+                    pushFollow(FOLLOW_type_in_annotationScopeDeclarations2063);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_variableDeclaratorList_in_annotationScopeDeclarations2063);
+                    pushFollow(FOLLOW_variableDeclaratorList_in_annotationScopeDeclarations2065);
                     variableDeclaratorList();
 
                     state._fsp--;
@@ -3479,7 +3479,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 3 :
                     // JavaTreeParser.g:286:9: typeDeclaration
                     {
-                    pushFollow(FOLLOW_typeDeclaration_in_annotationScopeDeclarations2074);
+                    pushFollow(FOLLOW_typeDeclaration_in_annotationScopeDeclarations2076);
                     gIfSwitchReplacementParser.typeDeclaration();
 
                     state._fsp--;
@@ -3518,10 +3518,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:290:5: ( ^( DEFAULT annotationElementValue ) )
             // JavaTreeParser.g:290:9: ^( DEFAULT annotationElementValue )
             {
-            match(input,DEFAULT,FOLLOW_DEFAULT_in_annotationDefaultValue2098); if (state.failed) return retval;
+            match(input,DEFAULT,FOLLOW_DEFAULT_in_annotationDefaultValue2100); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_annotationElementValue_in_annotationDefaultValue2100);
+            pushFollow(FOLLOW_annotationElementValue_in_annotationDefaultValue2102);
             annotationElementValue();
 
             state._fsp--;
@@ -3560,20 +3560,20 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:306:5: ( ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) )
             // JavaTreeParser.g:306:9: ^( VAR_DECLARATION localModifierList type variableDeclaratorList )
             {
-            match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2194); if (state.failed) return retval;
+            match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2196); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_localModifierList_in_localVariableDeclaration2196);
+            pushFollow(FOLLOW_localModifierList_in_localVariableDeclaration2198);
             localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_type_in_localVariableDeclaration2198);
+            pushFollow(FOLLOW_type_in_localVariableDeclaration2200);
             type();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_variableDeclaratorList_in_localVariableDeclaration2200);
+            pushFollow(FOLLOW_variableDeclaratorList_in_localVariableDeclaration2202);
             variableDeclaratorList();
 
             state._fsp--;
@@ -3612,7 +3612,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:331:5: ( ^( CATCH_CLAUSE_LIST ( catchClause )+ ) )
             // JavaTreeParser.g:331:9: ^( CATCH_CLAUSE_LIST ( catchClause )+ )
             {
-            match(input,CATCH_CLAUSE_LIST,FOLLOW_CATCH_CLAUSE_LIST_in_catches2522); if (state.failed) return retval;
+            match(input,CATCH_CLAUSE_LIST,FOLLOW_CATCH_CLAUSE_LIST_in_catches2524); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // JavaTreeParser.g:331:29: ( catchClause )+
@@ -3631,7 +3631,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             	case 1 :
             	    // JavaTreeParser.g:0:0: catchClause
             	    {
-            	    pushFollow(FOLLOW_catchClause_in_catches2524);
+            	    pushFollow(FOLLOW_catchClause_in_catches2526);
             	    catchClause();
 
             	    state._fsp--;
@@ -3684,15 +3684,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:335:5: ( ^( CATCH formalParameterStandardDecl block ) )
             // JavaTreeParser.g:335:9: ^( CATCH formalParameterStandardDecl block )
             {
-            match(input,CATCH,FOLLOW_CATCH_in_catchClause2550); if (state.failed) return retval;
+            match(input,CATCH,FOLLOW_CATCH_in_catchClause2552); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_formalParameterStandardDecl_in_catchClause2552);
+            pushFollow(FOLLOW_formalParameterStandardDecl_in_catchClause2554);
             formalParameterStandardDecl();
 
             state._fsp--;
             if (state.failed) return retval;
-            pushFollow(FOLLOW_block_in_catchClause2554);
+            pushFollow(FOLLOW_block_in_catchClause2556);
             gIfSwitchReplacementParser.block();
 
             state._fsp--;
@@ -3731,7 +3731,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:339:5: ( ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* ) )
             // JavaTreeParser.g:339:9: ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* )
             {
-            match(input,SWITCH_BLOCK_LABEL_LIST,FOLLOW_SWITCH_BLOCK_LABEL_LIST_in_switchBlockLabels2575); if (state.failed) return retval;
+            match(input,SWITCH_BLOCK_LABEL_LIST,FOLLOW_SWITCH_BLOCK_LABEL_LIST_in_switchBlockLabels2577); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -3756,7 +3756,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 	case 1 :
                 	    // JavaTreeParser.g:0:0: switchCaseLabel
                 	    {
-                	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels2577);
+                	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels2579);
                 	    switchCaseLabel();
 
                 	    state._fsp--;
@@ -3781,7 +3781,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     case 1 :
                         // JavaTreeParser.g:0:0: switchDefaultLabel
                         {
-                        pushFollow(FOLLOW_switchDefaultLabel_in_switchBlockLabels2580);
+                        pushFollow(FOLLOW_switchDefaultLabel_in_switchBlockLabels2582);
                         switchDefaultLabel();
 
                         state._fsp--;
@@ -3807,7 +3807,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 	case 1 :
                 	    // JavaTreeParser.g:0:0: switchCaseLabel
                 	    {
-                	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels2583);
+                	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels2585);
                 	    switchCaseLabel();
 
                 	    state._fsp--;
@@ -3856,10 +3856,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:343:5: ( ^( CASE expression ( blockStatement )* ) )
             // JavaTreeParser.g:343:9: ^( CASE expression ( blockStatement )* )
             {
-            match(input,CASE,FOLLOW_CASE_in_switchCaseLabel2613); if (state.failed) return retval;
+            match(input,CASE,FOLLOW_CASE_in_switchCaseLabel2615); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_expression_in_switchCaseLabel2615);
+            pushFollow(FOLLOW_expression_in_switchCaseLabel2617);
             expression();
 
             state._fsp--;
@@ -3879,7 +3879,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             	case 1 :
             	    // JavaTreeParser.g:0:0: blockStatement
             	    {
-            	    pushFollow(FOLLOW_blockStatement_in_switchCaseLabel2617);
+            	    pushFollow(FOLLOW_blockStatement_in_switchCaseLabel2619);
             	    gIfSwitchReplacementParser.blockStatement();
 
             	    state._fsp--;
@@ -3927,7 +3927,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:347:5: ( ^( DEFAULT ( blockStatement )* ) )
             // JavaTreeParser.g:347:9: ^( DEFAULT ( blockStatement )* )
             {
-            match(input,DEFAULT,FOLLOW_DEFAULT_in_switchDefaultLabel2643); if (state.failed) return retval;
+            match(input,DEFAULT,FOLLOW_DEFAULT_in_switchDefaultLabel2645); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -3946,7 +3946,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 	case 1 :
                 	    // JavaTreeParser.g:0:0: blockStatement
                 	    {
-                	    pushFollow(FOLLOW_blockStatement_in_switchDefaultLabel2645);
+                	    pushFollow(FOLLOW_blockStatement_in_switchDefaultLabel2647);
                 	    gIfSwitchReplacementParser.blockStatement();
 
                 	    state._fsp--;
@@ -3995,7 +3995,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:351:5: ( ^( FOR_INIT ( localVariableDeclaration | ( expression )* )? ) )
             // JavaTreeParser.g:351:9: ^( FOR_INIT ( localVariableDeclaration | ( expression )* )? )
             {
-            match(input,FOR_INIT,FOLLOW_FOR_INIT_in_forInit2671); if (state.failed) return retval;
+            match(input,FOR_INIT,FOLLOW_FOR_INIT_in_forInit2673); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -4027,7 +4027,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     case 1 :
                         // JavaTreeParser.g:351:21: localVariableDeclaration
                         {
-                        pushFollow(FOLLOW_localVariableDeclaration_in_forInit2674);
+                        pushFollow(FOLLOW_localVariableDeclaration_in_forInit2676);
                         localVariableDeclaration();
 
                         state._fsp--;
@@ -4053,7 +4053,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         	case 1 :
                         	    // JavaTreeParser.g:0:0: expression
                         	    {
-                        	    pushFollow(FOLLOW_expression_in_forInit2678);
+                        	    pushFollow(FOLLOW_expression_in_forInit2680);
                         	    expression();
 
                         	    state._fsp--;
@@ -4108,7 +4108,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:355:5: ( ^( FOR_CONDITION ( expression )? ) )
             // JavaTreeParser.g:355:9: ^( FOR_CONDITION ( expression )? )
             {
-            match(input,FOR_CONDITION,FOLLOW_FOR_CONDITION_in_forCondition2706); if (state.failed) return retval;
+            match(input,FOR_CONDITION,FOLLOW_FOR_CONDITION_in_forCondition2708); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -4123,7 +4123,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     case 1 :
                         // JavaTreeParser.g:0:0: expression
                         {
-                        pushFollow(FOLLOW_expression_in_forCondition2708);
+                        pushFollow(FOLLOW_expression_in_forCondition2710);
                         expression();
 
                         state._fsp--;
@@ -4169,7 +4169,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:359:5: ( ^( FOR_UPDATE ( expression )* ) )
             // JavaTreeParser.g:359:9: ^( FOR_UPDATE ( expression )* )
             {
-            match(input,FOR_UPDATE,FOLLOW_FOR_UPDATE_in_forUpdater2734); if (state.failed) return retval;
+            match(input,FOR_UPDATE,FOLLOW_FOR_UPDATE_in_forUpdater2736); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -4188,7 +4188,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 	case 1 :
                 	    // JavaTreeParser.g:0:0: expression
                 	    {
-                	    pushFollow(FOLLOW_expression_in_forUpdater2736);
+                	    pushFollow(FOLLOW_expression_in_forUpdater2738);
                 	    expression();
 
                 	    state._fsp--;
@@ -4237,10 +4237,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:365:5: ( ^( PARENTESIZED_EXPR expression ) )
             // JavaTreeParser.g:365:9: ^( PARENTESIZED_EXPR expression )
             {
-            match(input,PARENTESIZED_EXPR,FOLLOW_PARENTESIZED_EXPR_in_parenthesizedExpression2764); if (state.failed) return retval;
+            match(input,PARENTESIZED_EXPR,FOLLOW_PARENTESIZED_EXPR_in_parenthesizedExpression2766); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_expression_in_parenthesizedExpression2766);
+            pushFollow(FOLLOW_expression_in_parenthesizedExpression2768);
             expression();
 
             state._fsp--;
@@ -4279,10 +4279,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:369:5: ( ^( EXPR expr ) )
             // JavaTreeParser.g:369:9: ^( EXPR expr )
             {
-            match(input,EXPR,FOLLOW_EXPR_in_expression2791); if (state.failed) return retval;
+            match(input,EXPR,FOLLOW_EXPR_in_expression2793); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_expr_in_expression2793);
+            pushFollow(FOLLOW_expr_in_expression2795);
             expr();
 
             state._fsp--;
@@ -4325,15 +4325,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:373:9: ^( ASSIGN expr expr )
                     {
-                    match(input,ASSIGN,FOLLOW_ASSIGN_in_expr2814); if (state.failed) return retval;
+                    match(input,ASSIGN,FOLLOW_ASSIGN_in_expr2816); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2816);
+                    pushFollow(FOLLOW_expr_in_expr2818);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2818);
+                    pushFollow(FOLLOW_expr_in_expr2820);
                     expr();
 
                     state._fsp--;
@@ -4346,15 +4346,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 2 :
                     // JavaTreeParser.g:374:9: ^( PLUS_ASSIGN expr expr )
                     {
-                    match(input,PLUS_ASSIGN,FOLLOW_PLUS_ASSIGN_in_expr2830); if (state.failed) return retval;
+                    match(input,PLUS_ASSIGN,FOLLOW_PLUS_ASSIGN_in_expr2832); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2832);
+                    pushFollow(FOLLOW_expr_in_expr2834);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2834);
+                    pushFollow(FOLLOW_expr_in_expr2836);
                     expr();
 
                     state._fsp--;
@@ -4367,15 +4367,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 3 :
                     // JavaTreeParser.g:375:9: ^( MINUS_ASSIGN expr expr )
                     {
-                    match(input,MINUS_ASSIGN,FOLLOW_MINUS_ASSIGN_in_expr2846); if (state.failed) return retval;
+                    match(input,MINUS_ASSIGN,FOLLOW_MINUS_ASSIGN_in_expr2848); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2848);
+                    pushFollow(FOLLOW_expr_in_expr2850);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2850);
+                    pushFollow(FOLLOW_expr_in_expr2852);
                     expr();
 
                     state._fsp--;
@@ -4388,15 +4388,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 4 :
                     // JavaTreeParser.g:376:9: ^( STAR_ASSIGN expr expr )
                     {
-                    match(input,STAR_ASSIGN,FOLLOW_STAR_ASSIGN_in_expr2862); if (state.failed) return retval;
+                    match(input,STAR_ASSIGN,FOLLOW_STAR_ASSIGN_in_expr2864); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2864);
+                    pushFollow(FOLLOW_expr_in_expr2866);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2866);
+                    pushFollow(FOLLOW_expr_in_expr2868);
                     expr();
 
                     state._fsp--;
@@ -4409,15 +4409,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 5 :
                     // JavaTreeParser.g:377:9: ^( DIV_ASSIGN expr expr )
                     {
-                    match(input,DIV_ASSIGN,FOLLOW_DIV_ASSIGN_in_expr2878); if (state.failed) return retval;
+                    match(input,DIV_ASSIGN,FOLLOW_DIV_ASSIGN_in_expr2880); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2880);
+                    pushFollow(FOLLOW_expr_in_expr2882);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2882);
+                    pushFollow(FOLLOW_expr_in_expr2884);
                     expr();
 
                     state._fsp--;
@@ -4430,15 +4430,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 6 :
                     // JavaTreeParser.g:378:9: ^( AND_ASSIGN expr expr )
                     {
-                    match(input,AND_ASSIGN,FOLLOW_AND_ASSIGN_in_expr2894); if (state.failed) return retval;
+                    match(input,AND_ASSIGN,FOLLOW_AND_ASSIGN_in_expr2896); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2896);
+                    pushFollow(FOLLOW_expr_in_expr2898);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2898);
+                    pushFollow(FOLLOW_expr_in_expr2900);
                     expr();
 
                     state._fsp--;
@@ -4451,15 +4451,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 7 :
                     // JavaTreeParser.g:379:9: ^( OR_ASSIGN expr expr )
                     {
-                    match(input,OR_ASSIGN,FOLLOW_OR_ASSIGN_in_expr2910); if (state.failed) return retval;
+                    match(input,OR_ASSIGN,FOLLOW_OR_ASSIGN_in_expr2912); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2912);
+                    pushFollow(FOLLOW_expr_in_expr2914);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2914);
+                    pushFollow(FOLLOW_expr_in_expr2916);
                     expr();
 
                     state._fsp--;
@@ -4472,15 +4472,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 8 :
                     // JavaTreeParser.g:380:9: ^( XOR_ASSIGN expr expr )
                     {
-                    match(input,XOR_ASSIGN,FOLLOW_XOR_ASSIGN_in_expr2926); if (state.failed) return retval;
+                    match(input,XOR_ASSIGN,FOLLOW_XOR_ASSIGN_in_expr2928); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2928);
+                    pushFollow(FOLLOW_expr_in_expr2930);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2930);
+                    pushFollow(FOLLOW_expr_in_expr2932);
                     expr();
 
                     state._fsp--;
@@ -4493,15 +4493,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 9 :
                     // JavaTreeParser.g:381:9: ^( MOD_ASSIGN expr expr )
                     {
-                    match(input,MOD_ASSIGN,FOLLOW_MOD_ASSIGN_in_expr2942); if (state.failed) return retval;
+                    match(input,MOD_ASSIGN,FOLLOW_MOD_ASSIGN_in_expr2944); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2944);
+                    pushFollow(FOLLOW_expr_in_expr2946);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2946);
+                    pushFollow(FOLLOW_expr_in_expr2948);
                     expr();
 
                     state._fsp--;
@@ -4514,15 +4514,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 10 :
                     // JavaTreeParser.g:382:9: ^( BIT_SHIFT_RIGHT_ASSIGN expr expr )
                     {
-                    match(input,BIT_SHIFT_RIGHT_ASSIGN,FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_expr2958); if (state.failed) return retval;
+                    match(input,BIT_SHIFT_RIGHT_ASSIGN,FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_expr2960); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2960);
+                    pushFollow(FOLLOW_expr_in_expr2962);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2962);
+                    pushFollow(FOLLOW_expr_in_expr2964);
                     expr();
 
                     state._fsp--;
@@ -4535,15 +4535,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 11 :
                     // JavaTreeParser.g:383:9: ^( SHIFT_RIGHT_ASSIGN expr expr )
                     {
-                    match(input,SHIFT_RIGHT_ASSIGN,FOLLOW_SHIFT_RIGHT_ASSIGN_in_expr2974); if (state.failed) return retval;
+                    match(input,SHIFT_RIGHT_ASSIGN,FOLLOW_SHIFT_RIGHT_ASSIGN_in_expr2976); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2976);
+                    pushFollow(FOLLOW_expr_in_expr2978);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2978);
+                    pushFollow(FOLLOW_expr_in_expr2980);
                     expr();
 
                     state._fsp--;
@@ -4556,15 +4556,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 12 :
                     // JavaTreeParser.g:384:9: ^( SHIFT_LEFT_ASSIGN expr expr )
                     {
-                    match(input,SHIFT_LEFT_ASSIGN,FOLLOW_SHIFT_LEFT_ASSIGN_in_expr2990); if (state.failed) return retval;
+                    match(input,SHIFT_LEFT_ASSIGN,FOLLOW_SHIFT_LEFT_ASSIGN_in_expr2992); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2992);
+                    pushFollow(FOLLOW_expr_in_expr2994);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr2994);
+                    pushFollow(FOLLOW_expr_in_expr2996);
                     expr();
 
                     state._fsp--;
@@ -4577,20 +4577,20 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 13 :
                     // JavaTreeParser.g:385:9: ^( QUESTION expr expr expr )
                     {
-                    match(input,QUESTION,FOLLOW_QUESTION_in_expr3006); if (state.failed) return retval;
+                    match(input,QUESTION,FOLLOW_QUESTION_in_expr3008); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3008);
-                    expr();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr3010);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     pushFollow(FOLLOW_expr_in_expr3012);
+                    expr();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    pushFollow(FOLLOW_expr_in_expr3014);
                     expr();
 
                     state._fsp--;
@@ -4603,15 +4603,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 14 :
                     // JavaTreeParser.g:386:9: ^( LOGICAL_OR expr expr )
                     {
-                    match(input,LOGICAL_OR,FOLLOW_LOGICAL_OR_in_expr3024); if (state.failed) return retval;
+                    match(input,LOGICAL_OR,FOLLOW_LOGICAL_OR_in_expr3026); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3026);
+                    pushFollow(FOLLOW_expr_in_expr3028);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3028);
+                    pushFollow(FOLLOW_expr_in_expr3030);
                     expr();
 
                     state._fsp--;
@@ -4624,15 +4624,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 15 :
                     // JavaTreeParser.g:387:9: ^( LOGICAL_AND expr expr )
                     {
-                    match(input,LOGICAL_AND,FOLLOW_LOGICAL_AND_in_expr3040); if (state.failed) return retval;
+                    match(input,LOGICAL_AND,FOLLOW_LOGICAL_AND_in_expr3042); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3042);
+                    pushFollow(FOLLOW_expr_in_expr3044);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3044);
+                    pushFollow(FOLLOW_expr_in_expr3046);
                     expr();
 
                     state._fsp--;
@@ -4645,15 +4645,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 16 :
                     // JavaTreeParser.g:388:9: ^( OR expr expr )
                     {
-                    match(input,OR,FOLLOW_OR_in_expr3056); if (state.failed) return retval;
+                    match(input,OR,FOLLOW_OR_in_expr3058); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3058);
+                    pushFollow(FOLLOW_expr_in_expr3060);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3060);
+                    pushFollow(FOLLOW_expr_in_expr3062);
                     expr();
 
                     state._fsp--;
@@ -4666,15 +4666,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 17 :
                     // JavaTreeParser.g:389:9: ^( XOR expr expr )
                     {
-                    match(input,XOR,FOLLOW_XOR_in_expr3072); if (state.failed) return retval;
+                    match(input,XOR,FOLLOW_XOR_in_expr3074); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3074);
+                    pushFollow(FOLLOW_expr_in_expr3076);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3076);
+                    pushFollow(FOLLOW_expr_in_expr3078);
                     expr();
 
                     state._fsp--;
@@ -4687,15 +4687,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 18 :
                     // JavaTreeParser.g:390:9: ^( AND expr expr )
                     {
-                    match(input,AND,FOLLOW_AND_in_expr3088); if (state.failed) return retval;
+                    match(input,AND,FOLLOW_AND_in_expr3090); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3090);
+                    pushFollow(FOLLOW_expr_in_expr3092);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3092);
+                    pushFollow(FOLLOW_expr_in_expr3094);
                     expr();
 
                     state._fsp--;
@@ -4708,15 +4708,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 19 :
                     // JavaTreeParser.g:391:9: ^( EQUAL expr expr )
                     {
-                    match(input,EQUAL,FOLLOW_EQUAL_in_expr3104); if (state.failed) return retval;
+                    match(input,EQUAL,FOLLOW_EQUAL_in_expr3106); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3106);
+                    pushFollow(FOLLOW_expr_in_expr3108);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3108);
+                    pushFollow(FOLLOW_expr_in_expr3110);
                     expr();
 
                     state._fsp--;
@@ -4729,15 +4729,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 20 :
                     // JavaTreeParser.g:392:9: ^( NOT_EQUAL expr expr )
                     {
-                    match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_expr3120); if (state.failed) return retval;
+                    match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_expr3122); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3122);
+                    pushFollow(FOLLOW_expr_in_expr3124);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3124);
+                    pushFollow(FOLLOW_expr_in_expr3126);
                     expr();
 
                     state._fsp--;
@@ -4750,15 +4750,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 21 :
                     // JavaTreeParser.g:393:9: ^( INSTANCEOF expr type )
                     {
-                    match(input,INSTANCEOF,FOLLOW_INSTANCEOF_in_expr3136); if (state.failed) return retval;
+                    match(input,INSTANCEOF,FOLLOW_INSTANCEOF_in_expr3138); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3138);
+                    pushFollow(FOLLOW_expr_in_expr3140);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_expr3140);
+                    pushFollow(FOLLOW_type_in_expr3142);
                     type();
 
                     state._fsp--;
@@ -4771,15 +4771,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 22 :
                     // JavaTreeParser.g:394:9: ^( LESS_OR_EQUAL expr expr )
                     {
-                    match(input,LESS_OR_EQUAL,FOLLOW_LESS_OR_EQUAL_in_expr3152); if (state.failed) return retval;
+                    match(input,LESS_OR_EQUAL,FOLLOW_LESS_OR_EQUAL_in_expr3154); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3154);
+                    pushFollow(FOLLOW_expr_in_expr3156);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3156);
+                    pushFollow(FOLLOW_expr_in_expr3158);
                     expr();
 
                     state._fsp--;
@@ -4792,15 +4792,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 23 :
                     // JavaTreeParser.g:395:9: ^( GREATER_OR_EQUAL expr expr )
                     {
-                    match(input,GREATER_OR_EQUAL,FOLLOW_GREATER_OR_EQUAL_in_expr3168); if (state.failed) return retval;
+                    match(input,GREATER_OR_EQUAL,FOLLOW_GREATER_OR_EQUAL_in_expr3170); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3170);
+                    pushFollow(FOLLOW_expr_in_expr3172);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3172);
+                    pushFollow(FOLLOW_expr_in_expr3174);
                     expr();
 
                     state._fsp--;
@@ -4813,15 +4813,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 24 :
                     // JavaTreeParser.g:396:9: ^( BIT_SHIFT_RIGHT expr expr )
                     {
-                    match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_expr3184); if (state.failed) return retval;
+                    match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_expr3186); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3186);
+                    pushFollow(FOLLOW_expr_in_expr3188);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3188);
+                    pushFollow(FOLLOW_expr_in_expr3190);
                     expr();
 
                     state._fsp--;
@@ -4834,15 +4834,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 25 :
                     // JavaTreeParser.g:397:9: ^( SHIFT_RIGHT expr expr )
                     {
-                    match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_expr3200); if (state.failed) return retval;
+                    match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_expr3202); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3202);
+                    pushFollow(FOLLOW_expr_in_expr3204);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3204);
+                    pushFollow(FOLLOW_expr_in_expr3206);
                     expr();
 
                     state._fsp--;
@@ -4855,15 +4855,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 26 :
                     // JavaTreeParser.g:398:9: ^( GREATER_THAN expr expr )
                     {
-                    match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_expr3216); if (state.failed) return retval;
+                    match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_expr3218); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3218);
+                    pushFollow(FOLLOW_expr_in_expr3220);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3220);
+                    pushFollow(FOLLOW_expr_in_expr3222);
                     expr();
 
                     state._fsp--;
@@ -4876,15 +4876,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 27 :
                     // JavaTreeParser.g:399:9: ^( SHIFT_LEFT expr expr )
                     {
-                    match(input,SHIFT_LEFT,FOLLOW_SHIFT_LEFT_in_expr3232); if (state.failed) return retval;
+                    match(input,SHIFT_LEFT,FOLLOW_SHIFT_LEFT_in_expr3234); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3234);
+                    pushFollow(FOLLOW_expr_in_expr3236);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3236);
+                    pushFollow(FOLLOW_expr_in_expr3238);
                     expr();
 
                     state._fsp--;
@@ -4897,15 +4897,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 28 :
                     // JavaTreeParser.g:400:9: ^( LESS_THAN expr expr )
                     {
-                    match(input,LESS_THAN,FOLLOW_LESS_THAN_in_expr3248); if (state.failed) return retval;
+                    match(input,LESS_THAN,FOLLOW_LESS_THAN_in_expr3250); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3250);
+                    pushFollow(FOLLOW_expr_in_expr3252);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3252);
+                    pushFollow(FOLLOW_expr_in_expr3254);
                     expr();
 
                     state._fsp--;
@@ -4918,15 +4918,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 29 :
                     // JavaTreeParser.g:401:9: ^( PLUS expr expr )
                     {
-                    match(input,PLUS,FOLLOW_PLUS_in_expr3264); if (state.failed) return retval;
+                    match(input,PLUS,FOLLOW_PLUS_in_expr3266); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3266);
+                    pushFollow(FOLLOW_expr_in_expr3268);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3268);
+                    pushFollow(FOLLOW_expr_in_expr3270);
                     expr();
 
                     state._fsp--;
@@ -4939,15 +4939,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 30 :
                     // JavaTreeParser.g:402:9: ^( MINUS expr expr )
                     {
-                    match(input,MINUS,FOLLOW_MINUS_in_expr3280); if (state.failed) return retval;
+                    match(input,MINUS,FOLLOW_MINUS_in_expr3282); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3282);
+                    pushFollow(FOLLOW_expr_in_expr3284);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3284);
+                    pushFollow(FOLLOW_expr_in_expr3286);
                     expr();
 
                     state._fsp--;
@@ -4960,15 +4960,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 31 :
                     // JavaTreeParser.g:403:9: ^( STAR expr expr )
                     {
-                    match(input,STAR,FOLLOW_STAR_in_expr3296); if (state.failed) return retval;
+                    match(input,STAR,FOLLOW_STAR_in_expr3298); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3298);
+                    pushFollow(FOLLOW_expr_in_expr3300);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3300);
+                    pushFollow(FOLLOW_expr_in_expr3302);
                     expr();
 
                     state._fsp--;
@@ -4981,15 +4981,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 32 :
                     // JavaTreeParser.g:404:9: ^( DIV expr expr )
                     {
-                    match(input,DIV,FOLLOW_DIV_in_expr3312); if (state.failed) return retval;
+                    match(input,DIV,FOLLOW_DIV_in_expr3314); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3314);
+                    pushFollow(FOLLOW_expr_in_expr3316);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3316);
+                    pushFollow(FOLLOW_expr_in_expr3318);
                     expr();
 
                     state._fsp--;
@@ -5002,15 +5002,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 33 :
                     // JavaTreeParser.g:405:9: ^( MOD expr expr )
                     {
-                    match(input,MOD,FOLLOW_MOD_in_expr3328); if (state.failed) return retval;
+                    match(input,MOD,FOLLOW_MOD_in_expr3330); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3330);
+                    pushFollow(FOLLOW_expr_in_expr3332);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3332);
+                    pushFollow(FOLLOW_expr_in_expr3334);
                     expr();
 
                     state._fsp--;
@@ -5023,10 +5023,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 34 :
                     // JavaTreeParser.g:406:9: ^( UNARY_PLUS expr )
                     {
-                    match(input,UNARY_PLUS,FOLLOW_UNARY_PLUS_in_expr3344); if (state.failed) return retval;
+                    match(input,UNARY_PLUS,FOLLOW_UNARY_PLUS_in_expr3346); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3346);
+                    pushFollow(FOLLOW_expr_in_expr3348);
                     expr();
 
                     state._fsp--;
@@ -5039,10 +5039,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 35 :
                     // JavaTreeParser.g:407:9: ^( UNARY_MINUS expr )
                     {
-                    match(input,UNARY_MINUS,FOLLOW_UNARY_MINUS_in_expr3358); if (state.failed) return retval;
+                    match(input,UNARY_MINUS,FOLLOW_UNARY_MINUS_in_expr3360); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3360);
+                    pushFollow(FOLLOW_expr_in_expr3362);
                     expr();
 
                     state._fsp--;
@@ -5055,10 +5055,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 36 :
                     // JavaTreeParser.g:408:9: ^( PRE_INC expr )
                     {
-                    match(input,PRE_INC,FOLLOW_PRE_INC_in_expr3372); if (state.failed) return retval;
+                    match(input,PRE_INC,FOLLOW_PRE_INC_in_expr3374); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3374);
+                    pushFollow(FOLLOW_expr_in_expr3376);
                     expr();
 
                     state._fsp--;
@@ -5071,10 +5071,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 37 :
                     // JavaTreeParser.g:409:9: ^( PRE_DEC expr )
                     {
-                    match(input,PRE_DEC,FOLLOW_PRE_DEC_in_expr3386); if (state.failed) return retval;
+                    match(input,PRE_DEC,FOLLOW_PRE_DEC_in_expr3388); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3388);
+                    pushFollow(FOLLOW_expr_in_expr3390);
                     expr();
 
                     state._fsp--;
@@ -5087,10 +5087,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 38 :
                     // JavaTreeParser.g:410:9: ^( POST_INC expr )
                     {
-                    match(input,POST_INC,FOLLOW_POST_INC_in_expr3400); if (state.failed) return retval;
+                    match(input,POST_INC,FOLLOW_POST_INC_in_expr3402); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3402);
+                    pushFollow(FOLLOW_expr_in_expr3404);
                     expr();
 
                     state._fsp--;
@@ -5103,10 +5103,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 39 :
                     // JavaTreeParser.g:411:9: ^( POST_DEC expr )
                     {
-                    match(input,POST_DEC,FOLLOW_POST_DEC_in_expr3414); if (state.failed) return retval;
+                    match(input,POST_DEC,FOLLOW_POST_DEC_in_expr3416); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3416);
+                    pushFollow(FOLLOW_expr_in_expr3418);
                     expr();
 
                     state._fsp--;
@@ -5119,10 +5119,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 40 :
                     // JavaTreeParser.g:412:9: ^( NOT expr )
                     {
-                    match(input,NOT,FOLLOW_NOT_in_expr3428); if (state.failed) return retval;
+                    match(input,NOT,FOLLOW_NOT_in_expr3430); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3430);
+                    pushFollow(FOLLOW_expr_in_expr3432);
                     expr();
 
                     state._fsp--;
@@ -5135,10 +5135,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 41 :
                     // JavaTreeParser.g:413:9: ^( LOGICAL_NOT expr )
                     {
-                    match(input,LOGICAL_NOT,FOLLOW_LOGICAL_NOT_in_expr3442); if (state.failed) return retval;
+                    match(input,LOGICAL_NOT,FOLLOW_LOGICAL_NOT_in_expr3444); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3444);
+                    pushFollow(FOLLOW_expr_in_expr3446);
                     expr();
 
                     state._fsp--;
@@ -5151,15 +5151,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 42 :
                     // JavaTreeParser.g:414:9: ^( CAST_EXPR type expr )
                     {
-                    match(input,CAST_EXPR,FOLLOW_CAST_EXPR_in_expr3456); if (state.failed) return retval;
+                    match(input,CAST_EXPR,FOLLOW_CAST_EXPR_in_expr3458); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_type_in_expr3458);
+                    pushFollow(FOLLOW_type_in_expr3460);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_expr3460);
+                    pushFollow(FOLLOW_expr_in_expr3462);
                     expr();
 
                     state._fsp--;
@@ -5172,7 +5172,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 43 :
                     // JavaTreeParser.g:415:9: primaryExpression
                     {
-                    pushFollow(FOLLOW_primaryExpression_in_expr3471);
+                    pushFollow(FOLLOW_primaryExpression_in_expr3473);
                     primaryExpression();
 
                     state._fsp--;
@@ -5215,7 +5215,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:419:9: ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) )
                     {
-                    match(input,DOT,FOLLOW_DOT_in_primaryExpression3497); if (state.failed) return retval;
+                    match(input,DOT,FOLLOW_DOT_in_primaryExpression3499); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     // JavaTreeParser.g:420:13: ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS )
@@ -5275,7 +5275,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         case 1 :
                             // JavaTreeParser.g:420:17: primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS )
                             {
-                            pushFollow(FOLLOW_primaryExpression_in_primaryExpression3515);
+                            pushFollow(FOLLOW_primaryExpression_in_primaryExpression3517);
                             primaryExpression();
 
                             state._fsp--;
@@ -5320,28 +5320,28 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                                 case 1 :
                                     // JavaTreeParser.g:421:21: IDENT
                                     {
-                                    match(input,IDENT,FOLLOW_IDENT_in_primaryExpression3537); if (state.failed) return retval;
+                                    match(input,IDENT,FOLLOW_IDENT_in_primaryExpression3539); if (state.failed) return retval;
 
                                     }
                                     break;
                                 case 2 :
                                     // JavaTreeParser.g:422:21: THIS
                                     {
-                                    match(input,THIS,FOLLOW_THIS_in_primaryExpression3559); if (state.failed) return retval;
+                                    match(input,THIS,FOLLOW_THIS_in_primaryExpression3561); if (state.failed) return retval;
 
                                     }
                                     break;
                                 case 3 :
                                     // JavaTreeParser.g:423:21: SUPER
                                     {
-                                    match(input,SUPER,FOLLOW_SUPER_in_primaryExpression3581); if (state.failed) return retval;
+                                    match(input,SUPER,FOLLOW_SUPER_in_primaryExpression3583); if (state.failed) return retval;
 
                                     }
                                     break;
                                 case 4 :
                                     // JavaTreeParser.g:424:21: innerNewExpression
                                     {
-                                    pushFollow(FOLLOW_innerNewExpression_in_primaryExpression3603);
+                                    pushFollow(FOLLOW_innerNewExpression_in_primaryExpression3605);
                                     innerNewExpression();
 
                                     state._fsp--;
@@ -5352,7 +5352,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                                 case 5 :
                                     // JavaTreeParser.g:425:21: CLASS
                                     {
-                                    match(input,CLASS,FOLLOW_CLASS_in_primaryExpression3625); if (state.failed) return retval;
+                                    match(input,CLASS,FOLLOW_CLASS_in_primaryExpression3627); if (state.failed) return retval;
 
                                     }
                                     break;
@@ -5365,20 +5365,20 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         case 2 :
                             // JavaTreeParser.g:427:17: primitiveType CLASS
                             {
-                            pushFollow(FOLLOW_primitiveType_in_primaryExpression3661);
+                            pushFollow(FOLLOW_primitiveType_in_primaryExpression3663);
                             primitiveType();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            match(input,CLASS,FOLLOW_CLASS_in_primaryExpression3663); if (state.failed) return retval;
+                            match(input,CLASS,FOLLOW_CLASS_in_primaryExpression3665); if (state.failed) return retval;
 
                             }
                             break;
                         case 3 :
                             // JavaTreeParser.g:428:17: VOID CLASS
                             {
-                            match(input,VOID,FOLLOW_VOID_in_primaryExpression3681); if (state.failed) return retval;
-                            match(input,CLASS,FOLLOW_CLASS_in_primaryExpression3683); if (state.failed) return retval;
+                            match(input,VOID,FOLLOW_VOID_in_primaryExpression3683); if (state.failed) return retval;
+                            match(input,CLASS,FOLLOW_CLASS_in_primaryExpression3685); if (state.failed) return retval;
 
                             }
                             break;
@@ -5393,7 +5393,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 2 :
                     // JavaTreeParser.g:431:9: parenthesizedExpression
                     {
-                    pushFollow(FOLLOW_parenthesizedExpression_in_primaryExpression3717);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_primaryExpression3719);
                     parenthesizedExpression();
 
                     state._fsp--;
@@ -5404,17 +5404,17 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 3 :
                     // JavaTreeParser.g:432:9: IDENT
                     {
-                    match(input,IDENT,FOLLOW_IDENT_in_primaryExpression3727); if (state.failed) return retval;
+                    match(input,IDENT,FOLLOW_IDENT_in_primaryExpression3729); if (state.failed) return retval;
 
                     }
                     break;
                 case 4 :
                     // JavaTreeParser.g:433:9: ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments )
                     {
-                    match(input,METHOD_CALL,FOLLOW_METHOD_CALL_in_primaryExpression3738); if (state.failed) return retval;
+                    match(input,METHOD_CALL,FOLLOW_METHOD_CALL_in_primaryExpression3740); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_primaryExpression_in_primaryExpression3740);
+                    pushFollow(FOLLOW_primaryExpression_in_primaryExpression3742);
                     primaryExpression();
 
                     state._fsp--;
@@ -5430,7 +5430,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         case 1 :
                             // JavaTreeParser.g:0:0: genericTypeArgumentList
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_primaryExpression3742);
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_primaryExpression3744);
                             genericTypeArgumentList();
 
                             state._fsp--;
@@ -5441,7 +5441,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     }
 
-                    pushFollow(FOLLOW_arguments_in_primaryExpression3745);
+                    pushFollow(FOLLOW_arguments_in_primaryExpression3747);
                     arguments();
 
                     state._fsp--;
@@ -5454,7 +5454,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 5 :
                     // JavaTreeParser.g:434:9: explicitConstructorCall
                     {
-                    pushFollow(FOLLOW_explicitConstructorCall_in_primaryExpression3756);
+                    pushFollow(FOLLOW_explicitConstructorCall_in_primaryExpression3758);
                     explicitConstructorCall();
 
                     state._fsp--;
@@ -5465,15 +5465,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 6 :
                     // JavaTreeParser.g:435:9: ^( ARRAY_ELEMENT_ACCESS primaryExpression expression )
                     {
-                    match(input,ARRAY_ELEMENT_ACCESS,FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression3767); if (state.failed) return retval;
+                    match(input,ARRAY_ELEMENT_ACCESS,FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression3769); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    pushFollow(FOLLOW_primaryExpression_in_primaryExpression3769);
+                    pushFollow(FOLLOW_primaryExpression_in_primaryExpression3771);
                     primaryExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expression_in_primaryExpression3771);
+                    pushFollow(FOLLOW_expression_in_primaryExpression3773);
                     expression();
 
                     state._fsp--;
@@ -5486,7 +5486,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 7 :
                     // JavaTreeParser.g:436:9: literal
                     {
-                    pushFollow(FOLLOW_literal_in_primaryExpression3782);
+                    pushFollow(FOLLOW_literal_in_primaryExpression3784);
                     literal();
 
                     state._fsp--;
@@ -5497,7 +5497,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 8 :
                     // JavaTreeParser.g:437:9: newExpression
                     {
-                    pushFollow(FOLLOW_newExpression_in_primaryExpression3792);
+                    pushFollow(FOLLOW_newExpression_in_primaryExpression3794);
                     newExpression();
 
                     state._fsp--;
@@ -5508,14 +5508,14 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 9 :
                     // JavaTreeParser.g:438:9: THIS
                     {
-                    match(input,THIS,FOLLOW_THIS_in_primaryExpression3802); if (state.failed) return retval;
+                    match(input,THIS,FOLLOW_THIS_in_primaryExpression3804); if (state.failed) return retval;
 
                     }
                     break;
                 case 10 :
                     // JavaTreeParser.g:439:9: arrayTypeDeclarator
                     {
-                    pushFollow(FOLLOW_arrayTypeDeclarator_in_primaryExpression3812);
+                    pushFollow(FOLLOW_arrayTypeDeclarator_in_primaryExpression3814);
                     arrayTypeDeclarator();
 
                     state._fsp--;
@@ -5526,7 +5526,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 11 :
                     // JavaTreeParser.g:440:9: SUPER
                     {
-                    match(input,SUPER,FOLLOW_SUPER_in_primaryExpression3822); if (state.failed) return retval;
+                    match(input,SUPER,FOLLOW_SUPER_in_primaryExpression3824); if (state.failed) return retval;
 
                     }
                     break;
@@ -5579,7 +5579,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:444:9: ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments )
                     {
-                    match(input,THIS_CONSTRUCTOR_CALL,FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall3846); if (state.failed) return retval;
+                    match(input,THIS_CONSTRUCTOR_CALL,FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall3848); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     // JavaTreeParser.g:444:33: ( genericTypeArgumentList )?
@@ -5593,7 +5593,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         case 1 :
                             // JavaTreeParser.g:0:0: genericTypeArgumentList
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3848);
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3850);
                             genericTypeArgumentList();
 
                             state._fsp--;
@@ -5604,7 +5604,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     }
 
-                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall3851);
+                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall3853);
                     arguments();
 
                     state._fsp--;
@@ -5617,7 +5617,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 2 :
                     // JavaTreeParser.g:445:9: ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments )
                     {
-                    match(input,SUPER_CONSTRUCTOR_CALL,FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall3863); if (state.failed) return retval;
+                    match(input,SUPER_CONSTRUCTOR_CALL,FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall3865); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     // JavaTreeParser.g:445:34: ( primaryExpression )?
@@ -5631,7 +5631,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         case 1 :
                             // JavaTreeParser.g:0:0: primaryExpression
                             {
-                            pushFollow(FOLLOW_primaryExpression_in_explicitConstructorCall3865);
+                            pushFollow(FOLLOW_primaryExpression_in_explicitConstructorCall3867);
                             primaryExpression();
 
                             state._fsp--;
@@ -5653,7 +5653,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         case 1 :
                             // JavaTreeParser.g:0:0: genericTypeArgumentList
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3868);
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3870);
                             genericTypeArgumentList();
 
                             state._fsp--;
@@ -5664,7 +5664,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     }
 
-                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall3871);
+                    pushFollow(FOLLOW_arguments_in_explicitConstructorCall3873);
                     arguments();
 
                     state._fsp--;
@@ -5705,7 +5705,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:449:5: ( ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) )
             // JavaTreeParser.g:449:9: ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) )
             {
-            match(input,ARRAY_DECLARATOR,FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator3892); if (state.failed) return retval;
+            match(input,ARRAY_DECLARATOR,FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator3894); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // JavaTreeParser.g:449:28: ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType )
@@ -5746,7 +5746,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:449:29: arrayTypeDeclarator
                     {
-                    pushFollow(FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator3895);
+                    pushFollow(FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator3897);
                     arrayTypeDeclarator();
 
                     state._fsp--;
@@ -5757,7 +5757,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 2 :
                     // JavaTreeParser.g:449:51: qualifiedIdentifier
                     {
-                    pushFollow(FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator3899);
+                    pushFollow(FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator3901);
                     qualifiedIdentifier();
 
                     state._fsp--;
@@ -5768,7 +5768,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 3 :
                     // JavaTreeParser.g:449:73: primitiveType
                     {
-                    pushFollow(FOLLOW_primitiveType_in_arrayTypeDeclarator3903);
+                    pushFollow(FOLLOW_primitiveType_in_arrayTypeDeclarator3905);
                     primitiveType();
 
                     state._fsp--;
@@ -5831,7 +5831,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:453:9: ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) )
                     {
-                    match(input,STATIC_ARRAY_CREATOR,FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression3927); if (state.failed) return retval;
+                    match(input,STATIC_ARRAY_CREATOR,FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression3929); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     // JavaTreeParser.g:454:13: ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction )
@@ -5855,12 +5855,12 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         case 1 :
                             // JavaTreeParser.g:454:17: primitiveType newArrayConstruction
                             {
-                            pushFollow(FOLLOW_primitiveType_in_newExpression3945);
+                            pushFollow(FOLLOW_primitiveType_in_newExpression3947);
                             primitiveType();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression3947);
+                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression3949);
                             newArrayConstruction();
 
                             state._fsp--;
@@ -5882,7 +5882,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                                 case 1 :
                                     // JavaTreeParser.g:0:0: genericTypeArgumentList
                                     {
-                                    pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression3965);
+                                    pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression3967);
                                     genericTypeArgumentList();
 
                                     state._fsp--;
@@ -5893,12 +5893,12 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                             }
 
-                            pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression3968);
+                            pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression3970);
                             qualifiedTypeIdent();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression3970);
+                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression3972);
                             newArrayConstruction();
 
                             state._fsp--;
@@ -5917,7 +5917,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 2 :
                     // JavaTreeParser.g:458:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? )
                     {
-                    match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression4005); if (state.failed) return retval;
+                    match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression4007); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     // JavaTreeParser.g:458:34: ( genericTypeArgumentList )?
@@ -5931,7 +5931,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         case 1 :
                             // JavaTreeParser.g:0:0: genericTypeArgumentList
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression4007);
+                            pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression4009);
                             genericTypeArgumentList();
 
                             state._fsp--;
@@ -5942,12 +5942,12 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     }
 
-                    pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression4010);
+                    pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression4012);
                     qualifiedTypeIdent();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_arguments_in_newExpression4012);
+                    pushFollow(FOLLOW_arguments_in_newExpression4014);
                     arguments();
 
                     state._fsp--;
@@ -5963,7 +5963,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         case 1 :
                             // JavaTreeParser.g:0:0: classTopLevelScope
                             {
-                            pushFollow(FOLLOW_classTopLevelScope_in_newExpression4014);
+                            pushFollow(FOLLOW_classTopLevelScope_in_newExpression4016);
                             gIfSwitchReplacementParser.classTopLevelScope();
 
                             state._fsp--;
@@ -6010,7 +6010,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:462:5: ( ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) )
             // JavaTreeParser.g:462:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? )
             {
-            match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression4037); if (state.failed) return retval;
+            match(input,CLASS_CONSTRUCTOR_CALL,FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression4039); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             // JavaTreeParser.g:462:34: ( genericTypeArgumentList )?
@@ -6024,7 +6024,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:0:0: genericTypeArgumentList
                     {
-                    pushFollow(FOLLOW_genericTypeArgumentList_in_innerNewExpression4039);
+                    pushFollow(FOLLOW_genericTypeArgumentList_in_innerNewExpression4041);
                     genericTypeArgumentList();
 
                     state._fsp--;
@@ -6035,8 +6035,8 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             }
 
-            match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression4042); if (state.failed) return retval;
-            pushFollow(FOLLOW_arguments_in_innerNewExpression4044);
+            match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression4044); if (state.failed) return retval;
+            pushFollow(FOLLOW_arguments_in_innerNewExpression4046);
             arguments();
 
             state._fsp--;
@@ -6052,7 +6052,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:0:0: classTopLevelScope
                     {
-                    pushFollow(FOLLOW_classTopLevelScope_in_innerNewExpression4046);
+                    pushFollow(FOLLOW_classTopLevelScope_in_innerNewExpression4048);
                     gIfSwitchReplacementParser.classTopLevelScope();
 
                     state._fsp--;
@@ -6115,12 +6115,12 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 case 1 :
                     // JavaTreeParser.g:466:9: arrayDeclaratorList arrayInitializer
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction4071);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction4073);
                     arrayDeclaratorList();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction4073);
+                    pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction4075);
                     arrayInitializer();
 
                     state._fsp--;
@@ -6147,7 +6147,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     	case 1 :
                     	    // JavaTreeParser.g:0:0: expression
                     	    {
-                    	    pushFollow(FOLLOW_expression_in_newArrayConstruction4083);
+                    	    pushFollow(FOLLOW_expression_in_newArrayConstruction4085);
                     	    expression();
 
                     	    state._fsp--;
@@ -6177,7 +6177,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         case 1 :
                             // JavaTreeParser.g:0:0: arrayDeclaratorList
                             {
-                            pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction4086);
+                            pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction4088);
                             arrayDeclaratorList();
 
                             state._fsp--;
@@ -6222,7 +6222,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             // JavaTreeParser.g:471:5: ( ^( ARGUMENT_LIST ( expression )* ) )
             // JavaTreeParser.g:471:9: ^( ARGUMENT_LIST ( expression )* )
             {
-            match(input,ARGUMENT_LIST,FOLLOW_ARGUMENT_LIST_in_arguments4107); if (state.failed) return retval;
+            match(input,ARGUMENT_LIST,FOLLOW_ARGUMENT_LIST_in_arguments4109); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -6241,7 +6241,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 	case 1 :
                 	    // JavaTreeParser.g:0:0: expression
                 	    {
-                	    pushFollow(FOLLOW_expression_in_arguments4109);
+                	    pushFollow(FOLLOW_expression_in_arguments4111);
                 	    expression();
 
                 	    state._fsp--;
@@ -6320,7 +6320,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         // JavaTreeParser.g:339:35: ( switchCaseLabel )
         // JavaTreeParser.g:339:35: switchCaseLabel
         {
-        pushFollow(FOLLOW_switchCaseLabel_in_synpred125_JavaTreeParser2577);
+        pushFollow(FOLLOW_switchCaseLabel_in_synpred125_JavaTreeParser2579);
         switchCaseLabel();
 
         state._fsp--;
@@ -6350,7 +6350,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         	case 1 :
         	    // JavaTreeParser.g:0:0: expression
         	    {
-        	    pushFollow(FOLLOW_expression_in_synpred132_JavaTreeParser2678);
+        	    pushFollow(FOLLOW_expression_in_synpred132_JavaTreeParser2680);
         	    expression();
 
         	    state._fsp--;
@@ -6631,358 +6631,358 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
     }
  
 
-    public static final BitSet FOLLOW_PACKAGE_in_packageDeclaration125 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_packageDeclaration127 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_IMPORT_in_importDeclaration154 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_STATIC_in_importDeclaration156 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_importDeclaration159 = new BitSet(new long[]{0x0000000000010008L});
-    public static final BitSet FOLLOW_DOTSTAR_in_importDeclaration161 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_EXTENDS_CLAUSE_in_extendsClause302 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_type_in_extendsClause304 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_IMPLEMENTS_CLAUSE_in_implementsClause333 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_type_in_implementsClause335 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_GENERIC_TYPE_PARAM_LIST_in_genericTypeParameterList365 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeParameter_in_genericTypeParameterList367 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_genericTypeParameter389 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_bound_in_genericTypeParameter391 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_EXTENDS_BOUND_LIST_in_bound421 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_type_in_bound423 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_ENUM_TOP_LEVEL_SCOPE_in_enumTopLevelScope445 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_enumConstant_in_enumTopLevelScope447 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_classTopLevelScope_in_enumTopLevelScope450 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_IDENT_in_enumConstant476 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationList_in_enumConstant478 = new BitSet(new long[]{0x0000000000000008L,0x0801000000000000L});
-    public static final BitSet FOLLOW_arguments_in_enumConstant480 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L});
-    public static final BitSet FOLLOW_classTopLevelScope_in_enumConstant483 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_INTERFACE_TOP_LEVEL_SCOPE_in_interfaceTopLevelScope694 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_interfaceScopeDeclarations_in_interfaceTopLevelScope696 = new BitSet(new long[]{0x2000000000000088L,0x0000000000002008L,0x0000000900000100L});
-    public static final BitSet FOLLOW_FUNCTION_METHOD_DECL_in_interfaceScopeDeclarations722 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations724 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000400L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations726 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations729 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations731 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations733 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations735 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations738 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VOID_METHOD_DECL_in_interfaceScopeDeclarations751 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations753 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000400L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations755 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations758 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations760 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations762 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VAR_DECLARATION_in_interfaceScopeDeclarations853 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations855 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations857 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
-    public static final BitSet FOLLOW_variableDeclaratorList_in_interfaceScopeDeclarations859 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_typeDeclaration_in_interfaceScopeDeclarations870 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VAR_DECLARATOR_LIST_in_variableDeclaratorList890 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_variableDeclarator_in_variableDeclaratorList892 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_VAR_DECLARATOR_in_variableDeclarator914 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_variableDeclarator916 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_variableInitializer_in_variableDeclarator918 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_IDENT_in_variableDeclaratorId944 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_variableDeclaratorId946 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_arrayInitializer_in_variableInitializer967 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_variableInitializer977 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LBRACK_in_arrayDeclarator996 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_arrayDeclarator998 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ARRAY_DECLARATOR_LIST_in_arrayDeclaratorList1018 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_ARRAY_DECLARATOR_in_arrayDeclaratorList1020 = new BitSet(new long[]{0x0000000000000008L,0x0002000000000000L});
-    public static final BitSet FOLLOW_ARRAY_INITIALIZER_in_arrayInitializer1048 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer1050 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_THROWS_CLAUSE_in_throwsClause1072 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_throwsClause1074 = new BitSet(new long[]{0x0000000000008008L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_MODIFIER_LIST_in_modifierList1096 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifier_in_modifierList1098 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
-    public static final BitSet FOLLOW_PUBLIC_in_modifier1119 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PROTECTED_in_modifier1129 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PRIVATE_in_modifier1139 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STATIC_in_modifier1149 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ABSTRACT_in_modifier1159 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NATIVE_in_modifier1169 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SYNCHRONIZED_in_modifier1179 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TRANSIENT_in_modifier1189 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOLATILE_in_modifier1199 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRICTFP_in_modifier1209 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifier_in_modifier1219 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LOCAL_MODIFIER_LIST_in_localModifierList1239 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifier_in_localModifierList1241 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
-    public static final BitSet FOLLOW_FINAL_in_localModifier1262 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotation_in_localModifier1272 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TYPE_in_type1292 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primitiveType_in_type1295 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_type1299 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_type1302 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_QUALIFIED_TYPE_IDENT_in_qualifiedTypeIdent1324 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent1326 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_typeIdent1349 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_typeIdent1351 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_PACKAGE_in_packageDeclaration127 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_packageDeclaration129 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_IMPORT_in_importDeclaration156 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_STATIC_in_importDeclaration158 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_importDeclaration161 = new BitSet(new long[]{0x0000000000010008L});
+    public static final BitSet FOLLOW_DOTSTAR_in_importDeclaration163 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_EXTENDS_CLAUSE_in_extendsClause304 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_type_in_extendsClause306 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_IMPLEMENTS_CLAUSE_in_implementsClause335 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_type_in_implementsClause337 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_GENERIC_TYPE_PARAM_LIST_in_genericTypeParameterList367 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeParameter_in_genericTypeParameterList369 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_genericTypeParameter391 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_bound_in_genericTypeParameter393 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_EXTENDS_BOUND_LIST_in_bound423 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_type_in_bound425 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_ENUM_TOP_LEVEL_SCOPE_in_enumTopLevelScope447 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_enumConstant_in_enumTopLevelScope449 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_classTopLevelScope_in_enumTopLevelScope452 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_IDENT_in_enumConstant478 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationList_in_enumConstant480 = new BitSet(new long[]{0x0000000000000008L,0x0801000000000000L});
+    public static final BitSet FOLLOW_arguments_in_enumConstant482 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L});
+    public static final BitSet FOLLOW_classTopLevelScope_in_enumConstant485 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_INTERFACE_TOP_LEVEL_SCOPE_in_interfaceTopLevelScope696 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_interfaceScopeDeclarations_in_interfaceTopLevelScope698 = new BitSet(new long[]{0x2000000000000088L,0x0000000000002008L,0x0000000900000100L});
+    public static final BitSet FOLLOW_FUNCTION_METHOD_DECL_in_interfaceScopeDeclarations724 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations726 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000400L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations728 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations731 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations733 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations735 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations737 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations740 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VOID_METHOD_DECL_in_interfaceScopeDeclarations753 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations755 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000400L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations757 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations760 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations762 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations764 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VAR_DECLARATION_in_interfaceScopeDeclarations855 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations857 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations859 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
+    public static final BitSet FOLLOW_variableDeclaratorList_in_interfaceScopeDeclarations861 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_typeDeclaration_in_interfaceScopeDeclarations872 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VAR_DECLARATOR_LIST_in_variableDeclaratorList892 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_variableDeclarator_in_variableDeclaratorList894 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_VAR_DECLARATOR_in_variableDeclarator916 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_variableDeclarator918 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_variableInitializer_in_variableDeclarator920 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_IDENT_in_variableDeclaratorId946 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_variableDeclaratorId948 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_arrayInitializer_in_variableInitializer969 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_variableInitializer979 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LBRACK_in_arrayDeclarator998 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_arrayDeclarator1000 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ARRAY_DECLARATOR_LIST_in_arrayDeclaratorList1020 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_ARRAY_DECLARATOR_in_arrayDeclaratorList1022 = new BitSet(new long[]{0x0000000000000008L,0x0002000000000000L});
+    public static final BitSet FOLLOW_ARRAY_INITIALIZER_in_arrayInitializer1050 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer1052 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_THROWS_CLAUSE_in_throwsClause1074 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_throwsClause1076 = new BitSet(new long[]{0x0000000000008008L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_MODIFIER_LIST_in_modifierList1098 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifier_in_modifierList1100 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_PUBLIC_in_modifier1121 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PROTECTED_in_modifier1131 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PRIVATE_in_modifier1141 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STATIC_in_modifier1151 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ABSTRACT_in_modifier1161 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NATIVE_in_modifier1171 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SYNCHRONIZED_in_modifier1181 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TRANSIENT_in_modifier1191 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOLATILE_in_modifier1201 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRICTFP_in_modifier1211 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifier_in_modifier1221 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LOCAL_MODIFIER_LIST_in_localModifierList1241 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localModifier_in_localModifierList1243 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_FINAL_in_localModifier1264 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotation_in_localModifier1274 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TYPE_in_type1294 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primitiveType_in_type1297 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_type1301 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_type1304 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_QUALIFIED_TYPE_IDENT_in_qualifiedTypeIdent1326 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent1328 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_typeIdent1351 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_typeIdent1353 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_set_in_primitiveType0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_GENERIC_TYPE_ARG_LIST_in_genericTypeArgumentList1462 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgument_in_genericTypeArgumentList1464 = new BitSet(new long[]{0x0000010000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_genericTypeArgument1489 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_QUESTION_in_genericTypeArgument1500 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericWildcardBoundType_in_genericTypeArgument1502 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_EXTENDS_in_genericWildcardBoundType1642 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_type_in_genericWildcardBoundType1644 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SUPER_in_genericWildcardBoundType1656 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_type_in_genericWildcardBoundType1658 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FORMAL_PARAM_LIST_in_formalParameterList1679 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList1681 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x00000000000000C0L});
-    public static final BitSet FOLLOW_formalParameterVarargDecl_in_formalParameterList1684 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FORMAL_PARAM_STD_DECL_in_formalParameterStandardDecl1711 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifierList_in_formalParameterStandardDecl1713 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_formalParameterStandardDecl1715 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl1717 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FORMAL_PARAM_VARARG_DECL_in_formalParameterVarargDecl1742 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifierList_in_formalParameterVarargDecl1744 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_formalParameterVarargDecl1746 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterVarargDecl1748 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier1772 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedIdentifier1783 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentifier1785 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier1787 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ANNOTATION_LIST_in_annotationList1814 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotation_in_annotationList1816 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
-    public static final BitSet FOLLOW_AT_in_annotation1838 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_annotation1840 = new BitSet(new long[]{0x0000000000000008L,0x0000020000000000L});
-    public static final BitSet FOLLOW_annotationInit_in_annotation1842 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ANNOTATION_INIT_BLOCK_in_annotationInit1868 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationInitializers_in_annotationInit1870 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ANNOTATION_INIT_KEY_LIST_in_annotationInitializers1891 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationInitializer_in_annotationInitializers1893 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_ANNOTATION_INIT_DEFAULT_KEY_in_annotationInitializers1906 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializers1908 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_IDENT_in_annotationInitializer1933 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializer1935 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ANNOTATION_INIT_ARRAY_ELEMENT_in_annotationElementValue1960 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValue1962 = new BitSet(new long[]{0x0020000000000088L,0x401001444CE20040L});
-    public static final BitSet FOLLOW_annotation_in_annotationElementValue1974 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_annotationElementValue1984 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ANNOTATION_TOP_LEVEL_SCOPE_in_annotationTopLevelScope2008 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope2010 = new BitSet(new long[]{0x2000000000000088L,0x0000200000002008L,0x0000000900000100L});
-    public static final BitSet FOLLOW_ANNOTATION_METHOD_DECL_in_annotationScopeDeclarations2036 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2038 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_annotationScopeDeclarations2040 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_annotationScopeDeclarations2042 = new BitSet(new long[]{0x8000000000000008L});
-    public static final BitSet FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations2044 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VAR_DECLARATION_in_annotationScopeDeclarations2057 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2059 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_annotationScopeDeclarations2061 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
-    public static final BitSet FOLLOW_variableDeclaratorList_in_annotationScopeDeclarations2063 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_typeDeclaration_in_annotationScopeDeclarations2074 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DEFAULT_in_annotationDefaultValue2098 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationDefaultValue2100 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2194 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifierList_in_localVariableDeclaration2196 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_localVariableDeclaration2198 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
-    public static final BitSet FOLLOW_variableDeclaratorList_in_localVariableDeclaration2200 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CATCH_CLAUSE_LIST_in_catches2522 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_catchClause_in_catches2524 = new BitSet(new long[]{0x0800000000000008L});
-    public static final BitSet FOLLOW_CATCH_in_catchClause2550 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_catchClause2552 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
-    public static final BitSet FOLLOW_block_in_catchClause2554 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SWITCH_BLOCK_LABEL_LIST_in_switchBlockLabels2575 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels2577 = new BitSet(new long[]{0x8400000000000008L});
-    public static final BitSet FOLLOW_switchDefaultLabel_in_switchBlockLabels2580 = new BitSet(new long[]{0x0400000000000008L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels2583 = new BitSet(new long[]{0x0400000000000008L});
-    public static final BitSet FOLLOW_CASE_in_switchCaseLabel2613 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_switchCaseLabel2615 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
-    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel2617 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
-    public static final BitSet FOLLOW_DEFAULT_in_switchDefaultLabel2643 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel2645 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
-    public static final BitSet FOLLOW_FOR_INIT_in_forInit2671 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localVariableDeclaration_in_forInit2674 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_expression_in_forInit2678 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_FOR_CONDITION_in_forCondition2706 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_forCondition2708 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FOR_UPDATE_in_forUpdater2734 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_forUpdater2736 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_PARENTESIZED_EXPR_in_parenthesizedExpression2764 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_parenthesizedExpression2766 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_EXPR_in_expression2791 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expression2793 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ASSIGN_in_expr2814 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2816 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2818 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PLUS_ASSIGN_in_expr2830 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2832 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2834 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_MINUS_ASSIGN_in_expr2846 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2848 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2850 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_STAR_ASSIGN_in_expr2862 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2864 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2866 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIV_ASSIGN_in_expr2878 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2880 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2882 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_AND_ASSIGN_in_expr2894 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2896 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2898 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_OR_ASSIGN_in_expr2910 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2912 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2914 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_XOR_ASSIGN_in_expr2926 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2928 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2930 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_MOD_ASSIGN_in_expr2942 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2944 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2946 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_expr2958 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2960 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2962 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SHIFT_RIGHT_ASSIGN_in_expr2974 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2976 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2978 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SHIFT_LEFT_ASSIGN_in_expr2990 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr2992 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr2994 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_QUESTION_in_expr3006 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3008 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_GENERIC_TYPE_ARG_LIST_in_genericTypeArgumentList1464 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgument_in_genericTypeArgumentList1466 = new BitSet(new long[]{0x0000010000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_genericTypeArgument1491 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_QUESTION_in_genericTypeArgument1502 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericWildcardBoundType_in_genericTypeArgument1504 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_EXTENDS_in_genericWildcardBoundType1644 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_type_in_genericWildcardBoundType1646 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SUPER_in_genericWildcardBoundType1658 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_type_in_genericWildcardBoundType1660 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FORMAL_PARAM_LIST_in_formalParameterList1681 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList1683 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_formalParameterVarargDecl_in_formalParameterList1686 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FORMAL_PARAM_STD_DECL_in_formalParameterStandardDecl1713 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localModifierList_in_formalParameterStandardDecl1715 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_formalParameterStandardDecl1717 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl1719 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FORMAL_PARAM_VARARG_DECL_in_formalParameterVarargDecl1744 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localModifierList_in_formalParameterVarargDecl1746 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_formalParameterVarargDecl1748 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterVarargDecl1750 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier1774 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedIdentifier1785 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentifier1787 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier1789 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ANNOTATION_LIST_in_annotationList1816 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotation_in_annotationList1818 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_AT_in_annotation1840 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_annotation1842 = new BitSet(new long[]{0x0000000000000008L,0x0000020000000000L});
+    public static final BitSet FOLLOW_annotationInit_in_annotation1844 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ANNOTATION_INIT_BLOCK_in_annotationInit1870 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationInitializers_in_annotationInit1872 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ANNOTATION_INIT_KEY_LIST_in_annotationInitializers1893 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationInitializer_in_annotationInitializers1895 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_ANNOTATION_INIT_DEFAULT_KEY_in_annotationInitializers1908 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializers1910 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_IDENT_in_annotationInitializer1935 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializer1937 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ANNOTATION_INIT_ARRAY_ELEMENT_in_annotationElementValue1962 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValue1964 = new BitSet(new long[]{0x0020000000000088L,0x401001444CE20040L});
+    public static final BitSet FOLLOW_annotation_in_annotationElementValue1976 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_annotationElementValue1986 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ANNOTATION_TOP_LEVEL_SCOPE_in_annotationTopLevelScope2010 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope2012 = new BitSet(new long[]{0x2000000000000088L,0x0000200000002008L,0x0000000900000100L});
+    public static final BitSet FOLLOW_ANNOTATION_METHOD_DECL_in_annotationScopeDeclarations2038 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2040 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_annotationScopeDeclarations2042 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_annotationScopeDeclarations2044 = new BitSet(new long[]{0x8000000000000008L});
+    public static final BitSet FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations2046 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VAR_DECLARATION_in_annotationScopeDeclarations2059 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2061 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_annotationScopeDeclarations2063 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
+    public static final BitSet FOLLOW_variableDeclaratorList_in_annotationScopeDeclarations2065 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_typeDeclaration_in_annotationScopeDeclarations2076 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DEFAULT_in_annotationDefaultValue2100 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationDefaultValue2102 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2196 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localModifierList_in_localVariableDeclaration2198 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_localVariableDeclaration2200 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
+    public static final BitSet FOLLOW_variableDeclaratorList_in_localVariableDeclaration2202 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CATCH_CLAUSE_LIST_in_catches2524 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_catchClause_in_catches2526 = new BitSet(new long[]{0x0800000000000008L});
+    public static final BitSet FOLLOW_CATCH_in_catchClause2552 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_catchClause2554 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_block_in_catchClause2556 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SWITCH_BLOCK_LABEL_LIST_in_switchBlockLabels2577 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels2579 = new BitSet(new long[]{0x8400000000000008L});
+    public static final BitSet FOLLOW_switchDefaultLabel_in_switchBlockLabels2582 = new BitSet(new long[]{0x0400000000000008L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels2585 = new BitSet(new long[]{0x0400000000000008L});
+    public static final BitSet FOLLOW_CASE_in_switchCaseLabel2615 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_switchCaseLabel2617 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
+    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel2619 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
+    public static final BitSet FOLLOW_DEFAULT_in_switchDefaultLabel2645 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel2647 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
+    public static final BitSet FOLLOW_FOR_INIT_in_forInit2673 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_localVariableDeclaration_in_forInit2676 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_expression_in_forInit2680 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_FOR_CONDITION_in_forCondition2708 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_forCondition2710 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FOR_UPDATE_in_forUpdater2736 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_forUpdater2738 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_PARENTESIZED_EXPR_in_parenthesizedExpression2766 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_parenthesizedExpression2768 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_EXPR_in_expression2793 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expression2795 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ASSIGN_in_expr2816 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2818 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2820 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_PLUS_ASSIGN_in_expr2832 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2834 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2836 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_MINUS_ASSIGN_in_expr2848 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2850 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2852 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_STAR_ASSIGN_in_expr2864 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2866 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2868 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DIV_ASSIGN_in_expr2880 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2882 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2884 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_AND_ASSIGN_in_expr2896 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2898 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2900 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_OR_ASSIGN_in_expr2912 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2914 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2916 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_XOR_ASSIGN_in_expr2928 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2930 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2932 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_MOD_ASSIGN_in_expr2944 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2946 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2948 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_expr2960 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2962 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2964 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SHIFT_RIGHT_ASSIGN_in_expr2976 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2978 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2980 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SHIFT_LEFT_ASSIGN_in_expr2992 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr2994 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr2996 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_QUESTION_in_expr3008 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr3010 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3012 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LOGICAL_OR_in_expr3024 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3026 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3028 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LOGICAL_AND_in_expr3040 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3042 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3044 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_OR_in_expr3056 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3058 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3060 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_XOR_in_expr3072 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3074 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3076 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_AND_in_expr3088 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3090 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3092 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_EQUAL_in_expr3104 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3106 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3108 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_NOT_EQUAL_in_expr3120 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3122 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3124 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_INSTANCEOF_in_expr3136 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3138 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_expr3140 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LESS_OR_EQUAL_in_expr3152 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3154 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3156 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_GREATER_OR_EQUAL_in_expr3168 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3170 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3172 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_expr3184 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3186 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3188 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SHIFT_RIGHT_in_expr3200 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3202 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3204 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_GREATER_THAN_in_expr3216 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3218 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3220 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SHIFT_LEFT_in_expr3232 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3234 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3236 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LESS_THAN_in_expr3248 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3250 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3252 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PLUS_in_expr3264 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3266 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3268 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_MINUS_in_expr3280 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3282 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3284 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_STAR_in_expr3296 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3298 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3300 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIV_in_expr3312 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3314 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3316 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_MOD_in_expr3328 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3330 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3332 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_UNARY_PLUS_in_expr3344 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3346 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_UNARY_MINUS_in_expr3358 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3360 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PRE_INC_in_expr3372 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3374 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PRE_DEC_in_expr3386 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3388 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_POST_INC_in_expr3400 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3402 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_POST_DEC_in_expr3414 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3416 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_NOT_in_expr3428 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3430 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LOGICAL_NOT_in_expr3442 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3444 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CAST_EXPR_in_expr3456 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_type_in_expr3458 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
-    public static final BitSet FOLLOW_expr_in_expr3460 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_primaryExpression_in_expr3471 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_primaryExpression3497 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression3515 = new BitSet(new long[]{0x2000000000000000L,0x0100000090000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_primaryExpression3537 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_THIS_in_primaryExpression3559 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression3581 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_innerNewExpression_in_primaryExpression3603 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression3625 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_primitiveType_in_primaryExpression3661 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression3663 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_VOID_in_primaryExpression3681 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression3683 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_primaryExpression3717 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_primaryExpression3727 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_METHOD_CALL_in_primaryExpression3738 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression3740 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_primaryExpression3742 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression3745 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_explicitConstructorCall_in_primaryExpression3756 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression3767 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression3769 = new BitSet(new long[]{0x0000000000000000L,0x4010000000000000L});
-    public static final BitSet FOLLOW_expression_in_primaryExpression3771 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_literal_in_primaryExpression3782 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_newExpression_in_primaryExpression3792 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_primaryExpression3802 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayTypeDeclarator_in_primaryExpression3812 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression3822 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall3846 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3848 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall3851 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall3863 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_explicitConstructorCall3865 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3868 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall3871 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator3892 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator3895 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator3899 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_primitiveType_in_arrayTypeDeclarator3903 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression3927 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primitiveType_in_newExpression3945 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
-    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression3947 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression3965 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression3968 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
-    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression3970 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression4005 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression4007 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression4010 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_newExpression4012 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L});
-    public static final BitSet FOLLOW_classTopLevelScope_in_newExpression4014 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression4037 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_innerNewExpression4039 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_innerNewExpression4042 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_arguments_in_innerNewExpression4044 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L});
-    public static final BitSet FOLLOW_classTopLevelScope_in_innerNewExpression4046 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction4071 = new BitSet(new long[]{0x0000000000000000L,0x0010000000000000L});
-    public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction4073 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_newArrayConstruction4083 = new BitSet(new long[]{0x0000000000000002L,0x4014000000000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction4086 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ARGUMENT_LIST_in_arguments4107 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_arguments4109 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_expr_in_expr3012 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3014 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LOGICAL_OR_in_expr3026 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3028 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3030 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LOGICAL_AND_in_expr3042 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3044 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3046 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_OR_in_expr3058 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3060 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3062 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_XOR_in_expr3074 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3076 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3078 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_AND_in_expr3090 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3092 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3094 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_EQUAL_in_expr3106 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3108 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3110 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_NOT_EQUAL_in_expr3122 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3124 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3126 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_INSTANCEOF_in_expr3138 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3140 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_type_in_expr3142 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LESS_OR_EQUAL_in_expr3154 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3156 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3158 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_GREATER_OR_EQUAL_in_expr3170 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3172 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3174 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_expr3186 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3188 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3190 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SHIFT_RIGHT_in_expr3202 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3204 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3206 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_GREATER_THAN_in_expr3218 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3220 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3222 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SHIFT_LEFT_in_expr3234 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3236 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3238 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LESS_THAN_in_expr3250 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3252 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3254 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_PLUS_in_expr3266 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3268 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3270 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_MINUS_in_expr3282 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3284 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3286 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_STAR_in_expr3298 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3300 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3302 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DIV_in_expr3314 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3316 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3318 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_MOD_in_expr3330 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3332 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3334 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_UNARY_PLUS_in_expr3346 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3348 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_UNARY_MINUS_in_expr3360 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3362 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_PRE_INC_in_expr3374 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3376 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_PRE_DEC_in_expr3388 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3390 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_POST_INC_in_expr3402 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3404 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_POST_DEC_in_expr3416 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3418 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_NOT_in_expr3430 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3432 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LOGICAL_NOT_in_expr3444 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr3446 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CAST_EXPR_in_expr3458 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_type_in_expr3460 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
+    public static final BitSet FOLLOW_expr_in_expr3462 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_primaryExpression_in_expr3473 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_primaryExpression3499 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression3517 = new BitSet(new long[]{0x2000000000000000L,0x0100000090000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_primaryExpression3539 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_THIS_in_primaryExpression3561 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression3583 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_innerNewExpression_in_primaryExpression3605 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression3627 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_primitiveType_in_primaryExpression3663 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression3665 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_VOID_in_primaryExpression3683 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression3685 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_primaryExpression3719 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_primaryExpression3729 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_METHOD_CALL_in_primaryExpression3740 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression3742 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_primaryExpression3744 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression3747 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_explicitConstructorCall_in_primaryExpression3758 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression3769 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression3771 = new BitSet(new long[]{0x0000000000000000L,0x4010000000000000L});
+    public static final BitSet FOLLOW_expression_in_primaryExpression3773 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_literal_in_primaryExpression3784 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_newExpression_in_primaryExpression3794 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_primaryExpression3804 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayTypeDeclarator_in_primaryExpression3814 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression3824 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall3848 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3850 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall3853 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SUPER_CONSTRUCTOR_CALL_in_explicitConstructorCall3865 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primaryExpression_in_explicitConstructorCall3867 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3870 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_explicitConstructorCall3873 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ARRAY_DECLARATOR_in_arrayTypeDeclarator3894 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_arrayTypeDeclarator_in_arrayTypeDeclarator3897 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator3901 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_primitiveType_in_arrayTypeDeclarator3905 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression3929 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primitiveType_in_newExpression3947 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
+    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression3949 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression3967 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression3970 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
+    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression3972 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression4007 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression4009 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression4012 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_newExpression4014 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L});
+    public static final BitSet FOLLOW_classTopLevelScope_in_newExpression4016 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_innerNewExpression4039 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_innerNewExpression4041 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_innerNewExpression4044 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
+    public static final BitSet FOLLOW_arguments_in_innerNewExpression4046 = new BitSet(new long[]{0x0000000000000008L,0x0800000000000000L});
+    public static final BitSet FOLLOW_classTopLevelScope_in_innerNewExpression4048 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction4073 = new BitSet(new long[]{0x0000000000000000L,0x0010000000000000L});
+    public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction4075 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_newArrayConstruction4085 = new BitSet(new long[]{0x0000000000000002L,0x4014000000000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction4088 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ARGUMENT_LIST_in_arguments4109 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expression_in_arguments4111 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
     public static final BitSet FOLLOW_set_in_literal0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_synpred125_JavaTreeParser2577 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_synpred132_JavaTreeParser2678 = new BitSet(new long[]{0x0000000000000002L,0x4010000000000000L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_synpred125_JavaTreeParser2579 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_synpred132_JavaTreeParser2680 = new BitSet(new long[]{0x0000000000000002L,0x4010000000000000L});
 
 }

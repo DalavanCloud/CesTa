@@ -42,8 +42,8 @@ options {
     memoize = true;
 //    tokenVocab = Java; // ignored when imported
     ASTLabelType = CommonTree;
-    output = template;
-    rewrite = true;
+    output = template; // result is template
+    rewrite = true; // rewrites are performed (TokenRewriteStream is used)
 }
 
 
