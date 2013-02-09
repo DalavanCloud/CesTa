@@ -1,7 +1,7 @@
 group IntegrityVariablesParser : Base;
 
 /**
- *	Additional imports, that will be included in transformed file
+ * Additional imports, that will be included in transformed file
  */
 additionalImports() ::= <<
 <if(params.javaCard)>
@@ -10,6 +10,10 @@ import javacard.framework.ISOException;<\n>
 <else>
 <endif>
 >>
+
+/**
+ * Declarators for setters and getter for each supported type
+ */
 
 declareBooleanSetter(trueValue,falseValue) ::= << <\n>
     private byte _setBoolean(boolean var) {
@@ -47,4 +51,36 @@ declareByteGetter(mask) ::= << <\n>
             <endif>
         }
     }
+>>
+
+/*
+ * Templates adding a call to setter or getter for each supported variable
+ */
+
+setBoolean(value) ::= <<
+    _setBoolean(<value>)
+>>
+
+getBoolean(value) ::= <<
+    _getBoolean(<value>)
+>>
+
+setByte(value) ::= <<
+    _setByte(<value>)
+>>
+
+getByte(value) ::= <<
+    _getByte(<value>)
+>>
+
+/*
+ * Templates for type representation changes during declarations
+ */
+
+resistantBooleanType ::= <<
+    /*boolean*/byte
+>>
+
+resistantByteType ::= <<
+    /*byte*/short
 >>

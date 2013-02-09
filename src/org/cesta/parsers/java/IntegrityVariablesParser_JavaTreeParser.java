@@ -1,7 +1,9 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 JavaTreeParser.g 2013-02-02 20:17:44
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 JavaTreeParser.g 2013-02-09 12:52:50
 
 package org.cesta.parsers.java;
 
+// import java.util.Map;
+// import java.util.HashMap;
 import org.cesta.util.antlr.java.ANTLRJavaHelper;
 
 
@@ -1087,7 +1089,7 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
             pushFollow(FOLLOW_variableDeclaratorId_in_variableDeclarator918);
-            variableDeclaratorId();
+            gIntegrityVariablesParser.variableDeclaratorId();
 
             state._fsp--;
             if (state.failed) return retval;
@@ -1129,67 +1131,6 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
         return retval;
     }
     // $ANTLR end "variableDeclarator"
-
-    public static class variableDeclaratorId_return extends TreeRuleReturnScope {
-        public StringTemplate st;
-        public Object getTemplate() { return st; }
-        public String toString() { return st==null?null:st.toString(); }
-    };
-
-    // $ANTLR start "variableDeclaratorId"
-    // JavaTreeParser.g:144:1: variableDeclaratorId : ^( IDENT ( arrayDeclaratorList )? ) ;
-    public final IntegrityVariablesParser_JavaTreeParser.variableDeclaratorId_return variableDeclaratorId() throws RecognitionException {
-        IntegrityVariablesParser_JavaTreeParser.variableDeclaratorId_return retval = new IntegrityVariablesParser_JavaTreeParser.variableDeclaratorId_return();
-        retval.start = input.LT(1);
-        int variableDeclaratorId_StartIndex = input.index();
-        try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 18) ) { return retval; }
-            // JavaTreeParser.g:145:5: ( ^( IDENT ( arrayDeclaratorList )? ) )
-            // JavaTreeParser.g:145:9: ^( IDENT ( arrayDeclaratorList )? )
-            {
-            match(input,IDENT,FOLLOW_IDENT_in_variableDeclaratorId946); if (state.failed) return retval;
-
-            if ( input.LA(1)==Token.DOWN ) {
-                match(input, Token.DOWN, null); if (state.failed) return retval;
-                // JavaTreeParser.g:145:17: ( arrayDeclaratorList )?
-                int alt42=2;
-                int LA42_0 = input.LA(1);
-
-                if ( (LA42_0==ARRAY_DECLARATOR_LIST) ) {
-                    alt42=1;
-                }
-                switch (alt42) {
-                    case 1 :
-                        // JavaTreeParser.g:0:0: arrayDeclaratorList
-                        {
-                        pushFollow(FOLLOW_arrayDeclaratorList_in_variableDeclaratorId948);
-                        arrayDeclaratorList();
-
-                        state._fsp--;
-                        if (state.failed) return retval;
-
-                        }
-                        break;
-
-                }
-
-
-                match(input, Token.UP, null); if (state.failed) return retval;
-            }
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-            if ( state.backtracking>0 ) { memoize(input, 18, variableDeclaratorId_StartIndex); }
-        }
-        return retval;
-    }
-    // $ANTLR end "variableDeclaratorId"
 
     public static class variableInitializer_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2450,7 +2391,7 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
             state._fsp--;
             if (state.failed) return retval;
             pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl1719);
-            variableDeclaratorId();
+            gIntegrityVariablesParser.variableDeclaratorId();
 
             state._fsp--;
             if (state.failed) return retval;
@@ -2502,7 +2443,7 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
             state._fsp--;
             if (state.failed) return retval;
             pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterVarargDecl1750);
-            variableDeclaratorId();
+            gIntegrityVariablesParser.variableDeclaratorId();
 
             state._fsp--;
             if (state.failed) return retval;
@@ -3285,74 +3226,6 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
     }
     // $ANTLR end "annotationDefaultValue"
 
-    public static class block_return extends TreeRuleReturnScope {
-        public StringTemplate st;
-        public Object getTemplate() { return st; }
-        public String toString() { return st==null?null:st.toString(); }
-    };
-
-    // $ANTLR start "block"
-    // JavaTreeParser.g:295:1: block : ^( BLOCK_SCOPE ( blockStatement )* ) ;
-    public final IntegrityVariablesParser_JavaTreeParser.block_return block() throws RecognitionException {
-        IntegrityVariablesParser_JavaTreeParser.block_return retval = new IntegrityVariablesParser_JavaTreeParser.block_return();
-        retval.start = input.LT(1);
-        int block_StartIndex = input.index();
-        try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 48) ) { return retval; }
-            // JavaTreeParser.g:296:5: ( ^( BLOCK_SCOPE ( blockStatement )* ) )
-            // JavaTreeParser.g:296:9: ^( BLOCK_SCOPE ( blockStatement )* )
-            {
-            match(input,BLOCK_SCOPE,FOLLOW_BLOCK_SCOPE_in_block2125); if (state.failed) return retval;
-
-            if ( input.LA(1)==Token.DOWN ) {
-                match(input, Token.DOWN, null); if (state.failed) return retval;
-                // JavaTreeParser.g:296:23: ( blockStatement )*
-                loop71:
-                do {
-                    int alt71=2;
-                    int LA71_0 = input.LA(1);
-
-                    if ( (LA71_0==AT||LA71_0==SEMI||LA71_0==ASSERT||LA71_0==BREAK||(LA71_0>=CLASS && LA71_0<=CONTINUE)||LA71_0==DO||LA71_0==ENUM||(LA71_0>=FOR && LA71_0<=IF)||LA71_0==INTERFACE||LA71_0==RETURN||(LA71_0>=SWITCH && LA71_0<=SYNCHRONIZED)||LA71_0==THROW||LA71_0==TRY||LA71_0==WHILE||LA71_0==BLOCK_SCOPE||LA71_0==EXPR||LA71_0==FOR_EACH||LA71_0==LABELED_STATEMENT||LA71_0==VAR_DECLARATION) ) {
-                        alt71=1;
-                    }
-
-
-                    switch (alt71) {
-                	case 1 :
-                	    // JavaTreeParser.g:0:0: blockStatement
-                	    {
-                	    pushFollow(FOLLOW_blockStatement_in_block2127);
-                	    blockStatement();
-
-                	    state._fsp--;
-                	    if (state.failed) return retval;
-
-                	    }
-                	    break;
-
-                	default :
-                	    break loop71;
-                    }
-                } while (true);
-
-
-                match(input, Token.UP, null); if (state.failed) return retval;
-            }
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-            if ( state.backtracking>0 ) { memoize(input, 48, block_StartIndex); }
-        }
-        return retval;
-    }
-    // $ANTLR end "block"
-
     public static class blockStatement_return extends TreeRuleReturnScope {
         public StringTemplate st;
         public Object getTemplate() { return st; }
@@ -3417,7 +3290,7 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
                     // JavaTreeParser.g:300:9: localVariableDeclaration
                     {
                     pushFollow(FOLLOW_localVariableDeclaration_in_blockStatement2152);
-                    localVariableDeclaration();
+                    gIntegrityVariablesParser.localVariableDeclaration();
 
                     state._fsp--;
                     if (state.failed) return retval;
@@ -3460,58 +3333,6 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
     }
     // $ANTLR end "blockStatement"
 
-    public static class localVariableDeclaration_return extends TreeRuleReturnScope {
-        public StringTemplate st;
-        public Object getTemplate() { return st; }
-        public String toString() { return st==null?null:st.toString(); }
-    };
-
-    // $ANTLR start "localVariableDeclaration"
-    // JavaTreeParser.g:305:1: localVariableDeclaration : ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) ;
-    public final IntegrityVariablesParser_JavaTreeParser.localVariableDeclaration_return localVariableDeclaration() throws RecognitionException {
-        IntegrityVariablesParser_JavaTreeParser.localVariableDeclaration_return retval = new IntegrityVariablesParser_JavaTreeParser.localVariableDeclaration_return();
-        retval.start = input.LT(1);
-        int localVariableDeclaration_StartIndex = input.index();
-        try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 50) ) { return retval; }
-            // JavaTreeParser.g:306:5: ( ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) )
-            // JavaTreeParser.g:306:9: ^( VAR_DECLARATION localModifierList type variableDeclaratorList )
-            {
-            match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2196); if (state.failed) return retval;
-
-            match(input, Token.DOWN, null); if (state.failed) return retval;
-            pushFollow(FOLLOW_localModifierList_in_localVariableDeclaration2198);
-            localModifierList();
-
-            state._fsp--;
-            if (state.failed) return retval;
-            pushFollow(FOLLOW_type_in_localVariableDeclaration2200);
-            type();
-
-            state._fsp--;
-            if (state.failed) return retval;
-            pushFollow(FOLLOW_variableDeclaratorList_in_localVariableDeclaration2202);
-            variableDeclaratorList();
-
-            state._fsp--;
-            if (state.failed) return retval;
-
-            match(input, Token.UP, null); if (state.failed) return retval;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-            if ( state.backtracking>0 ) { memoize(input, 50, localVariableDeclaration_StartIndex); }
-        }
-        return retval;
-    }
-    // $ANTLR end "localVariableDeclaration"
-
     public static class statement_return extends TreeRuleReturnScope {
         public StringTemplate st;
         public Object getTemplate() { return st; }
@@ -3534,7 +3355,7 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
                     // JavaTreeParser.g:311:9: block
                     {
                     pushFollow(FOLLOW_block_in_statement2235);
-                    block();
+                    gIntegrityVariablesParser.block();
 
                     state._fsp--;
                     if (state.failed) return retval;
@@ -3734,7 +3555,7 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_block_in_statement2359);
-                    block();
+                    gIntegrityVariablesParser.block();
 
                     state._fsp--;
                     if (state.failed) return retval;
@@ -3772,7 +3593,7 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
                             // JavaTreeParser.g:0:0: block
                             {
                             pushFollow(FOLLOW_block_in_statement2364);
-                            block();
+                            gIntegrityVariablesParser.block();
 
                             state._fsp--;
                             if (state.failed) return retval;
@@ -3820,7 +3641,7 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
                     state._fsp--;
                     if (state.failed) return retval;
                     pushFollow(FOLLOW_block_in_statement2399);
-                    block();
+                    gIntegrityVariablesParser.block();
 
                     state._fsp--;
                     if (state.failed) return retval;
@@ -4089,7 +3910,7 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
             state._fsp--;
             if (state.failed) return retval;
             pushFollow(FOLLOW_block_in_catchClause2556);
-            block();
+            gIntegrityVariablesParser.block();
 
             state._fsp--;
             if (state.failed) return retval;
@@ -4424,7 +4245,7 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
                         // JavaTreeParser.g:351:21: localVariableDeclaration
                         {
                         pushFollow(FOLLOW_localVariableDeclaration_in_forInit2676);
-                        localVariableDeclaration();
+                        gIntegrityVariablesParser.localVariableDeclaration();
 
                         state._fsp--;
                         if (state.failed) return retval;
@@ -7128,8 +6949,6 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
     public static final BitSet FOLLOW_VAR_DECLARATOR_in_variableDeclarator916 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_variableDeclaratorId_in_variableDeclarator918 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
     public static final BitSet FOLLOW_variableInitializer_in_variableDeclarator920 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_IDENT_in_variableDeclaratorId946 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_variableDeclaratorId948 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_arrayInitializer_in_variableInitializer969 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_expression_in_variableInitializer979 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_LBRACK_in_arrayDeclarator998 = new BitSet(new long[]{0x0000020000000000L});
@@ -7221,36 +7040,30 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
     public static final BitSet FOLLOW_typeDeclaration_in_annotationScopeDeclarations2076 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_DEFAULT_in_annotationDefaultValue2100 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_annotationElementValue_in_annotationDefaultValue2102 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BLOCK_SCOPE_in_block2125 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_blockStatement_in_block2127 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
     public static final BitSet FOLLOW_localVariableDeclaration_in_blockStatement2152 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_typeDeclaration_in_blockStatement2162 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_statement_in_blockStatement2172 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2196 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifierList_in_localVariableDeclaration2198 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_type_in_localVariableDeclaration2200 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
-    public static final BitSet FOLLOW_variableDeclaratorList_in_localVariableDeclaration2202 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_block_in_statement2235 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ASSERT_in_statement2246 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expression_in_statement2248 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
     public static final BitSet FOLLOW_expression_in_statement2250 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_IF_in_statement2263 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement2265 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
-    public static final BitSet FOLLOW_statement_in_statement2267 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement2265 = new BitSet(new long[]{0x4140100000000000L,0x4030009161000601L,0x0000000000002004L});
+    public static final BitSet FOLLOW_statement_in_statement2267 = new BitSet(new long[]{0x4140100000000008L,0x4030009161000601L,0x0000000000002004L});
     public static final BitSet FOLLOW_statement_in_statement2269 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_FOR_in_statement2282 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_forInit_in_statement2284 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
     public static final BitSet FOLLOW_forCondition_in_statement2286 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_forUpdater_in_statement2288 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
+    public static final BitSet FOLLOW_forUpdater_in_statement2288 = new BitSet(new long[]{0x4140100000000000L,0x4030009161000601L,0x0000000000002004L});
     public static final BitSet FOLLOW_statement_in_statement2290 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_FOR_EACH_in_statement2302 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_localModifierList_in_statement2304 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
     public static final BitSet FOLLOW_type_in_statement2306 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_IDENT_in_statement2308 = new BitSet(new long[]{0x0000000000000000L,0x4010000000000000L});
-    public static final BitSet FOLLOW_expression_in_statement2310 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
+    public static final BitSet FOLLOW_expression_in_statement2310 = new BitSet(new long[]{0x4140100000000000L,0x4030009161000601L,0x0000000000002004L});
     public static final BitSet FOLLOW_statement_in_statement2312 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_WHILE_in_statement2325 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement2327 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement2327 = new BitSet(new long[]{0x4140100000000000L,0x4030009161000601L,0x0000000000002004L});
     public static final BitSet FOLLOW_statement_in_statement2329 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_DO_in_statement2341 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_statement_in_statement2343 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000040000L});
@@ -7274,7 +7087,7 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
     public static final BitSet FOLLOW_CONTINUE_in_statement2455 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_IDENT_in_statement2457 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_LABELED_STATEMENT_in_statement2470 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_IDENT_in_statement2472 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
+    public static final BitSet FOLLOW_IDENT_in_statement2472 = new BitSet(new long[]{0x4140100000000000L,0x4030009161000601L,0x0000000000002004L});
     public static final BitSet FOLLOW_statement_in_statement2474 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_expression_in_statement2485 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_SEMI_in_statement2495 = new BitSet(new long[]{0x0000000000000002L});
