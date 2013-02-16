@@ -44,6 +44,79 @@ import org.cesta.util.antlr.java.ANTLRJavaHelper;
         public String toString() {
             return type + " " + name;
         }
+
+        public String getType() {
+            return type;
+        }
+
+        public boolean shouldBeTransformed() {
+            // TODO: more considerations
+            return (type != null) && isSupportedType();
+        }
+
+        public boolean isSupportedType() {
+            return type.equals("boolean") || type.equals("byte");
+        }
+    }
+
+    // TODO: remove
+    public boolean isSupportedType(String type) {
+            return type.equals("boolean") || type.equals("byte");
+    }
+
+    public Variable getVariable(String id) {
+        for (int i = $Variables.size() - 1; i >= 0; i--) {
+            if ($Variables[i]::variableTypes.containsKey(id)) {
+                return $Variables[i]::variableTypes.get(id);
+            }
+        }
+        return null;
+    }
+
+    public boolean replaceType(CommonTree tree, String type) {
+        // TODO: check variables instead of a type only
+        if (!isSupportedType(type)) {
+            return false;
+        }
+        StringTemplate st = getTemplateLib().getInstanceOf("resistantType_" + type);
+        replaceTree(st.toString(), tree);
+        return true;
+    }
+
+    public void setAssign(String left, String right, String sign, Variable var, CommonTree tree) {
+        if (!var.shouldBeTransformed()) {
+            return;
+        }
+        StringTemplate st = getTemplateLib().getInstanceOf("unwrapAssign_" + var.getType());
+        st.setAttribute("left", left);
+        st.setAttribute("right", right);
+        st.setAttribute("sign", sign);
+        replaceTree(st.toString(), tree);
+    }
+
+    public void setResistantType(String expression, Variable var, CommonTree tree) {
+        if (!var.shouldBeTransformed()) {
+            return;
+        }
+        StringTemplate st = getTemplateLib().getInstanceOf("set_" + var.getType());
+        st.setAttribute("value", expression);
+        replaceTree(st.toString(), tree);
+    }
+
+    public void getResistantType(String expression, Variable var, CommonTree tree) {
+        if (var == null) { // the identifier is not a variable
+            return;
+        }
+        if (!var.shouldBeTransformed()) {
+            return;
+        }
+        StringTemplate st = getTemplateLib().getInstanceOf("get_" + var.getType());
+        st.setAttribute("value", expression);
+        replaceTree(st.toString(), tree);
+    }
+
+    public void replaceTree(String str, CommonTree tree) {
+        tokens.replace(tree.getTokenStartIndex(), tree.getTokenStopIndex(), str);
     }
 }
 
@@ -128,7 +201,6 @@ classAdditionalCode[CommonTree tree]
             st.setAttribute("mask", "0x55");
             tokens.insertAfter(tree.getTokenStartIndex(), st);
 
-            // TODO: static variables?
             // TODO: protection of a type short
         }
     ;
@@ -180,7 +252,12 @@ globalVariableDeclaration
 	:
 		^(VAR_DECLARATION 
 			modifierList 
-			type {$Variables::type=$type.text;}
+			type {
+                                 $Variables::type=$type.text;
+                                 // TODO: replace only if all variables should be replaced
+                                 // TODO: split the declaration if some variables should be replaced and some not
+                                 replaceType((CommonTree) $type.start, $type.text);
+                             }
 			variableDeclaratorList
 		)
 	;
@@ -193,22 +270,150 @@ localVariableDeclaration
 	:
 		^(VAR_DECLARATION 
 			localModifierList 
-			type {$Variables::type=$type.text;}
+			type {
+                                  $Variables::type=$type.text;
+                                  replaceType((CommonTree) $type.start, $type.text);
+                             }
 			variableDeclaratorList
 		)		
 	;
 
+variableDeclarator
+    scope {
+        String id;
+        String type;
+    }
+    :   ^(VAR_DECLARATOR i=variableDeclaratorId {$variableDeclarator::id=$i.id; $variableDeclarator::type=$i.type;} variableInitializer?)
+    ;
+
 /**
  * Variable identifier in declaration
  */
-variableDeclaratorId
+variableDeclaratorId returns [String id, String type]
     scope Variables;
     :
             ^(IDENT {
                         Variable var = new Variable($IDENT.text, $Variables[-1]::type);
                         $Variables[-2]::variableTypes.put($IDENT.text, var);
-                        System.out.println("-2 stack " + $Variables[-2]::variableTypes);
+                        $id=$IDENT.text;
+                        $type=$Variables[-1]::type;
                     }
                     arrayDeclaratorList?
             )
+    ;
+
+variableInitializer
+    :   arrayInitializer
+    |   e=expression {
+                           //System.out.println("id " + $variableDeclarator::id);
+                           Variable var = new Variable($variableDeclarator::id, $variableDeclarator::type);
+                           setResistantType($e.text, var, (CommonTree) $e.start);
+                       }
+    ;
+
+/**
+ * Expression where we need to add a setter
+ */
+assignExpression
+    :
+	^(ASSIGN variable=leftExpr value=expr)
+			{ setResistantType($value.text, getVariable($variable.text), (CommonTree) $value.start); }
+    |   ^(a=PLUS_ASSIGN variable=leftExpr value=expr)
+			{ setAssign($variable.text, $value.text, "+", getVariable($variable.text), (CommonTree) $a); }
+    |   ^(a=MINUS_ASSIGN variable=leftExpr value=expr)
+			{ setAssign($variable.text, $value.text, "-", getVariable($variable.text), (CommonTree) $a); }
+    |   ^(a=STAR_ASSIGN variable=leftExpr value=expr)
+			{ setAssign($variable.text, $value.text, "*", getVariable($variable.text), (CommonTree) $a); }
+    |   ^(a=DIV_ASSIGN variable=leftExpr value=expr)
+			{ setAssign($variable.text, $value.text, "/", getVariable($variable.text), (CommonTree) $a); }
+    |   ^(a=AND_ASSIGN variable=leftExpr value=expr)
+			{ setAssign($variable.text, $value.text, "&", getVariable($variable.text), (CommonTree) $a); }
+    |   ^(a=OR_ASSIGN variable=leftExpr value=expr)
+			{ setAssign($variable.text, $value.text, "|", getVariable($variable.text), (CommonTree) $a); }
+    |   ^(a=XOR_ASSIGN variable=leftExpr value=expr)
+			{ setAssign($variable.text, $value.text, "^", getVariable($variable.text), (CommonTree) $a); }
+    |   ^(a=MOD_ASSIGN variable=leftExpr value=expr)
+			{ setAssign($variable.text, $value.text, "\%", getVariable($variable.text), (CommonTree) $a); }
+    |   ^(a=BIT_SHIFT_RIGHT_ASSIGN variable=leftExpr value=expr)
+			{ setAssign($variable.text, $value.text, "<<<", getVariable($variable.text), (CommonTree) $a); }
+    |   ^(a=SHIFT_RIGHT_ASSIGN variable=leftExpr value=expr)
+			{ setAssign($variable.text, $value.text, ">>", getVariable($variable.text), (CommonTree) $a); }
+    |   ^(a=SHIFT_LEFT_ASSIGN variable=leftExpr value=expr)
+			{ setAssign($variable.text, $value.text, "<<", getVariable($variable.text), (CommonTree) $a); }
+    |   ^(PRE_INC variable=leftExpr)
+                        {  }
+    |   ^(PRE_DEC variable=leftExpr)
+                        {  }
+    |   ^(POST_INC variable=leftExpr)
+                        {  }
+    |   ^(POST_DEC variable=leftExpr)
+                        {  }
+    ;
+
+expr
+    :   assignExpression // new node instead of more assign expressions
+    |	^(QUESTION expr expr expr)
+    |   ^(LOGICAL_OR expr expr)
+    |   ^(LOGICAL_AND expr expr)
+    |   ^(OR expr expr)
+    |   ^(XOR expr expr)
+    |   ^(AND expr expr)
+    |   ^(EQUAL expr expr)
+    |   ^(NOT_EQUAL expr expr)
+    |   ^(INSTANCEOF expr type)
+    |   ^(LESS_OR_EQUAL expr expr)
+    |   ^(GREATER_OR_EQUAL expr expr)
+    |   ^(BIT_SHIFT_RIGHT expr expr)
+    |   ^(SHIFT_RIGHT expr expr)
+    |   ^(GREATER_THAN expr expr)
+    |   ^(SHIFT_LEFT expr expr)
+    |   ^(LESS_THAN expr expr)
+    |   ^(PLUS expr expr)
+    |   ^(MINUS expr expr)
+    |   ^(STAR expr expr)
+    |   ^(DIV expr expr)
+    |   ^(MOD expr expr)
+    |   ^(UNARY_PLUS expr)
+    |   ^(UNARY_MINUS expr)
+    |   ^(NOT expr)
+    |   ^(LOGICAL_NOT expr)
+    |   ^(CAST_EXPR type expr)
+    |   primaryExpression
+    ;
+
+primaryExpression
+    :   ^(  DOT
+            (   primaryExpression
+                (   IDENT
+                |   THIS
+                |   SUPER
+                |   innerNewExpression
+                |   CLASS
+                )
+            |   primitiveType CLASS
+            |   VOID CLASS
+            )
+        )
+    |   parenthesizedExpression
+    |   id=IDENT {
+                     getResistantType($id.text, getVariable($id.text), (CommonTree) id);
+                 }
+    |   ^(METHOD_CALL primaryExpression genericTypeArgumentList? arguments)
+    |   explicitConstructorCall
+    |   ^(ARRAY_ELEMENT_ACCESS primaryExpression expression)
+    |   literal
+    |   newExpression
+    |   THIS
+    |   arrayTypeDeclarator
+    |   SUPER
+    ;
+
+/*
+ * Expressions on the left side not to be transformed
+ */
+leftExpr
+    : id=IDENT {
+                  //System.out.println("leftExpr " + $id.text);
+               }
+    | ^(LEFT_EXPR expr)
     ;

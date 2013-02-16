@@ -11,18 +11,19 @@ import javacard.framework.ISOException;<\n>
 <endif>
 >>
 
+
 /**
  * Declarators for setters and getter for each supported type
  */
 
 declareBooleanSetter(trueValue,falseValue) ::= << <\n>
-    private byte _setBoolean(boolean var) {
+    private static byte _setBoolean(boolean var) {
         return var ? (byte) <trueValue> : (byte) <falseValue>;
     }
 <\n> >>
 
 declareBooleanGetter(trueValue,falseValue) ::= << <\n>
-    private boolean _getBoolean(byte var) {
+    private static boolean _getBoolean(byte var) {
         switch (var) {
             case (byte) <trueValue>: return true;
             case (byte) <falseValue>: return false;
@@ -34,13 +35,13 @@ declareBooleanGetter(trueValue,falseValue) ::= << <\n>
 >>
 
 declareByteSetter(mask) ::= << <\n>
-    private short _setByte(byte var) {
+    private static short _setByte(byte var) {
         return (short) ((short) ((<mask> ^ var) \<\< 8) ^ var);
     }
 >>
 
 declareByteGetter(mask) ::= << <\n>
-    private byte _getByte(short var) {
+    private static byte _getByte(short var) {
         if (((var \>\> 8) ^ <mask>) == (var ^ 0xFFFF)) {
             return (byte) var;
         } else {
@@ -53,34 +54,35 @@ declareByteGetter(mask) ::= << <\n>
     }
 >>
 
+
 /*
  * Templates adding a call to setter or getter for each supported variable
  */
 
-setBoolean(value) ::= <<
-    _setBoolean(<value>)
->>
+set_boolean(value) ::= "_setBoolean(<value>)"
 
-getBoolean(value) ::= <<
-    _getBoolean(<value>)
->>
+get_boolean(value) ::= "_getBoolean(<value>)"
 
-setByte(value) ::= <<
-    _setByte(<value>)
->>
+set_byte(value) ::= "_setByte((byte) (<value>))"
 
-getByte(value) ::= <<
-    _getByte(<value>)
->>
+get_byte(value) ::= "_getByte(<value>)"
+
 
 /*
  * Templates for type representation changes during declarations
  */
 
-resistantBooleanType ::= <<
-    /*boolean*/byte
->>
+resistantType_boolean() ::= "/*boolean*/byte"
 
-resistantByteType ::= <<
-    /*byte*/short
->>
+resistantType_byte() ::= "/*byte*/short"
+
+
+/*
+ * Templates for assign expressions
+ */
+
+unwrapAssign_boolean(left, right, sign) ::=
+    "<left> = <set_boolean(value={<get_boolean(value=left)> <sign> (<right>)})>"
+
+unwrapAssign_byte(left, right, sign) ::=
+    "<left> = <set_byte(value={<get_byte(value=left)> <sign> (<right>)})>"
