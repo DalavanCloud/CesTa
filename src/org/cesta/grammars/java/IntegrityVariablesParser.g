@@ -49,6 +49,10 @@ import org.cesta.util.antlr.java.ANTLRJavaHelper;
             return type;
         }
 
+        public String getName() {
+            return name;
+        }
+
         public boolean shouldBeTransformed() {
             // TODO: more considerations
             return (type != null) && isSupportedType();
@@ -100,6 +104,26 @@ import org.cesta.util.antlr.java.ANTLRJavaHelper;
         }
         StringTemplate st = getTemplateLib().getInstanceOf("set_" + var.getType());
         st.setAttribute("value", expression);
+        replaceTree(st.toString(), tree);
+    }
+
+    public void setPreIncDec(Variable var, String sign, CommonTree tree) {
+        if (!var.shouldBeTransformed()) {
+            return;
+        }
+        StringTemplate st = getTemplateLib().getInstanceOf("unwrapPreIncrementation_" + var.getType());
+        st.setAttribute("variable", var.getName());
+        st.setAttribute("sign", sign);
+        replaceTree(st.toString(), tree);
+    }
+
+    public void setPostIncDec(Variable var, String sign, CommonTree tree) {
+        if (!var.shouldBeTransformed()) {
+            return;
+        }
+        StringTemplate st = getTemplateLib().getInstanceOf("unwrapPostIncrementation_" + var.getType());
+        st.setAttribute("variable", var.getName());
+        st.setAttribute("sign", sign);
         replaceTree(st.toString(), tree);
     }
 
@@ -341,13 +365,13 @@ assignExpression
     |   ^(a=SHIFT_LEFT_ASSIGN variable=leftExpr value=expr)
 			{ setAssign($variable.text, $value.text, "<<", getVariable($variable.text), (CommonTree) $a); }
     |   ^(PRE_INC variable=leftExpr)
-                        {  }
+                        { setPreIncDec(getVariable($variable.text), "+", (CommonTree) $PRE_INC); }
     |   ^(PRE_DEC variable=leftExpr)
-                        {  }
+                        { setPreIncDec(getVariable($variable.text), "-", (CommonTree) $PRE_DEC); }
     |   ^(POST_INC variable=leftExpr)
-                        {  }
+                        { setPostIncDec(getVariable($variable.text), "+", (CommonTree) $POST_INC); }
     |   ^(POST_DEC variable=leftExpr)
-                        {  }
+                        { setPostIncDec(getVariable($variable.text), "-", (CommonTree) $POST_DEC); }
     ;
 
 expr

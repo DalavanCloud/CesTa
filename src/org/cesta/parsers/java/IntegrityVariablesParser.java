@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g 2013-02-16 19:02:19
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g 2013-02-16 21:21:28
 
 package org.cesta.parsers.java;
 
@@ -274,6 +274,10 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 return type;
             }
 
+            public String getName() {
+                return name;
+            }
+
             public boolean shouldBeTransformed() {
                 // TODO: more considerations
                 return (type != null) && isSupportedType();
@@ -328,6 +332,26 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             replaceTree(st.toString(), tree);
         }
 
+        public void setPreIncDec(Variable var, String sign, CommonTree tree) {
+            if (!var.shouldBeTransformed()) {
+                return;
+            }
+            StringTemplate st = getTemplateLib().getInstanceOf("unwrapPreIncrementation_" + var.getType());
+            st.setAttribute("variable", var.getName());
+            st.setAttribute("sign", sign);
+            replaceTree(st.toString(), tree);
+        }
+
+        public void setPostIncDec(Variable var, String sign, CommonTree tree) {
+            if (!var.shouldBeTransformed()) {
+                return;
+            }
+            StringTemplate st = getTemplateLib().getInstanceOf("unwrapPostIncrementation_" + var.getType());
+            st.setAttribute("variable", var.getName());
+            st.setAttribute("sign", sign);
+            replaceTree(st.toString(), tree);
+        }
+
         public void getResistantType(String expression, Variable var, CommonTree tree) {
             if (var == null) { // the identifier is not a variable
                 return;
@@ -352,7 +376,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "javaSource"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:124:1: javaSource : ^( JAVA_SOURCE annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDeclaration )* additionalImports[(CommonTree)$typeDeclaration.start] ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:148:1: javaSource : ^( JAVA_SOURCE annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDeclaration )* additionalImports[(CommonTree)$typeDeclaration.start] ) ;
     public final IntegrityVariablesParser.javaSource_return javaSource() throws RecognitionException {
         IntegrityVariablesParser.javaSource_return retval = new IntegrityVariablesParser.javaSource_return();
         retval.start = input.LT(1);
@@ -362,8 +386,8 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 289) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:125:5: ( ^( JAVA_SOURCE annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDeclaration )* additionalImports[(CommonTree)$typeDeclaration.start] ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:125:9: ^( JAVA_SOURCE annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDeclaration )* additionalImports[(CommonTree)$typeDeclaration.start] )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:149:5: ( ^( JAVA_SOURCE annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDeclaration )* additionalImports[(CommonTree)$typeDeclaration.start] ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:149:9: ^( JAVA_SOURCE annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDeclaration )* additionalImports[(CommonTree)$typeDeclaration.start] )
             {
             match(input,JAVA_SOURCE,FOLLOW_JAVA_SOURCE_in_javaSource136); if (state.failed) return retval;
 
@@ -373,7 +397,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
             state._fsp--;
             if (state.failed) return retval;
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:125:38: ( packageDeclaration )?
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:149:38: ( packageDeclaration )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -395,7 +419,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
             }
 
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:125:58: ( importDeclaration )*
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:149:58: ( importDeclaration )*
             loop2:
             do {
                 int alt2=2;
@@ -424,7 +448,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                 }
             } while (true);
 
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:125:77: ( typeDeclaration )*
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:149:77: ( typeDeclaration )*
             loop3:
             do {
                 int alt3=2;
@@ -482,14 +506,14 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "typeDeclaration"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:129:1: typeDeclaration : ( classDeclaration | ^( INTERFACE modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? interfaceTopLevelScope ) | ^( ENUM modifierList IDENT ( implementsClause )? enumTopLevelScope ) | ^( AT modifierList IDENT annotationTopLevelScope ) );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:153:1: typeDeclaration : ( classDeclaration | ^( INTERFACE modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? interfaceTopLevelScope ) | ^( ENUM modifierList IDENT ( implementsClause )? enumTopLevelScope ) | ^( AT modifierList IDENT annotationTopLevelScope ) );
     public final IntegrityVariablesParser.typeDeclaration_return typeDeclaration() throws RecognitionException {
         IntegrityVariablesParser.typeDeclaration_return retval = new IntegrityVariablesParser.typeDeclaration_return();
         retval.start = input.LT(1);
         int typeDeclaration_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 290) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:130:5: ( classDeclaration | ^( INTERFACE modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? interfaceTopLevelScope ) | ^( ENUM modifierList IDENT ( implementsClause )? enumTopLevelScope ) | ^( AT modifierList IDENT annotationTopLevelScope ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:154:5: ( classDeclaration | ^( INTERFACE modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? interfaceTopLevelScope ) | ^( ENUM modifierList IDENT ( implementsClause )? enumTopLevelScope ) | ^( AT modifierList IDENT annotationTopLevelScope ) )
             int alt7=4;
             switch ( input.LA(1) ) {
             case CLASS:
@@ -522,7 +546,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
             switch (alt7) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:130:9: classDeclaration
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:154:9: classDeclaration
                     {
                     pushFollow(FOLLOW_classDeclaration_in_typeDeclaration171);
                     classDeclaration();
@@ -533,7 +557,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:131:9: ^( INTERFACE modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? interfaceTopLevelScope )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:155:9: ^( INTERFACE modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? interfaceTopLevelScope )
                     {
                     match(input,INTERFACE,FOLLOW_INTERFACE_in_typeDeclaration183); if (state.failed) return retval;
 
@@ -544,7 +568,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     state._fsp--;
                     if (state.failed) return retval;
                     match(input,IDENT,FOLLOW_IDENT_in_typeDeclaration187); if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:131:40: ( genericTypeParameterList )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:155:40: ( genericTypeParameterList )?
                     int alt4=2;
                     int LA4_0 = input.LA(1);
 
@@ -566,7 +590,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     }
 
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:131:66: ( extendsClause )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:155:66: ( extendsClause )?
                     int alt5=2;
                     int LA5_0 = input.LA(1);
 
@@ -599,7 +623,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 3 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:132:9: ^( ENUM modifierList IDENT ( implementsClause )? enumTopLevelScope )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:156:9: ^( ENUM modifierList IDENT ( implementsClause )? enumTopLevelScope )
                     {
                     match(input,ENUM,FOLLOW_ENUM_in_typeDeclaration207); if (state.failed) return retval;
 
@@ -610,7 +634,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     state._fsp--;
                     if (state.failed) return retval;
                     match(input,IDENT,FOLLOW_IDENT_in_typeDeclaration211); if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:132:35: ( implementsClause )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:156:35: ( implementsClause )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -643,7 +667,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 4 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:133:9: ^( AT modifierList IDENT annotationTopLevelScope )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:157:9: ^( AT modifierList IDENT annotationTopLevelScope )
                     {
                     match(input,AT,FOLLOW_AT_in_typeDeclaration228); if (state.failed) return retval;
 
@@ -685,21 +709,21 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "classTopLevelScope"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:137:1: classTopLevelScope : ^( CLASS_TOP_LEVEL_SCOPE ( classScopeDeclarations )* ) classAdditionalCode[(CommonTree)retval.start] ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:161:1: classTopLevelScope : ^( CLASS_TOP_LEVEL_SCOPE ( classScopeDeclarations )* ) classAdditionalCode[(CommonTree)retval.start] ;
     public final IntegrityVariablesParser.classTopLevelScope_return classTopLevelScope() throws RecognitionException {
         IntegrityVariablesParser.classTopLevelScope_return retval = new IntegrityVariablesParser.classTopLevelScope_return();
         retval.start = input.LT(1);
         int classTopLevelScope_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 291) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:138:5: ( ^( CLASS_TOP_LEVEL_SCOPE ( classScopeDeclarations )* ) classAdditionalCode[(CommonTree)retval.start] )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:138:9: ^( CLASS_TOP_LEVEL_SCOPE ( classScopeDeclarations )* ) classAdditionalCode[(CommonTree)retval.start]
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:162:5: ( ^( CLASS_TOP_LEVEL_SCOPE ( classScopeDeclarations )* ) classAdditionalCode[(CommonTree)retval.start] )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:162:9: ^( CLASS_TOP_LEVEL_SCOPE ( classScopeDeclarations )* ) classAdditionalCode[(CommonTree)retval.start]
             {
             match(input,CLASS_TOP_LEVEL_SCOPE,FOLLOW_CLASS_TOP_LEVEL_SCOPE_in_classTopLevelScope256); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:138:33: ( classScopeDeclarations )*
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:162:33: ( classScopeDeclarations )*
                 loop8:
                 do {
                     int alt8=2;
@@ -758,14 +782,14 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "classScopeDeclarations"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:142:1: classScopeDeclarations : ( ^( CLASS_INSTANCE_INITIALIZER block ) | ^( CLASS_STATIC_INITIALIZER block ) | methodScopeDeclarations | globalVariableDeclaration | typeDeclaration );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:166:1: classScopeDeclarations : ( ^( CLASS_INSTANCE_INITIALIZER block ) | ^( CLASS_STATIC_INITIALIZER block ) | methodScopeDeclarations | globalVariableDeclaration | typeDeclaration );
     public final IntegrityVariablesParser.classScopeDeclarations_return classScopeDeclarations() throws RecognitionException {
         IntegrityVariablesParser.classScopeDeclarations_return retval = new IntegrityVariablesParser.classScopeDeclarations_return();
         retval.start = input.LT(1);
         int classScopeDeclarations_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 292) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:143:5: ( ^( CLASS_INSTANCE_INITIALIZER block ) | ^( CLASS_STATIC_INITIALIZER block ) | methodScopeDeclarations | globalVariableDeclaration | typeDeclaration )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:167:5: ( ^( CLASS_INSTANCE_INITIALIZER block ) | ^( CLASS_STATIC_INITIALIZER block ) | methodScopeDeclarations | globalVariableDeclaration | typeDeclaration )
             int alt9=5;
             switch ( input.LA(1) ) {
             case CLASS_INSTANCE_INITIALIZER:
@@ -808,7 +832,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
             switch (alt9) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:143:9: ^( CLASS_INSTANCE_INITIALIZER block )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:167:9: ^( CLASS_INSTANCE_INITIALIZER block )
                     {
                     match(input,CLASS_INSTANCE_INITIALIZER,FOLLOW_CLASS_INSTANCE_INITIALIZER_in_classScopeDeclarations284); if (state.failed) return retval;
 
@@ -824,7 +848,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:144:9: ^( CLASS_STATIC_INITIALIZER block )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:168:9: ^( CLASS_STATIC_INITIALIZER block )
                     {
                     match(input,CLASS_STATIC_INITIALIZER,FOLLOW_CLASS_STATIC_INITIALIZER_in_classScopeDeclarations298); if (state.failed) return retval;
 
@@ -840,7 +864,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 3 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:145:9: methodScopeDeclarations
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:169:9: methodScopeDeclarations
                     {
                     pushFollow(FOLLOW_methodScopeDeclarations_in_classScopeDeclarations311);
                     methodScopeDeclarations();
@@ -851,7 +875,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 4 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:146:9: globalVariableDeclaration
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:170:9: globalVariableDeclaration
                     {
                     pushFollow(FOLLOW_globalVariableDeclaration_in_classScopeDeclarations322);
                     globalVariableDeclaration();
@@ -862,7 +886,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 5 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:147:9: typeDeclaration
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:171:9: typeDeclaration
                     {
                     pushFollow(FOLLOW_typeDeclaration_in_classScopeDeclarations333);
                     typeDeclaration();
@@ -893,14 +917,14 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "interfaceScopeDeclarations"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:151:1: interfaceScopeDeclarations : ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) | globalVariableDeclaration | typeDeclaration );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:175:1: interfaceScopeDeclarations : ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) | globalVariableDeclaration | typeDeclaration );
     public final IntegrityVariablesParser.interfaceScopeDeclarations_return interfaceScopeDeclarations() throws RecognitionException {
         IntegrityVariablesParser.interfaceScopeDeclarations_return retval = new IntegrityVariablesParser.interfaceScopeDeclarations_return();
         retval.start = input.LT(1);
         int interfaceScopeDeclarations_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 293) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:152:5: ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) | globalVariableDeclaration | typeDeclaration )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:176:5: ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) | globalVariableDeclaration | typeDeclaration )
             int alt15=4;
             switch ( input.LA(1) ) {
             case FUNCTION_METHOD_DECL:
@@ -936,7 +960,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
             switch (alt15) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:152:9: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:176:9: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? )
                     {
                     match(input,FUNCTION_METHOD_DECL,FOLLOW_FUNCTION_METHOD_DECL_in_interfaceScopeDeclarations354); if (state.failed) return retval;
 
@@ -946,7 +970,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:152:45: ( genericTypeParameterList )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:176:45: ( genericTypeParameterList )?
                     int alt10=2;
                     int LA10_0 = input.LA(1);
 
@@ -979,7 +1003,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:152:102: ( arrayDeclaratorList )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:176:102: ( arrayDeclaratorList )?
                     int alt11=2;
                     int LA11_0 = input.LA(1);
 
@@ -1001,7 +1025,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     }
 
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:152:123: ( throwsClause )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:176:123: ( throwsClause )?
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
@@ -1029,7 +1053,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:153:9: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:177:9: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? )
                     {
                     match(input,VOID_METHOD_DECL,FOLLOW_VOID_METHOD_DECL_in_interfaceScopeDeclarations383); if (state.failed) return retval;
 
@@ -1039,7 +1063,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:153:41: ( genericTypeParameterList )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:177:41: ( genericTypeParameterList )?
                     int alt13=2;
                     int LA13_0 = input.LA(1);
 
@@ -1067,7 +1091,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:153:93: ( throwsClause )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:177:93: ( throwsClause )?
                     int alt14=2;
                     int LA14_0 = input.LA(1);
 
@@ -1095,7 +1119,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 3 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:157:9: globalVariableDeclaration
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:181:9: globalVariableDeclaration
                     {
                     pushFollow(FOLLOW_globalVariableDeclaration_in_interfaceScopeDeclarations484);
                     globalVariableDeclaration();
@@ -1106,7 +1130,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 4 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:158:9: typeDeclaration
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:182:9: typeDeclaration
                     {
                     pushFollow(FOLLOW_typeDeclaration_in_interfaceScopeDeclarations495);
                     typeDeclaration();
@@ -1137,15 +1161,15 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "additionalImports"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:164:1: additionalImports[CommonTree tree] : ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:188:1: additionalImports[CommonTree tree] : ;
     public final IntegrityVariablesParser.additionalImports_return additionalImports(CommonTree tree) throws RecognitionException {
         IntegrityVariablesParser.additionalImports_return retval = new IntegrityVariablesParser.additionalImports_return();
         retval.start = input.LT(1);
         int additionalImports_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 294) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:168:5: ()
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:169:9: 
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:192:5: ()
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:193:9: 
             {
             if ( state.backtracking==0 ) {
 
@@ -1174,15 +1198,15 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "classAdditionalCode"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:178:1: classAdditionalCode[CommonTree tree] : ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:202:1: classAdditionalCode[CommonTree tree] : ;
     public final IntegrityVariablesParser.classAdditionalCode_return classAdditionalCode(CommonTree tree) throws RecognitionException {
         IntegrityVariablesParser.classAdditionalCode_return retval = new IntegrityVariablesParser.classAdditionalCode_return();
         retval.start = input.LT(1);
         int classAdditionalCode_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 295) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:182:5: ()
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:183:9: 
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:206:5: ()
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:207:9: 
             {
             if ( state.backtracking==0 ) {
 
@@ -1227,7 +1251,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "classDeclaration"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:208:1: classDeclaration : ^( CLASS modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? ( implementsClause )? classTopLevelScope ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:232:1: classDeclaration : ^( CLASS modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? ( implementsClause )? classTopLevelScope ) ;
     public final IntegrityVariablesParser.classDeclaration_return classDeclaration() throws RecognitionException {
         Variables_stack.push(new Variables_scope());
 
@@ -1240,8 +1264,8 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
         	
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 296) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:217:2: ( ^( CLASS modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? ( implementsClause )? classTopLevelScope ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:218:3: ^( CLASS modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? ( implementsClause )? classTopLevelScope )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:241:2: ( ^( CLASS modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? ( implementsClause )? classTopLevelScope ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:242:3: ^( CLASS modifierList IDENT ( genericTypeParameterList )? ( extendsClause )? ( implementsClause )? classTopLevelScope )
             {
             match(input,CLASS,FOLLOW_CLASS_in_classDeclaration585); if (state.failed) return retval;
 
@@ -1252,7 +1276,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             state._fsp--;
             if (state.failed) return retval;
             match(input,IDENT,FOLLOW_IDENT_in_classDeclaration589); if (state.failed) return retval;
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:218:30: ( genericTypeParameterList )?
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:242:30: ( genericTypeParameterList )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -1274,7 +1298,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
             }
 
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:218:56: ( extendsClause )?
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:242:56: ( extendsClause )?
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -1296,7 +1320,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
             }
 
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:218:71: ( implementsClause )?
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:242:71: ( implementsClause )?
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -1349,7 +1373,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "methodScopeDeclarations"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:221:1: methodScopeDeclarations : ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ^( CONSTRUCTOR_DECL modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:245:1: methodScopeDeclarations : ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ^( CONSTRUCTOR_DECL modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) );
     public final IntegrityVariablesParser.methodScopeDeclarations_return methodScopeDeclarations() throws RecognitionException {
         Variables_stack.push(new Variables_scope());
 
@@ -1362,7 +1386,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
         	
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 297) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:230:2: ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ^( CONSTRUCTOR_DECL modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:254:2: ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ^( CONSTRUCTOR_DECL modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) )
             int alt28=3;
             switch ( input.LA(1) ) {
             case FUNCTION_METHOD_DECL:
@@ -1390,7 +1414,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
             switch (alt28) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:231:3: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:255:3: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? )
                     {
                     match(input,FUNCTION_METHOD_DECL,FOLLOW_FUNCTION_METHOD_DECL_in_methodScopeDeclarations636); if (state.failed) return retval;
 
@@ -1400,7 +1424,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:231:39: ( genericTypeParameterList )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:255:39: ( genericTypeParameterList )?
                     int alt19=2;
                     int LA19_0 = input.LA(1);
 
@@ -1433,7 +1457,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:231:96: ( arrayDeclaratorList )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:255:96: ( arrayDeclaratorList )?
                     int alt20=2;
                     int LA20_0 = input.LA(1);
 
@@ -1455,7 +1479,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     }
 
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:231:117: ( throwsClause )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:255:117: ( throwsClause )?
                     int alt21=2;
                     int LA21_0 = input.LA(1);
 
@@ -1477,7 +1501,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     }
 
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:231:131: ( block )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:255:131: ( block )?
                     int alt22=2;
                     int LA22_0 = input.LA(1);
 
@@ -1505,7 +1529,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:232:4: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:256:4: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? )
                     {
                     match(input,VOID_METHOD_DECL,FOLLOW_VOID_METHOD_DECL_in_methodScopeDeclarations663); if (state.failed) return retval;
 
@@ -1515,7 +1539,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:232:36: ( genericTypeParameterList )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:256:36: ( genericTypeParameterList )?
                     int alt23=2;
                     int LA23_0 = input.LA(1);
 
@@ -1543,7 +1567,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:232:88: ( throwsClause )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:256:88: ( throwsClause )?
                     int alt24=2;
                     int LA24_0 = input.LA(1);
 
@@ -1565,7 +1589,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     }
 
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:232:102: ( block )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:256:102: ( block )?
                     int alt25=2;
                     int LA25_0 = input.LA(1);
 
@@ -1593,7 +1617,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 3 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:233:4: ^( CONSTRUCTOR_DECL modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:257:4: ^( CONSTRUCTOR_DECL modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block )
                     {
                     match(input,CONSTRUCTOR_DECL,FOLLOW_CONSTRUCTOR_DECL_in_methodScopeDeclarations685); if (state.failed) return retval;
 
@@ -1603,7 +1627,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:233:36: ( genericTypeParameterList )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:257:36: ( genericTypeParameterList )?
                     int alt26=2;
                     int LA26_0 = input.LA(1);
 
@@ -1630,7 +1654,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:233:82: ( throwsClause )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:257:82: ( throwsClause )?
                     int alt27=2;
                     int LA27_0 = input.LA(1);
 
@@ -1685,7 +1709,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "block"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:235:1: block : ^( BLOCK_SCOPE ( blockStatement )* ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:259:1: block : ^( BLOCK_SCOPE ( blockStatement )* ) ;
     public final IntegrityVariablesParser.block_return block() throws RecognitionException {
         Variables_stack.push(new Variables_scope());
 
@@ -1698,14 +1722,14 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
         	
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 298) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:244:9: ( ^( BLOCK_SCOPE ( blockStatement )* ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:244:13: ^( BLOCK_SCOPE ( blockStatement )* )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:268:9: ( ^( BLOCK_SCOPE ( blockStatement )* ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:268:13: ^( BLOCK_SCOPE ( blockStatement )* )
             {
             match(input,BLOCK_SCOPE,FOLLOW_BLOCK_SCOPE_in_block732); if (state.failed) return retval;
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:244:27: ( blockStatement )*
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:268:27: ( blockStatement )*
                 loop29:
                 do {
                     int alt29=2;
@@ -1761,7 +1785,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "globalVariableDeclaration"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:247:1: globalVariableDeclaration : ^( VAR_DECLARATION modifierList type variableDeclaratorList ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:271:1: globalVariableDeclaration : ^( VAR_DECLARATION modifierList type variableDeclaratorList ) ;
     public final IntegrityVariablesParser.globalVariableDeclaration_return globalVariableDeclaration() throws RecognitionException {
         Variables_stack.push(new Variables_scope());
 
@@ -1773,8 +1797,8 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 299) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:252:2: ( ^( VAR_DECLARATION modifierList type variableDeclaratorList ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:253:3: ^( VAR_DECLARATION modifierList type variableDeclaratorList )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:276:2: ( ^( VAR_DECLARATION modifierList type variableDeclaratorList ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:277:3: ^( VAR_DECLARATION modifierList type variableDeclaratorList )
             {
             match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_globalVariableDeclaration772); if (state.failed) return retval;
 
@@ -1832,7 +1856,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "localVariableDeclaration"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:265:1: localVariableDeclaration : ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:289:1: localVariableDeclaration : ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) ;
     public final IntegrityVariablesParser.localVariableDeclaration_return localVariableDeclaration() throws RecognitionException {
         Variables_stack.push(new Variables_scope());
 
@@ -1844,8 +1868,8 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 300) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:270:2: ( ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:271:3: ^( VAR_DECLARATION localModifierList type variableDeclaratorList )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:294:2: ( ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:295:3: ^( VAR_DECLARATION localModifierList type variableDeclaratorList )
             {
             match(input,VAR_DECLARATION,FOLLOW_VAR_DECLARATION_in_localVariableDeclaration824); if (state.failed) return retval;
 
@@ -1907,7 +1931,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "variableDeclarator"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:281:1: variableDeclarator : ^( VAR_DECLARATOR i= variableDeclaratorId ( variableInitializer )? ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:305:1: variableDeclarator : ^( VAR_DECLARATOR i= variableDeclaratorId ( variableInitializer )? ) ;
     public final IntegrityVariablesParser.variableDeclarator_return variableDeclarator() throws RecognitionException {
         variableDeclarator_stack.push(new variableDeclarator_scope());
         IntegrityVariablesParser.variableDeclarator_return retval = new IntegrityVariablesParser.variableDeclarator_return();
@@ -1918,8 +1942,8 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 301) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:286:5: ( ^( VAR_DECLARATOR i= variableDeclaratorId ( variableInitializer )? ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:286:9: ^( VAR_DECLARATOR i= variableDeclaratorId ( variableInitializer )? )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:310:5: ( ^( VAR_DECLARATOR i= variableDeclaratorId ( variableInitializer )? ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:310:9: ^( VAR_DECLARATOR i= variableDeclaratorId ( variableInitializer )? )
             {
             match(input,VAR_DECLARATOR,FOLLOW_VAR_DECLARATOR_in_variableDeclarator874); if (state.failed) return retval;
 
@@ -1932,7 +1956,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             if ( state.backtracking==0 ) {
               ((variableDeclarator_scope)variableDeclarator_stack.peek()).id =(i!=null?i.id:null); ((variableDeclarator_scope)variableDeclarator_stack.peek()).type =(i!=null?i.type:null);
             }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:286:117: ( variableInitializer )?
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:310:117: ( variableInitializer )?
             int alt30=2;
             int LA30_0 = input.LA(1);
 
@@ -1981,7 +2005,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "variableDeclaratorId"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:289:1: variableDeclaratorId returns [String id, String type] : ^( IDENT ( arrayDeclaratorList )? ) ;
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:313:1: variableDeclaratorId returns [String id, String type] : ^( IDENT ( arrayDeclaratorList )? ) ;
     public final IntegrityVariablesParser.variableDeclaratorId_return variableDeclaratorId() throws RecognitionException {
         Variables_stack.push(new Variables_scope());
 
@@ -1992,8 +2016,8 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 302) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:294:5: ( ^( IDENT ( arrayDeclaratorList )? ) )
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:295:13: ^( IDENT ( arrayDeclaratorList )? )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:318:5: ( ^( IDENT ( arrayDeclaratorList )? ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:319:13: ^( IDENT ( arrayDeclaratorList )? )
             {
             IDENT4=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_variableDeclaratorId929); if (state.failed) return retval;
 
@@ -2008,7 +2032,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:301:21: ( arrayDeclaratorList )?
+                // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:325:21: ( arrayDeclaratorList )?
                 int alt31=2;
                 int LA31_0 = input.LA(1);
 
@@ -2057,7 +2081,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "variableInitializer"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:305:1: variableInitializer : ( arrayInitializer | e= expression );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:329:1: variableInitializer : ( arrayInitializer | e= expression );
     public final IntegrityVariablesParser.variableInitializer_return variableInitializer() throws RecognitionException {
         IntegrityVariablesParser.variableInitializer_return retval = new IntegrityVariablesParser.variableInitializer_return();
         retval.start = input.LT(1);
@@ -2067,7 +2091,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 303) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:306:5: ( arrayInitializer | e= expression )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:330:5: ( arrayInitializer | e= expression )
             int alt32=2;
             int LA32_0 = input.LA(1);
 
@@ -2086,7 +2110,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             }
             switch (alt32) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:306:9: arrayInitializer
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:330:9: arrayInitializer
                     {
                     pushFollow(FOLLOW_arrayInitializer_in_variableInitializer987);
                     arrayInitializer();
@@ -2097,7 +2121,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:307:9: e= expression
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:331:9: e= expression
                     {
                     pushFollow(FOLLOW_expression_in_variableInitializer999);
                     e=expression();
@@ -2137,12 +2161,16 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "assignExpression"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:314:1: assignExpression : ( ^( ASSIGN variable= leftExpr value= expr ) | ^(a= PLUS_ASSIGN variable= leftExpr value= expr ) | ^(a= MINUS_ASSIGN variable= leftExpr value= expr ) | ^(a= STAR_ASSIGN variable= leftExpr value= expr ) | ^(a= DIV_ASSIGN variable= leftExpr value= expr ) | ^(a= AND_ASSIGN variable= leftExpr value= expr ) | ^(a= OR_ASSIGN variable= leftExpr value= expr ) | ^(a= XOR_ASSIGN variable= leftExpr value= expr ) | ^(a= MOD_ASSIGN variable= leftExpr value= expr ) | ^(a= BIT_SHIFT_RIGHT_ASSIGN variable= leftExpr value= expr ) | ^(a= SHIFT_RIGHT_ASSIGN variable= leftExpr value= expr ) | ^(a= SHIFT_LEFT_ASSIGN variable= leftExpr value= expr ) | ^( PRE_INC variable= leftExpr ) | ^( PRE_DEC variable= leftExpr ) | ^( POST_INC variable= leftExpr ) | ^( POST_DEC variable= leftExpr ) );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:338:1: assignExpression : ( ^( ASSIGN variable= leftExpr value= expr ) | ^(a= PLUS_ASSIGN variable= leftExpr value= expr ) | ^(a= MINUS_ASSIGN variable= leftExpr value= expr ) | ^(a= STAR_ASSIGN variable= leftExpr value= expr ) | ^(a= DIV_ASSIGN variable= leftExpr value= expr ) | ^(a= AND_ASSIGN variable= leftExpr value= expr ) | ^(a= OR_ASSIGN variable= leftExpr value= expr ) | ^(a= XOR_ASSIGN variable= leftExpr value= expr ) | ^(a= MOD_ASSIGN variable= leftExpr value= expr ) | ^(a= BIT_SHIFT_RIGHT_ASSIGN variable= leftExpr value= expr ) | ^(a= SHIFT_RIGHT_ASSIGN variable= leftExpr value= expr ) | ^(a= SHIFT_LEFT_ASSIGN variable= leftExpr value= expr ) | ^( PRE_INC variable= leftExpr ) | ^( PRE_DEC variable= leftExpr ) | ^( POST_INC variable= leftExpr ) | ^( POST_DEC variable= leftExpr ) );
     public final IntegrityVariablesParser.assignExpression_return assignExpression() throws RecognitionException {
         IntegrityVariablesParser.assignExpression_return retval = new IntegrityVariablesParser.assignExpression_return();
         retval.start = input.LT(1);
         int assignExpression_StartIndex = input.index();
         CommonTree a=null;
+        CommonTree PRE_INC5=null;
+        CommonTree PRE_DEC6=null;
+        CommonTree POST_INC7=null;
+        CommonTree POST_DEC8=null;
         IntegrityVariablesParser.leftExpr_return variable = null;
 
         IntegrityVariablesParser.expr_return value = null;
@@ -2150,12 +2178,12 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 304) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:318:5: ( ^( ASSIGN variable= leftExpr value= expr ) | ^(a= PLUS_ASSIGN variable= leftExpr value= expr ) | ^(a= MINUS_ASSIGN variable= leftExpr value= expr ) | ^(a= STAR_ASSIGN variable= leftExpr value= expr ) | ^(a= DIV_ASSIGN variable= leftExpr value= expr ) | ^(a= AND_ASSIGN variable= leftExpr value= expr ) | ^(a= OR_ASSIGN variable= leftExpr value= expr ) | ^(a= XOR_ASSIGN variable= leftExpr value= expr ) | ^(a= MOD_ASSIGN variable= leftExpr value= expr ) | ^(a= BIT_SHIFT_RIGHT_ASSIGN variable= leftExpr value= expr ) | ^(a= SHIFT_RIGHT_ASSIGN variable= leftExpr value= expr ) | ^(a= SHIFT_LEFT_ASSIGN variable= leftExpr value= expr ) | ^( PRE_INC variable= leftExpr ) | ^( PRE_DEC variable= leftExpr ) | ^( POST_INC variable= leftExpr ) | ^( POST_DEC variable= leftExpr ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:342:5: ( ^( ASSIGN variable= leftExpr value= expr ) | ^(a= PLUS_ASSIGN variable= leftExpr value= expr ) | ^(a= MINUS_ASSIGN variable= leftExpr value= expr ) | ^(a= STAR_ASSIGN variable= leftExpr value= expr ) | ^(a= DIV_ASSIGN variable= leftExpr value= expr ) | ^(a= AND_ASSIGN variable= leftExpr value= expr ) | ^(a= OR_ASSIGN variable= leftExpr value= expr ) | ^(a= XOR_ASSIGN variable= leftExpr value= expr ) | ^(a= MOD_ASSIGN variable= leftExpr value= expr ) | ^(a= BIT_SHIFT_RIGHT_ASSIGN variable= leftExpr value= expr ) | ^(a= SHIFT_RIGHT_ASSIGN variable= leftExpr value= expr ) | ^(a= SHIFT_LEFT_ASSIGN variable= leftExpr value= expr ) | ^( PRE_INC variable= leftExpr ) | ^( PRE_DEC variable= leftExpr ) | ^( POST_INC variable= leftExpr ) | ^( POST_DEC variable= leftExpr ) )
             int alt33=16;
             alt33 = dfa33.predict(input);
             switch (alt33) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:319:2: ^( ASSIGN variable= leftExpr value= expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:343:2: ^( ASSIGN variable= leftExpr value= expr )
                     {
                     match(input,ASSIGN,FOLLOW_ASSIGN_in_assignExpression1022); if (state.failed) return retval;
 
@@ -2183,7 +2211,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:321:9: ^(a= PLUS_ASSIGN variable= leftExpr value= expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:345:9: ^(a= PLUS_ASSIGN variable= leftExpr value= expr )
                     {
                     a=(CommonTree)match(input,PLUS_ASSIGN,FOLLOW_PLUS_ASSIGN_in_assignExpression1049); if (state.failed) return retval;
 
@@ -2213,7 +2241,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 3 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:323:9: ^(a= MINUS_ASSIGN variable= leftExpr value= expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:347:9: ^(a= MINUS_ASSIGN variable= leftExpr value= expr )
                     {
                     a=(CommonTree)match(input,MINUS_ASSIGN,FOLLOW_MINUS_ASSIGN_in_assignExpression1076); if (state.failed) return retval;
 
@@ -2243,7 +2271,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 4 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:325:9: ^(a= STAR_ASSIGN variable= leftExpr value= expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:349:9: ^(a= STAR_ASSIGN variable= leftExpr value= expr )
                     {
                     a=(CommonTree)match(input,STAR_ASSIGN,FOLLOW_STAR_ASSIGN_in_assignExpression1103); if (state.failed) return retval;
 
@@ -2273,7 +2301,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 5 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:327:9: ^(a= DIV_ASSIGN variable= leftExpr value= expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:351:9: ^(a= DIV_ASSIGN variable= leftExpr value= expr )
                     {
                     a=(CommonTree)match(input,DIV_ASSIGN,FOLLOW_DIV_ASSIGN_in_assignExpression1130); if (state.failed) return retval;
 
@@ -2303,7 +2331,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 6 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:329:9: ^(a= AND_ASSIGN variable= leftExpr value= expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:353:9: ^(a= AND_ASSIGN variable= leftExpr value= expr )
                     {
                     a=(CommonTree)match(input,AND_ASSIGN,FOLLOW_AND_ASSIGN_in_assignExpression1157); if (state.failed) return retval;
 
@@ -2333,7 +2361,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 7 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:331:9: ^(a= OR_ASSIGN variable= leftExpr value= expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:355:9: ^(a= OR_ASSIGN variable= leftExpr value= expr )
                     {
                     a=(CommonTree)match(input,OR_ASSIGN,FOLLOW_OR_ASSIGN_in_assignExpression1184); if (state.failed) return retval;
 
@@ -2363,7 +2391,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 8 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:333:9: ^(a= XOR_ASSIGN variable= leftExpr value= expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:357:9: ^(a= XOR_ASSIGN variable= leftExpr value= expr )
                     {
                     a=(CommonTree)match(input,XOR_ASSIGN,FOLLOW_XOR_ASSIGN_in_assignExpression1211); if (state.failed) return retval;
 
@@ -2393,7 +2421,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 9 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:335:9: ^(a= MOD_ASSIGN variable= leftExpr value= expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:359:9: ^(a= MOD_ASSIGN variable= leftExpr value= expr )
                     {
                     a=(CommonTree)match(input,MOD_ASSIGN,FOLLOW_MOD_ASSIGN_in_assignExpression1238); if (state.failed) return retval;
 
@@ -2423,7 +2451,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 10 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:337:9: ^(a= BIT_SHIFT_RIGHT_ASSIGN variable= leftExpr value= expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:361:9: ^(a= BIT_SHIFT_RIGHT_ASSIGN variable= leftExpr value= expr )
                     {
                     a=(CommonTree)match(input,BIT_SHIFT_RIGHT_ASSIGN,FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_assignExpression1265); if (state.failed) return retval;
 
@@ -2453,7 +2481,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 11 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:339:9: ^(a= SHIFT_RIGHT_ASSIGN variable= leftExpr value= expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:363:9: ^(a= SHIFT_RIGHT_ASSIGN variable= leftExpr value= expr )
                     {
                     a=(CommonTree)match(input,SHIFT_RIGHT_ASSIGN,FOLLOW_SHIFT_RIGHT_ASSIGN_in_assignExpression1292); if (state.failed) return retval;
 
@@ -2483,7 +2511,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 12 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:341:9: ^(a= SHIFT_LEFT_ASSIGN variable= leftExpr value= expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:365:9: ^(a= SHIFT_LEFT_ASSIGN variable= leftExpr value= expr )
                     {
                     a=(CommonTree)match(input,SHIFT_LEFT_ASSIGN,FOLLOW_SHIFT_LEFT_ASSIGN_in_assignExpression1319); if (state.failed) return retval;
 
@@ -2513,9 +2541,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 13 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:343:9: ^( PRE_INC variable= leftExpr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:367:9: ^( PRE_INC variable= leftExpr )
                     {
-                    match(input,PRE_INC,FOLLOW_PRE_INC_in_assignExpression1344); if (state.failed) return retval;
+                    PRE_INC5=(CommonTree)match(input,PRE_INC,FOLLOW_PRE_INC_in_assignExpression1344); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_leftExpr_in_assignExpression1348);
@@ -2526,15 +2554,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     match(input, Token.UP, null); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                        
+                       setPreIncDec(getVariable((variable!=null?(input.getTokenStream().toString(
+                        input.getTreeAdaptor().getTokenStartIndex(variable.start),
+                        input.getTreeAdaptor().getTokenStopIndex(variable.start))):null)), "+", (CommonTree) PRE_INC5); 
                     }
 
                     }
                     break;
                 case 14 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:345:9: ^( PRE_DEC variable= leftExpr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:369:9: ^( PRE_DEC variable= leftExpr )
                     {
-                    match(input,PRE_DEC,FOLLOW_PRE_DEC_in_assignExpression1386); if (state.failed) return retval;
+                    PRE_DEC6=(CommonTree)match(input,PRE_DEC,FOLLOW_PRE_DEC_in_assignExpression1386); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_leftExpr_in_assignExpression1390);
@@ -2545,15 +2575,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     match(input, Token.UP, null); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                        
+                       setPreIncDec(getVariable((variable!=null?(input.getTokenStream().toString(
+                        input.getTreeAdaptor().getTokenStartIndex(variable.start),
+                        input.getTreeAdaptor().getTokenStopIndex(variable.start))):null)), "-", (CommonTree) PRE_DEC6); 
                     }
 
                     }
                     break;
                 case 15 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:347:9: ^( POST_INC variable= leftExpr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:371:9: ^( POST_INC variable= leftExpr )
                     {
-                    match(input,POST_INC,FOLLOW_POST_INC_in_assignExpression1428); if (state.failed) return retval;
+                    POST_INC7=(CommonTree)match(input,POST_INC,FOLLOW_POST_INC_in_assignExpression1428); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_leftExpr_in_assignExpression1432);
@@ -2564,15 +2596,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     match(input, Token.UP, null); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                        
+                       setPostIncDec(getVariable((variable!=null?(input.getTokenStream().toString(
+                        input.getTreeAdaptor().getTokenStartIndex(variable.start),
+                        input.getTreeAdaptor().getTokenStopIndex(variable.start))):null)), "+", (CommonTree) POST_INC7); 
                     }
 
                     }
                     break;
                 case 16 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:349:9: ^( POST_DEC variable= leftExpr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:373:9: ^( POST_DEC variable= leftExpr )
                     {
-                    match(input,POST_DEC,FOLLOW_POST_DEC_in_assignExpression1470); if (state.failed) return retval;
+                    POST_DEC8=(CommonTree)match(input,POST_DEC,FOLLOW_POST_DEC_in_assignExpression1470); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_leftExpr_in_assignExpression1474);
@@ -2583,7 +2617,9 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     match(input, Token.UP, null); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                        
+                       setPostIncDec(getVariable((variable!=null?(input.getTokenStream().toString(
+                        input.getTreeAdaptor().getTokenStartIndex(variable.start),
+                        input.getTreeAdaptor().getTokenStopIndex(variable.start))):null)), "-", (CommonTree) POST_DEC8); 
                     }
 
                     }
@@ -2609,19 +2645,19 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "expr"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:353:1: expr : ( assignExpression | ^( QUESTION expr expr expr ) | ^( LOGICAL_OR expr expr ) | ^( LOGICAL_AND expr expr ) | ^( OR expr expr ) | ^( XOR expr expr ) | ^( AND expr expr ) | ^( EQUAL expr expr ) | ^( NOT_EQUAL expr expr ) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL expr expr ) | ^( GREATER_OR_EQUAL expr expr ) | ^( BIT_SHIFT_RIGHT expr expr ) | ^( SHIFT_RIGHT expr expr ) | ^( GREATER_THAN expr expr ) | ^( SHIFT_LEFT expr expr ) | ^( LESS_THAN expr expr ) | ^( PLUS expr expr ) | ^( MINUS expr expr ) | ^( STAR expr expr ) | ^( DIV expr expr ) | ^( MOD expr expr ) | ^( UNARY_PLUS expr ) | ^( UNARY_MINUS expr ) | ^( NOT expr ) | ^( LOGICAL_NOT expr ) | ^( CAST_EXPR type expr ) | primaryExpression );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:377:1: expr : ( assignExpression | ^( QUESTION expr expr expr ) | ^( LOGICAL_OR expr expr ) | ^( LOGICAL_AND expr expr ) | ^( OR expr expr ) | ^( XOR expr expr ) | ^( AND expr expr ) | ^( EQUAL expr expr ) | ^( NOT_EQUAL expr expr ) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL expr expr ) | ^( GREATER_OR_EQUAL expr expr ) | ^( BIT_SHIFT_RIGHT expr expr ) | ^( SHIFT_RIGHT expr expr ) | ^( GREATER_THAN expr expr ) | ^( SHIFT_LEFT expr expr ) | ^( LESS_THAN expr expr ) | ^( PLUS expr expr ) | ^( MINUS expr expr ) | ^( STAR expr expr ) | ^( DIV expr expr ) | ^( MOD expr expr ) | ^( UNARY_PLUS expr ) | ^( UNARY_MINUS expr ) | ^( NOT expr ) | ^( LOGICAL_NOT expr ) | ^( CAST_EXPR type expr ) | primaryExpression );
     public final IntegrityVariablesParser.expr_return expr() throws RecognitionException {
         IntegrityVariablesParser.expr_return retval = new IntegrityVariablesParser.expr_return();
         retval.start = input.LT(1);
         int expr_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 305) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:354:5: ( assignExpression | ^( QUESTION expr expr expr ) | ^( LOGICAL_OR expr expr ) | ^( LOGICAL_AND expr expr ) | ^( OR expr expr ) | ^( XOR expr expr ) | ^( AND expr expr ) | ^( EQUAL expr expr ) | ^( NOT_EQUAL expr expr ) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL expr expr ) | ^( GREATER_OR_EQUAL expr expr ) | ^( BIT_SHIFT_RIGHT expr expr ) | ^( SHIFT_RIGHT expr expr ) | ^( GREATER_THAN expr expr ) | ^( SHIFT_LEFT expr expr ) | ^( LESS_THAN expr expr ) | ^( PLUS expr expr ) | ^( MINUS expr expr ) | ^( STAR expr expr ) | ^( DIV expr expr ) | ^( MOD expr expr ) | ^( UNARY_PLUS expr ) | ^( UNARY_MINUS expr ) | ^( NOT expr ) | ^( LOGICAL_NOT expr ) | ^( CAST_EXPR type expr ) | primaryExpression )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:378:5: ( assignExpression | ^( QUESTION expr expr expr ) | ^( LOGICAL_OR expr expr ) | ^( LOGICAL_AND expr expr ) | ^( OR expr expr ) | ^( XOR expr expr ) | ^( AND expr expr ) | ^( EQUAL expr expr ) | ^( NOT_EQUAL expr expr ) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL expr expr ) | ^( GREATER_OR_EQUAL expr expr ) | ^( BIT_SHIFT_RIGHT expr expr ) | ^( SHIFT_RIGHT expr expr ) | ^( GREATER_THAN expr expr ) | ^( SHIFT_LEFT expr expr ) | ^( LESS_THAN expr expr ) | ^( PLUS expr expr ) | ^( MINUS expr expr ) | ^( STAR expr expr ) | ^( DIV expr expr ) | ^( MOD expr expr ) | ^( UNARY_PLUS expr ) | ^( UNARY_MINUS expr ) | ^( NOT expr ) | ^( LOGICAL_NOT expr ) | ^( CAST_EXPR type expr ) | primaryExpression )
             int alt34=28;
             alt34 = dfa34.predict(input);
             switch (alt34) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:354:9: assignExpression
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:378:9: assignExpression
                     {
                     pushFollow(FOLLOW_assignExpression_in_expr1520);
                     assignExpression();
@@ -2632,7 +2668,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:355:7: ^( QUESTION expr expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:379:7: ^( QUESTION expr expr expr )
                     {
                     match(input,QUESTION,FOLLOW_QUESTION_in_expr1530); if (state.failed) return retval;
 
@@ -2658,7 +2694,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 3 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:356:9: ^( LOGICAL_OR expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:380:9: ^( LOGICAL_OR expr expr )
                     {
                     match(input,LOGICAL_OR,FOLLOW_LOGICAL_OR_in_expr1548); if (state.failed) return retval;
 
@@ -2679,7 +2715,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 4 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:357:9: ^( LOGICAL_AND expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:381:9: ^( LOGICAL_AND expr expr )
                     {
                     match(input,LOGICAL_AND,FOLLOW_LOGICAL_AND_in_expr1564); if (state.failed) return retval;
 
@@ -2700,7 +2736,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 5 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:358:9: ^( OR expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:382:9: ^( OR expr expr )
                     {
                     match(input,OR,FOLLOW_OR_in_expr1580); if (state.failed) return retval;
 
@@ -2721,7 +2757,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 6 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:359:9: ^( XOR expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:383:9: ^( XOR expr expr )
                     {
                     match(input,XOR,FOLLOW_XOR_in_expr1596); if (state.failed) return retval;
 
@@ -2742,7 +2778,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 7 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:360:9: ^( AND expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:384:9: ^( AND expr expr )
                     {
                     match(input,AND,FOLLOW_AND_in_expr1612); if (state.failed) return retval;
 
@@ -2763,7 +2799,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 8 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:361:9: ^( EQUAL expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:385:9: ^( EQUAL expr expr )
                     {
                     match(input,EQUAL,FOLLOW_EQUAL_in_expr1628); if (state.failed) return retval;
 
@@ -2784,7 +2820,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 9 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:362:9: ^( NOT_EQUAL expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:386:9: ^( NOT_EQUAL expr expr )
                     {
                     match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_expr1644); if (state.failed) return retval;
 
@@ -2805,7 +2841,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 10 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:363:9: ^( INSTANCEOF expr type )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:387:9: ^( INSTANCEOF expr type )
                     {
                     match(input,INSTANCEOF,FOLLOW_INSTANCEOF_in_expr1660); if (state.failed) return retval;
 
@@ -2826,7 +2862,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 11 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:364:9: ^( LESS_OR_EQUAL expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:388:9: ^( LESS_OR_EQUAL expr expr )
                     {
                     match(input,LESS_OR_EQUAL,FOLLOW_LESS_OR_EQUAL_in_expr1676); if (state.failed) return retval;
 
@@ -2847,7 +2883,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 12 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:365:9: ^( GREATER_OR_EQUAL expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:389:9: ^( GREATER_OR_EQUAL expr expr )
                     {
                     match(input,GREATER_OR_EQUAL,FOLLOW_GREATER_OR_EQUAL_in_expr1692); if (state.failed) return retval;
 
@@ -2868,7 +2904,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 13 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:366:9: ^( BIT_SHIFT_RIGHT expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:390:9: ^( BIT_SHIFT_RIGHT expr expr )
                     {
                     match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_expr1708); if (state.failed) return retval;
 
@@ -2889,7 +2925,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 14 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:367:9: ^( SHIFT_RIGHT expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:391:9: ^( SHIFT_RIGHT expr expr )
                     {
                     match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_expr1724); if (state.failed) return retval;
 
@@ -2910,7 +2946,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 15 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:368:9: ^( GREATER_THAN expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:392:9: ^( GREATER_THAN expr expr )
                     {
                     match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_expr1740); if (state.failed) return retval;
 
@@ -2931,7 +2967,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 16 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:369:9: ^( SHIFT_LEFT expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:393:9: ^( SHIFT_LEFT expr expr )
                     {
                     match(input,SHIFT_LEFT,FOLLOW_SHIFT_LEFT_in_expr1756); if (state.failed) return retval;
 
@@ -2952,7 +2988,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 17 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:370:9: ^( LESS_THAN expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:394:9: ^( LESS_THAN expr expr )
                     {
                     match(input,LESS_THAN,FOLLOW_LESS_THAN_in_expr1772); if (state.failed) return retval;
 
@@ -2973,7 +3009,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 18 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:371:9: ^( PLUS expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:395:9: ^( PLUS expr expr )
                     {
                     match(input,PLUS,FOLLOW_PLUS_in_expr1788); if (state.failed) return retval;
 
@@ -2994,7 +3030,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 19 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:372:9: ^( MINUS expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:396:9: ^( MINUS expr expr )
                     {
                     match(input,MINUS,FOLLOW_MINUS_in_expr1804); if (state.failed) return retval;
 
@@ -3015,7 +3051,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 20 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:373:9: ^( STAR expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:397:9: ^( STAR expr expr )
                     {
                     match(input,STAR,FOLLOW_STAR_in_expr1820); if (state.failed) return retval;
 
@@ -3036,7 +3072,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 21 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:374:9: ^( DIV expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:398:9: ^( DIV expr expr )
                     {
                     match(input,DIV,FOLLOW_DIV_in_expr1836); if (state.failed) return retval;
 
@@ -3057,7 +3093,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 22 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:375:9: ^( MOD expr expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:399:9: ^( MOD expr expr )
                     {
                     match(input,MOD,FOLLOW_MOD_in_expr1852); if (state.failed) return retval;
 
@@ -3078,7 +3114,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 23 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:376:9: ^( UNARY_PLUS expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:400:9: ^( UNARY_PLUS expr )
                     {
                     match(input,UNARY_PLUS,FOLLOW_UNARY_PLUS_in_expr1868); if (state.failed) return retval;
 
@@ -3094,7 +3130,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 24 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:377:9: ^( UNARY_MINUS expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:401:9: ^( UNARY_MINUS expr )
                     {
                     match(input,UNARY_MINUS,FOLLOW_UNARY_MINUS_in_expr1882); if (state.failed) return retval;
 
@@ -3110,7 +3146,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 25 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:378:9: ^( NOT expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:402:9: ^( NOT expr )
                     {
                     match(input,NOT,FOLLOW_NOT_in_expr1896); if (state.failed) return retval;
 
@@ -3126,7 +3162,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 26 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:379:9: ^( LOGICAL_NOT expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:403:9: ^( LOGICAL_NOT expr )
                     {
                     match(input,LOGICAL_NOT,FOLLOW_LOGICAL_NOT_in_expr1910); if (state.failed) return retval;
 
@@ -3142,7 +3178,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 27 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:380:9: ^( CAST_EXPR type expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:404:9: ^( CAST_EXPR type expr )
                     {
                     match(input,CAST_EXPR,FOLLOW_CAST_EXPR_in_expr1924); if (state.failed) return retval;
 
@@ -3163,7 +3199,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 28 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:381:9: primaryExpression
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:405:9: primaryExpression
                     {
                     pushFollow(FOLLOW_primaryExpression_in_expr1939);
                     primaryExpression();
@@ -3194,7 +3230,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "primaryExpression"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:384:1: primaryExpression : ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | id= IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS | arrayTypeDeclarator | SUPER );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:408:1: primaryExpression : ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | id= IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS | arrayTypeDeclarator | SUPER );
     public final IntegrityVariablesParser.primaryExpression_return primaryExpression() throws RecognitionException {
         IntegrityVariablesParser.primaryExpression_return retval = new IntegrityVariablesParser.primaryExpression_return();
         retval.start = input.LT(1);
@@ -3203,17 +3239,17 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 306) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:385:5: ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | id= IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS | arrayTypeDeclarator | SUPER )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:409:5: ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | id= IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS | arrayTypeDeclarator | SUPER )
             int alt38=11;
             alt38 = dfa38.predict(input);
             switch (alt38) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:385:9: ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:409:9: ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) )
                     {
                     match(input,DOT,FOLLOW_DOT_in_primaryExpression1961); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:386:13: ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:410:13: ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS )
                     int alt36=3;
                     switch ( input.LA(1) ) {
                     case DOT:
@@ -3268,14 +3304,14 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     switch (alt36) {
                         case 1 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:386:17: primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS )
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:410:17: primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS )
                             {
                             pushFollow(FOLLOW_primaryExpression_in_primaryExpression1979);
                             primaryExpression();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:387:17: ( IDENT | THIS | SUPER | innerNewExpression | CLASS )
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:411:17: ( IDENT | THIS | SUPER | innerNewExpression | CLASS )
                             int alt35=5;
                             switch ( input.LA(1) ) {
                             case IDENT:
@@ -3313,28 +3349,28 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                             switch (alt35) {
                                 case 1 :
-                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:387:21: IDENT
+                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:411:21: IDENT
                                     {
                                     match(input,IDENT,FOLLOW_IDENT_in_primaryExpression2001); if (state.failed) return retval;
 
                                     }
                                     break;
                                 case 2 :
-                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:388:21: THIS
+                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:412:21: THIS
                                     {
                                     match(input,THIS,FOLLOW_THIS_in_primaryExpression2023); if (state.failed) return retval;
 
                                     }
                                     break;
                                 case 3 :
-                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:389:21: SUPER
+                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:413:21: SUPER
                                     {
                                     match(input,SUPER,FOLLOW_SUPER_in_primaryExpression2045); if (state.failed) return retval;
 
                                     }
                                     break;
                                 case 4 :
-                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:390:21: innerNewExpression
+                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:414:21: innerNewExpression
                                     {
                                     pushFollow(FOLLOW_innerNewExpression_in_primaryExpression2067);
                                     innerNewExpression();
@@ -3345,7 +3381,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                                     }
                                     break;
                                 case 5 :
-                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:391:21: CLASS
+                                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:415:21: CLASS
                                     {
                                     match(input,CLASS,FOLLOW_CLASS_in_primaryExpression2089); if (state.failed) return retval;
 
@@ -3358,7 +3394,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                             }
                             break;
                         case 2 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:393:17: primitiveType CLASS
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:417:17: primitiveType CLASS
                             {
                             pushFollow(FOLLOW_primitiveType_in_primaryExpression2125);
                             primitiveType();
@@ -3370,7 +3406,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                             }
                             break;
                         case 3 :
-                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:394:17: VOID CLASS
+                            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:418:17: VOID CLASS
                             {
                             match(input,VOID,FOLLOW_VOID_in_primaryExpression2145); if (state.failed) return retval;
                             match(input,CLASS,FOLLOW_CLASS_in_primaryExpression2147); if (state.failed) return retval;
@@ -3386,7 +3422,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:397:9: parenthesizedExpression
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:421:9: parenthesizedExpression
                     {
                     pushFollow(FOLLOW_parenthesizedExpression_in_primaryExpression2181);
                     parenthesizedExpression();
@@ -3397,7 +3433,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 3 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:398:9: id= IDENT
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:422:9: id= IDENT
                     {
                     id=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression2193); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -3409,7 +3445,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 4 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:401:9: ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:425:9: ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments )
                     {
                     match(input,METHOD_CALL,FOLLOW_METHOD_CALL_in_primaryExpression2206); if (state.failed) return retval;
 
@@ -3419,7 +3455,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:401:41: ( genericTypeArgumentList )?
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:425:41: ( genericTypeArgumentList )?
                     int alt37=2;
                     int LA37_0 = input.LA(1);
 
@@ -3452,7 +3488,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 5 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:402:9: explicitConstructorCall
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:426:9: explicitConstructorCall
                     {
                     pushFollow(FOLLOW_explicitConstructorCall_in_primaryExpression2224);
                     explicitConstructorCall();
@@ -3463,7 +3499,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 6 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:403:9: ^( ARRAY_ELEMENT_ACCESS primaryExpression expression )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:427:9: ^( ARRAY_ELEMENT_ACCESS primaryExpression expression )
                     {
                     match(input,ARRAY_ELEMENT_ACCESS,FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression2235); if (state.failed) return retval;
 
@@ -3484,7 +3520,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 7 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:404:9: literal
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:428:9: literal
                     {
                     pushFollow(FOLLOW_literal_in_primaryExpression2250);
                     literal();
@@ -3495,7 +3531,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 8 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:405:9: newExpression
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:429:9: newExpression
                     {
                     pushFollow(FOLLOW_newExpression_in_primaryExpression2260);
                     newExpression();
@@ -3506,14 +3542,14 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 9 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:406:9: THIS
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:430:9: THIS
                     {
                     match(input,THIS,FOLLOW_THIS_in_primaryExpression2270); if (state.failed) return retval;
 
                     }
                     break;
                 case 10 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:407:9: arrayTypeDeclarator
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:431:9: arrayTypeDeclarator
                     {
                     pushFollow(FOLLOW_arrayTypeDeclarator_in_primaryExpression2280);
                     arrayTypeDeclarator();
@@ -3524,7 +3560,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 11 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:408:9: SUPER
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:432:9: SUPER
                     {
                     match(input,SUPER,FOLLOW_SUPER_in_primaryExpression2290); if (state.failed) return retval;
 
@@ -3551,7 +3587,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     };
 
     // $ANTLR start "leftExpr"
-    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:414:1: leftExpr : (id= IDENT | ^( LEFT_EXPR expr ) );
+    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:438:1: leftExpr : (id= IDENT | ^( LEFT_EXPR expr ) );
     public final IntegrityVariablesParser.leftExpr_return leftExpr() throws RecognitionException {
         IntegrityVariablesParser.leftExpr_return retval = new IntegrityVariablesParser.leftExpr_return();
         retval.start = input.LT(1);
@@ -3560,7 +3596,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 307) ) { return retval; }
-            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:415:5: (id= IDENT | ^( LEFT_EXPR expr ) )
+            // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:439:5: (id= IDENT | ^( LEFT_EXPR expr ) )
             int alt39=2;
             int LA39_0 = input.LA(1);
 
@@ -3579,7 +3615,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             }
             switch (alt39) {
                 case 1 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:415:7: id= IDENT
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:439:7: id= IDENT
                     {
                     id=(CommonTree)match(input,IDENT,FOLLOW_IDENT_in_leftExpr2311); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -3591,7 +3627,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
                     }
                     break;
                 case 2 :
-                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:418:7: ^( LEFT_EXPR expr )
+                    // E:\\GitHub\\CesTa\\src\\org\\cesta\\grammars\\java\\IntegrityVariablesParser.g:442:7: ^( LEFT_EXPR expr )
                     {
                     match(input,LEFT_EXPR,FOLLOW_LEFT_EXPR_in_leftExpr2322); if (state.failed) return retval;
 
@@ -3624,61 +3660,61 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
     public IntegrityVariablesParser_JavaTreeParser.variableDeclaratorList_return variableDeclaratorList() throws RecognitionException { return gJavaTreeParser.variableDeclaratorList(); }
     public IntegrityVariablesParser_JavaTreeParser.genericTypeParameterList_return genericTypeParameterList() throws RecognitionException { return gJavaTreeParser.genericTypeParameterList(); }
     public IntegrityVariablesParser_JavaTreeParser.implementsClause_return implementsClause() throws RecognitionException { return gJavaTreeParser.implementsClause(); }
-    public IntegrityVariablesParser_JavaTreeParser.catches_return catches() throws RecognitionException { return gJavaTreeParser.catches(); }
+    public IntegrityVariablesParser_JavaTreeParser.genericWildcardBoundType_return genericWildcardBoundType() throws RecognitionException { return gJavaTreeParser.genericWildcardBoundType(); }
     public IntegrityVariablesParser_JavaTreeParser.innerNewExpression_return innerNewExpression() throws RecognitionException { return gJavaTreeParser.innerNewExpression(); }
-    public IntegrityVariablesParser_JavaTreeParser.qualifiedTypeIdent_return qualifiedTypeIdent() throws RecognitionException { return gJavaTreeParser.qualifiedTypeIdent(); }
-    public IntegrityVariablesParser_JavaTreeParser.forUpdater_return forUpdater() throws RecognitionException { return gJavaTreeParser.forUpdater(); }
+    public IntegrityVariablesParser_JavaTreeParser.switchDefaultLabel_return switchDefaultLabel() throws RecognitionException { return gJavaTreeParser.switchDefaultLabel(); }
+    public IntegrityVariablesParser_JavaTreeParser.formalParameterStandardDecl_return formalParameterStandardDecl() throws RecognitionException { return gJavaTreeParser.formalParameterStandardDecl(); }
+    public IntegrityVariablesParser_JavaTreeParser.typeIdent_return typeIdent() throws RecognitionException { return gJavaTreeParser.typeIdent(); }
     public IntegrityVariablesParser_JavaTreeParser.primitiveType_return primitiveType() throws RecognitionException { return gJavaTreeParser.primitiveType(); }
     public IntegrityVariablesParser_JavaTreeParser.importDeclaration_return importDeclaration() throws RecognitionException { return gJavaTreeParser.importDeclaration(); }
     public IntegrityVariablesParser_JavaTreeParser.genericTypeArgumentList_return genericTypeArgumentList() throws RecognitionException { return gJavaTreeParser.genericTypeArgumentList(); }
     public IntegrityVariablesParser_JavaTreeParser.arrayInitializer_return arrayInitializer() throws RecognitionException { return gJavaTreeParser.arrayInitializer(); }
     public IntegrityVariablesParser_JavaTreeParser.formalParameterList_return formalParameterList() throws RecognitionException { return gJavaTreeParser.formalParameterList(); }
     public IntegrityVariablesParser_JavaTreeParser.arrayDeclaratorList_return arrayDeclaratorList() throws RecognitionException { return gJavaTreeParser.arrayDeclaratorList(); }
-    public IntegrityVariablesParser_JavaTreeParser.annotationScopeDeclarations_return annotationScopeDeclarations() throws RecognitionException { return gJavaTreeParser.annotationScopeDeclarations(); }
-    public IntegrityVariablesParser_JavaTreeParser.newArrayConstruction_return newArrayConstruction() throws RecognitionException { return gJavaTreeParser.newArrayConstruction(); }
-    public IntegrityVariablesParser_JavaTreeParser.forCondition_return forCondition() throws RecognitionException { return gJavaTreeParser.forCondition(); }
-    public IntegrityVariablesParser_JavaTreeParser.annotationInit_return annotationInit() throws RecognitionException { return gJavaTreeParser.annotationInit(); }
+    public IntegrityVariablesParser_JavaTreeParser.genericTypeArgument_return genericTypeArgument() throws RecognitionException { return gJavaTreeParser.genericTypeArgument(); }
+    public IntegrityVariablesParser_JavaTreeParser.formalParameterVarargDecl_return formalParameterVarargDecl() throws RecognitionException { return gJavaTreeParser.formalParameterVarargDecl(); }
     public IntegrityVariablesParser_JavaTreeParser.localModifierList_return localModifierList() throws RecognitionException { return gJavaTreeParser.localModifierList(); }
+    public IntegrityVariablesParser_JavaTreeParser.forCondition_return forCondition() throws RecognitionException { return gJavaTreeParser.forCondition(); }
     public IntegrityVariablesParser_JavaTreeParser.arrayTypeDeclarator_return arrayTypeDeclarator() throws RecognitionException { return gJavaTreeParser.arrayTypeDeclarator(); }
     public IntegrityVariablesParser_JavaTreeParser.literal_return literal() throws RecognitionException { return gJavaTreeParser.literal(); }
+    public IntegrityVariablesParser_JavaTreeParser.annotationInitializers_return annotationInitializers() throws RecognitionException { return gJavaTreeParser.annotationInitializers(); }
     public IntegrityVariablesParser_JavaTreeParser.blockStatement_return blockStatement() throws RecognitionException { return gJavaTreeParser.blockStatement(); }
-    public IntegrityVariablesParser_JavaTreeParser.switchBlockLabels_return switchBlockLabels() throws RecognitionException { return gJavaTreeParser.switchBlockLabels(); }
-    public IntegrityVariablesParser_JavaTreeParser.annotationInitializer_return annotationInitializer() throws RecognitionException { return gJavaTreeParser.annotationInitializer(); }
-    public IntegrityVariablesParser_JavaTreeParser.forInit_return forInit() throws RecognitionException { return gJavaTreeParser.forInit(); }
+    public IntegrityVariablesParser_JavaTreeParser.annotationDefaultValue_return annotationDefaultValue() throws RecognitionException { return gJavaTreeParser.annotationDefaultValue(); }
+    public IntegrityVariablesParser_JavaTreeParser.catchClause_return catchClause() throws RecognitionException { return gJavaTreeParser.catchClause(); }
+    public IntegrityVariablesParser_JavaTreeParser.annotationElementValue_return annotationElementValue() throws RecognitionException { return gJavaTreeParser.annotationElementValue(); }
     public IntegrityVariablesParser_JavaTreeParser.enumTopLevelScope_return enumTopLevelScope() throws RecognitionException { return gJavaTreeParser.enumTopLevelScope(); }
     public IntegrityVariablesParser_JavaTreeParser.newExpression_return newExpression() throws RecognitionException { return gJavaTreeParser.newExpression(); }
-    public IntegrityVariablesParser_JavaTreeParser.arguments_return arguments() throws RecognitionException { return gJavaTreeParser.arguments(); }
-    public IntegrityVariablesParser_JavaTreeParser.formalParameterStandardDecl_return formalParameterStandardDecl() throws RecognitionException { return gJavaTreeParser.formalParameterStandardDecl(); }
-    public IntegrityVariablesParser_JavaTreeParser.extendsClause_return extendsClause() throws RecognitionException { return gJavaTreeParser.extendsClause(); }
-    public IntegrityVariablesParser_JavaTreeParser.annotationElementValue_return annotationElementValue() throws RecognitionException { return gJavaTreeParser.annotationElementValue(); }
-    public IntegrityVariablesParser_JavaTreeParser.arrayDeclarator_return arrayDeclarator() throws RecognitionException { return gJavaTreeParser.arrayDeclarator(); }
     public IntegrityVariablesParser_JavaTreeParser.modifier_return modifier() throws RecognitionException { return gJavaTreeParser.modifier(); }
-    public IntegrityVariablesParser_JavaTreeParser.typeIdent_return typeIdent() throws RecognitionException { return gJavaTreeParser.typeIdent(); }
-    public IntegrityVariablesParser_JavaTreeParser.annotationInitializers_return annotationInitializers() throws RecognitionException { return gJavaTreeParser.annotationInitializers(); }
-    public IntegrityVariablesParser_JavaTreeParser.annotationDefaultValue_return annotationDefaultValue() throws RecognitionException { return gJavaTreeParser.annotationDefaultValue(); }
+    public IntegrityVariablesParser_JavaTreeParser.arguments_return arguments() throws RecognitionException { return gJavaTreeParser.arguments(); }
+    public IntegrityVariablesParser_JavaTreeParser.qualifiedTypeIdent_return qualifiedTypeIdent() throws RecognitionException { return gJavaTreeParser.qualifiedTypeIdent(); }
+    public IntegrityVariablesParser_JavaTreeParser.newArrayConstruction_return newArrayConstruction() throws RecognitionException { return gJavaTreeParser.newArrayConstruction(); }
+    public IntegrityVariablesParser_JavaTreeParser.extendsClause_return extendsClause() throws RecognitionException { return gJavaTreeParser.extendsClause(); }
+    public IntegrityVariablesParser_JavaTreeParser.annotationScopeDeclarations_return annotationScopeDeclarations() throws RecognitionException { return gJavaTreeParser.annotationScopeDeclarations(); }
     public IntegrityVariablesParser_JavaTreeParser.explicitConstructorCall_return explicitConstructorCall() throws RecognitionException { return gJavaTreeParser.explicitConstructorCall(); }
+    public IntegrityVariablesParser_JavaTreeParser.forInit_return forInit() throws RecognitionException { return gJavaTreeParser.forInit(); }
     public IntegrityVariablesParser_JavaTreeParser.throwsClause_return throwsClause() throws RecognitionException { return gJavaTreeParser.throwsClause(); }
-    public IntegrityVariablesParser_JavaTreeParser.genericWildcardBoundType_return genericWildcardBoundType() throws RecognitionException { return gJavaTreeParser.genericWildcardBoundType(); }
-    public IntegrityVariablesParser_JavaTreeParser.formalParameterVarargDecl_return formalParameterVarargDecl() throws RecognitionException { return gJavaTreeParser.formalParameterVarargDecl(); }
-    public IntegrityVariablesParser_JavaTreeParser.qualifiedIdentifier_return qualifiedIdentifier() throws RecognitionException { return gJavaTreeParser.qualifiedIdentifier(); }
-    public IntegrityVariablesParser_JavaTreeParser.annotation_return annotation() throws RecognitionException { return gJavaTreeParser.annotation(); }
+    public IntegrityVariablesParser_JavaTreeParser.genericTypeParameter_return genericTypeParameter() throws RecognitionException { return gJavaTreeParser.genericTypeParameter(); }
+    public IntegrityVariablesParser_JavaTreeParser.statement_return statement() throws RecognitionException { return gJavaTreeParser.statement(); }
+    public IntegrityVariablesParser_JavaTreeParser.localModifier_return localModifier() throws RecognitionException { return gJavaTreeParser.localModifier(); }
     public IntegrityVariablesParser_JavaTreeParser.interfaceTopLevelScope_return interfaceTopLevelScope() throws RecognitionException { return gJavaTreeParser.interfaceTopLevelScope(); }
+    public IntegrityVariablesParser_JavaTreeParser.annotationInitializer_return annotationInitializer() throws RecognitionException { return gJavaTreeParser.annotationInitializer(); }
     public IntegrityVariablesParser_JavaTreeParser.modifierList_return modifierList() throws RecognitionException { return gJavaTreeParser.modifierList(); }
+    public IntegrityVariablesParser_JavaTreeParser.switchCaseLabel_return switchCaseLabel() throws RecognitionException { return gJavaTreeParser.switchCaseLabel(); }
     public IntegrityVariablesParser_JavaTreeParser.parenthesizedExpression_return parenthesizedExpression() throws RecognitionException { return gJavaTreeParser.parenthesizedExpression(); }
     public IntegrityVariablesParser_JavaTreeParser.packageDeclaration_return packageDeclaration() throws RecognitionException { return gJavaTreeParser.packageDeclaration(); }
-    public IntegrityVariablesParser_JavaTreeParser.catchClause_return catchClause() throws RecognitionException { return gJavaTreeParser.catchClause(); }
-    public IntegrityVariablesParser_JavaTreeParser.genericTypeParameter_return genericTypeParameter() throws RecognitionException { return gJavaTreeParser.genericTypeParameter(); }
-    public IntegrityVariablesParser_JavaTreeParser.switchCaseLabel_return switchCaseLabel() throws RecognitionException { return gJavaTreeParser.switchCaseLabel(); }
-    public IntegrityVariablesParser_JavaTreeParser.localModifier_return localModifier() throws RecognitionException { return gJavaTreeParser.localModifier(); }
-    public IntegrityVariablesParser_JavaTreeParser.enumConstant_return enumConstant() throws RecognitionException { return gJavaTreeParser.enumConstant(); }
     public IntegrityVariablesParser_JavaTreeParser.bound_return bound() throws RecognitionException { return gJavaTreeParser.bound(); }
+    public IntegrityVariablesParser_JavaTreeParser.enumConstant_return enumConstant() throws RecognitionException { return gJavaTreeParser.enumConstant(); }
+    public IntegrityVariablesParser_JavaTreeParser.switchBlockLabels_return switchBlockLabels() throws RecognitionException { return gJavaTreeParser.switchBlockLabels(); }
+    public IntegrityVariablesParser_JavaTreeParser.arrayDeclarator_return arrayDeclarator() throws RecognitionException { return gJavaTreeParser.arrayDeclarator(); }
+    public IntegrityVariablesParser_JavaTreeParser.catches_return catches() throws RecognitionException { return gJavaTreeParser.catches(); }
     public IntegrityVariablesParser_JavaTreeParser.expression_return expression() throws RecognitionException { return gJavaTreeParser.expression(); }
-    public IntegrityVariablesParser_JavaTreeParser.statement_return statement() throws RecognitionException { return gJavaTreeParser.statement(); }
+    public IntegrityVariablesParser_JavaTreeParser.annotationInit_return annotationInit() throws RecognitionException { return gJavaTreeParser.annotationInit(); }
     public IntegrityVariablesParser_JavaTreeParser.type_return type() throws RecognitionException { return gJavaTreeParser.type(); }
-    public IntegrityVariablesParser_JavaTreeParser.genericTypeArgument_return genericTypeArgument() throws RecognitionException { return gJavaTreeParser.genericTypeArgument(); }
     public IntegrityVariablesParser_JavaTreeParser.annotationList_return annotationList() throws RecognitionException { return gJavaTreeParser.annotationList(); }
+    public IntegrityVariablesParser_JavaTreeParser.qualifiedIdentifier_return qualifiedIdentifier() throws RecognitionException { return gJavaTreeParser.qualifiedIdentifier(); }
+    public IntegrityVariablesParser_JavaTreeParser.annotation_return annotation() throws RecognitionException { return gJavaTreeParser.annotation(); }
     public IntegrityVariablesParser_JavaTreeParser.annotationTopLevelScope_return annotationTopLevelScope() throws RecognitionException { return gJavaTreeParser.annotationTopLevelScope(); }
-    public IntegrityVariablesParser_JavaTreeParser.switchDefaultLabel_return switchDefaultLabel() throws RecognitionException { return gJavaTreeParser.switchDefaultLabel(); }
+    public IntegrityVariablesParser_JavaTreeParser.forUpdater_return forUpdater() throws RecognitionException { return gJavaTreeParser.forUpdater(); }
 
 
     protected DFA33 dfa33 = new DFA33(this);
@@ -3749,7 +3785,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             this.transition = DFA33_transition;
         }
         public String getDescription() {
-            return "314:1: assignExpression : ( ^( ASSIGN variable= leftExpr value= expr ) | ^(a= PLUS_ASSIGN variable= leftExpr value= expr ) | ^(a= MINUS_ASSIGN variable= leftExpr value= expr ) | ^(a= STAR_ASSIGN variable= leftExpr value= expr ) | ^(a= DIV_ASSIGN variable= leftExpr value= expr ) | ^(a= AND_ASSIGN variable= leftExpr value= expr ) | ^(a= OR_ASSIGN variable= leftExpr value= expr ) | ^(a= XOR_ASSIGN variable= leftExpr value= expr ) | ^(a= MOD_ASSIGN variable= leftExpr value= expr ) | ^(a= BIT_SHIFT_RIGHT_ASSIGN variable= leftExpr value= expr ) | ^(a= SHIFT_RIGHT_ASSIGN variable= leftExpr value= expr ) | ^(a= SHIFT_LEFT_ASSIGN variable= leftExpr value= expr ) | ^( PRE_INC variable= leftExpr ) | ^( PRE_DEC variable= leftExpr ) | ^( POST_INC variable= leftExpr ) | ^( POST_DEC variable= leftExpr ) );";
+            return "338:1: assignExpression : ( ^( ASSIGN variable= leftExpr value= expr ) | ^(a= PLUS_ASSIGN variable= leftExpr value= expr ) | ^(a= MINUS_ASSIGN variable= leftExpr value= expr ) | ^(a= STAR_ASSIGN variable= leftExpr value= expr ) | ^(a= DIV_ASSIGN variable= leftExpr value= expr ) | ^(a= AND_ASSIGN variable= leftExpr value= expr ) | ^(a= OR_ASSIGN variable= leftExpr value= expr ) | ^(a= XOR_ASSIGN variable= leftExpr value= expr ) | ^(a= MOD_ASSIGN variable= leftExpr value= expr ) | ^(a= BIT_SHIFT_RIGHT_ASSIGN variable= leftExpr value= expr ) | ^(a= SHIFT_RIGHT_ASSIGN variable= leftExpr value= expr ) | ^(a= SHIFT_LEFT_ASSIGN variable= leftExpr value= expr ) | ^( PRE_INC variable= leftExpr ) | ^( PRE_DEC variable= leftExpr ) | ^( POST_INC variable= leftExpr ) | ^( POST_DEC variable= leftExpr ) );";
         }
     }
     static final String DFA34_eotS =
@@ -3834,7 +3870,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             this.transition = DFA34_transition;
         }
         public String getDescription() {
-            return "353:1: expr : ( assignExpression | ^( QUESTION expr expr expr ) | ^( LOGICAL_OR expr expr ) | ^( LOGICAL_AND expr expr ) | ^( OR expr expr ) | ^( XOR expr expr ) | ^( AND expr expr ) | ^( EQUAL expr expr ) | ^( NOT_EQUAL expr expr ) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL expr expr ) | ^( GREATER_OR_EQUAL expr expr ) | ^( BIT_SHIFT_RIGHT expr expr ) | ^( SHIFT_RIGHT expr expr ) | ^( GREATER_THAN expr expr ) | ^( SHIFT_LEFT expr expr ) | ^( LESS_THAN expr expr ) | ^( PLUS expr expr ) | ^( MINUS expr expr ) | ^( STAR expr expr ) | ^( DIV expr expr ) | ^( MOD expr expr ) | ^( UNARY_PLUS expr ) | ^( UNARY_MINUS expr ) | ^( NOT expr ) | ^( LOGICAL_NOT expr ) | ^( CAST_EXPR type expr ) | primaryExpression );";
+            return "377:1: expr : ( assignExpression | ^( QUESTION expr expr expr ) | ^( LOGICAL_OR expr expr ) | ^( LOGICAL_AND expr expr ) | ^( OR expr expr ) | ^( XOR expr expr ) | ^( AND expr expr ) | ^( EQUAL expr expr ) | ^( NOT_EQUAL expr expr ) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL expr expr ) | ^( GREATER_OR_EQUAL expr expr ) | ^( BIT_SHIFT_RIGHT expr expr ) | ^( SHIFT_RIGHT expr expr ) | ^( GREATER_THAN expr expr ) | ^( SHIFT_LEFT expr expr ) | ^( LESS_THAN expr expr ) | ^( PLUS expr expr ) | ^( MINUS expr expr ) | ^( STAR expr expr ) | ^( DIV expr expr ) | ^( MOD expr expr ) | ^( UNARY_PLUS expr ) | ^( UNARY_MINUS expr ) | ^( NOT expr ) | ^( LOGICAL_NOT expr ) | ^( CAST_EXPR type expr ) | primaryExpression );";
         }
     }
     static final String DFA38_eotS =
@@ -3896,7 +3932,7 @@ public class IntegrityVariablesParser extends AbstractTreeParser {
             this.transition = DFA38_transition;
         }
         public String getDescription() {
-            return "384:1: primaryExpression : ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | id= IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS | arrayTypeDeclarator | SUPER );";
+            return "408:1: primaryExpression : ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | id= IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS | arrayTypeDeclarator | SUPER );";
         }
     }
  

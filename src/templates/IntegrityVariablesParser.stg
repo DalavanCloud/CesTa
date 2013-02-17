@@ -36,13 +36,13 @@ declareBooleanGetter(trueValue,falseValue) ::= << <\n>
 
 declareByteSetter(mask) ::= << <\n>
     private static short _setByte(byte var) {
-        return (short) ((short) ((<mask> ^ var) \<\< 8) ^ var);
+        return (short) ((short) ((<mask> ^ var) \<\< 8) ^ (var & 0xFF));
     }
 >>
 
 declareByteGetter(mask) ::= << <\n>
     private static byte _getByte(short var) {
-        if (((var \>\> 8) ^ <mask>) == (var ^ 0xFFFF)) {
+        if (((byte) (var \>\>\> 8) ^ <mask>) == (byte) var) {
             return (byte) var;
         } else {
             <if(params.javaCard)>
@@ -86,3 +86,9 @@ unwrapAssign_boolean(left, right, sign) ::=
 
 unwrapAssign_byte(left, right, sign) ::=
     "<left> = <set_byte(value={<get_byte(value=left)> <sign> (<right>)})>"
+
+unwrapPreIncrementation_byte(variable, sign) ::=
+    "<unwrapAssign_byte(left=variable, right=1, sign=sign)>"
+
+unwrapPostIncrementation_byte(variable, sign) ::=
+    "<unwrapPreIncrementation_byte(variable=variable, sign=sign)>"
