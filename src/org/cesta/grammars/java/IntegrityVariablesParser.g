@@ -65,10 +65,48 @@ import org.cesta.util.antlr.java.ANTLRJavaHelper;
 
     // TODO: remove
     public boolean isSupportedType(String type) {
-            return type.equals("boolean") || type.equals("byte");
+        return type.equals("boolean") || type.equals("byte");
+    }
+
+    public void addImports(CommonTree tree) {
+            if (tree != null) {
+                getLogger().finer("Adding additional imports");
+                StringTemplate st = getTemplateLib().getInstanceOf("additionalImports");
+                tokens.insertBefore(tree.getTokenStartIndex(), st);
+            }
+    }
+
+    public void addCode(CommonTree tree) {
+        // TODO: mask randomization
+        StringTemplate st;
+
+        st = getTemplateLib().getInstanceOf("declareBooleanSetter");
+        st.setAttribute("trueValue", "0x55");
+        st.setAttribute("falseValue", "0xAA");
+        tokens.insertAfter(tree.getTokenStartIndex(), st);
+
+        st = getTemplateLib().getInstanceOf("declareBooleanGetter");
+        st.setAttribute("trueValue", "0x55");
+        st.setAttribute("falseValue", "0xAA");
+        tokens.insertAfter(tree.getTokenStartIndex(), st);
+
+        st = getTemplateLib().getInstanceOf("declareByteSetter");
+        st.setAttribute("mask", "0x55");
+        tokens.insertAfter(tree.getTokenStartIndex(), st);
+
+        st = getTemplateLib().getInstanceOf("declareByteGetter");
+        st.setAttribute("mask", "0x55");
+        tokens.insertAfter(tree.getTokenStartIndex(), st);
+
+        // TODO: protection of a type short
     }
 
     public Variable getVariable(String id) {
+        if (id.contains(".")) {
+            // TODO: make difference between global and local variable
+            String[] parts = id.split("\\.");
+            id = parts[parts.length - 1];
+        }
         for (int i = $Variables.size() - 1; i >= 0; i--) {
             if ($Variables[i]::variableTypes.containsKey(id)) {
                 return $Variables[i]::variableTypes.get(id);
@@ -129,6 +167,7 @@ import org.cesta.util.antlr.java.ANTLRJavaHelper;
 
     public void getResistantType(String expression, Variable var, CommonTree tree) {
         if (var == null) { // the identifier is not a variable
+            System.out.println("null variable: " + expression);
             return;
         }
         if (!var.shouldBeTransformed()) {
@@ -185,53 +224,23 @@ interfaceScopeDeclarations
 
 // STATEMENTS / BLOCKS
 
-/**
- * Adds additional imports
- */
+// Adds additional imports
 additionalImports[CommonTree tree]
     :
         {
-            if (tree != null) {
-                getLogger().finer("Adding additional imports");
-                StringTemplate st = getTemplateLib().getInstanceOf("additionalImports");
-                tokens.insertBefore(tree.getTokenStartIndex(), st);
-            }
+            addImports(tree);
         }
     ;
 
-/**
- * Adds get & set methods
- */
+// Adds get & set methods
 classAdditionalCode[CommonTree tree]
     :
         {
-            StringTemplate st;
-
-            st = getTemplateLib().getInstanceOf("declareBooleanSetter");
-            st.setAttribute("trueValue", "0x55");
-            st.setAttribute("falseValue", "0xAA");
-            tokens.insertAfter(tree.getTokenStartIndex(), st);
-
-            st = getTemplateLib().getInstanceOf("declareBooleanGetter");
-            st.setAttribute("trueValue", "0x55");
-            st.setAttribute("falseValue", "0xAA");
-            tokens.insertAfter(tree.getTokenStartIndex(), st);
-
-            st = getTemplateLib().getInstanceOf("declareByteSetter");
-            st.setAttribute("mask", "0x55");
-            tokens.insertAfter(tree.getTokenStartIndex(), st);
-
-            st = getTemplateLib().getInstanceOf("declareByteGetter");
-            st.setAttribute("mask", "0x55");
-            tokens.insertAfter(tree.getTokenStartIndex(), st);
-
-            // TODO: protection of a type short
+            addCode(tree);
         }
     ;
 
-/**
- * Whole class
- */
+// Whole class
 classDeclaration
 	scope Variables;
 	@init {	
@@ -242,9 +251,7 @@ classDeclaration
 		^(CLASS modifierList IDENT genericTypeParameterList? extendsClause? implementsClause? classTopLevelScope)
 	;
 
-/**
- * Method declarations
- */
+// Method declarations
 methodScopeDeclarations
         scope Variables;
 	@init {
@@ -256,9 +263,7 @@ methodScopeDeclarations
 	|	^(VOID_METHOD_DECL modifierList genericTypeParameterList? IDENT formalParameterList throwsClause? block?)
 	|	^(CONSTRUCTOR_DECL modifierList genericTypeParameterList? formalParameterList throwsClause? block)
 	;
-/**
- * Block of code
- */
+// Block of code
 block
 	scope Variables;
 	@init {
@@ -268,9 +273,7 @@ block
         :   ^(BLOCK_SCOPE blockStatement*)
         ;
 
-/**
- * Global variables
- */
+// Global variables
 globalVariableDeclaration
         scope Variables;
 	:
@@ -286,9 +289,7 @@ globalVariableDeclaration
 		)
 	;
 
-/**
- *	Local variables
- */
+// Local variables
 localVariableDeclaration
         scope Variables;
 	:
@@ -302,6 +303,7 @@ localVariableDeclaration
 		)		
 	;
 
+// Sends the variable identifier and type to the initializer
 variableDeclarator
     scope {
         String id;
@@ -310,9 +312,7 @@ variableDeclarator
     :   ^(VAR_DECLARATOR i=variableDeclaratorId {$variableDeclarator::id=$i.id; $variableDeclarator::type=$i.type;} variableInitializer?)
     ;
 
-/**
- * Variable identifier in declaration
- */
+// Variable identifier in declaration
 variableDeclaratorId returns [String id, String type]
     scope Variables;
     :
@@ -326,18 +326,16 @@ variableDeclaratorId returns [String id, String type]
             )
     ;
 
+// Initial value of the declared variable
 variableInitializer
     :   arrayInitializer
     |   e=expression {
-                           //System.out.println("id " + $variableDeclarator::id);
-                           Variable var = new Variable($variableDeclarator::id, $variableDeclarator::type);
-                           setResistantType($e.text, var, (CommonTree) $e.start);
-                       }
+                         Variable var = new Variable($variableDeclarator::id, $variableDeclarator::type);
+                         setResistantType($e.text, var, (CommonTree) $e.start);
+                     }
     ;
 
-/**
- * Expression where we need to add a setter
- */
+// Expression where we need to add a setter
 assignExpression
     :
 	^(ASSIGN variable=leftExpr value=expr)
@@ -374,6 +372,7 @@ assignExpression
                         { setPostIncDec(getVariable($variable.text), "-", (CommonTree) $POST_DEC); }
     ;
 
+// Adds resistant getters
 expr
     :   assignExpression // new node instead of more assign expressions
     |	^(QUESTION expr expr expr)
@@ -402,15 +401,22 @@ expr
     |   ^(NOT expr)
     |   ^(LOGICAL_NOT expr)
     |   ^(CAST_EXPR type expr)
-    |   primaryExpression
+    |   e=primaryExpression {
+                                if ($e.ident != null) {
+                                    getResistantType($e.ident, getVariable($e.ident), (CommonTree) $e.start);
+                                }
+                            }
     ;
 
-primaryExpression
+// Finds the variable identifier
+primaryExpression returns [String ident]
     :   ^(  DOT
-            (   primaryExpression
-                (   IDENT
-                |   THIS
-                |   SUPER
+            (   p=primaryExpression {
+                                        $ident = (($p.ident == null) ? "" : ($p.ident + "."));
+                                    }
+                (   IDENT { $ident += $IDENT.text; }
+                |   THIS { $ident += "this"; }
+                |   SUPER { $ident += "super"; }
                 |   innerNewExpression
                 |   CLASS
                 )
@@ -419,25 +425,62 @@ primaryExpression
             )
         )
     |   parenthesizedExpression
-    |   id=IDENT {
-                     getResistantType($id.text, getVariable($id.text), (CommonTree) id);
-                 }
+    |   IDENT {
+                  $ident = $IDENT.text;
+              }
     |   ^(METHOD_CALL primaryExpression genericTypeArgumentList? arguments)
     |   explicitConstructorCall
     |   ^(ARRAY_ELEMENT_ACCESS primaryExpression expression)
     |   literal
     |   newExpression
-    |   THIS
+    |   THIS { $ident = "this"; }
     |   arrayTypeDeclarator
-    |   SUPER
+    |   THIS { $ident = "super"; }
     ;
 
-/*
- * Expressions on the left side not to be transformed
- */
+// Expressions on the left side not to be transformed
 leftExpr
-    : id=IDENT {
-                  //System.out.println("leftExpr " + $id.text);
-               }
-    | ^(LEFT_EXPR expr)
+    :   ^(ASSIGN expr expr)
+    |   ^(PLUS_ASSIGN expr expr)
+    |   ^(MINUS_ASSIGN expr expr)
+    |   ^(STAR_ASSIGN expr expr)
+    |   ^(DIV_ASSIGN expr expr)
+    |   ^(AND_ASSIGN expr expr)
+    |   ^(OR_ASSIGN expr expr)
+    |   ^(XOR_ASSIGN expr expr)
+    |   ^(MOD_ASSIGN expr expr)
+    |   ^(BIT_SHIFT_RIGHT_ASSIGN expr expr)
+    |   ^(SHIFT_RIGHT_ASSIGN expr expr)
+    |   ^(SHIFT_LEFT_ASSIGN expr expr)
+    |   ^(QUESTION expr expr expr)
+    |   ^(LOGICAL_OR expr expr)
+    |   ^(LOGICAL_AND expr expr)
+    |   ^(OR expr expr)
+    |   ^(XOR expr expr)
+    |   ^(AND expr expr)
+    |   ^(EQUAL expr expr)
+    |   ^(NOT_EQUAL expr expr)
+    |   ^(INSTANCEOF expr type)
+    |   ^(LESS_OR_EQUAL expr expr)
+    |   ^(GREATER_OR_EQUAL expr expr)
+    |   ^(BIT_SHIFT_RIGHT expr expr)
+    |   ^(SHIFT_RIGHT expr expr)
+    |   ^(GREATER_THAN expr expr)
+    |   ^(SHIFT_LEFT expr expr)
+    |   ^(LESS_THAN expr expr)
+    |   ^(PLUS expr expr)
+    |   ^(MINUS expr expr)
+    |   ^(STAR expr expr)
+    |   ^(DIV expr expr)
+    |   ^(MOD expr expr)
+    |   ^(UNARY_PLUS expr)
+    |   ^(UNARY_MINUS expr)
+    |   ^(PRE_INC expr)
+    |   ^(PRE_DEC expr)
+    |   ^(POST_INC expr)
+    |   ^(POST_DEC expr)
+    |   ^(NOT expr)
+    |   ^(LOGICAL_NOT expr)
+    |   ^(CAST_EXPR type expr)
+    |   primaryExpression
     ;

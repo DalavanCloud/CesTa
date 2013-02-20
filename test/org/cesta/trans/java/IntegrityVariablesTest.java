@@ -1,7 +1,6 @@
 package org.cesta.trans.java;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
@@ -56,7 +55,7 @@ public class IntegrityVariablesTest {
         assertEquals(globalByte, 1);
         byte globalByte = 2;
         assertEquals(globalByte, 2);
-        //assertEquals(IntegrityVariablesTest.globalByte, 1); // not working yet
+        assertEquals(IntegrityVariablesTest.globalByte, 1);
         globalByte = 3;
         assertEquals(getGlobalByte(), 1);
         assertEquals(globalByte, 3);
@@ -73,6 +72,8 @@ public class IntegrityVariablesTest {
             byte x = 3;
             assertEquals(x, 3);
         }
+        this.globalBoolean = true;
+        assertEquals(globalBoolean, true);
     }
     
     private byte getGlobalByte() {

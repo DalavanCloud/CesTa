@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 JavaTreeParser.g 2013-02-16 21:21:29
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 JavaTreeParser.g 2013-02-20 22:33:54
 
 package org.cesta.parsers.java;
 
@@ -146,7 +146,6 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
     public static final int FOR_INIT=131;
     public static final int PROTECTED=86;
     public static final int DEC=12;
-    public static final int LEFT_EXPR=336;
     public static final int CLASS=61;
     public static final int LBRACK=22;
     public static final int BIT_SHIFT_RIGHT=8;
@@ -4470,7 +4469,7 @@ public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser 
                     int alt97=2;
                     int LA97_0 = input.LA(1);
 
-                    if ( (LA97_0==DOT||LA97_0==FALSE||LA97_0==NULL||LA97_0==SUPER||LA97_0==THIS||LA97_0==TRUE||LA97_0==ARRAY_DECLARATOR||LA97_0==ARRAY_ELEMENT_ACCESS||LA97_0==CLASS_CONSTRUCTOR_CALL||LA97_0==METHOD_CALL||LA97_0==PARENTESIZED_EXPR||(LA97_0>=STATIC_ARRAY_CREATOR && LA97_0<=SUPER_CONSTRUCTOR_CALL)||LA97_0==THIS_CONSTRUCTOR_CALL||(LA97_0>=IDENT && LA97_0<=STRING_LITERAL)) ) {
+                    if ( (LA97_0==DOT||LA97_0==FALSE||LA97_0==NULL||LA97_0==THIS||LA97_0==TRUE||LA97_0==ARRAY_DECLARATOR||LA97_0==ARRAY_ELEMENT_ACCESS||LA97_0==CLASS_CONSTRUCTOR_CALL||LA97_0==METHOD_CALL||LA97_0==PARENTESIZED_EXPR||(LA97_0>=STATIC_ARRAY_CREATOR && LA97_0<=SUPER_CONSTRUCTOR_CALL)||LA97_0==THIS_CONSTRUCTOR_CALL||(LA97_0>=IDENT && LA97_0<=STRING_LITERAL)) ) {
                         alt97=1;
                     }
                     switch (alt97) {
