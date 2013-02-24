@@ -197,6 +197,7 @@
             <filterchain>
                 <tokenfilter>
                     <replaceregex pattern="org\.cesta" replace="transformed.org.cesta" flags="gi"/>
+                    <replaceregex pattern='@Ignore\("not working before transformation"\) ' replace="" flags="gi"/>
                 </tokenfilter>
             </filterchain>
         </copy>		

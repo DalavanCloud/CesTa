@@ -1,8 +1,9 @@
 package transformed.org.cesta.trans.java;
 
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  * Simple test class for ValidateStateTransitions
@@ -44,10 +45,12 @@ public class ValidateStateTransitionsTest  {
 
 
     private short currentState;
+    
     @Before
     public void init(){
         currentState = STATE_UPLOADED;  // default state
     }
+    
     @Test
     public void install(){
 
@@ -55,12 +58,14 @@ public class ValidateStateTransitionsTest  {
         setState(STATE_INSTALLED);
         assertEquals("STATE_INSTALLED is expected", STATE_INSTALLED, getState());
     }
+    
     @Test
     public void testSelect(){
         currentState = STATE_INSTALLED;
         select();
         assertEquals("STATE_SELECTED is expected", STATE_SELECTED, getState());
     }
+    
     public void select(){
 
 	_VerifyAllowedFunction(FUNC_select, getState());
@@ -73,26 +78,31 @@ public class ValidateStateTransitionsTest  {
         }
         assertEquals("Transition STATE_SELECTED -> STATE_UPLOADED should not be allowed", STATE_SELECTED, getState());
     }
+    
     @Test(expected=RuntimeException.class)
     public void unknown(){
 
 	_VerifyAllowedFunction(FUNC_unknown, getState());
         throw new AssertionError("This function should not be allowed in default state!");
     }
+    
     @Test
     public void testBlockCard(){
         currentState = STATE_INSTALLED;
         blockCard();
         assertEquals("STATE_BLOCKED is expected", STATE_BLOCKED, getState());
     }
+    
     public void blockCard(){
 
 	_VerifyAllowedFunction(FUNC_blockCard, getState());
         setState(STATE_BLOCKED);
-    }    
+    }
+    
     private short getState(){
         return currentState;
     }
+    
     private void setState(short newState){
 
 	_VerifyAllowedTransition(getState(), newState);

@@ -1,8 +1,9 @@
 package org.cesta.trans.java;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  * Test for FaultResistant transformation. This test class will
@@ -12,17 +13,18 @@ import static org.junit.Assert.*;
  */
 public class ShadowVariablesTest {
     private short globalI = 4;
-    private static byte globalStatic = 0;
+    private static byte globalStatic;
     byte x,y;   // test variables without initializer
 
     @Before
     public void setUp() {
+        globalStatic = 1;
         globalStatic++;
     }
 
     @Test
     public void basic() {
-        assertEquals(1,globalStatic);
+        assertEquals(2,globalStatic);
         short j=0, k=4;
         for (short i=0;i<100;i++){
             j+=2;j++;j--;--j;++j;
@@ -94,9 +96,9 @@ public class ShadowVariablesTest {
      */
     @Test
     public void expressions() {
-        assertEquals(3,globalStatic);
+        assertEquals(2,globalStatic);
         globalStatic=(byte)(globalStatic+globalStatic*2);
-        assertEquals(9,globalStatic);
+        assertEquals(6,globalStatic);
         short testArray[]=new short[2];
         assertEquals(globalI, 4);
         short i=4,j; assertEquals(4, i);
