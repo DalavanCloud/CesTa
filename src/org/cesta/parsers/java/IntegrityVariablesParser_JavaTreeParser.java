@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 JavaTreeParser.g 2013-02-20 22:33:54
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 JavaTreeParser.g 2013-03-01 22:57:55
 
 package org.cesta.parsers.java;
 
@@ -53,7 +53,7 @@ import java.util.HashMap;
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
-public class IntegrityVariablesParser_JavaTreeParser extends AbstractTreeParser {
+public class IntegrityVariablesParser_JavaTreeParser extends IntegrityVariablesMembers {
     public static final int PACKAGE=84;
     public static final int EXPONENT=173;
     public static final int STAR=49;
