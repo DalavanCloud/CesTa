@@ -1,7 +1,7 @@
 package org.cesta.trans.java;
 
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
 
 /**
  * Test for combination of transformations.
@@ -15,11 +15,15 @@ public class MultipleTest {
 
     @Test
     public void install() {
-        short i=2;
+        short i = 2;
         assertEquals(2, i);
-        for (short j=0;j<20;j++){
-            if (i%2==0) i+=j;
-            else i=(short)(j*2);
+        for (short j = 0; j < 20; j++){
+            if (i % 2 == 0) {
+                i += j;
+            }
+            else {
+                i = (short) (j * 2);
+            }
         }
         assertEquals(55, i);
         setState(STATE_INSTALLED);

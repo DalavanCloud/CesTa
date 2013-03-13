@@ -1,7 +1,7 @@
 package transformed.org.cesta.trans.java;
 
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
 
 /**
  * Test for combination of transformations.
@@ -41,12 +41,16 @@ public class MultipleTest {
     public void install() {
 
 	_VerifyAllowedFunction(FUNC_install, getState());
-        short i=__set_short((short)(2),(short)0);
+        short i = __set_short((short)(2),(short)0);
         assertEquals(2, __get_short(i,(short)0));
-        for (short j=__set_short((short)(0),(short)1);__get_short(j,(short)1)<20;j=__set_short((short)(__get_short(j,(short)1)+1),(short)1)){
+        for (short j = __set_short((short)(0),(short)1); __get_short(j,(short)1) < 20; j=__set_short((short)(__get_short(j,(short)1)+1),(short)1)){
 	/***** BEGIN ORIGINAL [IF_SWITCH_1] *****
-	            if (__get_short(i,(short)0)%2==0) i=__set_short((short)(__get_short(i,(short)0)+(__get_short(j,(short)1))),(short)0);
-	            else i=__set_short((short)((short)(__get_short(j,(short)1)*2)),(short)0); 
+	            if (__get_short(i,(short)0) % 2 == 0) {
+	                i=__set_short((short)(__get_short(i,(short)0)+(__get_short(j,(short)1))),(short)0);
+	            }
+	            else {
+	                i=__set_short((short)((short) (__get_short(j,(short)1) * 2)),(short)0);
+	            } 
 	***** END ORIGINAL [IF_SWITCH_1] *****/ 
 	/***** BEGIN REPLACE [IF_SWITCH_1] *****/ 
 	IF_SWITCH_1: {
@@ -54,17 +58,25 @@ public class MultipleTest {
 			case -1: 
 				throw new RuntimeException("__getRandomBit() returned invalid value");
 			case 0:
-				if ((__get_short(i,(short)0)%2==0)) {
-					i=__set_short((short)(__get_short(i,(short)0)+(__get_short(j,(short)1))),(short)0);
+				if ((__get_short(i,(short)0) % 2 == 0)) {
+					{
+					                i=__set_short((short)(__get_short(i,(short)0)+(__get_short(j,(short)1))),(short)0);
+					            }
 				} else {
-					i=__set_short((short)((short)(__get_short(j,(short)1)*2)),(short)0);
+					{
+					                i=__set_short((short)((short) (__get_short(j,(short)1) * 2)),(short)0);
+					            }
 				}
 	break IF_SWITCH_1;
 			case 1:
-				if (!(__get_short(i,(short)0)%2==0)) {
-					i=__set_short((short)((short)(__get_short(j,(short)1)*2)),(short)0);
+				if (!(__get_short(i,(short)0) % 2 == 0)) {
+					{
+					                i=__set_short((short)((short) (__get_short(j,(short)1) * 2)),(short)0);
+					            }
 				} else {
-					i=__set_short((short)(__get_short(i,(short)0)+(__get_short(j,(short)1))),(short)0);
+					{
+					                i=__set_short((short)(__get_short(i,(short)0)+(__get_short(j,(short)1))),(short)0);
+					            }
 				}
 	break IF_SWITCH_1;
 			default:

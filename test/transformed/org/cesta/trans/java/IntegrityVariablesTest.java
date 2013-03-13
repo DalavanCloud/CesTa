@@ -52,19 +52,19 @@ public class IntegrityVariablesTest {
         assertEquals(40, _getByte(b));
         d = _setByte((byte) (_getByte(d) + (1)));
         d = _setByte((byte) (_getByte(d) + (1)));
-        assertEquals(_getByte(d), 3);
+        assertEquals(3, _getByte(d));
         d = _setByte((byte) (_getByte(d) - (1)));
         d = _setByte((byte) (_getByte(d) - (1)));
-        assertEquals(_getByte(d), 1);
+        assertEquals(1, _getByte(d));
         
         /*byte*/short c;
         c = _setByte((byte) (5));
         c = _setByte((byte) (_getByte(c) * (_getByte(c) % 3 + 1)));
-        assertEquals(_getByte(c), 15);
+        assertEquals(15, _getByte(c));
         
         globalByte = _setByte((byte) (1));
         globalByte = _setByte((byte) (_getByte(globalByte) - (1 + 1)));
-        assertEquals(_getByte(globalByte), -1);
+        assertEquals(-1, _getByte(globalByte));
         globalByte = _setByte((byte) (1));
         
         /*short j = 1;
@@ -78,28 +78,28 @@ public class IntegrityVariablesTest {
     
     @Test
     public void scopes() {
-        assertEquals(_getByte(globalByte), 1);
+        assertEquals(1, _getByte(globalByte));
         /*byte*/short globalByte = _setByte((byte) (2));
-        assertEquals(_getByte(globalByte), 2);
-        assertEquals(_getByte(IntegrityVariablesTest.globalByte), 1);
+        assertEquals(2, _getByte(globalByte));
+        assertEquals(1, _getByte(IntegrityVariablesTest.globalByte));
         globalByte = _setByte((byte) (3));
-        assertEquals(getGlobalByte(), 1);
-        assertEquals(_getByte(globalByte), 3);
+        assertEquals(1, getGlobalByte());
+        assertEquals(3, _getByte(globalByte));
         
         {
             /*byte*/short x = _setByte((byte) (1));
-            assertEquals(_getByte(x), 1);
+            assertEquals(1, _getByte(x));
         }
         {
             /*byte*/short x = _setByte((byte) (2));
-            assertEquals(_getByte(x), 2);
+            assertEquals(2, _getByte(x));
         }
         {
             /*byte*/short x = _setByte((byte) (3));
-            assertEquals(_getByte(x), 3);
+            assertEquals(3, _getByte(x));
         }
         this.globalBoolean = _setBoolean(true);
-        assertEquals(_getBoolean(globalBoolean), true);
+        assertEquals(true, _getBoolean(globalBoolean));
     }
     
     private byte getGlobalByte() {

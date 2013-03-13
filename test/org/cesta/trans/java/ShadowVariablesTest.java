@@ -24,7 +24,7 @@ public class ShadowVariablesTest {
 
     @Test
     public void basic() {
-        assertEquals(2,globalStatic);
+        assertEquals(2, globalStatic);
         short j=0, k=4;
         for (short i=0;i<100;i++){
             j+=2;j++;j--;--j;++j;
@@ -96,26 +96,34 @@ public class ShadowVariablesTest {
      */
     @Test
     public void expressions() {
-        assertEquals(2,globalStatic);
+        assertEquals(2, globalStatic);
         globalStatic=(byte)(globalStatic+globalStatic*2);
-        assertEquals(6,globalStatic);
+        assertEquals(6, globalStatic);
         short testArray[]=new short[2];
-        assertEquals(globalI, 4);
-        short i=4,j; assertEquals(4, i);
-        j=i++; assertEquals(5, i); assertEquals(4, j);
-        i+=56*globalI+i; assertEquals(234, i);
-        i-=3*globalI; assertEquals(222, i);
-        i*=4; assertEquals(888, i);
-        i/=2; assertEquals(444, i);
+        assertEquals(4, globalI);
+        short i=4,j;
+        assertEquals(4, i);
+        j=i++;
+        assertEquals(5, i);
+        assertEquals(4, j);
+        i+=56*globalI+i;
+        assertEquals(234, i);
+        i-=3*globalI;
+        assertEquals(222, i);
+        i*=4;
+        assertEquals(888, i);
+        i/=2;
+        assertEquals(444, i);
         assertEquals(444, i++);
         assertEquals(446, ++i);
         assertEquals(445, --i);
         assertEquals(445, i--);
         assertEquals(444, i);
-        i++; assertEquals(445, i);
+        i++;
+        assertEquals(445, i);
         i=0;
         testArray[i++]=i--;
-        assertEquals(testArray[0], 1);
+        assertEquals(1, testArray[0]);
         i=exprTest(i++);
         assertEquals(10, globalI);
         assertEquals(20, i);
@@ -126,9 +134,11 @@ public class ShadowVariablesTest {
 
     @Test
     public void simple(){
-        short j=1;
+        short j = 1;
         assertEquals(1, j);
-        for (short i=0;i<10;i++) j+=i;
+        for (short i=0; i < 10; i++) {
+            j += i;
+        }
         assertEquals(46, j);
     }
 }

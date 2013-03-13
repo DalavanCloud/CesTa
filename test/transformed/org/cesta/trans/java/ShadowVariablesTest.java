@@ -29,7 +29,7 @@ public class ShadowVariablesTest {
 
     @Test
     public void basic() {
-        assertEquals(2,__get_byte_gs(globalStatic,(short)0));
+        assertEquals(2, __get_byte_gs(globalStatic,(short)0));
         short j=__set_short((short)(0),(short)0), k=__set_short((short)(4),(short)1);
         for (short i=__set_short((short)(0),(short)2);__get_short(i,(short)2)<100;i=__set_short((short)(__get_short(i,(short)2)+1),(short)2)){
             j=__set_short((short)(__get_short(j,(short)0)+(2)),(short)0);j=__set_short((short)(__get_short(j,(short)0)+1),(short)0);j=__set_short((short)(__get_short(j,(short)0)-1),(short)0);j=__set_short((short)(__get_short(j,(short)0)-1),(short)0);j=__set_short((short)(__get_short(j,(short)0)+1),(short)0);
@@ -101,26 +101,34 @@ public class ShadowVariablesTest {
      */
     @Test
     public void expressions() {
-        assertEquals(2,__get_byte_gs(globalStatic,(short)0));
+        assertEquals(2, __get_byte_gs(globalStatic,(short)0));
         globalStatic=__set_byte_gs((byte)((byte)(__get_byte_gs(globalStatic,(short)0)+__get_byte_gs(globalStatic,(short)0)*2)),(short)0);
-        assertEquals(6,__get_byte_gs(globalStatic,(short)0));
+        assertEquals(6, __get_byte_gs(globalStatic,(short)0));
         short testArray[]=new short[2];
-        assertEquals(__get_short_g(globalI,(short)0), 4);
-        short i=__set_short((short)(4),(short)6),j=__set_short((short)(0),(short)7); assertEquals(4, __get_short(i,(short)6));
-        j=__set_short((short)((short)((i=__set_short((short)(__get_short(i,(short)6)+1),(short)6))-1)),(short)7); assertEquals(5, __get_short(i,(short)6)); assertEquals(4, __get_short(j,(short)7));
-        i=__set_short((short)(__get_short(i,(short)6)+(56*__get_short_g(globalI,(short)0)+__get_short(i,(short)6))),(short)6); assertEquals(234, __get_short(i,(short)6));
-        i=__set_short((short)(__get_short(i,(short)6)-(3*__get_short_g(globalI,(short)0))),(short)6); assertEquals(222, __get_short(i,(short)6));
-        i=__set_short((short)(__get_short(i,(short)6)*4),(short)6); assertEquals(888, __get_short(i,(short)6));
-        i=__set_short((short)(__get_short(i,(short)6)/2),(short)6); assertEquals(444, __get_short(i,(short)6));
+        assertEquals(4, __get_short_g(globalI,(short)0));
+        short i=__set_short((short)(4),(short)6),j=__set_short((short)(0),(short)7);
+        assertEquals(4, __get_short(i,(short)6));
+        j=__set_short((short)((short)((i=__set_short((short)(__get_short(i,(short)6)+1),(short)6))-1)),(short)7);
+        assertEquals(5, __get_short(i,(short)6));
+        assertEquals(4, __get_short(j,(short)7));
+        i=__set_short((short)(__get_short(i,(short)6)+(56*__get_short_g(globalI,(short)0)+__get_short(i,(short)6))),(short)6);
+        assertEquals(234, __get_short(i,(short)6));
+        i=__set_short((short)(__get_short(i,(short)6)-(3*__get_short_g(globalI,(short)0))),(short)6);
+        assertEquals(222, __get_short(i,(short)6));
+        i=__set_short((short)(__get_short(i,(short)6)*4),(short)6);
+        assertEquals(888, __get_short(i,(short)6));
+        i=__set_short((short)(__get_short(i,(short)6)/2),(short)6);
+        assertEquals(444, __get_short(i,(short)6));
         assertEquals(444, (short)((i=__set_short((short)(__get_short(i,(short)6)+1),(short)6))-1));
         assertEquals(446, (short)(i=__set_short((short)(__get_short(i,(short)6)+1),(short)6)));
         assertEquals(445, (short)(i=__set_short((short)(__get_short(i,(short)6)-1),(short)6)));
         assertEquals(445, (short)((i=__set_short((short)(__get_short(i,(short)6)-1),(short)6))+1));
         assertEquals(444, __get_short(i,(short)6));
-        i=__set_short((short)(__get_short(i,(short)6)+1),(short)6); assertEquals(445, __get_short(i,(short)6));
+        i=__set_short((short)(__get_short(i,(short)6)+1),(short)6);
+        assertEquals(445, __get_short(i,(short)6));
         i=__set_short((short)(0),(short)6);
         testArray[(short)((i=__set_short((short)(__get_short(i,(short)6)+1),(short)6))-1)]=(short)((i=__set_short((short)(__get_short(i,(short)6)-1),(short)6))+1);
-        assertEquals(testArray[0], 1);
+        assertEquals(1, testArray[0]);
         i=__set_short((short)(exprTest((short)((i=__set_short((short)(__get_short(i,(short)6)+1),(short)6))-1))),(short)6);
         assertEquals(10, __get_short_g(globalI,(short)0));
         assertEquals(20, __get_short(i,(short)6));
@@ -131,9 +139,11 @@ public class ShadowVariablesTest {
 
     @Test
     public void simple(){
-        short j=__set_short((short)(1),(short)8);
+        short j = __set_short((short)(1),(short)8);
         assertEquals(1, __get_short(j,(short)8));
-        for (short i=__set_short((short)(0),(short)9);__get_short(i,(short)9)<10;i=__set_short((short)(__get_short(i,(short)9)+1),(short)9)) j=__set_short((short)(__get_short(j,(short)8)+(__get_short(i,(short)9))),(short)8);
+        for (short i=__set_short((short)(0),(short)9); __get_short(i,(short)9) < 10; i=__set_short((short)(__get_short(i,(short)9)+1),(short)9)) {
+            j=__set_short((short)(__get_short(j,(short)8)+(__get_short(i,(short)9))),(short)8);
+        }
         assertEquals(46, __get_short(j,(short)8));
     }
  

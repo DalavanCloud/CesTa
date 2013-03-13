@@ -26,19 +26,19 @@ public class IntegrityVariablesTest {
         assertEquals(40, b);
         d++;
         ++d;
-        assertEquals(d, 3);
+        assertEquals(3, d);
         d--;
         --d;
-        assertEquals(d, 1);
+        assertEquals(1, d);
         
         byte c;
         c = 5;
         c *= c % 3 + 1;
-        assertEquals(c, 15);
+        assertEquals(15, c);
         
         globalByte = 1;
         globalByte -= 1 + 1;
-        assertEquals(globalByte, -1);
+        assertEquals(-1, globalByte);
         globalByte = 1;
         
         /*short j = 1;
@@ -52,28 +52,28 @@ public class IntegrityVariablesTest {
     
     @Test
     public void scopes() {
-        assertEquals(globalByte, 1);
+        assertEquals(1, globalByte);
         byte globalByte = 2;
-        assertEquals(globalByte, 2);
-        assertEquals(IntegrityVariablesTest.globalByte, 1);
+        assertEquals(2, globalByte);
+        assertEquals(1, IntegrityVariablesTest.globalByte);
         globalByte = 3;
-        assertEquals(getGlobalByte(), 1);
-        assertEquals(globalByte, 3);
+        assertEquals(1, getGlobalByte());
+        assertEquals(3, globalByte);
         
         {
             byte x = 1;
-            assertEquals(x, 1);
+            assertEquals(1, x);
         }
         {
             byte x = 2;
-            assertEquals(x, 2);
+            assertEquals(2, x);
         }
         {
             byte x = 3;
-            assertEquals(x, 3);
+            assertEquals(3, x);
         }
         this.globalBoolean = true;
-        assertEquals(globalBoolean, true);
+        assertEquals(true, globalBoolean);
     }
     
     private byte getGlobalByte() {

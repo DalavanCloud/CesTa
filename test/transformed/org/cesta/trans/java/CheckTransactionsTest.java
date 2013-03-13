@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package transformed.org.cesta.trans.java;
 
 import org.junit.Test;
@@ -16,14 +11,17 @@ import org.junit.Test;
  * @author Tobias Smolka
  */
 public class CheckTransactionsTest {
+    
     /**
      * Dummy method, that is considered to be non-atomic
      */
     public static void NonAtomic(byte[] array){}
+    
     /**
      * Dummy method, that starts transaction
      */
     public static void StartTransaction(){}
+    
     /**
      * Dummy method, that ends transaction
      */
@@ -34,8 +32,8 @@ public class CheckTransactionsTest {
      * Simple test, that should report warning for a
      */
     public void simple(){
-        byte[] a=new byte[1], b=new byte[1];
-        b[0]=20;
+        byte[] a = new byte[1], b = new byte[1];
+        b[0] = 20;
         
 
 	/***** WARNING *****
@@ -44,7 +42,7 @@ public class CheckTransactionsTest {
 		non atomic operations: a
 	***** WARNING *****/ /* detected start of transaction */StartTransaction();
         NonAtomic(a);
-        a[0]=10;
+        a[0] = 10;
         NonAtomic(b);
         EndTransaction()/* detected end of transaction */;
     }
