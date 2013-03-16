@@ -3,7 +3,7 @@ package org.cesta.trans.java;
 import java.util.Map;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.TreeNodeStream;
-import org.cesta.parsers.java.ShadowVariablesParser;
+import org.cesta.parsers.java.generated.ShadowVariablesParser;
 import org.cesta.trans.TransformationException;
 import org.cesta.types.MappedFile;
 

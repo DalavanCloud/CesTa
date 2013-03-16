@@ -51,8 +51,8 @@ public abstract class AbstractTreeParser extends TreeParser  {
      * code), rule which is executed and unique ID of rewrite operation.
      */
     protected static class runtimeRewriteParams_scope {
-        int id;
-        CommonTree tree;
+        public int id;
+        public CommonTree tree;
     }
     
     /**

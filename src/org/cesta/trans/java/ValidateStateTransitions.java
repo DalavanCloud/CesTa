@@ -13,7 +13,7 @@ import org.antlr.runtime.tree.TreeNodeStream;
 import org.cesta.parsers.dot.DotLexer;
 import org.cesta.parsers.dot.DotParser;
 import org.cesta.parsers.dot.DotTree;
-import org.cesta.parsers.java.ValidateStateTransitionsParser;
+import org.cesta.parsers.java.generated.ValidateStateTransitionsParser;
 import org.cesta.trans.TransformationException;
 import org.cesta.types.MappedFile;
 

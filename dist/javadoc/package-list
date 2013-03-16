@@ -5,6 +5,7 @@ org.cesta.launch
 org.cesta.loader
 org.cesta.parsers.dot
 org.cesta.parsers.java
+org.cesta.parsers.java.generated
 org.cesta.taskdefs
 org.cesta.trans
 org.cesta.trans.java

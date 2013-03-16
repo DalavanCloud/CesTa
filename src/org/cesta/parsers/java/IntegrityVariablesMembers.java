@@ -6,7 +6,7 @@ import org.antlr.runtime.tree.TreeNodeStream;
 import org.antlr.stringtemplate.StringTemplate;
 
 /**
- * Class containing pure Java methods for IntegrityVariables transformation.
+ * Class containing pure Java methods for the IntegrityVariables transformation.
  * 
  * @author David Formanek
  */

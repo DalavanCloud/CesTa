@@ -2,7 +2,7 @@ package org.cesta.trans.java;
 
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.TreeNodeStream;
-import org.cesta.parsers.java.IntegrityVariablesParser;
+import org.cesta.parsers.java.generated.IntegrityVariablesParser;
 import org.cesta.trans.TransformationException;
 import org.cesta.types.MappedFile;
 

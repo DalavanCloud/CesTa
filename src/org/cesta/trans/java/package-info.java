@@ -53,13 +53,29 @@
  * </pre></code>
  * Other rules can be copied from <code>JavaTreeParser.g</code> and modified but
  * you can create your own tree of nodes too.</p>
+ * <p>If there is a lot of code you would place into members section, you can
+ * create a separate class "MyTransformationMembers":
+ * <code><pre>
+ * public abstract class MyTransformationMembers extends AbstractTreeParser {
+    
+    public MyTransformationMembers(TreeNodeStream input) {
+        super(input);
+    }
+    
+    public IntegrityVariablesMembers(TreeNodeStream input, RecognizerSharedState state) {
+        super(input, state);
+    }
+    
+    // parser members
+    }
+ * </pre></code> and set this class as a superclass in the grammar options</p>
  * <p>Add this code to the <code>&lt;target name="antlr-transformations"&gt;
  * </code> section in <code>build.xml</code> file with Ant settings
  * to generate parser <code>MyTransformationParser.java</code> automatically:
  * <code><pre>
  * &lt;antlr3-compile grammar.name="MyTransformationParser.g"
  *     grammar.package="org.cesta.grammars.java"
- *     parser.package="org.cesta.parsers.java"/&gt;
+ *     parser.package="org.cesta.parsers.java.generated"/&gt;
  * </pre></code></p><h3>Creating a transformation class</h3><p>
  * A transformation class for a transformation "MyTransformation" using
  * one parser can look like this:<code><pre>
@@ -68,7 +84,7 @@
  * import java.util.Map;
  * import org.antlr.runtime.RecognitionException;
  * import org.antlr.runtime.tree.TreeNodeStream;
- * import org.cesta.parsers.java.MyTransformationParser;
+ * import org.cesta.parsers.java.generated.MyTransformationParser;
  * import org.cesta.trans.TransformationException;
  * import org.cesta.types.MappedFile;
  * 

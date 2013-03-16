@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.logging.Logger;
 import org.antlr.runtime.*;
 import org.antlr.runtime.tree.CommonTree;
-import org.cesta.parsers.java.JavaLexer;
-import org.cesta.parsers.java.JavaParser;
+import org.cesta.parsers.java.generated.JavaLexer;
+import org.cesta.parsers.java.generated.JavaParser;
 import org.cesta.trans.TransformationException;
 
 /**

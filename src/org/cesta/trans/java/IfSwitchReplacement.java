@@ -3,8 +3,8 @@ package org.cesta.trans.java;
 import java.util.Map;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.TreeNodeStream;
-import org.cesta.parsers.java.IdentifyBlocksParser;
-import org.cesta.parsers.java.IfSwitchReplacementParser;
+import org.cesta.parsers.java.generated.IdentifyBlocksParser;
+import org.cesta.parsers.java.generated.IfSwitchReplacementParser;
 import org.cesta.trans.TransformationException;
 import org.cesta.types.MappedFile;
 
