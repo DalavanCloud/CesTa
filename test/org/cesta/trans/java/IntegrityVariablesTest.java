@@ -41,13 +41,16 @@ public class IntegrityVariablesTest {
         assertEquals(-1, globalByte);
         globalByte = 1;
         
-        /*short j = 1;
+        short j = 1;
+        assertEquals(1, j);
+        j += 4;
+        j /= 5;
         assertEquals(1, j);
         
         for (short i = 0; i < 10; i++) {
             j+=i;
         }
-        assertEquals(46, j);*/
+        assertEquals(46, j);
     }
     
     @Test

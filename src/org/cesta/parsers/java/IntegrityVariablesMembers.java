@@ -61,13 +61,13 @@ public abstract class IntegrityVariablesMembers extends AbstractTreeParser {
         }
 
         public boolean isSupportedType() {
-            return type.equals("boolean") || type.equals("byte");
+            return type.equals("boolean") || type.equals("byte") || type.equals("short");
         }
     }
 
     // TODO: remove
     public boolean isSupportedType(String type) {
-        return type.equals("boolean") || type.equals("byte");
+        return type.equals("boolean") || type.equals("byte") || type.equals("short");
     }
 
     /**
@@ -110,7 +110,16 @@ public abstract class IntegrityVariablesMembers extends AbstractTreeParser {
         st.setAttribute("mask", "0x55");
         tokens.insertAfter(tree.getTokenStartIndex(), st);
 
-        // TODO: protection of a type short
+        st = getTemplateLib().getInstanceOf("addDualShortType");
+        tokens.insertAfter(tree.getTokenStartIndex(), st);
+        
+        st = getTemplateLib().getInstanceOf("declareShortSetter");
+        st.setAttribute("mask", "0x55");
+        tokens.insertAfter(tree.getTokenStartIndex(), st);
+
+        st = getTemplateLib().getInstanceOf("declareShortGetter");
+        st.setAttribute("mask", "0x55");
+        tokens.insertAfter(tree.getTokenStartIndex(), st);
     }
 
     /**
@@ -212,7 +221,7 @@ public abstract class IntegrityVariablesMembers extends AbstractTreeParser {
      * @param tree primary expression with the variable
      */
     public void getResistantType(String expression, Variable var, CommonTree tree) {
-        assert var == null : "null variable"; 
+        assert var != null : "null variable";
         if (!var.shouldBeTransformed()) {
             return;
         }

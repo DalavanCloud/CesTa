@@ -54,6 +54,36 @@ declareByteGetter(mask) ::= << <\n>
     }
 >>
 
+addDualShortType() ::= << <\n>
+    public class DualShort {
+        public short original;
+        public short masked;
+    }
+>>
+
+declareShortSetter(mask) ::= << <\n>
+    private DualShort _setShort(short var) {
+        DualShort dual = new DualShort();
+        dual.original = var;
+        dual.masked = (short) (<mask> ^ var);
+        return dual;
+    }
+>>
+
+declareShortGetter(mask) ::= << <\n>
+    private short _getShort(DualShort var) {
+        if ((var.masked ^ <mask>) == var.original) {
+            return var.original;
+        } else {
+            <if(params.javaCard)>
+            ISOException.throwIt(ISO7816.SW_DATA_INVALID);
+            <else>
+            throw new RuntimeException("Error induction");
+            <endif>
+        }
+    }
+>>
+
 
 /*
  * Templates adding a call to setter or getter for each supported variable
@@ -67,6 +97,10 @@ set_byte(value) ::= "_setByte((byte) (<value>))"
 
 get_byte(value) ::= "_getByte(<value>)"
 
+set_short(value) ::= "_setShort((short) (<value>))"
+
+get_short(value) ::= "_getShort(<value>)"
+
 
 /*
  * Templates for type representation changes during declarations
@@ -75,6 +109,8 @@ get_byte(value) ::= "_getByte(<value>)"
 resistantType_boolean() ::= "/*boolean*/byte"
 
 resistantType_byte() ::= "/*byte*/short"
+
+resistantType_short() ::= "/*short*/DualShort"
 
 
 /*
@@ -92,3 +128,12 @@ unwrapPreIncrementation_byte(variable, sign) ::=
 
 unwrapPostIncrementation_byte(variable, sign) ::=
     "<unwrapPreIncrementation_byte(variable=variable, sign=sign)>"
+
+unwrapAssign_short(left, right, sign) ::=
+    "<left> = <set_short(value={<get_short(value=left)> <sign> (<right>)})>"
+
+unwrapPreIncrementation_short(variable, sign) ::=
+    "<unwrapAssign_short(left=variable, right=1, sign=sign)>"
+
+unwrapPostIncrementation_short(variable, sign) ::=
+    "<unwrapPreIncrementation_short(variable=variable, sign=sign)>"

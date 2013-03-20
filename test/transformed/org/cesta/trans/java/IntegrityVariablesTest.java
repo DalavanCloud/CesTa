@@ -11,6 +11,26 @@ import org.junit.Test;
  */
 public class IntegrityVariablesTest {
 
+    private short _getShort(DualShort var) {
+        if ((var.masked ^ 0x55) == var.original) {
+            return var.original;
+        } else {
+            throw new RuntimeException("Error induction");
+        }
+    }
+
+    private DualShort _setShort(short var) {
+        DualShort dual = new DualShort();
+        dual.original = var;
+        dual.masked = (short) (0x55 ^ var);
+        return dual;
+    }
+
+    public class DualShort {
+        public short original;
+        public short masked;
+    }
+
     private static byte _getByte(short var) {
         if (((byte) (var >>> 8) ^ 0x55) == (byte) var) {
             return (byte) var;
@@ -67,13 +87,16 @@ public class IntegrityVariablesTest {
         assertEquals(-1, _getByte(globalByte));
         globalByte = _setByte((byte) (1));
         
-        /*short j = 1;
-        assertEquals(1, j);
+        /*short*/DualShort j = _setShort((short) (1));
+        assertEquals(1, _getShort(j));
+        j = _setShort((short) (_getShort(j) + (4)));
+        j = _setShort((short) (_getShort(j) / (5)));
+        assertEquals(1, _getShort(j));
         
-        for (short i = 0; i < 10; i++) {
-            j+=i;
+        for (/*short*/DualShort i = _setShort((short) (0)); _getShort(i) < 10; i = _setShort((short) (_getShort(i) + (1)))) {
+            j = _setShort((short) (_getShort(j) + (_getShort(i))));
         }
-        assertEquals(46, j);*/
+        assertEquals(46, _getShort(j));
     }
     
     @Test
