@@ -1,14 +1,3 @@
-/*
-  Author: Christian Wulf
-  E-Mail: chwchw at gmx.de
-  
-  Distributed under the BSD license. See comment in @header.
-
-  Excerpt of the preprocessor semantics:
-  - Chapter 9.5.1: "An implication of this is that #define and #undef directives in one
-    source file have no effect on other source files in the same program."
-*/
-
 parser grammar CSharp4;
 
 options {
@@ -18,20 +7,7 @@ options {
 }
 
 @header {
-/*
-[The BSD License]
-Copyright (c) 2012 Christian Wulf
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
-
-    Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-    Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-    Neither the name of the author nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. 
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
-*/
-package lang.csharp;
+package org.cesta.parsers.csharp.generated;
 
 import java.util.LinkedList;
 }
@@ -207,6 +183,10 @@ type_arguments
 type_argument 
 	: type
 	;
+// added by chw
+type_void
+  : VOID
+  ;
 
 //B.2.3 Variables
 /** expression */
@@ -1298,29 +1278,29 @@ all_member_modifier
 */
 // added by chw
 common_member_declaration
+scope {
+Object type;
+}
   : constant_declaration2
   | typed_member_declaration
-  | EVENT type ( variable_declarators SEMICOLON
-                 | member_name OPEN_BRACE event_accessor_declarations CLOSE_BRACE
-                 )
+  | event_declaration2
   | conversion_operator_declarator operator_body
   // constructor_declaration and static_constructor_declaration
-  | cons=IDENTIFIER OPEN_PARENS formal_parameter_list? CLOSE_PARENS constructor_initializer? body
-  | VOID method_definition
-  | CLASS id=IDENTIFIER type_parameter_list? class_base? type_parameter_constraints_clauses? class_body SEMICOLON?
-  | STRUCT IDENTIFIER type_parameter_list? struct_interfaces? type_parameter_constraints_clauses? struct_body SEMICOLON?
-  | INTERFACE IDENTIFIER variant_type_parameter_list? interface_base? type_parameter_constraints_clauses? interface_body SEMICOLON?
-  | ENUM IDENTIFIER enum_base? enum_body SEMICOLON?
-  | DELEGATE return_type IDENTIFIER type_parameter_list? OPEN_PARENS formal_parameter_list? CLOSE_PARENS type_parameter_constraints_clauses? SEMICOLON
+  | constructor_declaration2
+  | type_void   method_declaration2  // we use type_void instead of VOID to switch rules
+  | class_definition
+  | struct_definition
+  | interface_definition
+  | enum_definition
+  | delegate_definition
   ;
 // added by chw
 typed_member_declaration
-  : t=type
-    ( (interface_type DOT THIS)
-        => interface_type DOT THIS OPEN_BRACKET formal_parameter_list CLOSE_BRACKET OPEN_BRACE accessor_declarations CLOSE_BRACE
-    | (member_name type_parameter_list? OPEN_PARENS) => method_definition
+  : type {$common_member_declaration::type = $type.tree;}
+    ( (interface_type DOT THIS) => interface_type DOT indexer_declaration2
+    | (member_name type_parameter_list? OPEN_PARENS) => method_declaration2
     | (member_name OPEN_BRACE) => property_declaration2
-    | THIS OPEN_BRACKET formal_parameter_list CLOSE_BRACKET OPEN_BRACE accessor_declarations CLOSE_BRACE
+    | indexer_declaration2
     | operator_declaration2
     | field_declaration2
     )
@@ -2459,17 +2439,12 @@ delegate_definition
   : DELEGATE return_type IDENTIFIER variant_type_parameter_list? OPEN_PARENS
       formal_parameter_list? CLOSE_PARENS type_parameter_constraints_clauses? SEMICOLON
   ;
-method_definition
-  : method_member_name type_parameter_list? OPEN_PARENS formal_parameter_list? CLOSE_PARENS 
-      type_parameter_constraints_clauses? method_body
+event_declaration2
+  : EVENT type {$common_member_declaration::type = $type.tree;}
+      ( variable_declarators SEMICOLON
+      | member_name OPEN_BRACE event_accessor_declarations CLOSE_BRACE
+      )
   ;
-// added by chw to allow detection of type parameters for methods
-method_member_name
-  : ( IDENTIFIER
-    | IDENTIFIER DOUBLE_COLON IDENTIFIER
-    ) (type_argument_list_opt DOT IDENTIFIER)*
-  ;
-
 field_declaration2
   : variable_declarators SEMICOLON
   ;
@@ -2479,12 +2454,46 @@ property_declaration2
 constant_declaration2
   : CONST type constant_declarators SEMICOLON
   ;
-
+indexer_declaration2
+  : THIS OPEN_BRACKET formal_parameter_list CLOSE_BRACKET
+      OPEN_BRACE accessor_declarations CLOSE_BRACE
+  ;
+destructor_definition
+  : TILDE IDENTIFIER OPEN_PARENS CLOSE_PARENS destructor_body
+  ;
+constructor_declaration2
+  : IDENTIFIER OPEN_PARENS formal_parameter_list? CLOSE_PARENS constructor_initializer? body
+  ;
+method_declaration2
+  : method_member_name type_parameter_list? OPEN_PARENS formal_parameter_list? CLOSE_PARENS
+      type_parameter_constraints_clauses? method_body
+  ;
+// added by chw to allow detection of type parameters for methods
+method_member_name
+  : method_member_name2
+  ;
+method_member_name2
+  : ( IDENTIFIER
+    | IDENTIFIER DOUBLE_COLON IDENTIFIER
+    ) (type_argument_list_opt DOT IDENTIFIER)*
+  ;
 operator_declaration2
   : OPERATOR overloadable_operator OPEN_PARENS type IDENTIFIER
          (COMMA type IDENTIFIER)? CLOSE_PARENS operator_body
   ;
-
+interface_method_declaration2
+  : IDENTIFIER type_parameter_list? OPEN_PARENS formal_parameter_list? CLOSE_PARENS type_parameter_constraints_clauses? SEMICOLON
+  ;
+interface_property_declaration2
+  : IDENTIFIER OPEN_BRACE interface_accessors CLOSE_BRACE
+  ;
+interface_event_declaration2
+  : EVENT type IDENTIFIER SEMICOLON
+  ;
+interface_indexer_declaration2
+  : THIS OPEN_BRACKET formal_parameter_list CLOSE_BRACKET OPEN_BRACE interface_accessors CLOSE_BRACE
+  ;
+/** starts with DOT IDENTIFIER */
 member_access2
   : DOT IDENTIFIER type_argument_list_opt
   ;
