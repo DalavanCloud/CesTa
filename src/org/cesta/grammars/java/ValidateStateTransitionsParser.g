@@ -19,7 +19,7 @@ options {
 import JavaTreeParser;
 
 @treeparser::header {
-package org.cesta.parsers.java;
+package org.cesta.parsers.java.generated;
 
 import org.cesta.util.LinearEncoder;
 import org.cesta.parsers.dot.DotTree;
@@ -31,6 +31,7 @@ import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.Vector;
 import java.util.Iterator;
+import org.cesta.parsers.java.AbstractTreeParser;
 }
 
 @treeparser::members {

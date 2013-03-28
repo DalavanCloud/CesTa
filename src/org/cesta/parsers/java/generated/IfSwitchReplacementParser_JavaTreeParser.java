@@ -1,19 +1,22 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 JavaTreeParser.g 2013-02-01 18:57:19
+// $ANTLR 3.4 JavaTreeParser.g 2013-03-28 12:49:53
 
 package org.cesta.parsers.java.generated;
+
 import org.cesta.util.antlr.java.ANTLRJavaHelper;
+import org.cesta.parsers.java.AbstractTreeParser;
 
 
 import org.antlr.runtime.*;
-import org.antlr.runtime.tree.*;import java.util.Stack;
+import org.antlr.runtime.tree.*;
+import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
+
 import org.antlr.stringtemplate.*;
 import org.antlr.stringtemplate.language.*;
 import java.util.HashMap;
-import org.cesta.parsers.java.AbstractTreeParser;
 /**
  * Sample Tree Parser, which can be used to create new parsers.
  * Tree grammar is based on grammar by Dieter Habelitz. 
@@ -51,7 +54,9 @@ import org.cesta.parsers.java.AbstractTreeParser;
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
+@SuppressWarnings({"all", "warnings", "unchecked"})
 public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser {
+    public static final int EOF=-1;
     public static final int PACKAGE=84;
     public static final int EXPONENT=173;
     public static final int STAR=49;
@@ -69,16 +74,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
     public static final int NOT=34;
     public static final int VAR_DECLARATION=160;
     public static final int ANNOTATION_METHOD_DECL=109;
-    public static final int EOF=-1;
     public static final int DIV_ASSIGN=14;
-    public static final int BREAK=56;
     public static final int LOGICAL_AND=26;
-    public static final int BIT_SHIFT_RIGHT_ASSIGN=9;
+    public static final int BREAK=56;
     public static final int UNARY_PLUS=159;
+    public static final int BIT_SHIFT_RIGHT_ASSIGN=9;
     public static final int TYPE=157;
-    public static final int FINAL=70;
-    public static final int INC=21;
     public static final int RPAREN=43;
+    public static final int INC=21;
+    public static final int FINAL=70;
     public static final int IMPORT=78;
     public static final int STRING_LITERAL=170;
     public static final int FOR_UPDATE=132;
@@ -86,11 +90,11 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
     public static final int CAST_EXPR=118;
     public static final int NOT_EQUAL=35;
     public static final int VOID_METHOD_DECL=163;
-    public static final int RETURN=88;
     public static final int THIS=95;
+    public static final int RETURN=88;
     public static final int DOUBLE=65;
-    public static final int VOID=101;
     public static final int ENUM_TOP_LEVEL_SCOPE=125;
+    public static final int VOID=101;
     public static final int SUPER=92;
     public static final int COMMENT=182;
     public static final int ANNOTATION_INIT_KEY_LIST=107;
@@ -142,137 +146,139 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
     public static final int DECIMAL_LITERAL=167;
     public static final int THROW=96;
     public static final int FOR_INIT=131;
-    public static final int PROTECTED=86;
     public static final int DEC=12;
+    public static final int PROTECTED=86;
     public static final int CLASS=61;
     public static final int LBRACK=22;
     public static final int BIT_SHIFT_RIGHT=8;
     public static final int THROWS_CLAUSE=156;
     public static final int GREATER_OR_EQUAL=19;
     public static final int FOR=73;
-    public static final int LOGICAL_NOT=27;
     public static final int THIS_CONSTRUCTOR_CALL=155;
+    public static final int LOGICAL_NOT=27;
     public static final int FLOAT=72;
     public static final int ABSTRACT=53;
     public static final int AND=4;
     public static final int POST_DEC=147;
     public static final int AND_ASSIGN=5;
-    public static final int ANNOTATION_SCOPE=110;
-    public static final int MODIFIER_LIST=145;
     public static final int STATIC_ARRAY_CREATOR=152;
+    public static final int MODIFIER_LIST=145;
+    public static final int ANNOTATION_SCOPE=110;
     public static final int LPAREN=29;
     public static final int IF=74;
     public static final int AT=7;
-    public static final int CONSTRUCTOR_DECL=124;
     public static final int ESCAPE_SEQUENCE=175;
+    public static final int CONSTRUCTOR_DECL=124;
     public static final int LABELED_STATEMENT=141;
     public static final int UNICODE_ESCAPE=176;
-    public static final int BOOLEAN=55;
-    public static final int SYNCHRONIZED=94;
     public static final int EXPR=126;
+    public static final int SYNCHRONIZED=94;
+    public static final int BOOLEAN=55;
     public static final int CLASS_TOP_LEVEL_SCOPE=123;
     public static final int IMPLEMENTS=75;
     public static final int CONTINUE=62;
     public static final int COMMA=11;
     public static final int TRANSIENT=98;
-    public static final int XOR_ASSIGN=52;
     public static final int EQUAL=18;
+    public static final int XOR_ASSIGN=52;
     public static final int LOGICAL_OR=28;
-    public static final int ARGUMENT_LIST=112;
-    public static final int QUALIFIED_TYPE_IDENT=151;
     public static final int IDENT=164;
+    public static final int QUALIFIED_TYPE_IDENT=151;
+    public static final int ARGUMENT_LIST=112;
     public static final int PLUS=38;
-    public static final int ANNOTATION_INIT_BLOCK=105;
     public static final int HEX_LITERAL=165;
+    public static final int ANNOTATION_INIT_BLOCK=105;
     public static final int DOT=15;
     public static final int SHIFT_LEFT_ASSIGN=46;
     public static final int FORMAL_PARAM_LIST=133;
     public static final int GENERIC_TYPE_ARG_LIST=137;
-    public static final int DOTSTAR=16;
     public static final int ANNOTATION_TOP_LEVEL_SCOPE=111;
+    public static final int DOTSTAR=16;
     public static final int BYTE=57;
     public static final int XOR=51;
     public static final int JAVA_ID_PART=179;
     public static final int GREATER_THAN=20;
     public static final int VOLATILE=102;
     public static final int PARENTESIZED_EXPR=146;
-    public static final int LESS_OR_EQUAL=24;
-    public static final int ARRAY_DECLARATOR_LIST=114;
     public static final int CLASS_STATIC_INITIALIZER=122;
+    public static final int ARRAY_DECLARATOR_LIST=114;
+    public static final int LESS_OR_EQUAL=24;
     public static final int DEFAULT=63;
     public static final int OCTAL_LITERAL=166;
     public static final int HEX_DIGIT=171;
     public static final int SHORT=89;
     public static final int INSTANCEOF=76;
     public static final int MINUS=30;
-    public static final int SEMI=44;
-    public static final int TRUE=99;
     public static final int EXTENDS_CLAUSE=128;
+    public static final int TRUE=99;
+    public static final int SEMI=44;
     public static final int STAR_ASSIGN=50;
     public static final int VAR_DECLARATOR_LIST=162;
-    public static final int COLON=10;
     public static final int ARRAY_DECLARATOR=113;
+    public static final int COLON=10;
     public static final int OR_ASSIGN=37;
     public static final int ENUM=67;
-    public static final int QUESTION=40;
     public static final int NEWLINE=181;
+    public static final int QUESTION=40;
     public static final int FINALLY=71;
     public static final int RCURLY=42;
-    public static final int ASSIGN=6;
     public static final int PLUS_ASSIGN=39;
+    public static final int ASSIGN=6;
     public static final int ANNOTATION_INIT_ARRAY_ELEMENT=104;
     public static final int FUNCTION_METHOD_DECL=136;
     public static final int INTERFACE=77;
-    public static final int DIV=13;
     public static final int POST_INC=148;
-    public static final int LONG=80;
+    public static final int DIV=13;
     public static final int CLASS_CONSTRUCTOR_CALL=120;
-    public static final int PUBLIC=87;
-    public static final int EXTENDS=68;
+    public static final int LONG=80;
     public static final int FOR_EACH=130;
+    public static final int EXTENDS=68;
+    public static final int PUBLIC=87;
     public static final int ARRAY_INITIALIZER=116;
     public static final int CATCH_CLAUSE_LIST=119;
     public static final int SUPER_CONSTRUCTOR_CALL=153;
 
     // delegates
+    public AbstractTreeParser[] getDelegates() {
+        return new AbstractTreeParser[] {};
+    }
+
     // delegators
     public IfSwitchReplacementParser gIfSwitchReplacementParser;
     public IfSwitchReplacementParser gParent;
 
 
-        public IfSwitchReplacementParser_JavaTreeParser(TreeNodeStream input, IfSwitchReplacementParser gIfSwitchReplacementParser) {
-            this(input, new RecognizerSharedState(), gIfSwitchReplacementParser);
-        }
-        public IfSwitchReplacementParser_JavaTreeParser(TreeNodeStream input, RecognizerSharedState state, IfSwitchReplacementParser gIfSwitchReplacementParser) {
-            super(input, state);
-            this.gIfSwitchReplacementParser = gIfSwitchReplacementParser;
-             
-            gParent = gIfSwitchReplacementParser;
-        }
-        
-    protected StringTemplateGroup templateLib =
-      new StringTemplateGroup("IfSwitchReplacementParser_JavaTreeParserTemplates", AngleBracketTemplateLexer.class);
-
-    public void setTemplateLib(StringTemplateGroup templateLib) {
-      this.templateLib = templateLib;
+    public IfSwitchReplacementParser_JavaTreeParser(TreeNodeStream input, IfSwitchReplacementParser gIfSwitchReplacementParser) {
+        this(input, new RecognizerSharedState(), gIfSwitchReplacementParser);
     }
-    public StringTemplateGroup getTemplateLib() {
-      return templateLib;
-    }
-    /** allows convenient multi-value initialization:
-     *  "new STAttrMap().put(...).put(...)"
-     */
-    public static class STAttrMap extends HashMap {
-      public STAttrMap put(String attrName, Object value) {
-        super.put(attrName, value);
-        return this;
-      }
-      public STAttrMap put(String attrName, int value) {
-        super.put(attrName, new Integer(value));
-        return this;
-      }
+    public IfSwitchReplacementParser_JavaTreeParser(TreeNodeStream input, RecognizerSharedState state, IfSwitchReplacementParser gIfSwitchReplacementParser) {
+        super(input, state);
+        this.gIfSwitchReplacementParser = gIfSwitchReplacementParser;
+        gParent = gIfSwitchReplacementParser;
     }
 
+protected StringTemplateGroup templateLib =
+  new StringTemplateGroup("IfSwitchReplacementParser_JavaTreeParserTemplates", AngleBracketTemplateLexer.class);
+
+public void setTemplateLib(StringTemplateGroup templateLib) {
+  this.templateLib = templateLib;
+}
+public StringTemplateGroup getTemplateLib() {
+  return templateLib;
+}
+/** allows convenient multi-value initialization:
+ *  "new STAttrMap().put(...).put(...)"
+ */
+public static class STAttrMap extends HashMap {
+  public STAttrMap put(String attrName, Object value) {
+    super.put(attrName, value);
+    return this;
+  }
+  public STAttrMap put(String attrName, int value) {
+    super.put(attrName, new Integer(value));
+    return this;
+  }
+}
     public String[] getTokenNames() { return IfSwitchReplacementParser.tokenNames; }
     public String getGrammarFileName() { return "JavaTreeParser.g"; }
 
@@ -283,14 +289,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "packageDeclaration"
     // JavaTreeParser.g:63:1: packageDeclaration : ^( PACKAGE qualifiedIdentifier ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.packageDeclaration_return packageDeclaration() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.packageDeclaration_return retval = new IfSwitchReplacementParser_JavaTreeParser.packageDeclaration_return();
         retval.start = input.LT(1);
+
         int packageDeclaration_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 2) ) { return retval; }
+
             // JavaTreeParser.g:64:5: ( ^( PACKAGE qualifiedIdentifier ) )
             // JavaTreeParser.g:64:9: ^( PACKAGE qualifiedIdentifier )
             {
@@ -305,6 +315,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -312,12 +323,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 2, packageDeclaration_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "packageDeclaration"
+
 
     public static class importDeclaration_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -325,14 +340,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "importDeclaration"
     // JavaTreeParser.g:67:1: importDeclaration : ^( IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.importDeclaration_return importDeclaration() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.importDeclaration_return retval = new IfSwitchReplacementParser_JavaTreeParser.importDeclaration_return();
         retval.start = input.LT(1);
+
         int importDeclaration_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 3) ) { return retval; }
+
             // JavaTreeParser.g:68:5: ( ^( IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? ) )
             // JavaTreeParser.g:68:9: ^( IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? )
             {
@@ -348,7 +367,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             }
             switch (alt4) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: STATIC
+                    // JavaTreeParser.g:68:18: STATIC
                     {
                     match(input,STATIC,FOLLOW_STATIC_in_importDeclaration158); if (state.failed) return retval;
 
@@ -357,11 +376,13 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             }
 
+
             pushFollow(FOLLOW_qualifiedIdentifier_in_importDeclaration161);
             qualifiedIdentifier();
 
             state._fsp--;
             if (state.failed) return retval;
+
             // JavaTreeParser.g:68:46: ( DOTSTAR )?
             int alt5=2;
             int LA5_0 = input.LA(1);
@@ -371,7 +392,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             }
             switch (alt5) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: DOTSTAR
+                    // JavaTreeParser.g:68:46: DOTSTAR
                     {
                     match(input,DOTSTAR,FOLLOW_DOTSTAR_in_importDeclaration163); if (state.failed) return retval;
 
@@ -383,6 +404,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -390,12 +412,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 3, importDeclaration_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "importDeclaration"
+
 
     public static class extendsClause_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -403,14 +429,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "extendsClause"
     // JavaTreeParser.g:78:1: extendsClause : ^( EXTENDS_CLAUSE ( type )+ ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.extendsClause_return extendsClause() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.extendsClause_return retval = new IfSwitchReplacementParser_JavaTreeParser.extendsClause_return();
         retval.start = input.LT(1);
+
         int extendsClause_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 5) ) { return retval; }
+
             // JavaTreeParser.g:80:5: ( ^( EXTENDS_CLAUSE ( type )+ ) )
             // JavaTreeParser.g:80:9: ^( EXTENDS_CLAUSE ( type )+ )
             {
@@ -431,7 +461,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                 switch (alt13) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: type
+            	    // JavaTreeParser.g:80:26: type
             	    {
             	    pushFollow(FOLLOW_type_in_extendsClause306);
             	    type();
@@ -455,6 +485,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -462,12 +493,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 5, extendsClause_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "extendsClause"
+
 
     public static class implementsClause_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -475,14 +510,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "implementsClause"
     // JavaTreeParser.g:83:1: implementsClause : ^( IMPLEMENTS_CLAUSE ( type )+ ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.implementsClause_return implementsClause() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.implementsClause_return retval = new IfSwitchReplacementParser_JavaTreeParser.implementsClause_return();
         retval.start = input.LT(1);
+
         int implementsClause_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 6) ) { return retval; }
+
             // JavaTreeParser.g:84:5: ( ^( IMPLEMENTS_CLAUSE ( type )+ ) )
             // JavaTreeParser.g:84:9: ^( IMPLEMENTS_CLAUSE ( type )+ )
             {
@@ -503,7 +542,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                 switch (alt14) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: type
+            	    // JavaTreeParser.g:84:29: type
             	    {
             	    pushFollow(FOLLOW_type_in_implementsClause337);
             	    type();
@@ -527,6 +566,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -534,12 +574,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 6, implementsClause_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "implementsClause"
+
 
     public static class genericTypeParameterList_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -547,14 +591,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "genericTypeParameterList"
     // JavaTreeParser.g:87:1: genericTypeParameterList : ^( GENERIC_TYPE_PARAM_LIST ( genericTypeParameter )+ ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.genericTypeParameterList_return genericTypeParameterList() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.genericTypeParameterList_return retval = new IfSwitchReplacementParser_JavaTreeParser.genericTypeParameterList_return();
         retval.start = input.LT(1);
+
         int genericTypeParameterList_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 7) ) { return retval; }
+
             // JavaTreeParser.g:88:5: ( ^( GENERIC_TYPE_PARAM_LIST ( genericTypeParameter )+ ) )
             // JavaTreeParser.g:88:9: ^( GENERIC_TYPE_PARAM_LIST ( genericTypeParameter )+ )
             {
@@ -575,7 +623,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                 switch (alt15) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: genericTypeParameter
+            	    // JavaTreeParser.g:88:35: genericTypeParameter
             	    {
             	    pushFollow(FOLLOW_genericTypeParameter_in_genericTypeParameterList369);
             	    genericTypeParameter();
@@ -599,6 +647,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -606,12 +655,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 7, genericTypeParameterList_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "genericTypeParameterList"
+
 
     public static class genericTypeParameter_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -619,14 +672,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "genericTypeParameter"
     // JavaTreeParser.g:91:1: genericTypeParameter : ^( IDENT ( bound )? ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.genericTypeParameter_return genericTypeParameter() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.genericTypeParameter_return retval = new IfSwitchReplacementParser_JavaTreeParser.genericTypeParameter_return();
         retval.start = input.LT(1);
+
         int genericTypeParameter_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 8) ) { return retval; }
+
             // JavaTreeParser.g:92:5: ( ^( IDENT ( bound )? ) )
             // JavaTreeParser.g:92:9: ^( IDENT ( bound )? )
             {
@@ -643,7 +700,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 }
                 switch (alt16) {
                     case 1 :
-                        // JavaTreeParser.g:0:0: bound
+                        // JavaTreeParser.g:92:17: bound
                         {
                         pushFollow(FOLLOW_bound_in_genericTypeParameter393);
                         bound();
@@ -660,6 +717,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -667,12 +725,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 8, genericTypeParameter_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "genericTypeParameter"
+
 
     public static class bound_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -680,14 +742,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "bound"
     // JavaTreeParser.g:95:1: bound : ^( EXTENDS_BOUND_LIST ( type )+ ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.bound_return bound() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.bound_return retval = new IfSwitchReplacementParser_JavaTreeParser.bound_return();
         retval.start = input.LT(1);
+
         int bound_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 9) ) { return retval; }
+
             // JavaTreeParser.g:96:5: ( ^( EXTENDS_BOUND_LIST ( type )+ ) )
             // JavaTreeParser.g:96:9: ^( EXTENDS_BOUND_LIST ( type )+ )
             {
@@ -708,7 +774,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                 switch (alt17) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: type
+            	    // JavaTreeParser.g:96:30: type
             	    {
             	    pushFollow(FOLLOW_type_in_bound425);
             	    type();
@@ -732,6 +798,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -739,12 +806,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 9, bound_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "bound"
+
 
     public static class enumTopLevelScope_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -752,14 +823,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "enumTopLevelScope"
     // JavaTreeParser.g:99:1: enumTopLevelScope : ^( ENUM_TOP_LEVEL_SCOPE ( enumConstant )+ ( classTopLevelScope )? ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.enumTopLevelScope_return enumTopLevelScope() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.enumTopLevelScope_return retval = new IfSwitchReplacementParser_JavaTreeParser.enumTopLevelScope_return();
         retval.start = input.LT(1);
+
         int enumTopLevelScope_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return retval; }
+
             // JavaTreeParser.g:100:5: ( ^( ENUM_TOP_LEVEL_SCOPE ( enumConstant )+ ( classTopLevelScope )? ) )
             // JavaTreeParser.g:100:9: ^( ENUM_TOP_LEVEL_SCOPE ( enumConstant )+ ( classTopLevelScope )? )
             {
@@ -780,7 +855,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                 switch (alt18) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: enumConstant
+            	    // JavaTreeParser.g:100:32: enumConstant
             	    {
             	    pushFollow(FOLLOW_enumConstant_in_enumTopLevelScope449);
             	    enumConstant();
@@ -801,6 +876,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 cnt18++;
             } while (true);
 
+
             // JavaTreeParser.g:100:46: ( classTopLevelScope )?
             int alt19=2;
             int LA19_0 = input.LA(1);
@@ -810,7 +886,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             }
             switch (alt19) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: classTopLevelScope
+                    // JavaTreeParser.g:100:46: classTopLevelScope
                     {
                     pushFollow(FOLLOW_classTopLevelScope_in_enumTopLevelScope452);
                     gIfSwitchReplacementParser.classTopLevelScope();
@@ -826,6 +902,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -833,12 +910,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 10, enumTopLevelScope_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "enumTopLevelScope"
+
 
     public static class enumConstant_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -846,14 +927,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "enumConstant"
     // JavaTreeParser.g:103:1: enumConstant : ^( IDENT annotationList ( arguments )? ( classTopLevelScope )? ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.enumConstant_return enumConstant() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.enumConstant_return retval = new IfSwitchReplacementParser_JavaTreeParser.enumConstant_return();
         retval.start = input.LT(1);
+
         int enumConstant_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 11) ) { return retval; }
+
             // JavaTreeParser.g:104:5: ( ^( IDENT annotationList ( arguments )? ( classTopLevelScope )? ) )
             // JavaTreeParser.g:104:9: ^( IDENT annotationList ( arguments )? ( classTopLevelScope )? )
             {
@@ -865,6 +950,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             state._fsp--;
             if (state.failed) return retval;
+
             // JavaTreeParser.g:104:32: ( arguments )?
             int alt20=2;
             int LA20_0 = input.LA(1);
@@ -874,7 +960,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             }
             switch (alt20) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: arguments
+                    // JavaTreeParser.g:104:32: arguments
                     {
                     pushFollow(FOLLOW_arguments_in_enumConstant482);
                     arguments();
@@ -887,6 +973,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             }
 
+
             // JavaTreeParser.g:104:43: ( classTopLevelScope )?
             int alt21=2;
             int LA21_0 = input.LA(1);
@@ -896,7 +983,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             }
             switch (alt21) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: classTopLevelScope
+                    // JavaTreeParser.g:104:43: classTopLevelScope
                     {
                     pushFollow(FOLLOW_classTopLevelScope_in_enumConstant485);
                     gIfSwitchReplacementParser.classTopLevelScope();
@@ -912,6 +999,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -919,12 +1007,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 11, enumConstant_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "enumConstant"
+
 
     public static class interfaceTopLevelScope_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -932,14 +1024,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "interfaceTopLevelScope"
     // JavaTreeParser.g:122:1: interfaceTopLevelScope : ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.interfaceTopLevelScope_return interfaceTopLevelScope() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.interfaceTopLevelScope_return retval = new IfSwitchReplacementParser_JavaTreeParser.interfaceTopLevelScope_return();
         retval.start = input.LT(1);
+
         int interfaceTopLevelScope_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return retval; }
+
             // JavaTreeParser.g:123:5: ( ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* ) )
             // JavaTreeParser.g:123:9: ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* )
             {
@@ -960,7 +1056,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     switch (alt33) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: interfaceScopeDeclarations
+                	    // JavaTreeParser.g:123:37: interfaceScopeDeclarations
                 	    {
                 	    pushFollow(FOLLOW_interfaceScopeDeclarations_in_interfaceTopLevelScope698);
                 	    interfaceScopeDeclarations();
@@ -980,6 +1076,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -987,12 +1084,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 14, interfaceTopLevelScope_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "interfaceTopLevelScope"
+
 
     public static class interfaceScopeDeclarations_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1000,14 +1101,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "interfaceScopeDeclarations"
     // JavaTreeParser.g:126:1: interfaceScopeDeclarations : ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration );
     public final IfSwitchReplacementParser_JavaTreeParser.interfaceScopeDeclarations_return interfaceScopeDeclarations() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.interfaceScopeDeclarations_return retval = new IfSwitchReplacementParser_JavaTreeParser.interfaceScopeDeclarations_return();
         retval.start = input.LT(1);
+
         int interfaceScopeDeclarations_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 15) ) { return retval; }
+
             // JavaTreeParser.g:127:5: ( ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration )
             int alt39=4;
             switch ( input.LA(1) ) {
@@ -1040,6 +1145,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     new NoViableAltException("", 39, 0, input);
 
                 throw nvae;
+
             }
 
             switch (alt39) {
@@ -1054,6 +1160,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     // JavaTreeParser.g:127:45: ( genericTypeParameterList )?
                     int alt34=2;
                     int LA34_0 = input.LA(1);
@@ -1063,7 +1170,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     }
                     switch (alt34) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: genericTypeParameterList
+                            // JavaTreeParser.g:127:45: genericTypeParameterList
                             {
                             pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations728);
                             genericTypeParameterList();
@@ -1076,17 +1183,21 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     }
 
+
                     pushFollow(FOLLOW_type_in_interfaceScopeDeclarations731);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations733); if (state.failed) return retval;
+
                     pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations735);
                     formalParameterList();
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     // JavaTreeParser.g:127:102: ( arrayDeclaratorList )?
                     int alt35=2;
                     int LA35_0 = input.LA(1);
@@ -1096,7 +1207,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     }
                     switch (alt35) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: arrayDeclaratorList
+                            // JavaTreeParser.g:127:102: arrayDeclaratorList
                             {
                             pushFollow(FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations737);
                             arrayDeclaratorList();
@@ -1109,6 +1220,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     }
 
+
                     // JavaTreeParser.g:127:123: ( throwsClause )?
                     int alt36=2;
                     int LA36_0 = input.LA(1);
@@ -1118,7 +1230,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     }
                     switch (alt36) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: throwsClause
+                            // JavaTreeParser.g:127:123: throwsClause
                             {
                             pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations740);
                             throwsClause();
@@ -1134,6 +1246,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
+
                     }
                     break;
                 case 2 :
@@ -1147,6 +1260,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     // JavaTreeParser.g:128:41: ( genericTypeParameterList )?
                     int alt37=2;
                     int LA37_0 = input.LA(1);
@@ -1156,7 +1270,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     }
                     switch (alt37) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: genericTypeParameterList
+                            // JavaTreeParser.g:128:41: genericTypeParameterList
                             {
                             pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations757);
                             genericTypeParameterList();
@@ -1169,12 +1283,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     }
 
+
                     match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations760); if (state.failed) return retval;
+
                     pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations762);
                     formalParameterList();
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     // JavaTreeParser.g:128:93: ( throwsClause )?
                     int alt38=2;
                     int LA38_0 = input.LA(1);
@@ -1184,7 +1301,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     }
                     switch (alt38) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: throwsClause
+                            // JavaTreeParser.g:128:93: throwsClause
                             {
                             pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations764);
                             throwsClause();
@@ -1200,6 +1317,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
+
                     }
                     break;
                 case 3 :
@@ -1213,11 +1331,13 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_type_in_interfaceScopeDeclarations859);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_variableDeclaratorList_in_interfaceScopeDeclarations861);
                     variableDeclaratorList();
 
@@ -1225,6 +1345,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -1246,12 +1367,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 15, interfaceScopeDeclarations_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "interfaceScopeDeclarations"
+
 
     public static class variableDeclaratorList_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1259,14 +1384,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "variableDeclaratorList"
     // JavaTreeParser.g:136:1: variableDeclaratorList : ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.variableDeclaratorList_return variableDeclaratorList() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.variableDeclaratorList_return retval = new IfSwitchReplacementParser_JavaTreeParser.variableDeclaratorList_return();
         retval.start = input.LT(1);
+
         int variableDeclaratorList_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 16) ) { return retval; }
+
             // JavaTreeParser.g:137:5: ( ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ ) )
             // JavaTreeParser.g:137:9: ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ )
             {
@@ -1287,7 +1416,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                 switch (alt40) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: variableDeclarator
+            	    // JavaTreeParser.g:137:31: variableDeclarator
             	    {
             	    pushFollow(FOLLOW_variableDeclarator_in_variableDeclaratorList894);
             	    variableDeclarator();
@@ -1311,6 +1440,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -1318,12 +1448,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 16, variableDeclaratorList_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "variableDeclaratorList"
+
 
     public static class variableDeclarator_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1331,14 +1465,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "variableDeclarator"
     // JavaTreeParser.g:140:1: variableDeclarator : ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.variableDeclarator_return variableDeclarator() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.variableDeclarator_return retval = new IfSwitchReplacementParser_JavaTreeParser.variableDeclarator_return();
         retval.start = input.LT(1);
+
         int variableDeclarator_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 17) ) { return retval; }
+
             // JavaTreeParser.g:141:5: ( ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) )
             // JavaTreeParser.g:141:9: ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
             {
@@ -1350,6 +1488,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             state._fsp--;
             if (state.failed) return retval;
+
             // JavaTreeParser.g:141:47: ( variableInitializer )?
             int alt41=2;
             int LA41_0 = input.LA(1);
@@ -1359,7 +1498,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             }
             switch (alt41) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: variableInitializer
+                    // JavaTreeParser.g:141:47: variableInitializer
                     {
                     pushFollow(FOLLOW_variableInitializer_in_variableDeclarator920);
                     variableInitializer();
@@ -1375,6 +1514,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -1382,12 +1522,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 17, variableDeclarator_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "variableDeclarator"
+
 
     public static class variableDeclaratorId_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1395,14 +1539,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "variableDeclaratorId"
     // JavaTreeParser.g:144:1: variableDeclaratorId : ^( IDENT ( arrayDeclaratorList )? ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.variableDeclaratorId_return variableDeclaratorId() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.variableDeclaratorId_return retval = new IfSwitchReplacementParser_JavaTreeParser.variableDeclaratorId_return();
         retval.start = input.LT(1);
+
         int variableDeclaratorId_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 18) ) { return retval; }
+
             // JavaTreeParser.g:145:5: ( ^( IDENT ( arrayDeclaratorList )? ) )
             // JavaTreeParser.g:145:9: ^( IDENT ( arrayDeclaratorList )? )
             {
@@ -1419,7 +1567,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 }
                 switch (alt42) {
                     case 1 :
-                        // JavaTreeParser.g:0:0: arrayDeclaratorList
+                        // JavaTreeParser.g:145:17: arrayDeclaratorList
                         {
                         pushFollow(FOLLOW_arrayDeclaratorList_in_variableDeclaratorId948);
                         arrayDeclaratorList();
@@ -1436,6 +1584,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -1443,12 +1592,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 18, variableDeclaratorId_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "variableDeclaratorId"
+
 
     public static class variableInitializer_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1456,14 +1609,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "variableInitializer"
     // JavaTreeParser.g:148:1: variableInitializer : ( arrayInitializer | expression );
     public final IfSwitchReplacementParser_JavaTreeParser.variableInitializer_return variableInitializer() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.variableInitializer_return retval = new IfSwitchReplacementParser_JavaTreeParser.variableInitializer_return();
         retval.start = input.LT(1);
+
         int variableInitializer_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 19) ) { return retval; }
+
             // JavaTreeParser.g:149:5: ( arrayInitializer | expression )
             int alt43=2;
             int LA43_0 = input.LA(1);
@@ -1480,6 +1637,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     new NoViableAltException("", 43, 0, input);
 
                 throw nvae;
+
             }
             switch (alt43) {
                 case 1 :
@@ -1511,12 +1669,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 19, variableInitializer_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "variableInitializer"
+
 
     public static class arrayDeclarator_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1524,18 +1686,23 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "arrayDeclarator"
     // JavaTreeParser.g:153:1: arrayDeclarator : LBRACK RBRACK ;
     public final IfSwitchReplacementParser_JavaTreeParser.arrayDeclarator_return arrayDeclarator() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.arrayDeclarator_return retval = new IfSwitchReplacementParser_JavaTreeParser.arrayDeclarator_return();
         retval.start = input.LT(1);
+
         int arrayDeclarator_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 20) ) { return retval; }
+
             // JavaTreeParser.g:154:5: ( LBRACK RBRACK )
             // JavaTreeParser.g:154:9: LBRACK RBRACK
             {
             match(input,LBRACK,FOLLOW_LBRACK_in_arrayDeclarator998); if (state.failed) return retval;
+
             match(input,RBRACK,FOLLOW_RBRACK_in_arrayDeclarator1000); if (state.failed) return retval;
 
             }
@@ -1545,12 +1712,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 20, arrayDeclarator_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "arrayDeclarator"
+
 
     public static class arrayDeclaratorList_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1558,14 +1729,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "arrayDeclaratorList"
     // JavaTreeParser.g:157:1: arrayDeclaratorList : ^( ARRAY_DECLARATOR_LIST ( ARRAY_DECLARATOR )* ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.arrayDeclaratorList_return arrayDeclaratorList() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.arrayDeclaratorList_return retval = new IfSwitchReplacementParser_JavaTreeParser.arrayDeclaratorList_return();
         retval.start = input.LT(1);
+
         int arrayDeclaratorList_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 21) ) { return retval; }
+
             // JavaTreeParser.g:158:5: ( ^( ARRAY_DECLARATOR_LIST ( ARRAY_DECLARATOR )* ) )
             // JavaTreeParser.g:158:9: ^( ARRAY_DECLARATOR_LIST ( ARRAY_DECLARATOR )* )
             {
@@ -1586,7 +1761,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     switch (alt44) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: ARRAY_DECLARATOR
+                	    // JavaTreeParser.g:158:33: ARRAY_DECLARATOR
                 	    {
                 	    match(input,ARRAY_DECLARATOR,FOLLOW_ARRAY_DECLARATOR_in_arrayDeclaratorList1022); if (state.failed) return retval;
 
@@ -1602,6 +1777,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -1609,12 +1785,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 21, arrayDeclaratorList_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "arrayDeclaratorList"
+
 
     public static class arrayInitializer_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1622,14 +1802,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "arrayInitializer"
     // JavaTreeParser.g:161:1: arrayInitializer : ^( ARRAY_INITIALIZER ( variableInitializer )* ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.arrayInitializer_return arrayInitializer() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.arrayInitializer_return retval = new IfSwitchReplacementParser_JavaTreeParser.arrayInitializer_return();
         retval.start = input.LT(1);
+
         int arrayInitializer_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 22) ) { return retval; }
+
             // JavaTreeParser.g:162:5: ( ^( ARRAY_INITIALIZER ( variableInitializer )* ) )
             // JavaTreeParser.g:162:9: ^( ARRAY_INITIALIZER ( variableInitializer )* )
             {
@@ -1650,7 +1834,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     switch (alt45) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: variableInitializer
+                	    // JavaTreeParser.g:162:29: variableInitializer
                 	    {
                 	    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer1052);
                 	    variableInitializer();
@@ -1670,6 +1854,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -1677,12 +1862,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 22, arrayInitializer_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "arrayInitializer"
+
 
     public static class throwsClause_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1690,14 +1879,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "throwsClause"
     // JavaTreeParser.g:165:1: throwsClause : ^( THROWS_CLAUSE ( qualifiedIdentifier )+ ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.throwsClause_return throwsClause() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.throwsClause_return retval = new IfSwitchReplacementParser_JavaTreeParser.throwsClause_return();
         retval.start = input.LT(1);
+
         int throwsClause_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 23) ) { return retval; }
+
             // JavaTreeParser.g:166:5: ( ^( THROWS_CLAUSE ( qualifiedIdentifier )+ ) )
             // JavaTreeParser.g:166:9: ^( THROWS_CLAUSE ( qualifiedIdentifier )+ )
             {
@@ -1718,7 +1911,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                 switch (alt46) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: qualifiedIdentifier
+            	    // JavaTreeParser.g:166:25: qualifiedIdentifier
             	    {
             	    pushFollow(FOLLOW_qualifiedIdentifier_in_throwsClause1076);
             	    qualifiedIdentifier();
@@ -1742,6 +1935,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -1749,12 +1943,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 23, throwsClause_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "throwsClause"
+
 
     public static class modifierList_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1762,14 +1960,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "modifierList"
     // JavaTreeParser.g:169:1: modifierList : ^( MODIFIER_LIST ( modifier )* ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.modifierList_return modifierList() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.modifierList_return retval = new IfSwitchReplacementParser_JavaTreeParser.modifierList_return();
         retval.start = input.LT(1);
+
         int modifierList_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 24) ) { return retval; }
+
             // JavaTreeParser.g:170:5: ( ^( MODIFIER_LIST ( modifier )* ) )
             // JavaTreeParser.g:170:9: ^( MODIFIER_LIST ( modifier )* )
             {
@@ -1783,14 +1985,14 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     int alt47=2;
                     int LA47_0 = input.LA(1);
 
-                    if ( (LA47_0==AT||LA47_0==ABSTRACT||LA47_0==FINAL||LA47_0==NATIVE||(LA47_0>=PRIVATE && LA47_0<=PUBLIC)||(LA47_0>=STATIC && LA47_0<=STRICTFP)||LA47_0==SYNCHRONIZED||LA47_0==TRANSIENT||LA47_0==VOLATILE) ) {
+                    if ( (LA47_0==AT||LA47_0==ABSTRACT||LA47_0==FINAL||LA47_0==NATIVE||(LA47_0 >= PRIVATE && LA47_0 <= PUBLIC)||(LA47_0 >= STATIC && LA47_0 <= STRICTFP)||LA47_0==SYNCHRONIZED||LA47_0==TRANSIENT||LA47_0==VOLATILE) ) {
                         alt47=1;
                     }
 
 
                     switch (alt47) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: modifier
+                	    // JavaTreeParser.g:170:25: modifier
                 	    {
                 	    pushFollow(FOLLOW_modifier_in_modifierList1100);
                 	    modifier();
@@ -1810,6 +2012,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -1817,12 +2020,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 24, modifierList_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "modifierList"
+
 
     public static class modifier_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1830,17 +2037,86 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "modifier"
     // JavaTreeParser.g:173:1: modifier : ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier );
     public final IfSwitchReplacementParser_JavaTreeParser.modifier_return modifier() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.modifier_return retval = new IfSwitchReplacementParser_JavaTreeParser.modifier_return();
         retval.start = input.LT(1);
+
         int modifier_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 25) ) { return retval; }
+
             // JavaTreeParser.g:174:5: ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier )
             int alt48=11;
-            alt48 = dfa48.predict(input);
+            switch ( input.LA(1) ) {
+            case PUBLIC:
+                {
+                alt48=1;
+                }
+                break;
+            case PROTECTED:
+                {
+                alt48=2;
+                }
+                break;
+            case PRIVATE:
+                {
+                alt48=3;
+                }
+                break;
+            case STATIC:
+                {
+                alt48=4;
+                }
+                break;
+            case ABSTRACT:
+                {
+                alt48=5;
+                }
+                break;
+            case NATIVE:
+                {
+                alt48=6;
+                }
+                break;
+            case SYNCHRONIZED:
+                {
+                alt48=7;
+                }
+                break;
+            case TRANSIENT:
+                {
+                alt48=8;
+                }
+                break;
+            case VOLATILE:
+                {
+                alt48=9;
+                }
+                break;
+            case STRICTFP:
+                {
+                alt48=10;
+                }
+                break;
+            case AT:
+            case FINAL:
+                {
+                alt48=11;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return retval;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 48, 0, input);
+
+                throw nvae;
+
+            }
+
             switch (alt48) {
                 case 1 :
                     // JavaTreeParser.g:174:9: PUBLIC
@@ -1930,12 +2206,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 25, modifier_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "modifier"
+
 
     public static class localModifierList_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1943,14 +2223,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "localModifierList"
     // JavaTreeParser.g:187:1: localModifierList : ^( LOCAL_MODIFIER_LIST ( localModifier )* ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.localModifierList_return localModifierList() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.localModifierList_return retval = new IfSwitchReplacementParser_JavaTreeParser.localModifierList_return();
         retval.start = input.LT(1);
+
         int localModifierList_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 26) ) { return retval; }
+
             // JavaTreeParser.g:188:5: ( ^( LOCAL_MODIFIER_LIST ( localModifier )* ) )
             // JavaTreeParser.g:188:9: ^( LOCAL_MODIFIER_LIST ( localModifier )* )
             {
@@ -1971,7 +2255,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     switch (alt49) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: localModifier
+                	    // JavaTreeParser.g:188:31: localModifier
                 	    {
                 	    pushFollow(FOLLOW_localModifier_in_localModifierList1243);
                 	    localModifier();
@@ -1991,6 +2275,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -1998,12 +2283,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 26, localModifierList_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "localModifierList"
+
 
     public static class localModifier_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2011,14 +2300,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "localModifier"
     // JavaTreeParser.g:191:1: localModifier : ( FINAL | annotation );
     public final IfSwitchReplacementParser_JavaTreeParser.localModifier_return localModifier() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.localModifier_return retval = new IfSwitchReplacementParser_JavaTreeParser.localModifier_return();
         retval.start = input.LT(1);
+
         int localModifier_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 27) ) { return retval; }
+
             // JavaTreeParser.g:192:5: ( FINAL | annotation )
             int alt50=2;
             int LA50_0 = input.LA(1);
@@ -2035,6 +2328,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     new NoViableAltException("", 50, 0, input);
 
                 throw nvae;
+
             }
             switch (alt50) {
                 case 1 :
@@ -2062,12 +2356,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 27, localModifier_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "localModifier"
+
 
     public static class type_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2075,14 +2373,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "type"
     // JavaTreeParser.g:196:1: type : ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.type_return type() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.type_return retval = new IfSwitchReplacementParser_JavaTreeParser.type_return();
         retval.start = input.LT(1);
+
         int type_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 28) ) { return retval; }
+
             // JavaTreeParser.g:197:5: ( ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? ) )
             // JavaTreeParser.g:197:9: ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? )
             {
@@ -2093,7 +2395,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             int alt51=2;
             int LA51_0 = input.LA(1);
 
-            if ( (LA51_0==BOOLEAN||LA51_0==BYTE||LA51_0==CHAR||LA51_0==DOUBLE||LA51_0==FLOAT||(LA51_0>=INT && LA51_0<=LONG)||LA51_0==SHORT) ) {
+            if ( (LA51_0==BOOLEAN||LA51_0==BYTE||LA51_0==CHAR||LA51_0==DOUBLE||LA51_0==FLOAT||(LA51_0 >= INT && LA51_0 <= LONG)||LA51_0==SHORT) ) {
                 alt51=1;
             }
             else if ( (LA51_0==QUALIFIED_TYPE_IDENT) ) {
@@ -2105,6 +2407,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     new NoViableAltException("", 51, 0, input);
 
                 throw nvae;
+
             }
             switch (alt51) {
                 case 1 :
@@ -2132,6 +2435,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             }
 
+
             // JavaTreeParser.g:197:53: ( arrayDeclaratorList )?
             int alt52=2;
             int LA52_0 = input.LA(1);
@@ -2141,7 +2445,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             }
             switch (alt52) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: arrayDeclaratorList
+                    // JavaTreeParser.g:197:53: arrayDeclaratorList
                     {
                     pushFollow(FOLLOW_arrayDeclaratorList_in_type1304);
                     arrayDeclaratorList();
@@ -2157,6 +2461,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -2164,12 +2469,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 28, type_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "type"
+
 
     public static class qualifiedTypeIdent_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2177,14 +2486,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "qualifiedTypeIdent"
     // JavaTreeParser.g:200:1: qualifiedTypeIdent : ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.qualifiedTypeIdent_return qualifiedTypeIdent() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.qualifiedTypeIdent_return retval = new IfSwitchReplacementParser_JavaTreeParser.qualifiedTypeIdent_return();
         retval.start = input.LT(1);
+
         int qualifiedTypeIdent_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 29) ) { return retval; }
+
             // JavaTreeParser.g:201:5: ( ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) )
             // JavaTreeParser.g:201:9: ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
             {
@@ -2205,7 +2518,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                 switch (alt53) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: typeIdent
+            	    // JavaTreeParser.g:201:32: typeIdent
             	    {
             	    pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent1328);
             	    typeIdent();
@@ -2229,6 +2542,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -2236,12 +2550,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 29, qualifiedTypeIdent_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "qualifiedTypeIdent"
+
 
     public static class typeIdent_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2249,14 +2567,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "typeIdent"
     // JavaTreeParser.g:204:1: typeIdent : ^( IDENT ( genericTypeArgumentList )? ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.typeIdent_return typeIdent() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.typeIdent_return retval = new IfSwitchReplacementParser_JavaTreeParser.typeIdent_return();
         retval.start = input.LT(1);
+
         int typeIdent_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 30) ) { return retval; }
+
             // JavaTreeParser.g:205:5: ( ^( IDENT ( genericTypeArgumentList )? ) )
             // JavaTreeParser.g:205:9: ^( IDENT ( genericTypeArgumentList )? )
             {
@@ -2273,7 +2595,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 }
                 switch (alt54) {
                     case 1 :
-                        // JavaTreeParser.g:0:0: genericTypeArgumentList
+                        // JavaTreeParser.g:205:17: genericTypeArgumentList
                         {
                         pushFollow(FOLLOW_genericTypeArgumentList_in_typeIdent1353);
                         genericTypeArgumentList();
@@ -2290,6 +2612,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -2297,12 +2620,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 30, typeIdent_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "typeIdent"
+
 
     public static class primitiveType_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2310,20 +2637,25 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "primitiveType"
     // JavaTreeParser.g:208:1: primitiveType : ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE );
     public final IfSwitchReplacementParser_JavaTreeParser.primitiveType_return primitiveType() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.primitiveType_return retval = new IfSwitchReplacementParser_JavaTreeParser.primitiveType_return();
         retval.start = input.LT(1);
+
         int primitiveType_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 31) ) { return retval; }
+
             // JavaTreeParser.g:209:5: ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE )
             // JavaTreeParser.g:
             {
-            if ( input.LA(1)==BOOLEAN||input.LA(1)==BYTE||input.LA(1)==CHAR||input.LA(1)==DOUBLE||input.LA(1)==FLOAT||(input.LA(1)>=INT && input.LA(1)<=LONG)||input.LA(1)==SHORT ) {
+            if ( input.LA(1)==BOOLEAN||input.LA(1)==BYTE||input.LA(1)==CHAR||input.LA(1)==DOUBLE||input.LA(1)==FLOAT||(input.LA(1) >= INT && input.LA(1) <= LONG)||input.LA(1)==SHORT ) {
                 input.consume();
-                state.errorRecovery=false;state.failed=false;
+                state.errorRecovery=false;
+                state.failed=false;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
@@ -2339,12 +2671,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 31, primitiveType_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "primitiveType"
+
 
     public static class genericTypeArgumentList_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2352,14 +2688,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "genericTypeArgumentList"
     // JavaTreeParser.g:219:1: genericTypeArgumentList : ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.genericTypeArgumentList_return genericTypeArgumentList() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.genericTypeArgumentList_return retval = new IfSwitchReplacementParser_JavaTreeParser.genericTypeArgumentList_return();
         retval.start = input.LT(1);
+
         int genericTypeArgumentList_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 32) ) { return retval; }
+
             // JavaTreeParser.g:220:5: ( ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ ) )
             // JavaTreeParser.g:220:9: ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ )
             {
@@ -2380,7 +2720,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                 switch (alt55) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: genericTypeArgument
+            	    // JavaTreeParser.g:220:33: genericTypeArgument
             	    {
             	    pushFollow(FOLLOW_genericTypeArgument_in_genericTypeArgumentList1466);
             	    genericTypeArgument();
@@ -2404,6 +2744,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -2411,12 +2752,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 32, genericTypeArgumentList_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "genericTypeArgumentList"
+
 
     public static class genericTypeArgument_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2424,14 +2769,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "genericTypeArgument"
     // JavaTreeParser.g:223:1: genericTypeArgument : ( type | ^( QUESTION ( genericWildcardBoundType )? ) );
     public final IfSwitchReplacementParser_JavaTreeParser.genericTypeArgument_return genericTypeArgument() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.genericTypeArgument_return retval = new IfSwitchReplacementParser_JavaTreeParser.genericTypeArgument_return();
         retval.start = input.LT(1);
+
         int genericTypeArgument_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 33) ) { return retval; }
+
             // JavaTreeParser.g:224:5: ( type | ^( QUESTION ( genericWildcardBoundType )? ) )
             int alt57=2;
             int LA57_0 = input.LA(1);
@@ -2448,6 +2797,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     new NoViableAltException("", 57, 0, input);
 
                 throw nvae;
+
             }
             switch (alt57) {
                 case 1 :
@@ -2477,7 +2827,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         }
                         switch (alt56) {
                             case 1 :
-                                // JavaTreeParser.g:0:0: genericWildcardBoundType
+                                // JavaTreeParser.g:225:20: genericWildcardBoundType
                                 {
                                 pushFollow(FOLLOW_genericWildcardBoundType_in_genericTypeArgument1504);
                                 genericWildcardBoundType();
@@ -2494,6 +2844,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         match(input, Token.UP, null); if (state.failed) return retval;
                     }
 
+
                     }
                     break;
 
@@ -2503,12 +2854,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 33, genericTypeArgument_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "genericTypeArgument"
+
 
     public static class genericWildcardBoundType_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2516,14 +2871,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "genericWildcardBoundType"
     // JavaTreeParser.g:228:1: genericWildcardBoundType : ( ^( EXTENDS type ) | ^( SUPER type ) );
     public final IfSwitchReplacementParser_JavaTreeParser.genericWildcardBoundType_return genericWildcardBoundType() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.genericWildcardBoundType_return retval = new IfSwitchReplacementParser_JavaTreeParser.genericWildcardBoundType_return();
         retval.start = input.LT(1);
+
         int genericWildcardBoundType_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 34) ) { return retval; }
+
             // JavaTreeParser.g:229:5: ( ^( EXTENDS type ) | ^( SUPER type ) )
             int alt58=2;
             int LA58_0 = input.LA(1);
@@ -2540,6 +2899,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     new NoViableAltException("", 58, 0, input);
 
                 throw nvae;
+
             }
             switch (alt58) {
                 case 1 :
@@ -2555,6 +2915,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -2572,6 +2933,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
+
                     }
                     break;
 
@@ -2581,12 +2943,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 34, genericWildcardBoundType_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "genericWildcardBoundType"
+
 
     public static class formalParameterList_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2594,14 +2960,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "formalParameterList"
     // JavaTreeParser.g:233:1: formalParameterList : ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.formalParameterList_return formalParameterList() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.formalParameterList_return retval = new IfSwitchReplacementParser_JavaTreeParser.formalParameterList_return();
         retval.start = input.LT(1);
+
         int formalParameterList_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 35) ) { return retval; }
+
             // JavaTreeParser.g:234:5: ( ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? ) )
             // JavaTreeParser.g:234:9: ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? )
             {
@@ -2622,7 +2992,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     switch (alt59) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: formalParameterStandardDecl
+                	    // JavaTreeParser.g:234:29: formalParameterStandardDecl
                 	    {
                 	    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList1683);
                 	    formalParameterStandardDecl();
@@ -2638,6 +3008,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     }
                 } while (true);
 
+
                 // JavaTreeParser.g:234:58: ( formalParameterVarargDecl )?
                 int alt60=2;
                 int LA60_0 = input.LA(1);
@@ -2647,7 +3018,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 }
                 switch (alt60) {
                     case 1 :
-                        // JavaTreeParser.g:0:0: formalParameterVarargDecl
+                        // JavaTreeParser.g:234:58: formalParameterVarargDecl
                         {
                         pushFollow(FOLLOW_formalParameterVarargDecl_in_formalParameterList1686);
                         formalParameterVarargDecl();
@@ -2664,6 +3035,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -2671,12 +3043,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 35, formalParameterList_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "formalParameterList"
+
 
     public static class formalParameterStandardDecl_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2684,14 +3060,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "formalParameterStandardDecl"
     // JavaTreeParser.g:237:1: formalParameterStandardDecl : ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.formalParameterStandardDecl_return formalParameterStandardDecl() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.formalParameterStandardDecl_return retval = new IfSwitchReplacementParser_JavaTreeParser.formalParameterStandardDecl_return();
         retval.start = input.LT(1);
+
         int formalParameterStandardDecl_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 36) ) { return retval; }
+
             // JavaTreeParser.g:238:5: ( ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) )
             // JavaTreeParser.g:238:9: ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
             {
@@ -2703,11 +3083,13 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             state._fsp--;
             if (state.failed) return retval;
+
             pushFollow(FOLLOW_type_in_formalParameterStandardDecl1717);
             type();
 
             state._fsp--;
             if (state.failed) return retval;
+
             pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl1719);
             variableDeclaratorId();
 
@@ -2716,6 +3098,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -2723,12 +3106,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 36, formalParameterStandardDecl_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "formalParameterStandardDecl"
+
 
     public static class formalParameterVarargDecl_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2736,14 +3123,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "formalParameterVarargDecl"
     // JavaTreeParser.g:241:1: formalParameterVarargDecl : ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.formalParameterVarargDecl_return formalParameterVarargDecl() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.formalParameterVarargDecl_return retval = new IfSwitchReplacementParser_JavaTreeParser.formalParameterVarargDecl_return();
         retval.start = input.LT(1);
+
         int formalParameterVarargDecl_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 37) ) { return retval; }
+
             // JavaTreeParser.g:242:5: ( ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) )
             // JavaTreeParser.g:242:9: ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId )
             {
@@ -2755,11 +3146,13 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             state._fsp--;
             if (state.failed) return retval;
+
             pushFollow(FOLLOW_type_in_formalParameterVarargDecl1748);
             type();
 
             state._fsp--;
             if (state.failed) return retval;
+
             pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterVarargDecl1750);
             variableDeclaratorId();
 
@@ -2768,6 +3161,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -2775,12 +3169,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 37, formalParameterVarargDecl_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "formalParameterVarargDecl"
+
 
     public static class qualifiedIdentifier_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2788,14 +3186,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "qualifiedIdentifier"
     // JavaTreeParser.g:245:1: qualifiedIdentifier : ( IDENT | ^( DOT qualifiedIdentifier IDENT ) );
     public final IfSwitchReplacementParser_JavaTreeParser.qualifiedIdentifier_return qualifiedIdentifier() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.qualifiedIdentifier_return retval = new IfSwitchReplacementParser_JavaTreeParser.qualifiedIdentifier_return();
         retval.start = input.LT(1);
+
         int qualifiedIdentifier_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 38) ) { return retval; }
+
             // JavaTreeParser.g:246:5: ( IDENT | ^( DOT qualifiedIdentifier IDENT ) )
             int alt61=2;
             int LA61_0 = input.LA(1);
@@ -2812,6 +3214,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     new NoViableAltException("", 61, 0, input);
 
                 throw nvae;
+
             }
             switch (alt61) {
                 case 1 :
@@ -2832,9 +3235,11 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier1789); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -2845,12 +3250,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 38, qualifiedIdentifier_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "qualifiedIdentifier"
+
 
     public static class annotationList_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2858,14 +3267,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotationList"
     // JavaTreeParser.g:252:1: annotationList : ^( ANNOTATION_LIST ( annotation )* ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.annotationList_return annotationList() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.annotationList_return retval = new IfSwitchReplacementParser_JavaTreeParser.annotationList_return();
         retval.start = input.LT(1);
+
         int annotationList_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 39) ) { return retval; }
+
             // JavaTreeParser.g:253:5: ( ^( ANNOTATION_LIST ( annotation )* ) )
             // JavaTreeParser.g:253:9: ^( ANNOTATION_LIST ( annotation )* )
             {
@@ -2886,7 +3299,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     switch (alt62) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: annotation
+                	    // JavaTreeParser.g:253:27: annotation
                 	    {
                 	    pushFollow(FOLLOW_annotation_in_annotationList1818);
                 	    annotation();
@@ -2906,6 +3319,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -2913,12 +3327,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 39, annotationList_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotationList"
+
 
     public static class annotation_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2926,14 +3344,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotation"
     // JavaTreeParser.g:256:1: annotation : ^( AT qualifiedIdentifier ( annotationInit )? ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.annotation_return annotation() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.annotation_return retval = new IfSwitchReplacementParser_JavaTreeParser.annotation_return();
         retval.start = input.LT(1);
+
         int annotation_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 40) ) { return retval; }
+
             // JavaTreeParser.g:257:5: ( ^( AT qualifiedIdentifier ( annotationInit )? ) )
             // JavaTreeParser.g:257:9: ^( AT qualifiedIdentifier ( annotationInit )? )
             {
@@ -2945,6 +3367,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             state._fsp--;
             if (state.failed) return retval;
+
             // JavaTreeParser.g:257:34: ( annotationInit )?
             int alt63=2;
             int LA63_0 = input.LA(1);
@@ -2954,7 +3377,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             }
             switch (alt63) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: annotationInit
+                    // JavaTreeParser.g:257:34: annotationInit
                     {
                     pushFollow(FOLLOW_annotationInit_in_annotation1844);
                     annotationInit();
@@ -2970,6 +3393,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -2977,12 +3401,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 40, annotation_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotation"
+
 
     public static class annotationInit_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2990,14 +3418,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotationInit"
     // JavaTreeParser.g:260:1: annotationInit : ^( ANNOTATION_INIT_BLOCK annotationInitializers ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.annotationInit_return annotationInit() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.annotationInit_return retval = new IfSwitchReplacementParser_JavaTreeParser.annotationInit_return();
         retval.start = input.LT(1);
+
         int annotationInit_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 41) ) { return retval; }
+
             // JavaTreeParser.g:261:5: ( ^( ANNOTATION_INIT_BLOCK annotationInitializers ) )
             // JavaTreeParser.g:261:9: ^( ANNOTATION_INIT_BLOCK annotationInitializers )
             {
@@ -3012,6 +3444,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -3019,12 +3452,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 41, annotationInit_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotationInit"
+
 
     public static class annotationInitializers_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3032,14 +3469,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotationInitializers"
     // JavaTreeParser.g:264:1: annotationInitializers : ( ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) );
     public final IfSwitchReplacementParser_JavaTreeParser.annotationInitializers_return annotationInitializers() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.annotationInitializers_return retval = new IfSwitchReplacementParser_JavaTreeParser.annotationInitializers_return();
         retval.start = input.LT(1);
+
         int annotationInitializers_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 42) ) { return retval; }
+
             // JavaTreeParser.g:265:5: ( ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) )
             int alt65=2;
             int LA65_0 = input.LA(1);
@@ -3056,6 +3497,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     new NoViableAltException("", 65, 0, input);
 
                 throw nvae;
+
             }
             switch (alt65) {
                 case 1 :
@@ -3078,7 +3520,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                         switch (alt64) {
                     	case 1 :
-                    	    // JavaTreeParser.g:0:0: annotationInitializer
+                    	    // JavaTreeParser.g:265:36: annotationInitializer
                     	    {
                     	    pushFollow(FOLLOW_annotationInitializer_in_annotationInitializers1895);
                     	    annotationInitializer();
@@ -3102,6 +3544,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
+
                     }
                     break;
                 case 2 :
@@ -3118,6 +3561,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
+
                     }
                     break;
 
@@ -3127,12 +3571,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 42, annotationInitializers_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotationInitializers"
+
 
     public static class annotationInitializer_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3140,14 +3588,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotationInitializer"
     // JavaTreeParser.g:269:1: annotationInitializer : ^( IDENT annotationElementValue ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.annotationInitializer_return annotationInitializer() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.annotationInitializer_return retval = new IfSwitchReplacementParser_JavaTreeParser.annotationInitializer_return();
         retval.start = input.LT(1);
+
         int annotationInitializer_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 43) ) { return retval; }
+
             // JavaTreeParser.g:270:5: ( ^( IDENT annotationElementValue ) )
             // JavaTreeParser.g:270:9: ^( IDENT annotationElementValue )
             {
@@ -3162,6 +3614,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -3169,12 +3622,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 43, annotationInitializer_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotationInitializer"
+
 
     public static class annotationElementValue_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3182,14 +3639,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotationElementValue"
     // JavaTreeParser.g:273:1: annotationElementValue : ( ^( ANNOTATION_INIT_ARRAY_ELEMENT ( annotationElementValue )* ) | annotation | expression );
     public final IfSwitchReplacementParser_JavaTreeParser.annotationElementValue_return annotationElementValue() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.annotationElementValue_return retval = new IfSwitchReplacementParser_JavaTreeParser.annotationElementValue_return();
         retval.start = input.LT(1);
+
         int annotationElementValue_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 44) ) { return retval; }
+
             // JavaTreeParser.g:274:5: ( ^( ANNOTATION_INIT_ARRAY_ELEMENT ( annotationElementValue )* ) | annotation | expression )
             int alt67=3;
             switch ( input.LA(1) ) {
@@ -3214,6 +3675,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     new NoViableAltException("", 67, 0, input);
 
                 throw nvae;
+
             }
 
             switch (alt67) {
@@ -3237,7 +3699,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                             switch (alt66) {
                         	case 1 :
-                        	    // JavaTreeParser.g:0:0: annotationElementValue
+                        	    // JavaTreeParser.g:274:41: annotationElementValue
                         	    {
                         	    pushFollow(FOLLOW_annotationElementValue_in_annotationElementValue1964);
                         	    annotationElementValue();
@@ -3256,6 +3718,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                         match(input, Token.UP, null); if (state.failed) return retval;
                     }
+
 
                     }
                     break;
@@ -3288,12 +3751,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 44, annotationElementValue_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotationElementValue"
+
 
     public static class annotationTopLevelScope_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3301,14 +3768,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotationTopLevelScope"
     // JavaTreeParser.g:279:1: annotationTopLevelScope : ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.annotationTopLevelScope_return annotationTopLevelScope() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.annotationTopLevelScope_return retval = new IfSwitchReplacementParser_JavaTreeParser.annotationTopLevelScope_return();
         retval.start = input.LT(1);
+
         int annotationTopLevelScope_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 45) ) { return retval; }
+
             // JavaTreeParser.g:280:5: ( ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* ) )
             // JavaTreeParser.g:280:9: ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* )
             {
@@ -3329,7 +3800,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     switch (alt68) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: annotationScopeDeclarations
+                	    // JavaTreeParser.g:280:38: annotationScopeDeclarations
                 	    {
                 	    pushFollow(FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope2012);
                 	    annotationScopeDeclarations();
@@ -3349,6 +3820,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -3356,12 +3828,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 45, annotationTopLevelScope_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotationTopLevelScope"
+
 
     public static class annotationScopeDeclarations_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3369,14 +3845,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotationScopeDeclarations"
     // JavaTreeParser.g:283:1: annotationScopeDeclarations : ( ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration );
     public final IfSwitchReplacementParser_JavaTreeParser.annotationScopeDeclarations_return annotationScopeDeclarations() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.annotationScopeDeclarations_return retval = new IfSwitchReplacementParser_JavaTreeParser.annotationScopeDeclarations_return();
         retval.start = input.LT(1);
+
         int annotationScopeDeclarations_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 46) ) { return retval; }
+
             // JavaTreeParser.g:284:5: ( ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration )
             int alt70=3;
             switch ( input.LA(1) ) {
@@ -3404,6 +3884,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     new NoViableAltException("", 70, 0, input);
 
                 throw nvae;
+
             }
 
             switch (alt70) {
@@ -3418,12 +3899,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_type_in_annotationScopeDeclarations2042);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     match(input,IDENT,FOLLOW_IDENT_in_annotationScopeDeclarations2044); if (state.failed) return retval;
+
                     // JavaTreeParser.g:284:58: ( annotationDefaultValue )?
                     int alt69=2;
                     int LA69_0 = input.LA(1);
@@ -3433,7 +3917,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     }
                     switch (alt69) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: annotationDefaultValue
+                            // JavaTreeParser.g:284:58: annotationDefaultValue
                             {
                             pushFollow(FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations2046);
                             annotationDefaultValue();
@@ -3449,6 +3933,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
+
                     }
                     break;
                 case 2 :
@@ -3462,11 +3947,13 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_type_in_annotationScopeDeclarations2063);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_variableDeclaratorList_in_annotationScopeDeclarations2065);
                     variableDeclaratorList();
 
@@ -3474,6 +3961,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -3495,12 +3983,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 46, annotationScopeDeclarations_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotationScopeDeclarations"
+
 
     public static class annotationDefaultValue_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3508,14 +4000,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotationDefaultValue"
     // JavaTreeParser.g:289:1: annotationDefaultValue : ^( DEFAULT annotationElementValue ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.annotationDefaultValue_return annotationDefaultValue() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.annotationDefaultValue_return retval = new IfSwitchReplacementParser_JavaTreeParser.annotationDefaultValue_return();
         retval.start = input.LT(1);
+
         int annotationDefaultValue_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 47) ) { return retval; }
+
             // JavaTreeParser.g:290:5: ( ^( DEFAULT annotationElementValue ) )
             // JavaTreeParser.g:290:9: ^( DEFAULT annotationElementValue )
             {
@@ -3530,6 +4026,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -3537,12 +4034,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 47, annotationDefaultValue_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotationDefaultValue"
+
 
     public static class localVariableDeclaration_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3550,14 +4051,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "localVariableDeclaration"
     // JavaTreeParser.g:305:1: localVariableDeclaration : ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.localVariableDeclaration_return localVariableDeclaration() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.localVariableDeclaration_return retval = new IfSwitchReplacementParser_JavaTreeParser.localVariableDeclaration_return();
         retval.start = input.LT(1);
+
         int localVariableDeclaration_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 50) ) { return retval; }
+
             // JavaTreeParser.g:306:5: ( ^( VAR_DECLARATION localModifierList type variableDeclaratorList ) )
             // JavaTreeParser.g:306:9: ^( VAR_DECLARATION localModifierList type variableDeclaratorList )
             {
@@ -3569,11 +4074,13 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             state._fsp--;
             if (state.failed) return retval;
+
             pushFollow(FOLLOW_type_in_localVariableDeclaration2200);
             type();
 
             state._fsp--;
             if (state.failed) return retval;
+
             pushFollow(FOLLOW_variableDeclaratorList_in_localVariableDeclaration2202);
             variableDeclaratorList();
 
@@ -3582,6 +4089,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -3589,12 +4097,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 50, localVariableDeclaration_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "localVariableDeclaration"
+
 
     public static class catches_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3602,14 +4114,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "catches"
     // JavaTreeParser.g:330:1: catches : ^( CATCH_CLAUSE_LIST ( catchClause )+ ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.catches_return catches() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.catches_return retval = new IfSwitchReplacementParser_JavaTreeParser.catches_return();
         retval.start = input.LT(1);
+
         int catches_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 52) ) { return retval; }
+
             // JavaTreeParser.g:331:5: ( ^( CATCH_CLAUSE_LIST ( catchClause )+ ) )
             // JavaTreeParser.g:331:9: ^( CATCH_CLAUSE_LIST ( catchClause )+ )
             {
@@ -3630,7 +4146,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                 switch (alt81) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: catchClause
+            	    // JavaTreeParser.g:331:29: catchClause
             	    {
             	    pushFollow(FOLLOW_catchClause_in_catches2526);
             	    catchClause();
@@ -3654,6 +4170,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -3661,12 +4178,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 52, catches_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "catches"
+
 
     public static class catchClause_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3674,14 +4195,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "catchClause"
     // JavaTreeParser.g:334:1: catchClause : ^( CATCH formalParameterStandardDecl block ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.catchClause_return catchClause() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.catchClause_return retval = new IfSwitchReplacementParser_JavaTreeParser.catchClause_return();
         retval.start = input.LT(1);
+
         int catchClause_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 53) ) { return retval; }
+
             // JavaTreeParser.g:335:5: ( ^( CATCH formalParameterStandardDecl block ) )
             // JavaTreeParser.g:335:9: ^( CATCH formalParameterStandardDecl block )
             {
@@ -3693,6 +4218,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             state._fsp--;
             if (state.failed) return retval;
+
             pushFollow(FOLLOW_block_in_catchClause2556);
             gIfSwitchReplacementParser.block();
 
@@ -3701,6 +4227,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -3708,12 +4235,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 53, catchClause_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "catchClause"
+
 
     public static class switchBlockLabels_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3721,14 +4252,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "switchBlockLabels"
     // JavaTreeParser.g:338:1: switchBlockLabels : ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.switchBlockLabels_return switchBlockLabels() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.switchBlockLabels_return retval = new IfSwitchReplacementParser_JavaTreeParser.switchBlockLabels_return();
         retval.start = input.LT(1);
+
         int switchBlockLabels_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 54) ) { return retval; }
+
             // JavaTreeParser.g:339:5: ( ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* ) )
             // JavaTreeParser.g:339:9: ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* )
             {
@@ -3755,7 +4290,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     switch (alt82) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: switchCaseLabel
+                	    // JavaTreeParser.g:339:35: switchCaseLabel
                 	    {
                 	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels2579);
                 	    switchCaseLabel();
@@ -3771,6 +4306,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     }
                 } while (true);
 
+
                 // JavaTreeParser.g:339:52: ( switchDefaultLabel )?
                 int alt83=2;
                 int LA83_0 = input.LA(1);
@@ -3780,7 +4316,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 }
                 switch (alt83) {
                     case 1 :
-                        // JavaTreeParser.g:0:0: switchDefaultLabel
+                        // JavaTreeParser.g:339:52: switchDefaultLabel
                         {
                         pushFollow(FOLLOW_switchDefaultLabel_in_switchBlockLabels2582);
                         switchDefaultLabel();
@@ -3792,6 +4328,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         break;
 
                 }
+
 
                 // JavaTreeParser.g:339:72: ( switchCaseLabel )*
                 loop84:
@@ -3806,7 +4343,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     switch (alt84) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: switchCaseLabel
+                	    // JavaTreeParser.g:339:72: switchCaseLabel
                 	    {
                 	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels2585);
                 	    switchCaseLabel();
@@ -3826,6 +4363,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -3833,12 +4371,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 54, switchBlockLabels_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "switchBlockLabels"
+
 
     public static class switchCaseLabel_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3846,14 +4388,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "switchCaseLabel"
     // JavaTreeParser.g:342:1: switchCaseLabel : ^( CASE expression ( blockStatement )* ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.switchCaseLabel_return switchCaseLabel() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.switchCaseLabel_return retval = new IfSwitchReplacementParser_JavaTreeParser.switchCaseLabel_return();
         retval.start = input.LT(1);
+
         int switchCaseLabel_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 55) ) { return retval; }
+
             // JavaTreeParser.g:343:5: ( ^( CASE expression ( blockStatement )* ) )
             // JavaTreeParser.g:343:9: ^( CASE expression ( blockStatement )* )
             {
@@ -3865,20 +4411,21 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             state._fsp--;
             if (state.failed) return retval;
+
             // JavaTreeParser.g:343:27: ( blockStatement )*
             loop85:
             do {
                 int alt85=2;
                 int LA85_0 = input.LA(1);
 
-                if ( (LA85_0==AT||LA85_0==SEMI||LA85_0==ASSERT||LA85_0==BREAK||(LA85_0>=CLASS && LA85_0<=CONTINUE)||LA85_0==DO||LA85_0==ENUM||(LA85_0>=FOR && LA85_0<=IF)||LA85_0==INTERFACE||LA85_0==RETURN||(LA85_0>=SWITCH && LA85_0<=SYNCHRONIZED)||LA85_0==THROW||LA85_0==TRY||LA85_0==WHILE||LA85_0==BLOCK_SCOPE||LA85_0==EXPR||LA85_0==FOR_EACH||LA85_0==LABELED_STATEMENT||LA85_0==VAR_DECLARATION) ) {
+                if ( (LA85_0==AT||LA85_0==SEMI||LA85_0==ASSERT||LA85_0==BREAK||(LA85_0 >= CLASS && LA85_0 <= CONTINUE)||LA85_0==DO||LA85_0==ENUM||(LA85_0 >= FOR && LA85_0 <= IF)||LA85_0==INTERFACE||LA85_0==RETURN||(LA85_0 >= SWITCH && LA85_0 <= SYNCHRONIZED)||LA85_0==THROW||LA85_0==TRY||LA85_0==WHILE||LA85_0==BLOCK_SCOPE||LA85_0==EXPR||LA85_0==FOR_EACH||LA85_0==LABELED_STATEMENT||LA85_0==VAR_DECLARATION) ) {
                     alt85=1;
                 }
 
 
                 switch (alt85) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: blockStatement
+            	    // JavaTreeParser.g:343:27: blockStatement
             	    {
             	    pushFollow(FOLLOW_blockStatement_in_switchCaseLabel2619);
             	    gIfSwitchReplacementParser.blockStatement();
@@ -3897,6 +4444,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -3904,12 +4452,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 55, switchCaseLabel_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "switchCaseLabel"
+
 
     public static class switchDefaultLabel_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3917,14 +4469,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "switchDefaultLabel"
     // JavaTreeParser.g:346:1: switchDefaultLabel : ^( DEFAULT ( blockStatement )* ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.switchDefaultLabel_return switchDefaultLabel() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.switchDefaultLabel_return retval = new IfSwitchReplacementParser_JavaTreeParser.switchDefaultLabel_return();
         retval.start = input.LT(1);
+
         int switchDefaultLabel_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 56) ) { return retval; }
+
             // JavaTreeParser.g:347:5: ( ^( DEFAULT ( blockStatement )* ) )
             // JavaTreeParser.g:347:9: ^( DEFAULT ( blockStatement )* )
             {
@@ -3938,14 +4494,14 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     int alt86=2;
                     int LA86_0 = input.LA(1);
 
-                    if ( (LA86_0==AT||LA86_0==SEMI||LA86_0==ASSERT||LA86_0==BREAK||(LA86_0>=CLASS && LA86_0<=CONTINUE)||LA86_0==DO||LA86_0==ENUM||(LA86_0>=FOR && LA86_0<=IF)||LA86_0==INTERFACE||LA86_0==RETURN||(LA86_0>=SWITCH && LA86_0<=SYNCHRONIZED)||LA86_0==THROW||LA86_0==TRY||LA86_0==WHILE||LA86_0==BLOCK_SCOPE||LA86_0==EXPR||LA86_0==FOR_EACH||LA86_0==LABELED_STATEMENT||LA86_0==VAR_DECLARATION) ) {
+                    if ( (LA86_0==AT||LA86_0==SEMI||LA86_0==ASSERT||LA86_0==BREAK||(LA86_0 >= CLASS && LA86_0 <= CONTINUE)||LA86_0==DO||LA86_0==ENUM||(LA86_0 >= FOR && LA86_0 <= IF)||LA86_0==INTERFACE||LA86_0==RETURN||(LA86_0 >= SWITCH && LA86_0 <= SYNCHRONIZED)||LA86_0==THROW||LA86_0==TRY||LA86_0==WHILE||LA86_0==BLOCK_SCOPE||LA86_0==EXPR||LA86_0==FOR_EACH||LA86_0==LABELED_STATEMENT||LA86_0==VAR_DECLARATION) ) {
                         alt86=1;
                     }
 
 
                     switch (alt86) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: blockStatement
+                	    // JavaTreeParser.g:347:19: blockStatement
                 	    {
                 	    pushFollow(FOLLOW_blockStatement_in_switchDefaultLabel2647);
                 	    gIfSwitchReplacementParser.blockStatement();
@@ -3965,6 +4521,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -3972,12 +4529,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 56, switchDefaultLabel_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "switchDefaultLabel"
+
 
     public static class forInit_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3985,14 +4546,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "forInit"
     // JavaTreeParser.g:350:1: forInit : ^( FOR_INIT ( localVariableDeclaration | ( expression )* )? ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.forInit_return forInit() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.forInit_return retval = new IfSwitchReplacementParser_JavaTreeParser.forInit_return();
         retval.start = input.LT(1);
+
         int forInit_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 57) ) { return retval; }
+
             // JavaTreeParser.g:351:5: ( ^( FOR_INIT ( localVariableDeclaration | ( expression )* )? ) )
             // JavaTreeParser.g:351:9: ^( FOR_INIT ( localVariableDeclaration | ( expression )* )? )
             {
@@ -4052,7 +4617,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                             switch (alt87) {
                         	case 1 :
-                        	    // JavaTreeParser.g:0:0: expression
+                        	    // JavaTreeParser.g:351:48: expression
                         	    {
                         	    pushFollow(FOLLOW_expression_in_forInit2680);
                         	    expression();
@@ -4078,6 +4643,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -4085,12 +4651,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 57, forInit_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "forInit"
+
 
     public static class forCondition_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -4098,14 +4668,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "forCondition"
     // JavaTreeParser.g:354:1: forCondition : ^( FOR_CONDITION ( expression )? ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.forCondition_return forCondition() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.forCondition_return retval = new IfSwitchReplacementParser_JavaTreeParser.forCondition_return();
         retval.start = input.LT(1);
+
         int forCondition_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 58) ) { return retval; }
+
             // JavaTreeParser.g:355:5: ( ^( FOR_CONDITION ( expression )? ) )
             // JavaTreeParser.g:355:9: ^( FOR_CONDITION ( expression )? )
             {
@@ -4122,7 +4696,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 }
                 switch (alt89) {
                     case 1 :
-                        // JavaTreeParser.g:0:0: expression
+                        // JavaTreeParser.g:355:25: expression
                         {
                         pushFollow(FOLLOW_expression_in_forCondition2710);
                         expression();
@@ -4139,6 +4713,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -4146,12 +4721,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 58, forCondition_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "forCondition"
+
 
     public static class forUpdater_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -4159,14 +4738,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "forUpdater"
     // JavaTreeParser.g:358:1: forUpdater : ^( FOR_UPDATE ( expression )* ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.forUpdater_return forUpdater() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.forUpdater_return retval = new IfSwitchReplacementParser_JavaTreeParser.forUpdater_return();
         retval.start = input.LT(1);
+
         int forUpdater_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 59) ) { return retval; }
+
             // JavaTreeParser.g:359:5: ( ^( FOR_UPDATE ( expression )* ) )
             // JavaTreeParser.g:359:9: ^( FOR_UPDATE ( expression )* )
             {
@@ -4187,7 +4770,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     switch (alt90) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: expression
+                	    // JavaTreeParser.g:359:22: expression
                 	    {
                 	    pushFollow(FOLLOW_expression_in_forUpdater2738);
                 	    expression();
@@ -4207,6 +4790,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -4214,12 +4798,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 59, forUpdater_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "forUpdater"
+
 
     public static class parenthesizedExpression_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -4227,14 +4815,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "parenthesizedExpression"
     // JavaTreeParser.g:364:1: parenthesizedExpression : ^( PARENTESIZED_EXPR expression ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.parenthesizedExpression_return parenthesizedExpression() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.parenthesizedExpression_return retval = new IfSwitchReplacementParser_JavaTreeParser.parenthesizedExpression_return();
         retval.start = input.LT(1);
+
         int parenthesizedExpression_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 60) ) { return retval; }
+
             // JavaTreeParser.g:365:5: ( ^( PARENTESIZED_EXPR expression ) )
             // JavaTreeParser.g:365:9: ^( PARENTESIZED_EXPR expression )
             {
@@ -4249,6 +4841,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -4256,12 +4849,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 60, parenthesizedExpression_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "parenthesizedExpression"
+
 
     public static class expression_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -4269,14 +4866,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "expression"
     // JavaTreeParser.g:368:1: expression : ^( EXPR expr ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.expression_return expression() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.expression_return retval = new IfSwitchReplacementParser_JavaTreeParser.expression_return();
         retval.start = input.LT(1);
+
         int expression_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 61) ) { return retval; }
+
             // JavaTreeParser.g:369:5: ( ^( EXPR expr ) )
             // JavaTreeParser.g:369:9: ^( EXPR expr )
             {
@@ -4291,6 +4892,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -4298,12 +4900,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 61, expression_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "expression"
+
 
     public static class expr_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -4311,17 +4917,265 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "expr"
     // JavaTreeParser.g:372:1: expr : ( ^( ASSIGN expr expr ) | ^( PLUS_ASSIGN expr expr ) | ^( MINUS_ASSIGN expr expr ) | ^( STAR_ASSIGN expr expr ) | ^( DIV_ASSIGN expr expr ) | ^( AND_ASSIGN expr expr ) | ^( OR_ASSIGN expr expr ) | ^( XOR_ASSIGN expr expr ) | ^( MOD_ASSIGN expr expr ) | ^( BIT_SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_LEFT_ASSIGN expr expr ) | ^( QUESTION expr expr expr ) | ^( LOGICAL_OR expr expr ) | ^( LOGICAL_AND expr expr ) | ^( OR expr expr ) | ^( XOR expr expr ) | ^( AND expr expr ) | ^( EQUAL expr expr ) | ^( NOT_EQUAL expr expr ) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL expr expr ) | ^( GREATER_OR_EQUAL expr expr ) | ^( BIT_SHIFT_RIGHT expr expr ) | ^( SHIFT_RIGHT expr expr ) | ^( GREATER_THAN expr expr ) | ^( SHIFT_LEFT expr expr ) | ^( LESS_THAN expr expr ) | ^( PLUS expr expr ) | ^( MINUS expr expr ) | ^( STAR expr expr ) | ^( DIV expr expr ) | ^( MOD expr expr ) | ^( UNARY_PLUS expr ) | ^( UNARY_MINUS expr ) | ^( PRE_INC expr ) | ^( PRE_DEC expr ) | ^( POST_INC expr ) | ^( POST_DEC expr ) | ^( NOT expr ) | ^( LOGICAL_NOT expr ) | ^( CAST_EXPR type expr ) | primaryExpression );
     public final IfSwitchReplacementParser_JavaTreeParser.expr_return expr() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.expr_return retval = new IfSwitchReplacementParser_JavaTreeParser.expr_return();
         retval.start = input.LT(1);
+
         int expr_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 62) ) { return retval; }
+
             // JavaTreeParser.g:373:5: ( ^( ASSIGN expr expr ) | ^( PLUS_ASSIGN expr expr ) | ^( MINUS_ASSIGN expr expr ) | ^( STAR_ASSIGN expr expr ) | ^( DIV_ASSIGN expr expr ) | ^( AND_ASSIGN expr expr ) | ^( OR_ASSIGN expr expr ) | ^( XOR_ASSIGN expr expr ) | ^( MOD_ASSIGN expr expr ) | ^( BIT_SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_LEFT_ASSIGN expr expr ) | ^( QUESTION expr expr expr ) | ^( LOGICAL_OR expr expr ) | ^( LOGICAL_AND expr expr ) | ^( OR expr expr ) | ^( XOR expr expr ) | ^( AND expr expr ) | ^( EQUAL expr expr ) | ^( NOT_EQUAL expr expr ) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL expr expr ) | ^( GREATER_OR_EQUAL expr expr ) | ^( BIT_SHIFT_RIGHT expr expr ) | ^( SHIFT_RIGHT expr expr ) | ^( GREATER_THAN expr expr ) | ^( SHIFT_LEFT expr expr ) | ^( LESS_THAN expr expr ) | ^( PLUS expr expr ) | ^( MINUS expr expr ) | ^( STAR expr expr ) | ^( DIV expr expr ) | ^( MOD expr expr ) | ^( UNARY_PLUS expr ) | ^( UNARY_MINUS expr ) | ^( PRE_INC expr ) | ^( PRE_DEC expr ) | ^( POST_INC expr ) | ^( POST_DEC expr ) | ^( NOT expr ) | ^( LOGICAL_NOT expr ) | ^( CAST_EXPR type expr ) | primaryExpression )
             int alt91=43;
-            alt91 = dfa91.predict(input);
+            switch ( input.LA(1) ) {
+            case ASSIGN:
+                {
+                alt91=1;
+                }
+                break;
+            case PLUS_ASSIGN:
+                {
+                alt91=2;
+                }
+                break;
+            case MINUS_ASSIGN:
+                {
+                alt91=3;
+                }
+                break;
+            case STAR_ASSIGN:
+                {
+                alt91=4;
+                }
+                break;
+            case DIV_ASSIGN:
+                {
+                alt91=5;
+                }
+                break;
+            case AND_ASSIGN:
+                {
+                alt91=6;
+                }
+                break;
+            case OR_ASSIGN:
+                {
+                alt91=7;
+                }
+                break;
+            case XOR_ASSIGN:
+                {
+                alt91=8;
+                }
+                break;
+            case MOD_ASSIGN:
+                {
+                alt91=9;
+                }
+                break;
+            case BIT_SHIFT_RIGHT_ASSIGN:
+                {
+                alt91=10;
+                }
+                break;
+            case SHIFT_RIGHT_ASSIGN:
+                {
+                alt91=11;
+                }
+                break;
+            case SHIFT_LEFT_ASSIGN:
+                {
+                alt91=12;
+                }
+                break;
+            case QUESTION:
+                {
+                alt91=13;
+                }
+                break;
+            case LOGICAL_OR:
+                {
+                alt91=14;
+                }
+                break;
+            case LOGICAL_AND:
+                {
+                alt91=15;
+                }
+                break;
+            case OR:
+                {
+                alt91=16;
+                }
+                break;
+            case XOR:
+                {
+                alt91=17;
+                }
+                break;
+            case AND:
+                {
+                alt91=18;
+                }
+                break;
+            case EQUAL:
+                {
+                alt91=19;
+                }
+                break;
+            case NOT_EQUAL:
+                {
+                alt91=20;
+                }
+                break;
+            case INSTANCEOF:
+                {
+                alt91=21;
+                }
+                break;
+            case LESS_OR_EQUAL:
+                {
+                alt91=22;
+                }
+                break;
+            case GREATER_OR_EQUAL:
+                {
+                alt91=23;
+                }
+                break;
+            case BIT_SHIFT_RIGHT:
+                {
+                alt91=24;
+                }
+                break;
+            case SHIFT_RIGHT:
+                {
+                alt91=25;
+                }
+                break;
+            case GREATER_THAN:
+                {
+                alt91=26;
+                }
+                break;
+            case SHIFT_LEFT:
+                {
+                alt91=27;
+                }
+                break;
+            case LESS_THAN:
+                {
+                alt91=28;
+                }
+                break;
+            case PLUS:
+                {
+                alt91=29;
+                }
+                break;
+            case MINUS:
+                {
+                alt91=30;
+                }
+                break;
+            case STAR:
+                {
+                alt91=31;
+                }
+                break;
+            case DIV:
+                {
+                alt91=32;
+                }
+                break;
+            case MOD:
+                {
+                alt91=33;
+                }
+                break;
+            case UNARY_PLUS:
+                {
+                alt91=34;
+                }
+                break;
+            case UNARY_MINUS:
+                {
+                alt91=35;
+                }
+                break;
+            case PRE_INC:
+                {
+                alt91=36;
+                }
+                break;
+            case PRE_DEC:
+                {
+                alt91=37;
+                }
+                break;
+            case POST_INC:
+                {
+                alt91=38;
+                }
+                break;
+            case POST_DEC:
+                {
+                alt91=39;
+                }
+                break;
+            case NOT:
+                {
+                alt91=40;
+                }
+                break;
+            case LOGICAL_NOT:
+                {
+                alt91=41;
+                }
+                break;
+            case CAST_EXPR:
+                {
+                alt91=42;
+                }
+                break;
+            case DOT:
+            case FALSE:
+            case NULL:
+            case SUPER:
+            case THIS:
+            case TRUE:
+            case ARRAY_DECLARATOR:
+            case ARRAY_ELEMENT_ACCESS:
+            case CLASS_CONSTRUCTOR_CALL:
+            case METHOD_CALL:
+            case PARENTESIZED_EXPR:
+            case STATIC_ARRAY_CREATOR:
+            case SUPER_CONSTRUCTOR_CALL:
+            case THIS_CONSTRUCTOR_CALL:
+            case IDENT:
+            case HEX_LITERAL:
+            case OCTAL_LITERAL:
+            case DECIMAL_LITERAL:
+            case FLOATING_POINT_LITERAL:
+            case CHARACTER_LITERAL:
+            case STRING_LITERAL:
+                {
+                alt91=43;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return retval;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 91, 0, input);
+
+                throw nvae;
+
+            }
+
             switch (alt91) {
                 case 1 :
                     // JavaTreeParser.g:373:9: ^( ASSIGN expr expr )
@@ -4334,6 +5188,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr2820);
                     expr();
 
@@ -4341,6 +5196,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4355,6 +5211,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr2836);
                     expr();
 
@@ -4362,6 +5219,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4376,6 +5234,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr2852);
                     expr();
 
@@ -4383,6 +5242,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4397,6 +5257,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr2868);
                     expr();
 
@@ -4404,6 +5265,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4418,6 +5280,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr2884);
                     expr();
 
@@ -4425,6 +5288,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4439,6 +5303,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr2900);
                     expr();
 
@@ -4446,6 +5311,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4460,6 +5326,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr2916);
                     expr();
 
@@ -4467,6 +5334,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4481,6 +5349,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr2932);
                     expr();
 
@@ -4488,6 +5357,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4502,6 +5372,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr2948);
                     expr();
 
@@ -4509,6 +5380,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4523,6 +5395,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr2964);
                     expr();
 
@@ -4530,6 +5403,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4544,6 +5418,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr2980);
                     expr();
 
@@ -4551,6 +5426,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4565,6 +5441,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr2996);
                     expr();
 
@@ -4572,6 +5449,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4586,11 +5464,13 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3012);
                     expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3014);
                     expr();
 
@@ -4598,6 +5478,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4612,6 +5493,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3030);
                     expr();
 
@@ -4619,6 +5501,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4633,6 +5516,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3046);
                     expr();
 
@@ -4640,6 +5524,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4654,6 +5539,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3062);
                     expr();
 
@@ -4661,6 +5547,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4675,6 +5562,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3078);
                     expr();
 
@@ -4682,6 +5570,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4696,6 +5585,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3094);
                     expr();
 
@@ -4703,6 +5593,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4717,6 +5608,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3110);
                     expr();
 
@@ -4724,6 +5616,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4738,6 +5631,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3126);
                     expr();
 
@@ -4745,6 +5639,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4759,6 +5654,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_type_in_expr3142);
                     type();
 
@@ -4766,6 +5662,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4780,6 +5677,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3158);
                     expr();
 
@@ -4787,6 +5685,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4801,6 +5700,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3174);
                     expr();
 
@@ -4808,6 +5708,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4822,6 +5723,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3190);
                     expr();
 
@@ -4829,6 +5731,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4843,6 +5746,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3206);
                     expr();
 
@@ -4850,6 +5754,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4864,6 +5769,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3222);
                     expr();
 
@@ -4871,6 +5777,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4885,6 +5792,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3238);
                     expr();
 
@@ -4892,6 +5800,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4906,6 +5815,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3254);
                     expr();
 
@@ -4913,6 +5823,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4927,6 +5838,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3270);
                     expr();
 
@@ -4934,6 +5846,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4948,6 +5861,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3286);
                     expr();
 
@@ -4955,6 +5869,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4969,6 +5884,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3302);
                     expr();
 
@@ -4976,6 +5892,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -4990,6 +5907,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3318);
                     expr();
 
@@ -4997,6 +5915,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -5011,6 +5930,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3334);
                     expr();
 
@@ -5018,6 +5938,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -5035,6 +5956,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
+
                     }
                     break;
                 case 35 :
@@ -5050,6 +5972,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -5067,6 +5990,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
+
                     }
                     break;
                 case 37 :
@@ -5082,6 +6006,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -5099,6 +6024,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
+
                     }
                     break;
                 case 39 :
@@ -5114,6 +6040,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -5131,6 +6058,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
+
                     }
                     break;
                 case 41 :
@@ -5147,6 +6075,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
+
                     }
                     break;
                 case 42 :
@@ -5160,6 +6089,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expr_in_expr3462);
                     expr();
 
@@ -5167,6 +6097,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -5188,12 +6119,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 62, expr_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "expr"
+
 
     public static class primaryExpression_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -5201,17 +6136,95 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "primaryExpression"
     // JavaTreeParser.g:418:1: primaryExpression : ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS | arrayTypeDeclarator | SUPER );
     public final IfSwitchReplacementParser_JavaTreeParser.primaryExpression_return primaryExpression() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.primaryExpression_return retval = new IfSwitchReplacementParser_JavaTreeParser.primaryExpression_return();
         retval.start = input.LT(1);
+
         int primaryExpression_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 63) ) { return retval; }
+
             // JavaTreeParser.g:419:5: ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS | arrayTypeDeclarator | SUPER )
             int alt95=11;
-            alt95 = dfa95.predict(input);
+            switch ( input.LA(1) ) {
+            case DOT:
+                {
+                alt95=1;
+                }
+                break;
+            case PARENTESIZED_EXPR:
+                {
+                alt95=2;
+                }
+                break;
+            case IDENT:
+                {
+                alt95=3;
+                }
+                break;
+            case METHOD_CALL:
+                {
+                alt95=4;
+                }
+                break;
+            case SUPER_CONSTRUCTOR_CALL:
+            case THIS_CONSTRUCTOR_CALL:
+                {
+                alt95=5;
+                }
+                break;
+            case ARRAY_ELEMENT_ACCESS:
+                {
+                alt95=6;
+                }
+                break;
+            case FALSE:
+            case NULL:
+            case TRUE:
+            case HEX_LITERAL:
+            case OCTAL_LITERAL:
+            case DECIMAL_LITERAL:
+            case FLOATING_POINT_LITERAL:
+            case CHARACTER_LITERAL:
+            case STRING_LITERAL:
+                {
+                alt95=7;
+                }
+                break;
+            case CLASS_CONSTRUCTOR_CALL:
+            case STATIC_ARRAY_CREATOR:
+                {
+                alt95=8;
+                }
+                break;
+            case THIS:
+                {
+                alt95=9;
+                }
+                break;
+            case ARRAY_DECLARATOR:
+                {
+                alt95=10;
+                }
+                break;
+            case SUPER:
+                {
+                alt95=11;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return retval;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 95, 0, input);
+
+                throw nvae;
+
+            }
+
             switch (alt95) {
                 case 1 :
                     // JavaTreeParser.g:419:9: ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) )
@@ -5270,6 +6283,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                             new NoViableAltException("", 93, 0, input);
 
                         throw nvae;
+
                     }
 
                     switch (alt93) {
@@ -5281,6 +6295,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                             state._fsp--;
                             if (state.failed) return retval;
+
                             // JavaTreeParser.g:421:17: ( IDENT | THIS | SUPER | innerNewExpression | CLASS )
                             int alt92=5;
                             switch ( input.LA(1) ) {
@@ -5315,6 +6330,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                                     new NoViableAltException("", 92, 0, input);
 
                                 throw nvae;
+
                             }
 
                             switch (alt92) {
@@ -5371,6 +6387,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                             state._fsp--;
                             if (state.failed) return retval;
+
                             match(input,CLASS,FOLLOW_CLASS_in_primaryExpression3665); if (state.failed) return retval;
 
                             }
@@ -5379,6 +6396,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                             // JavaTreeParser.g:428:17: VOID CLASS
                             {
                             match(input,VOID,FOLLOW_VOID_in_primaryExpression3683); if (state.failed) return retval;
+
                             match(input,CLASS,FOLLOW_CLASS_in_primaryExpression3685); if (state.failed) return retval;
 
                             }
@@ -5388,6 +6406,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -5420,6 +6439,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     // JavaTreeParser.g:433:41: ( genericTypeArgumentList )?
                     int alt94=2;
                     int LA94_0 = input.LA(1);
@@ -5429,7 +6449,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     }
                     switch (alt94) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: genericTypeArgumentList
+                            // JavaTreeParser.g:433:41: genericTypeArgumentList
                             {
                             pushFollow(FOLLOW_genericTypeArgumentList_in_primaryExpression3744);
                             genericTypeArgumentList();
@@ -5442,6 +6462,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     }
 
+
                     pushFollow(FOLLOW_arguments_in_primaryExpression3747);
                     arguments();
 
@@ -5449,6 +6470,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -5474,6 +6496,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_expression_in_primaryExpression3773);
                     expression();
 
@@ -5481,6 +6504,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -5538,12 +6562,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 63, primaryExpression_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "primaryExpression"
+
 
     public static class explicitConstructorCall_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -5551,14 +6579,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "explicitConstructorCall"
     // JavaTreeParser.g:443:1: explicitConstructorCall : ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) );
     public final IfSwitchReplacementParser_JavaTreeParser.explicitConstructorCall_return explicitConstructorCall() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.explicitConstructorCall_return retval = new IfSwitchReplacementParser_JavaTreeParser.explicitConstructorCall_return();
         retval.start = input.LT(1);
+
         int explicitConstructorCall_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 64) ) { return retval; }
+
             // JavaTreeParser.g:444:5: ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) )
             int alt99=2;
             int LA99_0 = input.LA(1);
@@ -5575,6 +6607,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     new NoViableAltException("", 99, 0, input);
 
                 throw nvae;
+
             }
             switch (alt99) {
                 case 1 :
@@ -5592,7 +6625,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     }
                     switch (alt96) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: genericTypeArgumentList
+                            // JavaTreeParser.g:444:33: genericTypeArgumentList
                             {
                             pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3850);
                             genericTypeArgumentList();
@@ -5605,6 +6638,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     }
 
+
                     pushFollow(FOLLOW_arguments_in_explicitConstructorCall3853);
                     arguments();
 
@@ -5612,6 +6646,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -5625,12 +6660,12 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     int alt97=2;
                     int LA97_0 = input.LA(1);
 
-                    if ( (LA97_0==DOT||LA97_0==FALSE||LA97_0==NULL||LA97_0==SUPER||LA97_0==THIS||LA97_0==TRUE||LA97_0==ARRAY_DECLARATOR||LA97_0==ARRAY_ELEMENT_ACCESS||LA97_0==CLASS_CONSTRUCTOR_CALL||LA97_0==METHOD_CALL||LA97_0==PARENTESIZED_EXPR||(LA97_0>=STATIC_ARRAY_CREATOR && LA97_0<=SUPER_CONSTRUCTOR_CALL)||LA97_0==THIS_CONSTRUCTOR_CALL||(LA97_0>=IDENT && LA97_0<=STRING_LITERAL)) ) {
+                    if ( (LA97_0==DOT||LA97_0==FALSE||LA97_0==NULL||LA97_0==SUPER||LA97_0==THIS||LA97_0==TRUE||LA97_0==ARRAY_DECLARATOR||LA97_0==ARRAY_ELEMENT_ACCESS||LA97_0==CLASS_CONSTRUCTOR_CALL||LA97_0==METHOD_CALL||LA97_0==PARENTESIZED_EXPR||(LA97_0 >= STATIC_ARRAY_CREATOR && LA97_0 <= SUPER_CONSTRUCTOR_CALL)||LA97_0==THIS_CONSTRUCTOR_CALL||(LA97_0 >= IDENT && LA97_0 <= STRING_LITERAL)) ) {
                         alt97=1;
                     }
                     switch (alt97) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: primaryExpression
+                            // JavaTreeParser.g:445:34: primaryExpression
                             {
                             pushFollow(FOLLOW_primaryExpression_in_explicitConstructorCall3867);
                             primaryExpression();
@@ -5643,6 +6678,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     }
 
+
                     // JavaTreeParser.g:445:53: ( genericTypeArgumentList )?
                     int alt98=2;
                     int LA98_0 = input.LA(1);
@@ -5652,7 +6688,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     }
                     switch (alt98) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: genericTypeArgumentList
+                            // JavaTreeParser.g:445:53: genericTypeArgumentList
                             {
                             pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3870);
                             genericTypeArgumentList();
@@ -5665,6 +6701,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     }
 
+
                     pushFollow(FOLLOW_arguments_in_explicitConstructorCall3873);
                     arguments();
 
@@ -5672,6 +6709,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -5682,12 +6720,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 64, explicitConstructorCall_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "explicitConstructorCall"
+
 
     public static class arrayTypeDeclarator_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -5695,14 +6737,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "arrayTypeDeclarator"
     // JavaTreeParser.g:448:1: arrayTypeDeclarator : ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.arrayTypeDeclarator_return arrayTypeDeclarator() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.arrayTypeDeclarator_return retval = new IfSwitchReplacementParser_JavaTreeParser.arrayTypeDeclarator_return();
         retval.start = input.LT(1);
+
         int arrayTypeDeclarator_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 65) ) { return retval; }
+
             // JavaTreeParser.g:449:5: ( ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) )
             // JavaTreeParser.g:449:9: ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) )
             {
@@ -5741,6 +6787,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     new NoViableAltException("", 100, 0, input);
 
                 throw nvae;
+
             }
 
             switch (alt100) {
@@ -5783,6 +6830,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -5790,12 +6838,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 65, arrayTypeDeclarator_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "arrayTypeDeclarator"
+
 
     public static class newExpression_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -5803,14 +6855,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "newExpression"
     // JavaTreeParser.g:452:1: newExpression : ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) );
     public final IfSwitchReplacementParser_JavaTreeParser.newExpression_return newExpression() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.newExpression_return retval = new IfSwitchReplacementParser_JavaTreeParser.newExpression_return();
         retval.start = input.LT(1);
+
         int newExpression_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 66) ) { return retval; }
+
             // JavaTreeParser.g:453:5: ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) )
             int alt105=2;
             int LA105_0 = input.LA(1);
@@ -5827,6 +6883,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     new NoViableAltException("", 105, 0, input);
 
                 throw nvae;
+
             }
             switch (alt105) {
                 case 1 :
@@ -5839,7 +6896,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     int alt102=2;
                     int LA102_0 = input.LA(1);
 
-                    if ( (LA102_0==BOOLEAN||LA102_0==BYTE||LA102_0==CHAR||LA102_0==DOUBLE||LA102_0==FLOAT||(LA102_0>=INT && LA102_0<=LONG)||LA102_0==SHORT) ) {
+                    if ( (LA102_0==BOOLEAN||LA102_0==BYTE||LA102_0==CHAR||LA102_0==DOUBLE||LA102_0==FLOAT||(LA102_0 >= INT && LA102_0 <= LONG)||LA102_0==SHORT) ) {
                         alt102=1;
                     }
                     else if ( (LA102_0==GENERIC_TYPE_ARG_LIST||LA102_0==QUALIFIED_TYPE_IDENT) ) {
@@ -5851,6 +6908,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                             new NoViableAltException("", 102, 0, input);
 
                         throw nvae;
+
                     }
                     switch (alt102) {
                         case 1 :
@@ -5861,6 +6919,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                             state._fsp--;
                             if (state.failed) return retval;
+
                             pushFollow(FOLLOW_newArrayConstruction_in_newExpression3949);
                             newArrayConstruction();
 
@@ -5881,7 +6940,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                             }
                             switch (alt101) {
                                 case 1 :
-                                    // JavaTreeParser.g:0:0: genericTypeArgumentList
+                                    // JavaTreeParser.g:455:17: genericTypeArgumentList
                                     {
                                     pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression3967);
                                     genericTypeArgumentList();
@@ -5894,11 +6953,13 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                             }
 
+
                             pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression3970);
                             qualifiedTypeIdent();
 
                             state._fsp--;
                             if (state.failed) return retval;
+
                             pushFollow(FOLLOW_newArrayConstruction_in_newExpression3972);
                             newArrayConstruction();
 
@@ -5912,6 +6973,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -5930,7 +6992,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     }
                     switch (alt103) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: genericTypeArgumentList
+                            // JavaTreeParser.g:458:34: genericTypeArgumentList
                             {
                             pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression4009);
                             genericTypeArgumentList();
@@ -5943,16 +7005,19 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     }
 
+
                     pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression4012);
                     qualifiedTypeIdent();
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_arguments_in_newExpression4014);
                     arguments();
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     // JavaTreeParser.g:458:88: ( classTopLevelScope )?
                     int alt104=2;
                     int LA104_0 = input.LA(1);
@@ -5962,7 +7027,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     }
                     switch (alt104) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: classTopLevelScope
+                            // JavaTreeParser.g:458:88: classTopLevelScope
                             {
                             pushFollow(FOLLOW_classTopLevelScope_in_newExpression4016);
                             gIfSwitchReplacementParser.classTopLevelScope();
@@ -5978,6 +7043,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
+
                     }
                     break;
 
@@ -5987,12 +7053,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 66, newExpression_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "newExpression"
+
 
     public static class innerNewExpression_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -6000,14 +7070,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "innerNewExpression"
     // JavaTreeParser.g:461:1: innerNewExpression : ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.innerNewExpression_return innerNewExpression() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.innerNewExpression_return retval = new IfSwitchReplacementParser_JavaTreeParser.innerNewExpression_return();
         retval.start = input.LT(1);
+
         int innerNewExpression_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 67) ) { return retval; }
+
             // JavaTreeParser.g:462:5: ( ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) )
             // JavaTreeParser.g:462:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? )
             {
@@ -6023,7 +7097,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             }
             switch (alt106) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: genericTypeArgumentList
+                    // JavaTreeParser.g:462:34: genericTypeArgumentList
                     {
                     pushFollow(FOLLOW_genericTypeArgumentList_in_innerNewExpression4041);
                     genericTypeArgumentList();
@@ -6036,12 +7110,15 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             }
 
+
             match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression4044); if (state.failed) return retval;
+
             pushFollow(FOLLOW_arguments_in_innerNewExpression4046);
             arguments();
 
             state._fsp--;
             if (state.failed) return retval;
+
             // JavaTreeParser.g:462:75: ( classTopLevelScope )?
             int alt107=2;
             int LA107_0 = input.LA(1);
@@ -6051,7 +7128,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             }
             switch (alt107) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: classTopLevelScope
+                    // JavaTreeParser.g:462:75: classTopLevelScope
                     {
                     pushFollow(FOLLOW_classTopLevelScope_in_innerNewExpression4048);
                     gIfSwitchReplacementParser.classTopLevelScope();
@@ -6067,6 +7144,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -6074,12 +7152,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 67, innerNewExpression_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "innerNewExpression"
+
 
     public static class newArrayConstruction_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -6087,14 +7169,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "newArrayConstruction"
     // JavaTreeParser.g:465:1: newArrayConstruction : ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? );
     public final IfSwitchReplacementParser_JavaTreeParser.newArrayConstruction_return newArrayConstruction() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.newArrayConstruction_return retval = new IfSwitchReplacementParser_JavaTreeParser.newArrayConstruction_return();
         retval.start = input.LT(1);
+
         int newArrayConstruction_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 68) ) { return retval; }
+
             // JavaTreeParser.g:466:5: ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? )
             int alt110=2;
             int LA110_0 = input.LA(1);
@@ -6111,6 +7197,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     new NoViableAltException("", 110, 0, input);
 
                 throw nvae;
+
             }
             switch (alt110) {
                 case 1 :
@@ -6121,6 +7208,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction4075);
                     arrayInitializer();
 
@@ -6146,7 +7234,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                         switch (alt108) {
                     	case 1 :
-                    	    // JavaTreeParser.g:0:0: expression
+                    	    // JavaTreeParser.g:467:9: expression
                     	    {
                     	    pushFollow(FOLLOW_expression_in_newArrayConstruction4085);
                     	    expression();
@@ -6167,6 +7255,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                         cnt108++;
                     } while (true);
 
+
                     // JavaTreeParser.g:467:21: ( arrayDeclaratorList )?
                     int alt109=2;
                     int LA109_0 = input.LA(1);
@@ -6176,7 +7265,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                     }
                     switch (alt109) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: arrayDeclaratorList
+                            // JavaTreeParser.g:467:21: arrayDeclaratorList
                             {
                             pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction4088);
                             arrayDeclaratorList();
@@ -6199,12 +7288,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 68, newArrayConstruction_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "newArrayConstruction"
+
 
     public static class arguments_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -6212,14 +7305,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "arguments"
     // JavaTreeParser.g:470:1: arguments : ^( ARGUMENT_LIST ( expression )* ) ;
     public final IfSwitchReplacementParser_JavaTreeParser.arguments_return arguments() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.arguments_return retval = new IfSwitchReplacementParser_JavaTreeParser.arguments_return();
         retval.start = input.LT(1);
+
         int arguments_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 69) ) { return retval; }
+
             // JavaTreeParser.g:471:5: ( ^( ARGUMENT_LIST ( expression )* ) )
             // JavaTreeParser.g:471:9: ^( ARGUMENT_LIST ( expression )* )
             {
@@ -6240,7 +7337,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
                     switch (alt111) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: expression
+                	    // JavaTreeParser.g:471:25: expression
                 	    {
                 	    pushFollow(FOLLOW_expression_in_arguments4111);
                 	    expression();
@@ -6260,6 +7357,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -6267,12 +7365,16 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 69, arguments_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "arguments"
+
 
     public static class literal_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -6280,20 +7382,25 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "literal"
     // JavaTreeParser.g:474:1: literal : ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | TRUE | FALSE | NULL );
     public final IfSwitchReplacementParser_JavaTreeParser.literal_return literal() throws RecognitionException {
         IfSwitchReplacementParser_JavaTreeParser.literal_return retval = new IfSwitchReplacementParser_JavaTreeParser.literal_return();
         retval.start = input.LT(1);
+
         int literal_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 70) ) { return retval; }
+
             // JavaTreeParser.g:475:5: ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | TRUE | FALSE | NULL )
             // JavaTreeParser.g:
             {
-            if ( input.LA(1)==FALSE||input.LA(1)==NULL||input.LA(1)==TRUE||(input.LA(1)>=HEX_LITERAL && input.LA(1)<=STRING_LITERAL) ) {
+            if ( input.LA(1)==FALSE||input.LA(1)==NULL||input.LA(1)==TRUE||(input.LA(1) >= HEX_LITERAL && input.LA(1) <= STRING_LITERAL) ) {
                 input.consume();
-                state.errorRecovery=false;state.failed=false;
+                state.errorRecovery=false;
+                state.failed=false;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
@@ -6309,15 +7416,18 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 70, literal_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "literal"
 
     // $ANTLR start synpred125_JavaTreeParser
-    public final void synpred125_JavaTreeParser_fragment() throws RecognitionException {   
+    public final void synpred125_JavaTreeParser_fragment() throws RecognitionException {
         // JavaTreeParser.g:339:35: ( switchCaseLabel )
         // JavaTreeParser.g:339:35: switchCaseLabel
         {
@@ -6328,11 +7438,12 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
         if (state.failed) return ;
 
         }
+
     }
     // $ANTLR end synpred125_JavaTreeParser
 
     // $ANTLR start synpred132_JavaTreeParser
-    public final void synpred132_JavaTreeParser_fragment() throws RecognitionException {   
+    public final void synpred132_JavaTreeParser_fragment() throws RecognitionException {
         // JavaTreeParser.g:351:48: ( ( expression )* )
         // JavaTreeParser.g:351:48: ( expression )*
         {
@@ -6349,7 +7460,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
             switch (alt142) {
         	case 1 :
-        	    // JavaTreeParser.g:0:0: expression
+        	    // JavaTreeParser.g:351:48: expression
         	    {
         	    pushFollow(FOLLOW_expression_in_synpred132_JavaTreeParser2680);
         	    expression();
@@ -6367,6 +7478,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
 
 
         }
+
     }
     // $ANTLR end synpred132_JavaTreeParser
 
@@ -6402,234 +7514,6 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
     }
 
 
-    protected DFA48 dfa48 = new DFA48(this);
-    protected DFA91 dfa91 = new DFA91(this);
-    protected DFA95 dfa95 = new DFA95(this);
-    static final String DFA48_eotS =
-        "\14\uffff";
-    static final String DFA48_eofS =
-        "\14\uffff";
-    static final String DFA48_minS =
-        "\1\7\13\uffff";
-    static final String DFA48_maxS =
-        "\1\146\13\uffff";
-    static final String DFA48_acceptS =
-        "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13";
-    static final String DFA48_specialS =
-        "\14\uffff}>";
-    static final String[] DFA48_transitionS = {
-            "\1\13\55\uffff\1\5\20\uffff\1\13\12\uffff\1\6\3\uffff\1\3\1"+
-            "\2\1\1\2\uffff\1\4\1\12\2\uffff\1\7\3\uffff\1\10\3\uffff\1\11",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-    };
-
-    static final short[] DFA48_eot = DFA.unpackEncodedString(DFA48_eotS);
-    static final short[] DFA48_eof = DFA.unpackEncodedString(DFA48_eofS);
-    static final char[] DFA48_min = DFA.unpackEncodedStringToUnsignedChars(DFA48_minS);
-    static final char[] DFA48_max = DFA.unpackEncodedStringToUnsignedChars(DFA48_maxS);
-    static final short[] DFA48_accept = DFA.unpackEncodedString(DFA48_acceptS);
-    static final short[] DFA48_special = DFA.unpackEncodedString(DFA48_specialS);
-    static final short[][] DFA48_transition;
-
-    static {
-        int numStates = DFA48_transitionS.length;
-        DFA48_transition = new short[numStates][];
-        for (int i=0; i<numStates; i++) {
-            DFA48_transition[i] = DFA.unpackEncodedString(DFA48_transitionS[i]);
-        }
-    }
-
-    class DFA48 extends DFA {
-
-        public DFA48(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 48;
-            this.eot = DFA48_eot;
-            this.eof = DFA48_eof;
-            this.min = DFA48_min;
-            this.max = DFA48_max;
-            this.accept = DFA48_accept;
-            this.special = DFA48_special;
-            this.transition = DFA48_transition;
-        }
-        public String getDescription() {
-            return "173:1: modifier : ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier );";
-        }
-    }
-    static final String DFA91_eotS =
-        "\54\uffff";
-    static final String DFA91_eofS =
-        "\54\uffff";
-    static final String DFA91_minS =
-        "\1\4\53\uffff";
-    static final String DFA91_maxS =
-        "\1\u00aa\53\uffff";
-    static final String DFA91_acceptS =
-        "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1"+
-        "\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31"+
-        "\1\32\1\33\1\34\1\35\1\36\1\37\1\40\1\41\1\42\1\43\1\44\1\45\1\46"+
-        "\1\47\1\50\1\51\1\52\1\53";
-    static final String DFA91_specialS =
-        "\54\uffff}>";
-    static final String[] DFA91_transitionS = {
-            "\1\22\1\6\1\1\1\uffff\1\30\1\12\3\uffff\1\40\1\5\1\53\2\uffff"+
-            "\1\23\1\27\1\32\3\uffff\1\26\1\34\1\17\1\51\1\16\1\uffff\1\36"+
-            "\1\3\1\41\1\11\1\50\1\24\1\20\1\7\1\35\1\2\1\15\4\uffff\1\33"+
-            "\1\14\1\31\1\13\1\37\1\4\1\21\1\10\20\uffff\1\53\6\uffff\1\25"+
-            "\6\uffff\1\53\10\uffff\1\53\2\uffff\1\53\3\uffff\1\53\15\uffff"+
-            "\1\53\1\uffff\1\53\2\uffff\1\52\1\uffff\1\53\27\uffff\1\53\1"+
-            "\uffff\1\53\1\47\1\46\1\45\1\44\1\uffff\2\53\1\uffff\1\53\2"+
-            "\uffff\1\43\1\42\4\uffff\7\53",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-    };
-
-    static final short[] DFA91_eot = DFA.unpackEncodedString(DFA91_eotS);
-    static final short[] DFA91_eof = DFA.unpackEncodedString(DFA91_eofS);
-    static final char[] DFA91_min = DFA.unpackEncodedStringToUnsignedChars(DFA91_minS);
-    static final char[] DFA91_max = DFA.unpackEncodedStringToUnsignedChars(DFA91_maxS);
-    static final short[] DFA91_accept = DFA.unpackEncodedString(DFA91_acceptS);
-    static final short[] DFA91_special = DFA.unpackEncodedString(DFA91_specialS);
-    static final short[][] DFA91_transition;
-
-    static {
-        int numStates = DFA91_transitionS.length;
-        DFA91_transition = new short[numStates][];
-        for (int i=0; i<numStates; i++) {
-            DFA91_transition[i] = DFA.unpackEncodedString(DFA91_transitionS[i]);
-        }
-    }
-
-    class DFA91 extends DFA {
-
-        public DFA91(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 91;
-            this.eot = DFA91_eot;
-            this.eof = DFA91_eof;
-            this.min = DFA91_min;
-            this.max = DFA91_max;
-            this.accept = DFA91_accept;
-            this.special = DFA91_special;
-            this.transition = DFA91_transition;
-        }
-        public String getDescription() {
-            return "372:1: expr : ( ^( ASSIGN expr expr ) | ^( PLUS_ASSIGN expr expr ) | ^( MINUS_ASSIGN expr expr ) | ^( STAR_ASSIGN expr expr ) | ^( DIV_ASSIGN expr expr ) | ^( AND_ASSIGN expr expr ) | ^( OR_ASSIGN expr expr ) | ^( XOR_ASSIGN expr expr ) | ^( MOD_ASSIGN expr expr ) | ^( BIT_SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_RIGHT_ASSIGN expr expr ) | ^( SHIFT_LEFT_ASSIGN expr expr ) | ^( QUESTION expr expr expr ) | ^( LOGICAL_OR expr expr ) | ^( LOGICAL_AND expr expr ) | ^( OR expr expr ) | ^( XOR expr expr ) | ^( AND expr expr ) | ^( EQUAL expr expr ) | ^( NOT_EQUAL expr expr ) | ^( INSTANCEOF expr type ) | ^( LESS_OR_EQUAL expr expr ) | ^( GREATER_OR_EQUAL expr expr ) | ^( BIT_SHIFT_RIGHT expr expr ) | ^( SHIFT_RIGHT expr expr ) | ^( GREATER_THAN expr expr ) | ^( SHIFT_LEFT expr expr ) | ^( LESS_THAN expr expr ) | ^( PLUS expr expr ) | ^( MINUS expr expr ) | ^( STAR expr expr ) | ^( DIV expr expr ) | ^( MOD expr expr ) | ^( UNARY_PLUS expr ) | ^( UNARY_MINUS expr ) | ^( PRE_INC expr ) | ^( PRE_DEC expr ) | ^( POST_INC expr ) | ^( POST_DEC expr ) | ^( NOT expr ) | ^( LOGICAL_NOT expr ) | ^( CAST_EXPR type expr ) | primaryExpression );";
-        }
-    }
-    static final String DFA95_eotS =
-        "\14\uffff";
-    static final String DFA95_eofS =
-        "\14\uffff";
-    static final String DFA95_minS =
-        "\1\17\13\uffff";
-    static final String DFA95_maxS =
-        "\1\u00aa\13\uffff";
-    static final String DFA95_acceptS =
-        "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13";
-    static final String DFA95_specialS =
-        "\14\uffff}>";
-    static final String[] DFA95_transitionS = {
-            "\1\1\65\uffff\1\7\15\uffff\1\7\10\uffff\1\13\2\uffff\1\11\3"+
-            "\uffff\1\7\15\uffff\1\12\1\uffff\1\6\4\uffff\1\10\27\uffff\1"+
-            "\4\1\uffff\1\2\5\uffff\1\10\1\5\1\uffff\1\5\10\uffff\1\3\6\7",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-    };
-
-    static final short[] DFA95_eot = DFA.unpackEncodedString(DFA95_eotS);
-    static final short[] DFA95_eof = DFA.unpackEncodedString(DFA95_eofS);
-    static final char[] DFA95_min = DFA.unpackEncodedStringToUnsignedChars(DFA95_minS);
-    static final char[] DFA95_max = DFA.unpackEncodedStringToUnsignedChars(DFA95_maxS);
-    static final short[] DFA95_accept = DFA.unpackEncodedString(DFA95_acceptS);
-    static final short[] DFA95_special = DFA.unpackEncodedString(DFA95_specialS);
-    static final short[][] DFA95_transition;
-
-    static {
-        int numStates = DFA95_transitionS.length;
-        DFA95_transition = new short[numStates][];
-        for (int i=0; i<numStates; i++) {
-            DFA95_transition[i] = DFA.unpackEncodedString(DFA95_transitionS[i]);
-        }
-    }
-
-    class DFA95 extends DFA {
-
-        public DFA95(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 95;
-            this.eot = DFA95_eot;
-            this.eof = DFA95_eof;
-            this.min = DFA95_min;
-            this.max = DFA95_max;
-            this.accept = DFA95_accept;
-            this.special = DFA95_special;
-            this.transition = DFA95_transition;
-        }
-        public String getDescription() {
-            return "418:1: primaryExpression : ( ^( DOT ( primaryExpression ( IDENT | THIS | SUPER | innerNewExpression | CLASS ) | primitiveType CLASS | VOID CLASS ) ) | parenthesizedExpression | IDENT | ^( METHOD_CALL primaryExpression ( genericTypeArgumentList )? arguments ) | explicitConstructorCall | ^( ARRAY_ELEMENT_ACCESS primaryExpression expression ) | literal | newExpression | THIS | arrayTypeDeclarator | SUPER );";
-        }
-    }
  
 
     public static final BitSet FOLLOW_PACKAGE_in_packageDeclaration127 = new BitSet(new long[]{0x0000000000000004L});
@@ -6658,8 +7542,8 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
     public static final BitSet FOLLOW_INTERFACE_TOP_LEVEL_SCOPE_in_interfaceTopLevelScope696 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_interfaceScopeDeclarations_in_interfaceTopLevelScope698 = new BitSet(new long[]{0x2000000000000088L,0x0000000000002008L,0x0000000900000100L});
     public static final BitSet FOLLOW_FUNCTION_METHOD_DECL_in_interfaceScopeDeclarations724 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations726 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000400L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations728 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations726 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000020000400L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations728 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000020000000L});
     public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations731 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations733 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
     public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations735 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L,0x0000000010000000L});
@@ -6672,7 +7556,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
     public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations762 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000010000000L});
     public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations764 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_VAR_DECLARATION_in_interfaceScopeDeclarations855 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations857 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations857 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000020000000L});
     public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations859 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
     public static final BitSet FOLLOW_variableDeclaratorList_in_interfaceScopeDeclarations861 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_typeDeclaration_in_interfaceScopeDeclarations872 = new BitSet(new long[]{0x0000000000000002L});
@@ -6707,7 +7591,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
     public static final BitSet FOLLOW_STRICTFP_in_modifier1211 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_localModifier_in_modifier1221 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_LOCAL_MODIFIER_LIST_in_localModifierList1241 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifier_in_localModifierList1243 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_localModifier_in_localModifierList1243 = new BitSet(new long[]{0x0000000000000088L,0x0000000000000040L});
     public static final BitSet FOLLOW_FINAL_in_localModifier1264 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_annotation_in_localModifier1274 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TYPE_in_type1294 = new BitSet(new long[]{0x0000000000000004L});
@@ -6718,7 +7602,6 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
     public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent1328 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_IDENT_in_typeIdent1351 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_genericTypeArgumentList_in_typeIdent1353 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_set_in_primitiveType0 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_GENERIC_TYPE_ARG_LIST_in_genericTypeArgumentList1464 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_genericTypeArgument_in_genericTypeArgumentList1466 = new BitSet(new long[]{0x0000010000000008L,0x0000000000000000L,0x0000000020000000L});
     public static final BitSet FOLLOW_type_in_genericTypeArgument1491 = new BitSet(new long[]{0x0000000000000002L});
@@ -6732,11 +7615,11 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
     public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList1683 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x00000000000000C0L});
     public static final BitSet FOLLOW_formalParameterVarargDecl_in_formalParameterList1686 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_FORMAL_PARAM_STD_DECL_in_formalParameterStandardDecl1713 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifierList_in_formalParameterStandardDecl1715 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_localModifierList_in_formalParameterStandardDecl1715 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000020000000L});
     public static final BitSet FOLLOW_type_in_formalParameterStandardDecl1717 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl1719 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_FORMAL_PARAM_VARARG_DECL_in_formalParameterVarargDecl1744 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifierList_in_formalParameterVarargDecl1746 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_localModifierList_in_formalParameterVarargDecl1746 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000020000000L});
     public static final BitSet FOLLOW_type_in_formalParameterVarargDecl1748 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterVarargDecl1750 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier1774 = new BitSet(new long[]{0x0000000000000002L});
@@ -6744,7 +7627,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
     public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentifier1787 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier1789 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_ANNOTATION_LIST_in_annotationList1816 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotation_in_annotationList1818 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_annotation_in_annotationList1818 = new BitSet(new long[]{0x0000000000000088L});
     public static final BitSet FOLLOW_AT_in_annotation1840 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_qualifiedIdentifier_in_annotation1842 = new BitSet(new long[]{0x0000000000000008L,0x0000020000000000L});
     public static final BitSet FOLLOW_annotationInit_in_annotation1844 = new BitSet(new long[]{0x0000000000000008L});
@@ -6757,25 +7640,25 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
     public static final BitSet FOLLOW_IDENT_in_annotationInitializer1935 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializer1937 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_ANNOTATION_INIT_ARRAY_ELEMENT_in_annotationElementValue1962 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValue1964 = new BitSet(new long[]{0x0020000000000088L,0x401001444CE20040L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValue1964 = new BitSet(new long[]{0x0000000000000088L,0x4000010000000000L});
     public static final BitSet FOLLOW_annotation_in_annotationElementValue1976 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_expression_in_annotationElementValue1986 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ANNOTATION_TOP_LEVEL_SCOPE_in_annotationTopLevelScope2010 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope2012 = new BitSet(new long[]{0x2000000000000088L,0x0000200000002008L,0x0000000900000100L});
+    public static final BitSet FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope2012 = new BitSet(new long[]{0x2000000000000088L,0x0000200000002008L,0x0000000100000000L});
     public static final BitSet FOLLOW_ANNOTATION_METHOD_DECL_in_annotationScopeDeclarations2038 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2040 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2040 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000020000000L});
     public static final BitSet FOLLOW_type_in_annotationScopeDeclarations2042 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_IDENT_in_annotationScopeDeclarations2044 = new BitSet(new long[]{0x8000000000000008L});
     public static final BitSet FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations2046 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_VAR_DECLARATION_in_annotationScopeDeclarations2059 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2061 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2061 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000020000000L});
     public static final BitSet FOLLOW_type_in_annotationScopeDeclarations2063 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
     public static final BitSet FOLLOW_variableDeclaratorList_in_annotationScopeDeclarations2065 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_typeDeclaration_in_annotationScopeDeclarations2076 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_DEFAULT_in_annotationDefaultValue2100 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_annotationElementValue_in_annotationDefaultValue2102 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_VAR_DECLARATION_in_localVariableDeclaration2196 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifierList_in_localVariableDeclaration2198 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_localModifierList_in_localVariableDeclaration2198 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000020000000L});
     public static final BitSet FOLLOW_type_in_localVariableDeclaration2200 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
     public static final BitSet FOLLOW_variableDeclaratorList_in_localVariableDeclaration2202 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_CATCH_CLAUSE_LIST_in_catches2524 = new BitSet(new long[]{0x0000000000000004L});
@@ -6788,17 +7671,17 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
     public static final BitSet FOLLOW_switchDefaultLabel_in_switchBlockLabels2582 = new BitSet(new long[]{0x0400000000000008L});
     public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels2585 = new BitSet(new long[]{0x0400000000000008L});
     public static final BitSet FOLLOW_CASE_in_switchCaseLabel2615 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_switchCaseLabel2617 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
-    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel2619 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
+    public static final BitSet FOLLOW_expression_in_switchCaseLabel2617 = new BitSet(new long[]{0x6140100000000088L,0x4020009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel2619 = new BitSet(new long[]{0x6140100000000088L,0x4020009161002609L,0x0000000100002004L});
     public static final BitSet FOLLOW_DEFAULT_in_switchDefaultLabel2645 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel2647 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
+    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel2647 = new BitSet(new long[]{0x6140100000000088L,0x4020009161002609L,0x0000000100002004L});
     public static final BitSet FOLLOW_FOR_INIT_in_forInit2673 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_localVariableDeclaration_in_forInit2676 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_expression_in_forInit2680 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_expression_in_forInit2680 = new BitSet(new long[]{0x0000000000000008L,0x4000000000000000L});
     public static final BitSet FOLLOW_FOR_CONDITION_in_forCondition2708 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expression_in_forCondition2710 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_FOR_UPDATE_in_forUpdater2736 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_forUpdater2738 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_expression_in_forUpdater2738 = new BitSet(new long[]{0x0000000000000008L,0x4000000000000000L});
     public static final BitSet FOLLOW_PARENTESIZED_EXPR_in_parenthesizedExpression2766 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expression_in_parenthesizedExpression2768 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_EXPR_in_expression2793 = new BitSet(new long[]{0x0000000000000004L});
@@ -6865,7 +7748,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
     public static final BitSet FOLLOW_expr_in_expr3124 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
     public static final BitSet FOLLOW_expr_in_expr3126 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_INSTANCEOF_in_expr3138 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr3140 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_expr_in_expr3140 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000020000000L});
     public static final BitSet FOLLOW_type_in_expr3142 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_LESS_OR_EQUAL_in_expr3154 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr3156 = new BitSet(new long[]{0x001FE1FFDF1CE370L,0x014A000890081020L,0x000007F0CB7D0000L});
@@ -6942,7 +7825,7 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
     public static final BitSet FOLLOW_arguments_in_primaryExpression3747 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_explicitConstructorCall_in_primaryExpression3758 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ARRAY_ELEMENT_ACCESS_in_primaryExpression3769 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression3771 = new BitSet(new long[]{0x0000000000000000L,0x4010000000000000L});
+    public static final BitSet FOLLOW_primaryExpression_in_primaryExpression3771 = new BitSet(new long[]{0x0000000000000000L,0x4000000000000000L});
     public static final BitSet FOLLOW_expression_in_primaryExpression3773 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_literal_in_primaryExpression3784 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_newExpression_in_primaryExpression3794 = new BitSet(new long[]{0x0000000000000002L});
@@ -6961,10 +7844,10 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
     public static final BitSet FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator3901 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_primitiveType_in_arrayTypeDeclarator3905 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression3929 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primitiveType_in_newExpression3947 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
+    public static final BitSet FOLLOW_primitiveType_in_newExpression3947 = new BitSet(new long[]{0x0000000000000000L,0x4004000000000000L});
     public static final BitSet FOLLOW_newArrayConstruction_in_newExpression3949 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression3967 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression3970 = new BitSet(new long[]{0x0000000000000000L,0x4014000000000000L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression3970 = new BitSet(new long[]{0x0000000000000000L,0x4004000000000000L});
     public static final BitSet FOLLOW_newArrayConstruction_in_newExpression3972 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression4007 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression4009 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
@@ -6978,12 +7861,11 @@ public class IfSwitchReplacementParser_JavaTreeParser extends AbstractTreeParser
     public static final BitSet FOLLOW_classTopLevelScope_in_innerNewExpression4048 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction4073 = new BitSet(new long[]{0x0000000000000000L,0x0010000000000000L});
     public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction4075 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_newArrayConstruction4085 = new BitSet(new long[]{0x0000000000000002L,0x4014000000000000L});
+    public static final BitSet FOLLOW_expression_in_newArrayConstruction4085 = new BitSet(new long[]{0x0000000000000002L,0x4004000000000000L});
     public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction4088 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ARGUMENT_LIST_in_arguments4109 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_arguments4111 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_set_in_literal0 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_arguments4111 = new BitSet(new long[]{0x0000000000000008L,0x4000000000000000L});
     public static final BitSet FOLLOW_switchCaseLabel_in_synpred125_JavaTreeParser2579 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_synpred132_JavaTreeParser2680 = new BitSet(new long[]{0x0000000000000002L,0x4010000000000000L});
+    public static final BitSet FOLLOW_expression_in_synpred132_JavaTreeParser2680 = new BitSet(new long[]{0x0000000000000002L,0x4000000000000000L});
 
 }

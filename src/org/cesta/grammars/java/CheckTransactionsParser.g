@@ -17,13 +17,14 @@ options {
 import JavaTreeParser;
 
 @treeparser::header {
-package org.cesta.parsers.java;
+package org.cesta.parsers.java.generated;
 
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.List;
 import java.util.LinkedList;
 import java.util.regex.PatternSyntaxException;
+import org.cesta.parsers.java.AbstractTreeParser;
 }
 
 @treeparser::members {	

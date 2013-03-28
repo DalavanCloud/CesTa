@@ -24,11 +24,12 @@ scope Variables {
 }
 
 @treeparser::header {
-package org.cesta.parsers.java;
+package org.cesta.parsers.java.generated;
 
 // import java.util.Map;
 // import java.util.HashMap;
 import org.cesta.util.antlr.java.ANTLRJavaHelper;
+import org.cesta.parsers.java.IntegrityVariablesMembers;
 }
 
 @treeparser::members {	
@@ -60,7 +61,7 @@ typeDeclaration
     |   ^(AT modifierList IDENT annotationTopLevelScope)
     ;
 
-// Adds additional code    
+// Adds additional code
 classTopLevelScope
     :   ^(CLASS_TOP_LEVEL_SCOPE classScopeDeclarations*) classAdditionalCode[(CommonTree)retval.start]
     ;

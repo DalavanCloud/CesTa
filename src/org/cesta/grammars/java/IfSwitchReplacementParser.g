@@ -17,8 +17,10 @@ options {
 import JavaTreeParser;
 
 @treeparser::header {
-package org.cesta.parsers.java;
+package org.cesta.parsers.java.generated;
+
 import org.cesta.util.antlr.java.ANTLRJavaHelper;
+import org.cesta.parsers.java.AbstractTreeParser;
 }
 
 @treeparser::members {

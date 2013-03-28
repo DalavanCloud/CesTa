@@ -29,7 +29,7 @@ scope VariableDeclaration {
 }
 
 @treeparser::header {
-package org.cesta.parsers.java;
+package org.cesta.parsers.java.generated;
 
 import java.util.Set;
 import java.util.HashSet;
@@ -38,6 +38,7 @@ import java.util.HashMap;
 import java.util.Vector;
 import java.util.Iterator;
 import org.cesta.util.antlr.java.ANTLRJavaHelper;
+import org.cesta.parsers.java.AbstractTreeParser;
 }
 
 @treeparser::members {

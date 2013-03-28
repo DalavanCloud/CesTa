@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 JavaTreeParser.g 2013-02-02 20:12:20
+// $ANTLR 3.4 JavaTreeParser.g 2013-03-28 12:49:49
 
 package org.cesta.parsers.java.generated;
 
@@ -9,18 +9,20 @@ import java.util.HashMap;
 import java.util.Vector;
 import java.util.Iterator;
 import org.cesta.util.antlr.java.ANTLRJavaHelper;
+import org.cesta.parsers.java.AbstractTreeParser;
 
 
 import org.antlr.runtime.*;
-import org.antlr.runtime.tree.*;import java.util.Stack;
+import org.antlr.runtime.tree.*;
+import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
+
 import org.antlr.stringtemplate.*;
 import org.antlr.stringtemplate.language.*;
 import java.util.HashMap;
-import org.cesta.parsers.java.AbstractTreeParser;
 /**
  * Sample Tree Parser, which can be used to create new parsers.
  * Tree grammar is based on grammar by Dieter Habelitz. 
@@ -58,7 +60,9 @@ import org.cesta.parsers.java.AbstractTreeParser;
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
+@SuppressWarnings({"all", "warnings", "unchecked"})
 public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
+    public static final int EOF=-1;
     public static final int PACKAGE=84;
     public static final int EXPONENT=173;
     public static final int STAR=49;
@@ -76,16 +80,15 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
     public static final int NOT=34;
     public static final int VAR_DECLARATION=160;
     public static final int ANNOTATION_METHOD_DECL=109;
-    public static final int EOF=-1;
     public static final int DIV_ASSIGN=14;
-    public static final int BREAK=56;
     public static final int LOGICAL_AND=26;
-    public static final int BIT_SHIFT_RIGHT_ASSIGN=9;
+    public static final int BREAK=56;
     public static final int UNARY_PLUS=159;
+    public static final int BIT_SHIFT_RIGHT_ASSIGN=9;
     public static final int TYPE=157;
-    public static final int FINAL=70;
-    public static final int INC=21;
     public static final int RPAREN=43;
+    public static final int INC=21;
+    public static final int FINAL=70;
     public static final int IMPORT=78;
     public static final int STRING_LITERAL=170;
     public static final int FOR_UPDATE=132;
@@ -93,11 +96,11 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
     public static final int CAST_EXPR=118;
     public static final int NOT_EQUAL=35;
     public static final int VOID_METHOD_DECL=163;
-    public static final int RETURN=88;
     public static final int THIS=95;
+    public static final int RETURN=88;
     public static final int DOUBLE=65;
-    public static final int VOID=101;
     public static final int ENUM_TOP_LEVEL_SCOPE=125;
+    public static final int VOID=101;
     public static final int SUPER=92;
     public static final int COMMENT=182;
     public static final int ANNOTATION_INIT_KEY_LIST=107;
@@ -149,137 +152,139 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
     public static final int DECIMAL_LITERAL=167;
     public static final int THROW=96;
     public static final int FOR_INIT=131;
-    public static final int PROTECTED=86;
     public static final int DEC=12;
+    public static final int PROTECTED=86;
     public static final int CLASS=61;
     public static final int LBRACK=22;
     public static final int BIT_SHIFT_RIGHT=8;
     public static final int THROWS_CLAUSE=156;
     public static final int GREATER_OR_EQUAL=19;
     public static final int FOR=73;
-    public static final int LOGICAL_NOT=27;
     public static final int THIS_CONSTRUCTOR_CALL=155;
+    public static final int LOGICAL_NOT=27;
     public static final int FLOAT=72;
     public static final int ABSTRACT=53;
     public static final int AND=4;
     public static final int POST_DEC=147;
     public static final int AND_ASSIGN=5;
-    public static final int ANNOTATION_SCOPE=110;
-    public static final int MODIFIER_LIST=145;
     public static final int STATIC_ARRAY_CREATOR=152;
+    public static final int MODIFIER_LIST=145;
+    public static final int ANNOTATION_SCOPE=110;
     public static final int LPAREN=29;
     public static final int IF=74;
     public static final int AT=7;
-    public static final int CONSTRUCTOR_DECL=124;
     public static final int ESCAPE_SEQUENCE=175;
+    public static final int CONSTRUCTOR_DECL=124;
     public static final int LABELED_STATEMENT=141;
     public static final int UNICODE_ESCAPE=176;
-    public static final int BOOLEAN=55;
-    public static final int SYNCHRONIZED=94;
     public static final int EXPR=126;
+    public static final int SYNCHRONIZED=94;
+    public static final int BOOLEAN=55;
     public static final int CLASS_TOP_LEVEL_SCOPE=123;
     public static final int IMPLEMENTS=75;
     public static final int CONTINUE=62;
     public static final int COMMA=11;
     public static final int TRANSIENT=98;
-    public static final int XOR_ASSIGN=52;
     public static final int EQUAL=18;
+    public static final int XOR_ASSIGN=52;
     public static final int LOGICAL_OR=28;
-    public static final int ARGUMENT_LIST=112;
-    public static final int QUALIFIED_TYPE_IDENT=151;
     public static final int IDENT=164;
+    public static final int QUALIFIED_TYPE_IDENT=151;
+    public static final int ARGUMENT_LIST=112;
     public static final int PLUS=38;
-    public static final int ANNOTATION_INIT_BLOCK=105;
     public static final int HEX_LITERAL=165;
+    public static final int ANNOTATION_INIT_BLOCK=105;
     public static final int DOT=15;
     public static final int SHIFT_LEFT_ASSIGN=46;
     public static final int FORMAL_PARAM_LIST=133;
     public static final int GENERIC_TYPE_ARG_LIST=137;
-    public static final int DOTSTAR=16;
     public static final int ANNOTATION_TOP_LEVEL_SCOPE=111;
+    public static final int DOTSTAR=16;
     public static final int BYTE=57;
     public static final int XOR=51;
     public static final int JAVA_ID_PART=179;
     public static final int GREATER_THAN=20;
     public static final int VOLATILE=102;
     public static final int PARENTESIZED_EXPR=146;
-    public static final int LESS_OR_EQUAL=24;
-    public static final int ARRAY_DECLARATOR_LIST=114;
     public static final int CLASS_STATIC_INITIALIZER=122;
+    public static final int ARRAY_DECLARATOR_LIST=114;
+    public static final int LESS_OR_EQUAL=24;
     public static final int DEFAULT=63;
     public static final int OCTAL_LITERAL=166;
     public static final int HEX_DIGIT=171;
     public static final int SHORT=89;
     public static final int INSTANCEOF=76;
     public static final int MINUS=30;
-    public static final int SEMI=44;
-    public static final int TRUE=99;
     public static final int EXTENDS_CLAUSE=128;
+    public static final int TRUE=99;
+    public static final int SEMI=44;
     public static final int STAR_ASSIGN=50;
     public static final int VAR_DECLARATOR_LIST=162;
-    public static final int COLON=10;
     public static final int ARRAY_DECLARATOR=113;
+    public static final int COLON=10;
     public static final int OR_ASSIGN=37;
     public static final int ENUM=67;
-    public static final int QUESTION=40;
     public static final int NEWLINE=181;
+    public static final int QUESTION=40;
     public static final int FINALLY=71;
     public static final int RCURLY=42;
-    public static final int ASSIGN=6;
     public static final int PLUS_ASSIGN=39;
+    public static final int ASSIGN=6;
     public static final int ANNOTATION_INIT_ARRAY_ELEMENT=104;
     public static final int FUNCTION_METHOD_DECL=136;
     public static final int INTERFACE=77;
-    public static final int DIV=13;
     public static final int POST_INC=148;
-    public static final int LONG=80;
+    public static final int DIV=13;
     public static final int CLASS_CONSTRUCTOR_CALL=120;
-    public static final int PUBLIC=87;
-    public static final int EXTENDS=68;
+    public static final int LONG=80;
     public static final int FOR_EACH=130;
+    public static final int EXTENDS=68;
+    public static final int PUBLIC=87;
     public static final int ARRAY_INITIALIZER=116;
     public static final int CATCH_CLAUSE_LIST=119;
     public static final int SUPER_CONSTRUCTOR_CALL=153;
 
     // delegates
+    public AbstractTreeParser[] getDelegates() {
+        return new AbstractTreeParser[] {};
+    }
+
     // delegators
     public ShadowVariablesParser gShadowVariablesParser;
     public ShadowVariablesParser gParent;
 
 
-        public ShadowVariablesParser_JavaTreeParser(TreeNodeStream input, ShadowVariablesParser gShadowVariablesParser) {
-            this(input, new RecognizerSharedState(), gShadowVariablesParser);
-        }
-        public ShadowVariablesParser_JavaTreeParser(TreeNodeStream input, RecognizerSharedState state, ShadowVariablesParser gShadowVariablesParser) {
-            super(input, state);
-            this.gShadowVariablesParser = gShadowVariablesParser;
-             
-            gParent = gShadowVariablesParser;
-        }
-        
-    protected StringTemplateGroup templateLib =
-      new StringTemplateGroup("ShadowVariablesParser_JavaTreeParserTemplates", AngleBracketTemplateLexer.class);
-
-    public void setTemplateLib(StringTemplateGroup templateLib) {
-      this.templateLib = templateLib;
+    public ShadowVariablesParser_JavaTreeParser(TreeNodeStream input, ShadowVariablesParser gShadowVariablesParser) {
+        this(input, new RecognizerSharedState(), gShadowVariablesParser);
     }
-    public StringTemplateGroup getTemplateLib() {
-      return templateLib;
-    }
-    /** allows convenient multi-value initialization:
-     *  "new STAttrMap().put(...).put(...)"
-     */
-    public static class STAttrMap extends HashMap {
-      public STAttrMap put(String attrName, Object value) {
-        super.put(attrName, value);
-        return this;
-      }
-      public STAttrMap put(String attrName, int value) {
-        super.put(attrName, new Integer(value));
-        return this;
-      }
+    public ShadowVariablesParser_JavaTreeParser(TreeNodeStream input, RecognizerSharedState state, ShadowVariablesParser gShadowVariablesParser) {
+        super(input, state);
+        this.gShadowVariablesParser = gShadowVariablesParser;
+        gParent = gShadowVariablesParser;
     }
 
+protected StringTemplateGroup templateLib =
+  new StringTemplateGroup("ShadowVariablesParser_JavaTreeParserTemplates", AngleBracketTemplateLexer.class);
+
+public void setTemplateLib(StringTemplateGroup templateLib) {
+  this.templateLib = templateLib;
+}
+public StringTemplateGroup getTemplateLib() {
+  return templateLib;
+}
+/** allows convenient multi-value initialization:
+ *  "new STAttrMap().put(...).put(...)"
+ */
+public static class STAttrMap extends HashMap {
+  public STAttrMap put(String attrName, Object value) {
+    super.put(attrName, value);
+    return this;
+  }
+  public STAttrMap put(String attrName, int value) {
+    super.put(attrName, new Integer(value));
+    return this;
+  }
+}
     public String[] getTokenNames() { return ShadowVariablesParser.tokenNames; }
     public String getGrammarFileName() { return "JavaTreeParser.g"; }
 
@@ -290,14 +295,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "packageDeclaration"
     // JavaTreeParser.g:63:1: packageDeclaration : ^( PACKAGE qualifiedIdentifier ) ;
     public final ShadowVariablesParser_JavaTreeParser.packageDeclaration_return packageDeclaration() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.packageDeclaration_return retval = new ShadowVariablesParser_JavaTreeParser.packageDeclaration_return();
         retval.start = input.LT(1);
+
         int packageDeclaration_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 2) ) { return retval; }
+
             // JavaTreeParser.g:64:5: ( ^( PACKAGE qualifiedIdentifier ) )
             // JavaTreeParser.g:64:9: ^( PACKAGE qualifiedIdentifier )
             {
@@ -312,6 +321,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -319,12 +329,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 2, packageDeclaration_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "packageDeclaration"
+
 
     public static class importDeclaration_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -332,14 +346,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "importDeclaration"
     // JavaTreeParser.g:67:1: importDeclaration : ^( IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? ) ;
     public final ShadowVariablesParser_JavaTreeParser.importDeclaration_return importDeclaration() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.importDeclaration_return retval = new ShadowVariablesParser_JavaTreeParser.importDeclaration_return();
         retval.start = input.LT(1);
+
         int importDeclaration_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 3) ) { return retval; }
+
             // JavaTreeParser.g:68:5: ( ^( IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? ) )
             // JavaTreeParser.g:68:9: ^( IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? )
             {
@@ -355,7 +373,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             }
             switch (alt4) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: STATIC
+                    // JavaTreeParser.g:68:18: STATIC
                     {
                     match(input,STATIC,FOLLOW_STATIC_in_importDeclaration158); if (state.failed) return retval;
 
@@ -364,11 +382,13 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             }
 
+
             pushFollow(FOLLOW_qualifiedIdentifier_in_importDeclaration161);
             qualifiedIdentifier();
 
             state._fsp--;
             if (state.failed) return retval;
+
             // JavaTreeParser.g:68:46: ( DOTSTAR )?
             int alt5=2;
             int LA5_0 = input.LA(1);
@@ -378,7 +398,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             }
             switch (alt5) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: DOTSTAR
+                    // JavaTreeParser.g:68:46: DOTSTAR
                     {
                     match(input,DOTSTAR,FOLLOW_DOTSTAR_in_importDeclaration163); if (state.failed) return retval;
 
@@ -390,6 +410,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -397,12 +418,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 3, importDeclaration_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "importDeclaration"
+
 
     public static class extendsClause_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -410,14 +435,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "extendsClause"
     // JavaTreeParser.g:78:1: extendsClause : ^( EXTENDS_CLAUSE ( type )+ ) ;
     public final ShadowVariablesParser_JavaTreeParser.extendsClause_return extendsClause() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.extendsClause_return retval = new ShadowVariablesParser_JavaTreeParser.extendsClause_return();
         retval.start = input.LT(1);
+
         int extendsClause_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 5) ) { return retval; }
+
             // JavaTreeParser.g:80:5: ( ^( EXTENDS_CLAUSE ( type )+ ) )
             // JavaTreeParser.g:80:9: ^( EXTENDS_CLAUSE ( type )+ )
             {
@@ -438,7 +467,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                 switch (alt13) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: type
+            	    // JavaTreeParser.g:80:26: type
             	    {
             	    pushFollow(FOLLOW_type_in_extendsClause306);
             	    type();
@@ -462,6 +491,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -469,12 +499,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 5, extendsClause_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "extendsClause"
+
 
     public static class implementsClause_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -482,14 +516,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "implementsClause"
     // JavaTreeParser.g:83:1: implementsClause : ^( IMPLEMENTS_CLAUSE ( type )+ ) ;
     public final ShadowVariablesParser_JavaTreeParser.implementsClause_return implementsClause() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.implementsClause_return retval = new ShadowVariablesParser_JavaTreeParser.implementsClause_return();
         retval.start = input.LT(1);
+
         int implementsClause_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 6) ) { return retval; }
+
             // JavaTreeParser.g:84:5: ( ^( IMPLEMENTS_CLAUSE ( type )+ ) )
             // JavaTreeParser.g:84:9: ^( IMPLEMENTS_CLAUSE ( type )+ )
             {
@@ -510,7 +548,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                 switch (alt14) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: type
+            	    // JavaTreeParser.g:84:29: type
             	    {
             	    pushFollow(FOLLOW_type_in_implementsClause337);
             	    type();
@@ -534,6 +572,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -541,12 +580,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 6, implementsClause_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "implementsClause"
+
 
     public static class genericTypeParameterList_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -554,14 +597,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "genericTypeParameterList"
     // JavaTreeParser.g:87:1: genericTypeParameterList : ^( GENERIC_TYPE_PARAM_LIST ( genericTypeParameter )+ ) ;
     public final ShadowVariablesParser_JavaTreeParser.genericTypeParameterList_return genericTypeParameterList() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.genericTypeParameterList_return retval = new ShadowVariablesParser_JavaTreeParser.genericTypeParameterList_return();
         retval.start = input.LT(1);
+
         int genericTypeParameterList_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 7) ) { return retval; }
+
             // JavaTreeParser.g:88:5: ( ^( GENERIC_TYPE_PARAM_LIST ( genericTypeParameter )+ ) )
             // JavaTreeParser.g:88:9: ^( GENERIC_TYPE_PARAM_LIST ( genericTypeParameter )+ )
             {
@@ -582,7 +629,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                 switch (alt15) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: genericTypeParameter
+            	    // JavaTreeParser.g:88:35: genericTypeParameter
             	    {
             	    pushFollow(FOLLOW_genericTypeParameter_in_genericTypeParameterList369);
             	    genericTypeParameter();
@@ -606,6 +653,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -613,12 +661,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 7, genericTypeParameterList_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "genericTypeParameterList"
+
 
     public static class genericTypeParameter_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -626,14 +678,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "genericTypeParameter"
     // JavaTreeParser.g:91:1: genericTypeParameter : ^( IDENT ( bound )? ) ;
     public final ShadowVariablesParser_JavaTreeParser.genericTypeParameter_return genericTypeParameter() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.genericTypeParameter_return retval = new ShadowVariablesParser_JavaTreeParser.genericTypeParameter_return();
         retval.start = input.LT(1);
+
         int genericTypeParameter_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 8) ) { return retval; }
+
             // JavaTreeParser.g:92:5: ( ^( IDENT ( bound )? ) )
             // JavaTreeParser.g:92:9: ^( IDENT ( bound )? )
             {
@@ -650,7 +706,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 }
                 switch (alt16) {
                     case 1 :
-                        // JavaTreeParser.g:0:0: bound
+                        // JavaTreeParser.g:92:17: bound
                         {
                         pushFollow(FOLLOW_bound_in_genericTypeParameter393);
                         bound();
@@ -667,6 +723,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -674,12 +731,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 8, genericTypeParameter_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "genericTypeParameter"
+
 
     public static class bound_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -687,14 +748,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "bound"
     // JavaTreeParser.g:95:1: bound : ^( EXTENDS_BOUND_LIST ( type )+ ) ;
     public final ShadowVariablesParser_JavaTreeParser.bound_return bound() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.bound_return retval = new ShadowVariablesParser_JavaTreeParser.bound_return();
         retval.start = input.LT(1);
+
         int bound_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 9) ) { return retval; }
+
             // JavaTreeParser.g:96:5: ( ^( EXTENDS_BOUND_LIST ( type )+ ) )
             // JavaTreeParser.g:96:9: ^( EXTENDS_BOUND_LIST ( type )+ )
             {
@@ -715,7 +780,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                 switch (alt17) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: type
+            	    // JavaTreeParser.g:96:30: type
             	    {
             	    pushFollow(FOLLOW_type_in_bound425);
             	    type();
@@ -739,6 +804,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -746,12 +812,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 9, bound_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "bound"
+
 
     public static class enumTopLevelScope_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -759,14 +829,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "enumTopLevelScope"
     // JavaTreeParser.g:99:1: enumTopLevelScope : ^( ENUM_TOP_LEVEL_SCOPE ( enumConstant )+ ( classTopLevelScope )? ) ;
     public final ShadowVariablesParser_JavaTreeParser.enumTopLevelScope_return enumTopLevelScope() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.enumTopLevelScope_return retval = new ShadowVariablesParser_JavaTreeParser.enumTopLevelScope_return();
         retval.start = input.LT(1);
+
         int enumTopLevelScope_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return retval; }
+
             // JavaTreeParser.g:100:5: ( ^( ENUM_TOP_LEVEL_SCOPE ( enumConstant )+ ( classTopLevelScope )? ) )
             // JavaTreeParser.g:100:9: ^( ENUM_TOP_LEVEL_SCOPE ( enumConstant )+ ( classTopLevelScope )? )
             {
@@ -787,7 +861,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                 switch (alt18) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: enumConstant
+            	    // JavaTreeParser.g:100:32: enumConstant
             	    {
             	    pushFollow(FOLLOW_enumConstant_in_enumTopLevelScope449);
             	    enumConstant();
@@ -808,6 +882,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 cnt18++;
             } while (true);
 
+
             // JavaTreeParser.g:100:46: ( classTopLevelScope )?
             int alt19=2;
             int LA19_0 = input.LA(1);
@@ -817,7 +892,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             }
             switch (alt19) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: classTopLevelScope
+                    // JavaTreeParser.g:100:46: classTopLevelScope
                     {
                     pushFollow(FOLLOW_classTopLevelScope_in_enumTopLevelScope452);
                     gShadowVariablesParser.classTopLevelScope();
@@ -833,6 +908,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -840,12 +916,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 10, enumTopLevelScope_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "enumTopLevelScope"
+
 
     public static class enumConstant_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -853,14 +933,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "enumConstant"
     // JavaTreeParser.g:103:1: enumConstant : ^( IDENT annotationList ( arguments )? ( classTopLevelScope )? ) ;
     public final ShadowVariablesParser_JavaTreeParser.enumConstant_return enumConstant() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.enumConstant_return retval = new ShadowVariablesParser_JavaTreeParser.enumConstant_return();
         retval.start = input.LT(1);
+
         int enumConstant_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 11) ) { return retval; }
+
             // JavaTreeParser.g:104:5: ( ^( IDENT annotationList ( arguments )? ( classTopLevelScope )? ) )
             // JavaTreeParser.g:104:9: ^( IDENT annotationList ( arguments )? ( classTopLevelScope )? )
             {
@@ -872,6 +956,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             state._fsp--;
             if (state.failed) return retval;
+
             // JavaTreeParser.g:104:32: ( arguments )?
             int alt20=2;
             int LA20_0 = input.LA(1);
@@ -881,7 +966,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             }
             switch (alt20) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: arguments
+                    // JavaTreeParser.g:104:32: arguments
                     {
                     pushFollow(FOLLOW_arguments_in_enumConstant482);
                     arguments();
@@ -894,6 +979,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             }
 
+
             // JavaTreeParser.g:104:43: ( classTopLevelScope )?
             int alt21=2;
             int LA21_0 = input.LA(1);
@@ -903,7 +989,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             }
             switch (alt21) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: classTopLevelScope
+                    // JavaTreeParser.g:104:43: classTopLevelScope
                     {
                     pushFollow(FOLLOW_classTopLevelScope_in_enumConstant485);
                     gShadowVariablesParser.classTopLevelScope();
@@ -919,6 +1005,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -926,12 +1013,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 11, enumConstant_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "enumConstant"
+
 
     public static class interfaceTopLevelScope_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -939,14 +1030,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "interfaceTopLevelScope"
     // JavaTreeParser.g:122:1: interfaceTopLevelScope : ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* ) ;
     public final ShadowVariablesParser_JavaTreeParser.interfaceTopLevelScope_return interfaceTopLevelScope() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.interfaceTopLevelScope_return retval = new ShadowVariablesParser_JavaTreeParser.interfaceTopLevelScope_return();
         retval.start = input.LT(1);
+
         int interfaceTopLevelScope_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return retval; }
+
             // JavaTreeParser.g:123:5: ( ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* ) )
             // JavaTreeParser.g:123:9: ^( INTERFACE_TOP_LEVEL_SCOPE ( interfaceScopeDeclarations )* )
             {
@@ -967,7 +1062,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     switch (alt33) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: interfaceScopeDeclarations
+                	    // JavaTreeParser.g:123:37: interfaceScopeDeclarations
                 	    {
                 	    pushFollow(FOLLOW_interfaceScopeDeclarations_in_interfaceTopLevelScope698);
                 	    gShadowVariablesParser.interfaceScopeDeclarations();
@@ -987,6 +1082,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -994,12 +1090,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 14, interfaceTopLevelScope_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "interfaceTopLevelScope"
+
 
     public static class variableDeclaratorList_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1007,14 +1107,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "variableDeclaratorList"
     // JavaTreeParser.g:136:1: variableDeclaratorList : ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ ) ;
     public final ShadowVariablesParser_JavaTreeParser.variableDeclaratorList_return variableDeclaratorList() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.variableDeclaratorList_return retval = new ShadowVariablesParser_JavaTreeParser.variableDeclaratorList_return();
         retval.start = input.LT(1);
+
         int variableDeclaratorList_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 16) ) { return retval; }
+
             // JavaTreeParser.g:137:5: ( ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ ) )
             // JavaTreeParser.g:137:9: ^( VAR_DECLARATOR_LIST ( variableDeclarator )+ )
             {
@@ -1035,7 +1139,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                 switch (alt40) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: variableDeclarator
+            	    // JavaTreeParser.g:137:31: variableDeclarator
             	    {
             	    pushFollow(FOLLOW_variableDeclarator_in_variableDeclaratorList894);
             	    gShadowVariablesParser.variableDeclarator();
@@ -1059,6 +1163,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -1066,12 +1171,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 16, variableDeclaratorList_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "variableDeclaratorList"
+
 
     public static class variableInitializer_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1079,14 +1188,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "variableInitializer"
     // JavaTreeParser.g:148:1: variableInitializer : ( arrayInitializer | expression );
     public final ShadowVariablesParser_JavaTreeParser.variableInitializer_return variableInitializer() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.variableInitializer_return retval = new ShadowVariablesParser_JavaTreeParser.variableInitializer_return();
         retval.start = input.LT(1);
+
         int variableInitializer_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 19) ) { return retval; }
+
             // JavaTreeParser.g:149:5: ( arrayInitializer | expression )
             int alt43=2;
             int LA43_0 = input.LA(1);
@@ -1103,6 +1216,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     new NoViableAltException("", 43, 0, input);
 
                 throw nvae;
+
             }
             switch (alt43) {
                 case 1 :
@@ -1134,12 +1248,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 19, variableInitializer_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "variableInitializer"
+
 
     public static class arrayDeclarator_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1147,18 +1265,23 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "arrayDeclarator"
     // JavaTreeParser.g:153:1: arrayDeclarator : LBRACK RBRACK ;
     public final ShadowVariablesParser_JavaTreeParser.arrayDeclarator_return arrayDeclarator() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.arrayDeclarator_return retval = new ShadowVariablesParser_JavaTreeParser.arrayDeclarator_return();
         retval.start = input.LT(1);
+
         int arrayDeclarator_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 20) ) { return retval; }
+
             // JavaTreeParser.g:154:5: ( LBRACK RBRACK )
             // JavaTreeParser.g:154:9: LBRACK RBRACK
             {
             match(input,LBRACK,FOLLOW_LBRACK_in_arrayDeclarator998); if (state.failed) return retval;
+
             match(input,RBRACK,FOLLOW_RBRACK_in_arrayDeclarator1000); if (state.failed) return retval;
 
             }
@@ -1168,12 +1291,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 20, arrayDeclarator_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "arrayDeclarator"
+
 
     public static class arrayInitializer_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1181,14 +1308,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "arrayInitializer"
     // JavaTreeParser.g:161:1: arrayInitializer : ^( ARRAY_INITIALIZER ( variableInitializer )* ) ;
     public final ShadowVariablesParser_JavaTreeParser.arrayInitializer_return arrayInitializer() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.arrayInitializer_return retval = new ShadowVariablesParser_JavaTreeParser.arrayInitializer_return();
         retval.start = input.LT(1);
+
         int arrayInitializer_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 22) ) { return retval; }
+
             // JavaTreeParser.g:162:5: ( ^( ARRAY_INITIALIZER ( variableInitializer )* ) )
             // JavaTreeParser.g:162:9: ^( ARRAY_INITIALIZER ( variableInitializer )* )
             {
@@ -1209,7 +1340,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     switch (alt45) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: variableInitializer
+                	    // JavaTreeParser.g:162:29: variableInitializer
                 	    {
                 	    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer1052);
                 	    variableInitializer();
@@ -1229,6 +1360,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -1236,12 +1368,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 22, arrayInitializer_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "arrayInitializer"
+
 
     public static class throwsClause_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1249,14 +1385,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "throwsClause"
     // JavaTreeParser.g:165:1: throwsClause : ^( THROWS_CLAUSE ( qualifiedIdentifier )+ ) ;
     public final ShadowVariablesParser_JavaTreeParser.throwsClause_return throwsClause() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.throwsClause_return retval = new ShadowVariablesParser_JavaTreeParser.throwsClause_return();
         retval.start = input.LT(1);
+
         int throwsClause_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 23) ) { return retval; }
+
             // JavaTreeParser.g:166:5: ( ^( THROWS_CLAUSE ( qualifiedIdentifier )+ ) )
             // JavaTreeParser.g:166:9: ^( THROWS_CLAUSE ( qualifiedIdentifier )+ )
             {
@@ -1277,7 +1417,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                 switch (alt46) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: qualifiedIdentifier
+            	    // JavaTreeParser.g:166:25: qualifiedIdentifier
             	    {
             	    pushFollow(FOLLOW_qualifiedIdentifier_in_throwsClause1076);
             	    qualifiedIdentifier();
@@ -1301,6 +1441,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -1308,12 +1449,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 23, throwsClause_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "throwsClause"
+
 
     public static class modifierList_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1321,14 +1466,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "modifierList"
     // JavaTreeParser.g:169:1: modifierList : ^( MODIFIER_LIST ( modifier )* ) ;
     public final ShadowVariablesParser_JavaTreeParser.modifierList_return modifierList() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.modifierList_return retval = new ShadowVariablesParser_JavaTreeParser.modifierList_return();
         retval.start = input.LT(1);
+
         int modifierList_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 24) ) { return retval; }
+
             // JavaTreeParser.g:170:5: ( ^( MODIFIER_LIST ( modifier )* ) )
             // JavaTreeParser.g:170:9: ^( MODIFIER_LIST ( modifier )* )
             {
@@ -1342,14 +1491,14 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     int alt47=2;
                     int LA47_0 = input.LA(1);
 
-                    if ( (LA47_0==AT||LA47_0==ABSTRACT||LA47_0==FINAL||LA47_0==NATIVE||(LA47_0>=PRIVATE && LA47_0<=PUBLIC)||(LA47_0>=STATIC && LA47_0<=STRICTFP)||LA47_0==SYNCHRONIZED||LA47_0==TRANSIENT||LA47_0==VOLATILE) ) {
+                    if ( (LA47_0==AT||LA47_0==ABSTRACT||LA47_0==FINAL||LA47_0==NATIVE||(LA47_0 >= PRIVATE && LA47_0 <= PUBLIC)||(LA47_0 >= STATIC && LA47_0 <= STRICTFP)||LA47_0==SYNCHRONIZED||LA47_0==TRANSIENT||LA47_0==VOLATILE) ) {
                         alt47=1;
                     }
 
 
                     switch (alt47) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: modifier
+                	    // JavaTreeParser.g:170:25: modifier
                 	    {
                 	    pushFollow(FOLLOW_modifier_in_modifierList1100);
                 	    gShadowVariablesParser.modifier();
@@ -1369,6 +1518,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -1376,12 +1526,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 24, modifierList_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "modifierList"
+
 
     public static class localModifierList_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1389,14 +1543,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "localModifierList"
     // JavaTreeParser.g:187:1: localModifierList : ^( LOCAL_MODIFIER_LIST ( localModifier )* ) ;
     public final ShadowVariablesParser_JavaTreeParser.localModifierList_return localModifierList() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.localModifierList_return retval = new ShadowVariablesParser_JavaTreeParser.localModifierList_return();
         retval.start = input.LT(1);
+
         int localModifierList_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 26) ) { return retval; }
+
             // JavaTreeParser.g:188:5: ( ^( LOCAL_MODIFIER_LIST ( localModifier )* ) )
             // JavaTreeParser.g:188:9: ^( LOCAL_MODIFIER_LIST ( localModifier )* )
             {
@@ -1417,7 +1575,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     switch (alt49) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: localModifier
+                	    // JavaTreeParser.g:188:31: localModifier
                 	    {
                 	    pushFollow(FOLLOW_localModifier_in_localModifierList1243);
                 	    gShadowVariablesParser.localModifier();
@@ -1437,6 +1595,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -1444,12 +1603,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 26, localModifierList_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "localModifierList"
+
 
     public static class type_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1457,14 +1620,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "type"
     // JavaTreeParser.g:196:1: type : ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? ) ;
     public final ShadowVariablesParser_JavaTreeParser.type_return type() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.type_return retval = new ShadowVariablesParser_JavaTreeParser.type_return();
         retval.start = input.LT(1);
+
         int type_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 28) ) { return retval; }
+
             // JavaTreeParser.g:197:5: ( ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? ) )
             // JavaTreeParser.g:197:9: ^( TYPE ( primitiveType | qualifiedTypeIdent ) ( arrayDeclaratorList )? )
             {
@@ -1475,7 +1642,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             int alt51=2;
             int LA51_0 = input.LA(1);
 
-            if ( (LA51_0==BOOLEAN||LA51_0==BYTE||LA51_0==CHAR||LA51_0==DOUBLE||LA51_0==FLOAT||(LA51_0>=INT && LA51_0<=LONG)||LA51_0==SHORT) ) {
+            if ( (LA51_0==BOOLEAN||LA51_0==BYTE||LA51_0==CHAR||LA51_0==DOUBLE||LA51_0==FLOAT||(LA51_0 >= INT && LA51_0 <= LONG)||LA51_0==SHORT) ) {
                 alt51=1;
             }
             else if ( (LA51_0==QUALIFIED_TYPE_IDENT) ) {
@@ -1487,6 +1654,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     new NoViableAltException("", 51, 0, input);
 
                 throw nvae;
+
             }
             switch (alt51) {
                 case 1 :
@@ -1514,6 +1682,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             }
 
+
             // JavaTreeParser.g:197:53: ( arrayDeclaratorList )?
             int alt52=2;
             int LA52_0 = input.LA(1);
@@ -1523,7 +1692,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             }
             switch (alt52) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: arrayDeclaratorList
+                    // JavaTreeParser.g:197:53: arrayDeclaratorList
                     {
                     pushFollow(FOLLOW_arrayDeclaratorList_in_type1304);
                     gShadowVariablesParser.arrayDeclaratorList();
@@ -1539,6 +1708,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -1546,12 +1716,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 28, type_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "type"
+
 
     public static class qualifiedTypeIdent_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1559,14 +1733,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "qualifiedTypeIdent"
     // JavaTreeParser.g:200:1: qualifiedTypeIdent : ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) ;
     public final ShadowVariablesParser_JavaTreeParser.qualifiedTypeIdent_return qualifiedTypeIdent() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.qualifiedTypeIdent_return retval = new ShadowVariablesParser_JavaTreeParser.qualifiedTypeIdent_return();
         retval.start = input.LT(1);
+
         int qualifiedTypeIdent_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 29) ) { return retval; }
+
             // JavaTreeParser.g:201:5: ( ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) )
             // JavaTreeParser.g:201:9: ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
             {
@@ -1587,7 +1765,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                 switch (alt53) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: typeIdent
+            	    // JavaTreeParser.g:201:32: typeIdent
             	    {
             	    pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent1328);
             	    typeIdent();
@@ -1611,6 +1789,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -1618,12 +1797,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 29, qualifiedTypeIdent_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "qualifiedTypeIdent"
+
 
     public static class typeIdent_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1631,14 +1814,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "typeIdent"
     // JavaTreeParser.g:204:1: typeIdent : ^( IDENT ( genericTypeArgumentList )? ) ;
     public final ShadowVariablesParser_JavaTreeParser.typeIdent_return typeIdent() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.typeIdent_return retval = new ShadowVariablesParser_JavaTreeParser.typeIdent_return();
         retval.start = input.LT(1);
+
         int typeIdent_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 30) ) { return retval; }
+
             // JavaTreeParser.g:205:5: ( ^( IDENT ( genericTypeArgumentList )? ) )
             // JavaTreeParser.g:205:9: ^( IDENT ( genericTypeArgumentList )? )
             {
@@ -1655,7 +1842,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 }
                 switch (alt54) {
                     case 1 :
-                        // JavaTreeParser.g:0:0: genericTypeArgumentList
+                        // JavaTreeParser.g:205:17: genericTypeArgumentList
                         {
                         pushFollow(FOLLOW_genericTypeArgumentList_in_typeIdent1353);
                         genericTypeArgumentList();
@@ -1672,6 +1859,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -1679,12 +1867,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 30, typeIdent_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "typeIdent"
+
 
     public static class primitiveType_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1692,20 +1884,25 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "primitiveType"
     // JavaTreeParser.g:208:1: primitiveType : ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE );
     public final ShadowVariablesParser_JavaTreeParser.primitiveType_return primitiveType() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.primitiveType_return retval = new ShadowVariablesParser_JavaTreeParser.primitiveType_return();
         retval.start = input.LT(1);
+
         int primitiveType_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 31) ) { return retval; }
+
             // JavaTreeParser.g:209:5: ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE )
             // JavaTreeParser.g:
             {
-            if ( input.LA(1)==BOOLEAN||input.LA(1)==BYTE||input.LA(1)==CHAR||input.LA(1)==DOUBLE||input.LA(1)==FLOAT||(input.LA(1)>=INT && input.LA(1)<=LONG)||input.LA(1)==SHORT ) {
+            if ( input.LA(1)==BOOLEAN||input.LA(1)==BYTE||input.LA(1)==CHAR||input.LA(1)==DOUBLE||input.LA(1)==FLOAT||(input.LA(1) >= INT && input.LA(1) <= LONG)||input.LA(1)==SHORT ) {
                 input.consume();
-                state.errorRecovery=false;state.failed=false;
+                state.errorRecovery=false;
+                state.failed=false;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
@@ -1721,12 +1918,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 31, primitiveType_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "primitiveType"
+
 
     public static class genericTypeArgumentList_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1734,14 +1935,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "genericTypeArgumentList"
     // JavaTreeParser.g:219:1: genericTypeArgumentList : ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ ) ;
     public final ShadowVariablesParser_JavaTreeParser.genericTypeArgumentList_return genericTypeArgumentList() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.genericTypeArgumentList_return retval = new ShadowVariablesParser_JavaTreeParser.genericTypeArgumentList_return();
         retval.start = input.LT(1);
+
         int genericTypeArgumentList_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 32) ) { return retval; }
+
             // JavaTreeParser.g:220:5: ( ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ ) )
             // JavaTreeParser.g:220:9: ^( GENERIC_TYPE_ARG_LIST ( genericTypeArgument )+ )
             {
@@ -1762,7 +1967,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                 switch (alt55) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: genericTypeArgument
+            	    // JavaTreeParser.g:220:33: genericTypeArgument
             	    {
             	    pushFollow(FOLLOW_genericTypeArgument_in_genericTypeArgumentList1466);
             	    genericTypeArgument();
@@ -1786,6 +1991,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -1793,12 +1999,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 32, genericTypeArgumentList_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "genericTypeArgumentList"
+
 
     public static class genericTypeArgument_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1806,14 +2016,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "genericTypeArgument"
     // JavaTreeParser.g:223:1: genericTypeArgument : ( type | ^( QUESTION ( genericWildcardBoundType )? ) );
     public final ShadowVariablesParser_JavaTreeParser.genericTypeArgument_return genericTypeArgument() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.genericTypeArgument_return retval = new ShadowVariablesParser_JavaTreeParser.genericTypeArgument_return();
         retval.start = input.LT(1);
+
         int genericTypeArgument_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 33) ) { return retval; }
+
             // JavaTreeParser.g:224:5: ( type | ^( QUESTION ( genericWildcardBoundType )? ) )
             int alt57=2;
             int LA57_0 = input.LA(1);
@@ -1830,6 +2044,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     new NoViableAltException("", 57, 0, input);
 
                 throw nvae;
+
             }
             switch (alt57) {
                 case 1 :
@@ -1859,7 +2074,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                         }
                         switch (alt56) {
                             case 1 :
-                                // JavaTreeParser.g:0:0: genericWildcardBoundType
+                                // JavaTreeParser.g:225:20: genericWildcardBoundType
                                 {
                                 pushFollow(FOLLOW_genericWildcardBoundType_in_genericTypeArgument1504);
                                 genericWildcardBoundType();
@@ -1876,6 +2091,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                         match(input, Token.UP, null); if (state.failed) return retval;
                     }
 
+
                     }
                     break;
 
@@ -1885,12 +2101,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 33, genericTypeArgument_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "genericTypeArgument"
+
 
     public static class genericWildcardBoundType_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1898,14 +2118,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "genericWildcardBoundType"
     // JavaTreeParser.g:228:1: genericWildcardBoundType : ( ^( EXTENDS type ) | ^( SUPER type ) );
     public final ShadowVariablesParser_JavaTreeParser.genericWildcardBoundType_return genericWildcardBoundType() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.genericWildcardBoundType_return retval = new ShadowVariablesParser_JavaTreeParser.genericWildcardBoundType_return();
         retval.start = input.LT(1);
+
         int genericWildcardBoundType_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 34) ) { return retval; }
+
             // JavaTreeParser.g:229:5: ( ^( EXTENDS type ) | ^( SUPER type ) )
             int alt58=2;
             int LA58_0 = input.LA(1);
@@ -1922,6 +2146,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     new NoViableAltException("", 58, 0, input);
 
                 throw nvae;
+
             }
             switch (alt58) {
                 case 1 :
@@ -1937,6 +2162,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -1954,6 +2180,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
+
                     }
                     break;
 
@@ -1963,12 +2190,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 34, genericWildcardBoundType_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "genericWildcardBoundType"
+
 
     public static class formalParameterList_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -1976,14 +2207,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "formalParameterList"
     // JavaTreeParser.g:233:1: formalParameterList : ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? ) ;
     public final ShadowVariablesParser_JavaTreeParser.formalParameterList_return formalParameterList() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.formalParameterList_return retval = new ShadowVariablesParser_JavaTreeParser.formalParameterList_return();
         retval.start = input.LT(1);
+
         int formalParameterList_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 35) ) { return retval; }
+
             // JavaTreeParser.g:234:5: ( ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? ) )
             // JavaTreeParser.g:234:9: ^( FORMAL_PARAM_LIST ( formalParameterStandardDecl )* ( formalParameterVarargDecl )? )
             {
@@ -2004,7 +2239,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     switch (alt59) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: formalParameterStandardDecl
+                	    // JavaTreeParser.g:234:29: formalParameterStandardDecl
                 	    {
                 	    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList1683);
                 	    gShadowVariablesParser.formalParameterStandardDecl();
@@ -2020,6 +2255,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     }
                 } while (true);
 
+
                 // JavaTreeParser.g:234:58: ( formalParameterVarargDecl )?
                 int alt60=2;
                 int LA60_0 = input.LA(1);
@@ -2029,7 +2265,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 }
                 switch (alt60) {
                     case 1 :
-                        // JavaTreeParser.g:0:0: formalParameterVarargDecl
+                        // JavaTreeParser.g:234:58: formalParameterVarargDecl
                         {
                         pushFollow(FOLLOW_formalParameterVarargDecl_in_formalParameterList1686);
                         gShadowVariablesParser.formalParameterVarargDecl();
@@ -2046,6 +2282,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -2053,12 +2290,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 35, formalParameterList_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "formalParameterList"
+
 
     public static class qualifiedIdentifier_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2066,14 +2307,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "qualifiedIdentifier"
     // JavaTreeParser.g:245:1: qualifiedIdentifier : ( IDENT | ^( DOT qualifiedIdentifier IDENT ) );
     public final ShadowVariablesParser_JavaTreeParser.qualifiedIdentifier_return qualifiedIdentifier() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.qualifiedIdentifier_return retval = new ShadowVariablesParser_JavaTreeParser.qualifiedIdentifier_return();
         retval.start = input.LT(1);
+
         int qualifiedIdentifier_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 38) ) { return retval; }
+
             // JavaTreeParser.g:246:5: ( IDENT | ^( DOT qualifiedIdentifier IDENT ) )
             int alt61=2;
             int LA61_0 = input.LA(1);
@@ -2090,6 +2335,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     new NoViableAltException("", 61, 0, input);
 
                 throw nvae;
+
             }
             switch (alt61) {
                 case 1 :
@@ -2110,9 +2356,11 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier1789); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -2123,12 +2371,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 38, qualifiedIdentifier_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "qualifiedIdentifier"
+
 
     public static class annotationList_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2136,14 +2388,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotationList"
     // JavaTreeParser.g:252:1: annotationList : ^( ANNOTATION_LIST ( annotation )* ) ;
     public final ShadowVariablesParser_JavaTreeParser.annotationList_return annotationList() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.annotationList_return retval = new ShadowVariablesParser_JavaTreeParser.annotationList_return();
         retval.start = input.LT(1);
+
         int annotationList_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 39) ) { return retval; }
+
             // JavaTreeParser.g:253:5: ( ^( ANNOTATION_LIST ( annotation )* ) )
             // JavaTreeParser.g:253:9: ^( ANNOTATION_LIST ( annotation )* )
             {
@@ -2164,7 +2420,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     switch (alt62) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: annotation
+                	    // JavaTreeParser.g:253:27: annotation
                 	    {
                 	    pushFollow(FOLLOW_annotation_in_annotationList1818);
                 	    annotation();
@@ -2184,6 +2440,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -2191,12 +2448,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 39, annotationList_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotationList"
+
 
     public static class annotation_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2204,14 +2465,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotation"
     // JavaTreeParser.g:256:1: annotation : ^( AT qualifiedIdentifier ( annotationInit )? ) ;
     public final ShadowVariablesParser_JavaTreeParser.annotation_return annotation() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.annotation_return retval = new ShadowVariablesParser_JavaTreeParser.annotation_return();
         retval.start = input.LT(1);
+
         int annotation_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 40) ) { return retval; }
+
             // JavaTreeParser.g:257:5: ( ^( AT qualifiedIdentifier ( annotationInit )? ) )
             // JavaTreeParser.g:257:9: ^( AT qualifiedIdentifier ( annotationInit )? )
             {
@@ -2223,6 +2488,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             state._fsp--;
             if (state.failed) return retval;
+
             // JavaTreeParser.g:257:34: ( annotationInit )?
             int alt63=2;
             int LA63_0 = input.LA(1);
@@ -2232,7 +2498,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             }
             switch (alt63) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: annotationInit
+                    // JavaTreeParser.g:257:34: annotationInit
                     {
                     pushFollow(FOLLOW_annotationInit_in_annotation1844);
                     annotationInit();
@@ -2248,6 +2514,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -2255,12 +2522,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 40, annotation_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotation"
+
 
     public static class annotationInit_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2268,14 +2539,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotationInit"
     // JavaTreeParser.g:260:1: annotationInit : ^( ANNOTATION_INIT_BLOCK annotationInitializers ) ;
     public final ShadowVariablesParser_JavaTreeParser.annotationInit_return annotationInit() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.annotationInit_return retval = new ShadowVariablesParser_JavaTreeParser.annotationInit_return();
         retval.start = input.LT(1);
+
         int annotationInit_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 41) ) { return retval; }
+
             // JavaTreeParser.g:261:5: ( ^( ANNOTATION_INIT_BLOCK annotationInitializers ) )
             // JavaTreeParser.g:261:9: ^( ANNOTATION_INIT_BLOCK annotationInitializers )
             {
@@ -2290,6 +2565,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -2297,12 +2573,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 41, annotationInit_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotationInit"
+
 
     public static class annotationInitializers_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2310,14 +2590,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotationInitializers"
     // JavaTreeParser.g:264:1: annotationInitializers : ( ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) );
     public final ShadowVariablesParser_JavaTreeParser.annotationInitializers_return annotationInitializers() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.annotationInitializers_return retval = new ShadowVariablesParser_JavaTreeParser.annotationInitializers_return();
         retval.start = input.LT(1);
+
         int annotationInitializers_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 42) ) { return retval; }
+
             // JavaTreeParser.g:265:5: ( ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) )
             int alt65=2;
             int LA65_0 = input.LA(1);
@@ -2334,6 +2618,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     new NoViableAltException("", 65, 0, input);
 
                 throw nvae;
+
             }
             switch (alt65) {
                 case 1 :
@@ -2356,7 +2641,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                         switch (alt64) {
                     	case 1 :
-                    	    // JavaTreeParser.g:0:0: annotationInitializer
+                    	    // JavaTreeParser.g:265:36: annotationInitializer
                     	    {
                     	    pushFollow(FOLLOW_annotationInitializer_in_annotationInitializers1895);
                     	    annotationInitializer();
@@ -2380,6 +2665,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
+
                     }
                     break;
                 case 2 :
@@ -2396,6 +2682,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
+
                     }
                     break;
 
@@ -2405,12 +2692,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 42, annotationInitializers_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotationInitializers"
+
 
     public static class annotationInitializer_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2418,14 +2709,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotationInitializer"
     // JavaTreeParser.g:269:1: annotationInitializer : ^( IDENT annotationElementValue ) ;
     public final ShadowVariablesParser_JavaTreeParser.annotationInitializer_return annotationInitializer() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.annotationInitializer_return retval = new ShadowVariablesParser_JavaTreeParser.annotationInitializer_return();
         retval.start = input.LT(1);
+
         int annotationInitializer_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 43) ) { return retval; }
+
             // JavaTreeParser.g:270:5: ( ^( IDENT annotationElementValue ) )
             // JavaTreeParser.g:270:9: ^( IDENT annotationElementValue )
             {
@@ -2440,6 +2735,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -2447,12 +2743,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 43, annotationInitializer_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotationInitializer"
+
 
     public static class annotationElementValue_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2460,14 +2760,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotationElementValue"
     // JavaTreeParser.g:273:1: annotationElementValue : ( ^( ANNOTATION_INIT_ARRAY_ELEMENT ( annotationElementValue )* ) | annotation | expression );
     public final ShadowVariablesParser_JavaTreeParser.annotationElementValue_return annotationElementValue() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.annotationElementValue_return retval = new ShadowVariablesParser_JavaTreeParser.annotationElementValue_return();
         retval.start = input.LT(1);
+
         int annotationElementValue_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 44) ) { return retval; }
+
             // JavaTreeParser.g:274:5: ( ^( ANNOTATION_INIT_ARRAY_ELEMENT ( annotationElementValue )* ) | annotation | expression )
             int alt67=3;
             switch ( input.LA(1) ) {
@@ -2492,6 +2796,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     new NoViableAltException("", 67, 0, input);
 
                 throw nvae;
+
             }
 
             switch (alt67) {
@@ -2515,7 +2820,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                             switch (alt66) {
                         	case 1 :
-                        	    // JavaTreeParser.g:0:0: annotationElementValue
+                        	    // JavaTreeParser.g:274:41: annotationElementValue
                         	    {
                         	    pushFollow(FOLLOW_annotationElementValue_in_annotationElementValue1964);
                         	    annotationElementValue();
@@ -2534,6 +2839,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                         match(input, Token.UP, null); if (state.failed) return retval;
                     }
+
 
                     }
                     break;
@@ -2566,12 +2872,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 44, annotationElementValue_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotationElementValue"
+
 
     public static class annotationTopLevelScope_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2579,14 +2889,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotationTopLevelScope"
     // JavaTreeParser.g:279:1: annotationTopLevelScope : ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* ) ;
     public final ShadowVariablesParser_JavaTreeParser.annotationTopLevelScope_return annotationTopLevelScope() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.annotationTopLevelScope_return retval = new ShadowVariablesParser_JavaTreeParser.annotationTopLevelScope_return();
         retval.start = input.LT(1);
+
         int annotationTopLevelScope_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 45) ) { return retval; }
+
             // JavaTreeParser.g:280:5: ( ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* ) )
             // JavaTreeParser.g:280:9: ^( ANNOTATION_TOP_LEVEL_SCOPE ( annotationScopeDeclarations )* )
             {
@@ -2607,7 +2921,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     switch (alt68) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: annotationScopeDeclarations
+                	    // JavaTreeParser.g:280:38: annotationScopeDeclarations
                 	    {
                 	    pushFollow(FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope2012);
                 	    annotationScopeDeclarations();
@@ -2627,6 +2941,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -2634,12 +2949,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 45, annotationTopLevelScope_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotationTopLevelScope"
+
 
     public static class annotationScopeDeclarations_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2647,14 +2966,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotationScopeDeclarations"
     // JavaTreeParser.g:283:1: annotationScopeDeclarations : ( ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration );
     public final ShadowVariablesParser_JavaTreeParser.annotationScopeDeclarations_return annotationScopeDeclarations() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.annotationScopeDeclarations_return retval = new ShadowVariablesParser_JavaTreeParser.annotationScopeDeclarations_return();
         retval.start = input.LT(1);
+
         int annotationScopeDeclarations_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 46) ) { return retval; }
+
             // JavaTreeParser.g:284:5: ( ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | ^( VAR_DECLARATION modifierList type variableDeclaratorList ) | typeDeclaration )
             int alt70=3;
             switch ( input.LA(1) ) {
@@ -2682,6 +3005,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     new NoViableAltException("", 70, 0, input);
 
                 throw nvae;
+
             }
 
             switch (alt70) {
@@ -2696,12 +3020,15 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_type_in_annotationScopeDeclarations2042);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     match(input,IDENT,FOLLOW_IDENT_in_annotationScopeDeclarations2044); if (state.failed) return retval;
+
                     // JavaTreeParser.g:284:58: ( annotationDefaultValue )?
                     int alt69=2;
                     int LA69_0 = input.LA(1);
@@ -2711,7 +3038,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     }
                     switch (alt69) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: annotationDefaultValue
+                            // JavaTreeParser.g:284:58: annotationDefaultValue
                             {
                             pushFollow(FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations2046);
                             annotationDefaultValue();
@@ -2727,6 +3054,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
+
                     }
                     break;
                 case 2 :
@@ -2740,11 +3068,13 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_type_in_annotationScopeDeclarations2063);
                     type();
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_variableDeclaratorList_in_annotationScopeDeclarations2065);
                     variableDeclaratorList();
 
@@ -2752,6 +3082,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -2773,12 +3104,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 46, annotationScopeDeclarations_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotationScopeDeclarations"
+
 
     public static class annotationDefaultValue_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2786,14 +3121,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "annotationDefaultValue"
     // JavaTreeParser.g:289:1: annotationDefaultValue : ^( DEFAULT annotationElementValue ) ;
     public final ShadowVariablesParser_JavaTreeParser.annotationDefaultValue_return annotationDefaultValue() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.annotationDefaultValue_return retval = new ShadowVariablesParser_JavaTreeParser.annotationDefaultValue_return();
         retval.start = input.LT(1);
+
         int annotationDefaultValue_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 47) ) { return retval; }
+
             // JavaTreeParser.g:290:5: ( ^( DEFAULT annotationElementValue ) )
             // JavaTreeParser.g:290:9: ^( DEFAULT annotationElementValue )
             {
@@ -2808,6 +3147,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -2815,12 +3155,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 47, annotationDefaultValue_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "annotationDefaultValue"
+
 
     public static class blockStatement_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2828,14 +3172,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "blockStatement"
     // JavaTreeParser.g:299:1: blockStatement : ( localVariableDeclaration | typeDeclaration | statement );
     public final ShadowVariablesParser_JavaTreeParser.blockStatement_return blockStatement() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.blockStatement_return retval = new ShadowVariablesParser_JavaTreeParser.blockStatement_return();
         retval.start = input.LT(1);
+
         int blockStatement_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 49) ) { return retval; }
+
             // JavaTreeParser.g:300:5: ( localVariableDeclaration | typeDeclaration | statement )
             int alt72=3;
             switch ( input.LA(1) ) {
@@ -2879,6 +3227,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     new NoViableAltException("", 72, 0, input);
 
                 throw nvae;
+
             }
 
             switch (alt72) {
@@ -2922,12 +3271,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 49, blockStatement_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "blockStatement"
+
 
     public static class catches_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -2935,14 +3288,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "catches"
     // JavaTreeParser.g:330:1: catches : ^( CATCH_CLAUSE_LIST ( catchClause )+ ) ;
     public final ShadowVariablesParser_JavaTreeParser.catches_return catches() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.catches_return retval = new ShadowVariablesParser_JavaTreeParser.catches_return();
         retval.start = input.LT(1);
+
         int catches_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 52) ) { return retval; }
+
             // JavaTreeParser.g:331:5: ( ^( CATCH_CLAUSE_LIST ( catchClause )+ ) )
             // JavaTreeParser.g:331:9: ^( CATCH_CLAUSE_LIST ( catchClause )+ )
             {
@@ -2963,7 +3320,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                 switch (alt81) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: catchClause
+            	    // JavaTreeParser.g:331:29: catchClause
             	    {
             	    pushFollow(FOLLOW_catchClause_in_catches2526);
             	    catchClause();
@@ -2987,6 +3344,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -2994,12 +3352,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 52, catches_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "catches"
+
 
     public static class catchClause_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3007,14 +3369,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "catchClause"
     // JavaTreeParser.g:334:1: catchClause : ^( CATCH formalParameterStandardDecl block ) ;
     public final ShadowVariablesParser_JavaTreeParser.catchClause_return catchClause() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.catchClause_return retval = new ShadowVariablesParser_JavaTreeParser.catchClause_return();
         retval.start = input.LT(1);
+
         int catchClause_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 53) ) { return retval; }
+
             // JavaTreeParser.g:335:5: ( ^( CATCH formalParameterStandardDecl block ) )
             // JavaTreeParser.g:335:9: ^( CATCH formalParameterStandardDecl block )
             {
@@ -3026,6 +3392,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             state._fsp--;
             if (state.failed) return retval;
+
             pushFollow(FOLLOW_block_in_catchClause2556);
             gShadowVariablesParser.block();
 
@@ -3034,6 +3401,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -3041,12 +3409,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 53, catchClause_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "catchClause"
+
 
     public static class switchBlockLabels_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3054,14 +3426,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "switchBlockLabels"
     // JavaTreeParser.g:338:1: switchBlockLabels : ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* ) ;
     public final ShadowVariablesParser_JavaTreeParser.switchBlockLabels_return switchBlockLabels() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.switchBlockLabels_return retval = new ShadowVariablesParser_JavaTreeParser.switchBlockLabels_return();
         retval.start = input.LT(1);
+
         int switchBlockLabels_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 54) ) { return retval; }
+
             // JavaTreeParser.g:339:5: ( ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* ) )
             // JavaTreeParser.g:339:9: ^( SWITCH_BLOCK_LABEL_LIST ( switchCaseLabel )* ( switchDefaultLabel )? ( switchCaseLabel )* )
             {
@@ -3088,7 +3464,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     switch (alt82) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: switchCaseLabel
+                	    // JavaTreeParser.g:339:35: switchCaseLabel
                 	    {
                 	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels2579);
                 	    switchCaseLabel();
@@ -3104,6 +3480,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     }
                 } while (true);
 
+
                 // JavaTreeParser.g:339:52: ( switchDefaultLabel )?
                 int alt83=2;
                 int LA83_0 = input.LA(1);
@@ -3113,7 +3490,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 }
                 switch (alt83) {
                     case 1 :
-                        // JavaTreeParser.g:0:0: switchDefaultLabel
+                        // JavaTreeParser.g:339:52: switchDefaultLabel
                         {
                         pushFollow(FOLLOW_switchDefaultLabel_in_switchBlockLabels2582);
                         switchDefaultLabel();
@@ -3125,6 +3502,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                         break;
 
                 }
+
 
                 // JavaTreeParser.g:339:72: ( switchCaseLabel )*
                 loop84:
@@ -3139,7 +3517,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     switch (alt84) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: switchCaseLabel
+                	    // JavaTreeParser.g:339:72: switchCaseLabel
                 	    {
                 	    pushFollow(FOLLOW_switchCaseLabel_in_switchBlockLabels2585);
                 	    switchCaseLabel();
@@ -3159,6 +3537,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -3166,12 +3545,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 54, switchBlockLabels_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "switchBlockLabels"
+
 
     public static class switchCaseLabel_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3179,14 +3562,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "switchCaseLabel"
     // JavaTreeParser.g:342:1: switchCaseLabel : ^( CASE expression ( blockStatement )* ) ;
     public final ShadowVariablesParser_JavaTreeParser.switchCaseLabel_return switchCaseLabel() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.switchCaseLabel_return retval = new ShadowVariablesParser_JavaTreeParser.switchCaseLabel_return();
         retval.start = input.LT(1);
+
         int switchCaseLabel_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 55) ) { return retval; }
+
             // JavaTreeParser.g:343:5: ( ^( CASE expression ( blockStatement )* ) )
             // JavaTreeParser.g:343:9: ^( CASE expression ( blockStatement )* )
             {
@@ -3198,20 +3585,21 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             state._fsp--;
             if (state.failed) return retval;
+
             // JavaTreeParser.g:343:27: ( blockStatement )*
             loop85:
             do {
                 int alt85=2;
                 int LA85_0 = input.LA(1);
 
-                if ( (LA85_0==AT||LA85_0==SEMI||LA85_0==ASSERT||LA85_0==BREAK||(LA85_0>=CLASS && LA85_0<=CONTINUE)||LA85_0==DO||LA85_0==ENUM||(LA85_0>=FOR && LA85_0<=IF)||LA85_0==INTERFACE||LA85_0==RETURN||(LA85_0>=SWITCH && LA85_0<=SYNCHRONIZED)||LA85_0==THROW||LA85_0==TRY||LA85_0==WHILE||LA85_0==BLOCK_SCOPE||LA85_0==EXPR||LA85_0==FOR_EACH||LA85_0==LABELED_STATEMENT||LA85_0==VAR_DECLARATION) ) {
+                if ( (LA85_0==AT||LA85_0==SEMI||LA85_0==ASSERT||LA85_0==BREAK||(LA85_0 >= CLASS && LA85_0 <= CONTINUE)||LA85_0==DO||LA85_0==ENUM||(LA85_0 >= FOR && LA85_0 <= IF)||LA85_0==INTERFACE||LA85_0==RETURN||(LA85_0 >= SWITCH && LA85_0 <= SYNCHRONIZED)||LA85_0==THROW||LA85_0==TRY||LA85_0==WHILE||LA85_0==BLOCK_SCOPE||LA85_0==EXPR||LA85_0==FOR_EACH||LA85_0==LABELED_STATEMENT||LA85_0==VAR_DECLARATION) ) {
                     alt85=1;
                 }
 
 
                 switch (alt85) {
             	case 1 :
-            	    // JavaTreeParser.g:0:0: blockStatement
+            	    // JavaTreeParser.g:343:27: blockStatement
             	    {
             	    pushFollow(FOLLOW_blockStatement_in_switchCaseLabel2619);
             	    blockStatement();
@@ -3230,6 +3618,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -3237,12 +3626,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 55, switchCaseLabel_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "switchCaseLabel"
+
 
     public static class switchDefaultLabel_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3250,14 +3643,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "switchDefaultLabel"
     // JavaTreeParser.g:346:1: switchDefaultLabel : ^( DEFAULT ( blockStatement )* ) ;
     public final ShadowVariablesParser_JavaTreeParser.switchDefaultLabel_return switchDefaultLabel() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.switchDefaultLabel_return retval = new ShadowVariablesParser_JavaTreeParser.switchDefaultLabel_return();
         retval.start = input.LT(1);
+
         int switchDefaultLabel_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 56) ) { return retval; }
+
             // JavaTreeParser.g:347:5: ( ^( DEFAULT ( blockStatement )* ) )
             // JavaTreeParser.g:347:9: ^( DEFAULT ( blockStatement )* )
             {
@@ -3271,14 +3668,14 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     int alt86=2;
                     int LA86_0 = input.LA(1);
 
-                    if ( (LA86_0==AT||LA86_0==SEMI||LA86_0==ASSERT||LA86_0==BREAK||(LA86_0>=CLASS && LA86_0<=CONTINUE)||LA86_0==DO||LA86_0==ENUM||(LA86_0>=FOR && LA86_0<=IF)||LA86_0==INTERFACE||LA86_0==RETURN||(LA86_0>=SWITCH && LA86_0<=SYNCHRONIZED)||LA86_0==THROW||LA86_0==TRY||LA86_0==WHILE||LA86_0==BLOCK_SCOPE||LA86_0==EXPR||LA86_0==FOR_EACH||LA86_0==LABELED_STATEMENT||LA86_0==VAR_DECLARATION) ) {
+                    if ( (LA86_0==AT||LA86_0==SEMI||LA86_0==ASSERT||LA86_0==BREAK||(LA86_0 >= CLASS && LA86_0 <= CONTINUE)||LA86_0==DO||LA86_0==ENUM||(LA86_0 >= FOR && LA86_0 <= IF)||LA86_0==INTERFACE||LA86_0==RETURN||(LA86_0 >= SWITCH && LA86_0 <= SYNCHRONIZED)||LA86_0==THROW||LA86_0==TRY||LA86_0==WHILE||LA86_0==BLOCK_SCOPE||LA86_0==EXPR||LA86_0==FOR_EACH||LA86_0==LABELED_STATEMENT||LA86_0==VAR_DECLARATION) ) {
                         alt86=1;
                     }
 
 
                     switch (alt86) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: blockStatement
+                	    // JavaTreeParser.g:347:19: blockStatement
                 	    {
                 	    pushFollow(FOLLOW_blockStatement_in_switchDefaultLabel2647);
                 	    blockStatement();
@@ -3298,6 +3695,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -3305,12 +3703,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 56, switchDefaultLabel_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "switchDefaultLabel"
+
 
     public static class forInit_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3318,14 +3720,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "forInit"
     // JavaTreeParser.g:350:1: forInit : ^( FOR_INIT ( localVariableDeclaration | ( expression )* )? ) ;
     public final ShadowVariablesParser_JavaTreeParser.forInit_return forInit() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.forInit_return retval = new ShadowVariablesParser_JavaTreeParser.forInit_return();
         retval.start = input.LT(1);
+
         int forInit_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 57) ) { return retval; }
+
             // JavaTreeParser.g:351:5: ( ^( FOR_INIT ( localVariableDeclaration | ( expression )* )? ) )
             // JavaTreeParser.g:351:9: ^( FOR_INIT ( localVariableDeclaration | ( expression )* )? )
             {
@@ -3385,7 +3791,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                             switch (alt87) {
                         	case 1 :
-                        	    // JavaTreeParser.g:0:0: expression
+                        	    // JavaTreeParser.g:351:48: expression
                         	    {
                         	    pushFollow(FOLLOW_expression_in_forInit2680);
                         	    gShadowVariablesParser.expression();
@@ -3411,6 +3817,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -3418,12 +3825,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 57, forInit_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "forInit"
+
 
     public static class forCondition_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3431,14 +3842,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "forCondition"
     // JavaTreeParser.g:354:1: forCondition : ^( FOR_CONDITION ( expression )? ) ;
     public final ShadowVariablesParser_JavaTreeParser.forCondition_return forCondition() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.forCondition_return retval = new ShadowVariablesParser_JavaTreeParser.forCondition_return();
         retval.start = input.LT(1);
+
         int forCondition_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 58) ) { return retval; }
+
             // JavaTreeParser.g:355:5: ( ^( FOR_CONDITION ( expression )? ) )
             // JavaTreeParser.g:355:9: ^( FOR_CONDITION ( expression )? )
             {
@@ -3455,7 +3870,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 }
                 switch (alt89) {
                     case 1 :
-                        // JavaTreeParser.g:0:0: expression
+                        // JavaTreeParser.g:355:25: expression
                         {
                         pushFollow(FOLLOW_expression_in_forCondition2710);
                         gShadowVariablesParser.expression();
@@ -3472,6 +3887,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -3479,12 +3895,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 58, forCondition_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "forCondition"
+
 
     public static class forUpdater_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3492,14 +3912,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "forUpdater"
     // JavaTreeParser.g:358:1: forUpdater : ^( FOR_UPDATE ( expression )* ) ;
     public final ShadowVariablesParser_JavaTreeParser.forUpdater_return forUpdater() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.forUpdater_return retval = new ShadowVariablesParser_JavaTreeParser.forUpdater_return();
         retval.start = input.LT(1);
+
         int forUpdater_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 59) ) { return retval; }
+
             // JavaTreeParser.g:359:5: ( ^( FOR_UPDATE ( expression )* ) )
             // JavaTreeParser.g:359:9: ^( FOR_UPDATE ( expression )* )
             {
@@ -3520,7 +3944,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     switch (alt90) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: expression
+                	    // JavaTreeParser.g:359:22: expression
                 	    {
                 	    pushFollow(FOLLOW_expression_in_forUpdater2738);
                 	    gShadowVariablesParser.expression();
@@ -3540,6 +3964,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -3547,12 +3972,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 59, forUpdater_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "forUpdater"
+
 
     public static class explicitConstructorCall_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3560,14 +3989,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "explicitConstructorCall"
     // JavaTreeParser.g:443:1: explicitConstructorCall : ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) );
     public final ShadowVariablesParser_JavaTreeParser.explicitConstructorCall_return explicitConstructorCall() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.explicitConstructorCall_return retval = new ShadowVariablesParser_JavaTreeParser.explicitConstructorCall_return();
         retval.start = input.LT(1);
+
         int explicitConstructorCall_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 64) ) { return retval; }
+
             // JavaTreeParser.g:444:5: ( ^( THIS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? arguments ) | ^( SUPER_CONSTRUCTOR_CALL ( primaryExpression )? ( genericTypeArgumentList )? arguments ) )
             int alt99=2;
             int LA99_0 = input.LA(1);
@@ -3584,6 +4017,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     new NoViableAltException("", 99, 0, input);
 
                 throw nvae;
+
             }
             switch (alt99) {
                 case 1 :
@@ -3601,7 +4035,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     }
                     switch (alt96) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: genericTypeArgumentList
+                            // JavaTreeParser.g:444:33: genericTypeArgumentList
                             {
                             pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3850);
                             genericTypeArgumentList();
@@ -3614,6 +4048,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     }
 
+
                     pushFollow(FOLLOW_arguments_in_explicitConstructorCall3853);
                     arguments();
 
@@ -3621,6 +4056,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -3634,12 +4070,12 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     int alt97=2;
                     int LA97_0 = input.LA(1);
 
-                    if ( (LA97_0==DOT||LA97_0==FALSE||LA97_0==NULL||LA97_0==SUPER||LA97_0==THIS||LA97_0==TRUE||LA97_0==ARRAY_DECLARATOR||LA97_0==ARRAY_ELEMENT_ACCESS||LA97_0==CLASS_CONSTRUCTOR_CALL||LA97_0==METHOD_CALL||LA97_0==PARENTESIZED_EXPR||(LA97_0>=STATIC_ARRAY_CREATOR && LA97_0<=SUPER_CONSTRUCTOR_CALL)||LA97_0==THIS_CONSTRUCTOR_CALL||(LA97_0>=IDENT && LA97_0<=STRING_LITERAL)) ) {
+                    if ( (LA97_0==DOT||LA97_0==FALSE||LA97_0==NULL||LA97_0==SUPER||LA97_0==THIS||LA97_0==TRUE||LA97_0==ARRAY_DECLARATOR||LA97_0==ARRAY_ELEMENT_ACCESS||LA97_0==CLASS_CONSTRUCTOR_CALL||LA97_0==METHOD_CALL||LA97_0==PARENTESIZED_EXPR||(LA97_0 >= STATIC_ARRAY_CREATOR && LA97_0 <= SUPER_CONSTRUCTOR_CALL)||LA97_0==THIS_CONSTRUCTOR_CALL||(LA97_0 >= IDENT && LA97_0 <= STRING_LITERAL)) ) {
                         alt97=1;
                     }
                     switch (alt97) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: primaryExpression
+                            // JavaTreeParser.g:445:34: primaryExpression
                             {
                             pushFollow(FOLLOW_primaryExpression_in_explicitConstructorCall3867);
                             gShadowVariablesParser.primaryExpression();
@@ -3652,6 +4088,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     }
 
+
                     // JavaTreeParser.g:445:53: ( genericTypeArgumentList )?
                     int alt98=2;
                     int LA98_0 = input.LA(1);
@@ -3661,7 +4098,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     }
                     switch (alt98) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: genericTypeArgumentList
+                            // JavaTreeParser.g:445:53: genericTypeArgumentList
                             {
                             pushFollow(FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3870);
                             genericTypeArgumentList();
@@ -3674,6 +4111,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     }
 
+
                     pushFollow(FOLLOW_arguments_in_explicitConstructorCall3873);
                     arguments();
 
@@ -3681,6 +4119,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -3691,12 +4130,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 64, explicitConstructorCall_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "explicitConstructorCall"
+
 
     public static class arrayTypeDeclarator_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3704,14 +4147,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "arrayTypeDeclarator"
     // JavaTreeParser.g:448:1: arrayTypeDeclarator : ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) ;
     public final ShadowVariablesParser_JavaTreeParser.arrayTypeDeclarator_return arrayTypeDeclarator() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.arrayTypeDeclarator_return retval = new ShadowVariablesParser_JavaTreeParser.arrayTypeDeclarator_return();
         retval.start = input.LT(1);
+
         int arrayTypeDeclarator_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 65) ) { return retval; }
+
             // JavaTreeParser.g:449:5: ( ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) ) )
             // JavaTreeParser.g:449:9: ^( ARRAY_DECLARATOR ( arrayTypeDeclarator | qualifiedIdentifier | primitiveType ) )
             {
@@ -3750,6 +4197,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     new NoViableAltException("", 100, 0, input);
 
                 throw nvae;
+
             }
 
             switch (alt100) {
@@ -3792,6 +4240,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -3799,12 +4248,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 65, arrayTypeDeclarator_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "arrayTypeDeclarator"
+
 
     public static class newExpression_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -3812,14 +4265,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "newExpression"
     // JavaTreeParser.g:452:1: newExpression : ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) );
     public final ShadowVariablesParser_JavaTreeParser.newExpression_return newExpression() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.newExpression_return retval = new ShadowVariablesParser_JavaTreeParser.newExpression_return();
         retval.start = input.LT(1);
+
         int newExpression_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 66) ) { return retval; }
+
             // JavaTreeParser.g:453:5: ( ^( STATIC_ARRAY_CREATOR ( primitiveType newArrayConstruction | ( genericTypeArgumentList )? qualifiedTypeIdent newArrayConstruction ) ) | ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? qualifiedTypeIdent arguments ( classTopLevelScope )? ) )
             int alt105=2;
             int LA105_0 = input.LA(1);
@@ -3836,6 +4293,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     new NoViableAltException("", 105, 0, input);
 
                 throw nvae;
+
             }
             switch (alt105) {
                 case 1 :
@@ -3848,7 +4306,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     int alt102=2;
                     int LA102_0 = input.LA(1);
 
-                    if ( (LA102_0==BOOLEAN||LA102_0==BYTE||LA102_0==CHAR||LA102_0==DOUBLE||LA102_0==FLOAT||(LA102_0>=INT && LA102_0<=LONG)||LA102_0==SHORT) ) {
+                    if ( (LA102_0==BOOLEAN||LA102_0==BYTE||LA102_0==CHAR||LA102_0==DOUBLE||LA102_0==FLOAT||(LA102_0 >= INT && LA102_0 <= LONG)||LA102_0==SHORT) ) {
                         alt102=1;
                     }
                     else if ( (LA102_0==GENERIC_TYPE_ARG_LIST||LA102_0==QUALIFIED_TYPE_IDENT) ) {
@@ -3860,6 +4318,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                             new NoViableAltException("", 102, 0, input);
 
                         throw nvae;
+
                     }
                     switch (alt102) {
                         case 1 :
@@ -3870,6 +4329,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                             state._fsp--;
                             if (state.failed) return retval;
+
                             pushFollow(FOLLOW_newArrayConstruction_in_newExpression3949);
                             newArrayConstruction();
 
@@ -3890,7 +4350,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                             }
                             switch (alt101) {
                                 case 1 :
-                                    // JavaTreeParser.g:0:0: genericTypeArgumentList
+                                    // JavaTreeParser.g:455:17: genericTypeArgumentList
                                     {
                                     pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression3967);
                                     genericTypeArgumentList();
@@ -3903,11 +4363,13 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                             }
 
+
                             pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression3970);
                             qualifiedTypeIdent();
 
                             state._fsp--;
                             if (state.failed) return retval;
+
                             pushFollow(FOLLOW_newArrayConstruction_in_newExpression3972);
                             newArrayConstruction();
 
@@ -3921,6 +4383,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
 
                     match(input, Token.UP, null); if (state.failed) return retval;
+
 
                     }
                     break;
@@ -3939,7 +4402,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     }
                     switch (alt103) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: genericTypeArgumentList
+                            // JavaTreeParser.g:458:34: genericTypeArgumentList
                             {
                             pushFollow(FOLLOW_genericTypeArgumentList_in_newExpression4009);
                             genericTypeArgumentList();
@@ -3952,16 +4415,19 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     }
 
+
                     pushFollow(FOLLOW_qualifiedTypeIdent_in_newExpression4012);
                     qualifiedTypeIdent();
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_arguments_in_newExpression4014);
                     arguments();
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     // JavaTreeParser.g:458:88: ( classTopLevelScope )?
                     int alt104=2;
                     int LA104_0 = input.LA(1);
@@ -3971,7 +4437,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     }
                     switch (alt104) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: classTopLevelScope
+                            // JavaTreeParser.g:458:88: classTopLevelScope
                             {
                             pushFollow(FOLLOW_classTopLevelScope_in_newExpression4016);
                             gShadowVariablesParser.classTopLevelScope();
@@ -3987,6 +4453,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     match(input, Token.UP, null); if (state.failed) return retval;
 
+
                     }
                     break;
 
@@ -3996,12 +4463,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 66, newExpression_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "newExpression"
+
 
     public static class innerNewExpression_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -4009,14 +4480,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "innerNewExpression"
     // JavaTreeParser.g:461:1: innerNewExpression : ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) ;
     public final ShadowVariablesParser_JavaTreeParser.innerNewExpression_return innerNewExpression() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.innerNewExpression_return retval = new ShadowVariablesParser_JavaTreeParser.innerNewExpression_return();
         retval.start = input.LT(1);
+
         int innerNewExpression_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 67) ) { return retval; }
+
             // JavaTreeParser.g:462:5: ( ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? ) )
             // JavaTreeParser.g:462:9: ^( CLASS_CONSTRUCTOR_CALL ( genericTypeArgumentList )? IDENT arguments ( classTopLevelScope )? )
             {
@@ -4032,7 +4507,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             }
             switch (alt106) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: genericTypeArgumentList
+                    // JavaTreeParser.g:462:34: genericTypeArgumentList
                     {
                     pushFollow(FOLLOW_genericTypeArgumentList_in_innerNewExpression4041);
                     genericTypeArgumentList();
@@ -4045,12 +4520,15 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             }
 
+
             match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression4044); if (state.failed) return retval;
+
             pushFollow(FOLLOW_arguments_in_innerNewExpression4046);
             arguments();
 
             state._fsp--;
             if (state.failed) return retval;
+
             // JavaTreeParser.g:462:75: ( classTopLevelScope )?
             int alt107=2;
             int LA107_0 = input.LA(1);
@@ -4060,7 +4538,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             }
             switch (alt107) {
                 case 1 :
-                    // JavaTreeParser.g:0:0: classTopLevelScope
+                    // JavaTreeParser.g:462:75: classTopLevelScope
                     {
                     pushFollow(FOLLOW_classTopLevelScope_in_innerNewExpression4048);
                     gShadowVariablesParser.classTopLevelScope();
@@ -4076,6 +4554,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             match(input, Token.UP, null); if (state.failed) return retval;
 
+
             }
 
         }
@@ -4083,12 +4562,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 67, innerNewExpression_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "innerNewExpression"
+
 
     public static class newArrayConstruction_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -4096,14 +4579,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "newArrayConstruction"
     // JavaTreeParser.g:465:1: newArrayConstruction : ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? );
     public final ShadowVariablesParser_JavaTreeParser.newArrayConstruction_return newArrayConstruction() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.newArrayConstruction_return retval = new ShadowVariablesParser_JavaTreeParser.newArrayConstruction_return();
         retval.start = input.LT(1);
+
         int newArrayConstruction_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 68) ) { return retval; }
+
             // JavaTreeParser.g:466:5: ( arrayDeclaratorList arrayInitializer | ( expression )+ ( arrayDeclaratorList )? )
             int alt110=2;
             int LA110_0 = input.LA(1);
@@ -4120,6 +4607,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     new NoViableAltException("", 110, 0, input);
 
                 throw nvae;
+
             }
             switch (alt110) {
                 case 1 :
@@ -4130,6 +4618,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     state._fsp--;
                     if (state.failed) return retval;
+
                     pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction4075);
                     arrayInitializer();
 
@@ -4155,7 +4644,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                         switch (alt108) {
                     	case 1 :
-                    	    // JavaTreeParser.g:0:0: expression
+                    	    // JavaTreeParser.g:467:9: expression
                     	    {
                     	    pushFollow(FOLLOW_expression_in_newArrayConstruction4085);
                     	    gShadowVariablesParser.expression();
@@ -4176,6 +4665,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                         cnt108++;
                     } while (true);
 
+
                     // JavaTreeParser.g:467:21: ( arrayDeclaratorList )?
                     int alt109=2;
                     int LA109_0 = input.LA(1);
@@ -4185,7 +4675,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                     }
                     switch (alt109) {
                         case 1 :
-                            // JavaTreeParser.g:0:0: arrayDeclaratorList
+                            // JavaTreeParser.g:467:21: arrayDeclaratorList
                             {
                             pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction4088);
                             gShadowVariablesParser.arrayDeclaratorList();
@@ -4208,12 +4698,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 68, newArrayConstruction_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "newArrayConstruction"
+
 
     public static class arguments_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -4221,14 +4715,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "arguments"
     // JavaTreeParser.g:470:1: arguments : ^( ARGUMENT_LIST ( expression )* ) ;
     public final ShadowVariablesParser_JavaTreeParser.arguments_return arguments() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.arguments_return retval = new ShadowVariablesParser_JavaTreeParser.arguments_return();
         retval.start = input.LT(1);
+
         int arguments_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 69) ) { return retval; }
+
             // JavaTreeParser.g:471:5: ( ^( ARGUMENT_LIST ( expression )* ) )
             // JavaTreeParser.g:471:9: ^( ARGUMENT_LIST ( expression )* )
             {
@@ -4249,7 +4747,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
                     switch (alt111) {
                 	case 1 :
-                	    // JavaTreeParser.g:0:0: expression
+                	    // JavaTreeParser.g:471:25: expression
                 	    {
                 	    pushFollow(FOLLOW_expression_in_arguments4111);
                 	    gShadowVariablesParser.expression();
@@ -4269,6 +4767,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
                 match(input, Token.UP, null); if (state.failed) return retval;
             }
 
+
             }
 
         }
@@ -4276,12 +4775,16 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 69, arguments_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "arguments"
+
 
     public static class literal_return extends TreeRuleReturnScope {
         public StringTemplate st;
@@ -4289,20 +4792,25 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         public String toString() { return st==null?null:st.toString(); }
     };
 
+
     // $ANTLR start "literal"
     // JavaTreeParser.g:474:1: literal : ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | TRUE | FALSE | NULL );
     public final ShadowVariablesParser_JavaTreeParser.literal_return literal() throws RecognitionException {
         ShadowVariablesParser_JavaTreeParser.literal_return retval = new ShadowVariablesParser_JavaTreeParser.literal_return();
         retval.start = input.LT(1);
+
         int literal_StartIndex = input.index();
+
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 70) ) { return retval; }
+
             // JavaTreeParser.g:475:5: ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | TRUE | FALSE | NULL )
             // JavaTreeParser.g:
             {
-            if ( input.LA(1)==FALSE||input.LA(1)==NULL||input.LA(1)==TRUE||(input.LA(1)>=HEX_LITERAL && input.LA(1)<=STRING_LITERAL) ) {
+            if ( input.LA(1)==FALSE||input.LA(1)==NULL||input.LA(1)==TRUE||(input.LA(1) >= HEX_LITERAL && input.LA(1) <= STRING_LITERAL) ) {
                 input.consume();
-                state.errorRecovery=false;state.failed=false;
+                state.errorRecovery=false;
+                state.failed=false;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
@@ -4318,15 +4826,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
             reportError(re);
             recover(input,re);
         }
+
         finally {
+        	// do for sure before leaving
             if ( state.backtracking>0 ) { memoize(input, 70, literal_StartIndex); }
+
         }
         return retval;
     }
     // $ANTLR end "literal"
 
     // $ANTLR start synpred125_JavaTreeParser
-    public final void synpred125_JavaTreeParser_fragment() throws RecognitionException {   
+    public final void synpred125_JavaTreeParser_fragment() throws RecognitionException {
         // JavaTreeParser.g:339:35: ( switchCaseLabel )
         // JavaTreeParser.g:339:35: switchCaseLabel
         {
@@ -4337,11 +4848,12 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
         if (state.failed) return ;
 
         }
+
     }
     // $ANTLR end synpred125_JavaTreeParser
 
     // $ANTLR start synpred132_JavaTreeParser
-    public final void synpred132_JavaTreeParser_fragment() throws RecognitionException {   
+    public final void synpred132_JavaTreeParser_fragment() throws RecognitionException {
         // JavaTreeParser.g:351:48: ( ( expression )* )
         // JavaTreeParser.g:351:48: ( expression )*
         {
@@ -4358,7 +4870,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
             switch (alt142) {
         	case 1 :
-        	    // JavaTreeParser.g:0:0: expression
+        	    // JavaTreeParser.g:351:48: expression
         	    {
         	    pushFollow(FOLLOW_expression_in_synpred132_JavaTreeParser2680);
         	    gShadowVariablesParser.expression();
@@ -4376,6 +4888,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
 
 
         }
+
     }
     // $ANTLR end synpred132_JavaTreeParser
 
@@ -4451,7 +4964,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
     public static final BitSet FOLLOW_MODIFIER_LIST_in_modifierList1098 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_modifier_in_modifierList1100 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
     public static final BitSet FOLLOW_LOCAL_MODIFIER_LIST_in_localModifierList1241 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_localModifier_in_localModifierList1243 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_localModifier_in_localModifierList1243 = new BitSet(new long[]{0x0000000000000088L,0x0000000000000040L});
     public static final BitSet FOLLOW_TYPE_in_type1294 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_primitiveType_in_type1297 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L});
     public static final BitSet FOLLOW_qualifiedTypeIdent_in_type1301 = new BitSet(new long[]{0x0000000000000008L,0x0004000000000000L});
@@ -4460,7 +4973,6 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
     public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent1328 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_IDENT_in_typeIdent1351 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_genericTypeArgumentList_in_typeIdent1353 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_set_in_primitiveType0 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_GENERIC_TYPE_ARG_LIST_in_genericTypeArgumentList1464 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_genericTypeArgument_in_genericTypeArgumentList1466 = new BitSet(new long[]{0x0000010000000008L,0x0000000000000000L,0x0000000020000000L});
     public static final BitSet FOLLOW_type_in_genericTypeArgument1491 = new BitSet(new long[]{0x0000000000000002L});
@@ -4478,7 +4990,7 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
     public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentifier1787 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier1789 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_ANNOTATION_LIST_in_annotationList1816 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotation_in_annotationList1818 = new BitSet(new long[]{0x0020000000000088L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_annotation_in_annotationList1818 = new BitSet(new long[]{0x0000000000000088L});
     public static final BitSet FOLLOW_AT_in_annotation1840 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_qualifiedIdentifier_in_annotation1842 = new BitSet(new long[]{0x0000000000000008L,0x0000020000000000L});
     public static final BitSet FOLLOW_annotationInit_in_annotation1844 = new BitSet(new long[]{0x0000000000000008L});
@@ -4491,18 +5003,18 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
     public static final BitSet FOLLOW_IDENT_in_annotationInitializer1935 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializer1937 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_ANNOTATION_INIT_ARRAY_ELEMENT_in_annotationElementValue1962 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValue1964 = new BitSet(new long[]{0x0020000000000088L,0x401001444CE20040L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValue1964 = new BitSet(new long[]{0x0000000000000088L,0x4000010000000000L});
     public static final BitSet FOLLOW_annotation_in_annotationElementValue1976 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_expression_in_annotationElementValue1986 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ANNOTATION_TOP_LEVEL_SCOPE_in_annotationTopLevelScope2010 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope2012 = new BitSet(new long[]{0x2000000000000088L,0x0000200000002008L,0x0000000900000100L});
+    public static final BitSet FOLLOW_annotationScopeDeclarations_in_annotationTopLevelScope2012 = new BitSet(new long[]{0x2000000000000088L,0x0000200000002008L,0x0000000100000000L});
     public static final BitSet FOLLOW_ANNOTATION_METHOD_DECL_in_annotationScopeDeclarations2038 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2040 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2040 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000020000000L});
     public static final BitSet FOLLOW_type_in_annotationScopeDeclarations2042 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_IDENT_in_annotationScopeDeclarations2044 = new BitSet(new long[]{0x8000000000000008L});
     public static final BitSet FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations2046 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_VAR_DECLARATION_in_annotationScopeDeclarations2059 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2061 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations2061 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000020000000L});
     public static final BitSet FOLLOW_type_in_annotationScopeDeclarations2063 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
     public static final BitSet FOLLOW_variableDeclaratorList_in_annotationScopeDeclarations2065 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_typeDeclaration_in_annotationScopeDeclarations2076 = new BitSet(new long[]{0x0000000000000002L});
@@ -4521,17 +5033,17 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
     public static final BitSet FOLLOW_switchDefaultLabel_in_switchBlockLabels2582 = new BitSet(new long[]{0x0400000000000008L});
     public static final BitSet FOLLOW_switchCaseLabel_in_switchBlockLabels2585 = new BitSet(new long[]{0x0400000000000008L});
     public static final BitSet FOLLOW_CASE_in_switchCaseLabel2615 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_switchCaseLabel2617 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
-    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel2619 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
+    public static final BitSet FOLLOW_expression_in_switchCaseLabel2617 = new BitSet(new long[]{0x6140100000000088L,0x4020009161002609L,0x0000000100002004L});
+    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel2619 = new BitSet(new long[]{0x6140100000000088L,0x4020009161002609L,0x0000000100002004L});
     public static final BitSet FOLLOW_DEFAULT_in_switchDefaultLabel2645 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel2647 = new BitSet(new long[]{0x6140100000000088L,0x4030009161002609L,0x0000000900002104L});
+    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel2647 = new BitSet(new long[]{0x6140100000000088L,0x4020009161002609L,0x0000000100002004L});
     public static final BitSet FOLLOW_FOR_INIT_in_forInit2673 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_localVariableDeclaration_in_forInit2676 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_expression_in_forInit2680 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_expression_in_forInit2680 = new BitSet(new long[]{0x0000000000000008L,0x4000000000000000L});
     public static final BitSet FOLLOW_FOR_CONDITION_in_forCondition2708 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expression_in_forCondition2710 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_FOR_UPDATE_in_forUpdater2736 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_forUpdater2738 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
+    public static final BitSet FOLLOW_expression_in_forUpdater2738 = new BitSet(new long[]{0x0000000000000008L,0x4000000000000000L});
     public static final BitSet FOLLOW_THIS_CONSTRUCTOR_CALL_in_explicitConstructorCall3848 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_genericTypeArgumentList_in_explicitConstructorCall3850 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
     public static final BitSet FOLLOW_arguments_in_explicitConstructorCall3853 = new BitSet(new long[]{0x0000000000000008L});
@@ -4544,10 +5056,10 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
     public static final BitSet FOLLOW_qualifiedIdentifier_in_arrayTypeDeclarator3901 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_primitiveType_in_arrayTypeDeclarator3905 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_STATIC_ARRAY_CREATOR_in_newExpression3929 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primitiveType_in_newExpression3947 = new BitSet(new long[]{0x0000000000000008L,0x4014000000000000L});
+    public static final BitSet FOLLOW_primitiveType_in_newExpression3947 = new BitSet(new long[]{0x0000000000000000L,0x4004000000000000L});
     public static final BitSet FOLLOW_newArrayConstruction_in_newExpression3949 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression3967 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression3970 = new BitSet(new long[]{0x0000000000000008L,0x4014000000000000L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_newExpression3970 = new BitSet(new long[]{0x0000000000000000L,0x4004000000000000L});
     public static final BitSet FOLLOW_newArrayConstruction_in_newExpression3972 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_CLASS_CONSTRUCTOR_CALL_in_newExpression4007 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_genericTypeArgumentList_in_newExpression4009 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
@@ -4561,12 +5073,11 @@ public class ShadowVariablesParser_JavaTreeParser extends AbstractTreeParser {
     public static final BitSet FOLLOW_classTopLevelScope_in_innerNewExpression4048 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction4073 = new BitSet(new long[]{0x0000000000000000L,0x0010000000000000L});
     public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction4075 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_newArrayConstruction4085 = new BitSet(new long[]{0x000000000000000AL,0x4014000000000000L});
+    public static final BitSet FOLLOW_expression_in_newArrayConstruction4085 = new BitSet(new long[]{0x0000000000000002L,0x4004000000000000L});
     public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction4088 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ARGUMENT_LIST_in_arguments4109 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_arguments4111 = new BitSet(new long[]{0x0000000000000008L,0x4010000000000000L});
-    public static final BitSet FOLLOW_set_in_literal0 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_arguments4111 = new BitSet(new long[]{0x0000000000000008L,0x4000000000000000L});
     public static final BitSet FOLLOW_switchCaseLabel_in_synpred125_JavaTreeParser2579 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_synpred132_JavaTreeParser2680 = new BitSet(new long[]{0x000000000000000AL,0x4010000000000000L});
+    public static final BitSet FOLLOW_expression_in_synpred132_JavaTreeParser2680 = new BitSet(new long[]{0x0000000000000002L,0x4000000000000000L});
 
 }

@@ -44,8 +44,8 @@ public class MultipleTest {
         short i = __set_short((short)(2),(short)0);
         assertEquals(2, __get_short(i,(short)0));
         for (short j = __set_short((short)(0),(short)1); __get_short(j,(short)1) < 20; j=__set_short((short)(__get_short(j,(short)1)+1),(short)1)){
-	/***** BEGIN ORIGINAL [IF_SWITCH_1] *****
-	            if (__get_short(i,(short)0) % 2 == 0) {
+            	/***** BEGIN ORIGINAL [IF_SWITCH_1] *****
+	if (__get_short(i,(short)0) % 2 == 0) {
 	                i=__set_short((short)(__get_short(i,(short)0)+(__get_short(j,(short)1))),(short)0);
 	            }
 	            else {
@@ -106,8 +106,8 @@ public class MultipleTest {
 	 *@throws RuntimeException in case that transition is not allowed
 	 */
 	private static void _VerifyAllowedTransition(short oldState, short newState){
-	/***** BEGIN ORIGINAL [IDENTIFY_BLOCKS_2] *****
-			switch (oldState){
+			/***** BEGIN ORIGINAL [IDENTIFY_BLOCKS_2] *****
+	switch (oldState){
 				case STATE_INSTALLED: {
 					if (newState == STATE_SELECTED) {break;}
 					if (newState == STATE_BLOCKED) {break;}
@@ -161,8 +161,8 @@ public class MultipleTest {
 	 *@throws RuntimeException in case that function is not allowed in given state
 	 */
 	 private static void _VerifyAllowedFunction(short function, short state){
-	/***** BEGIN ORIGINAL [IDENTIFY_BLOCKS_3] *****
-			switch (function){
+			/***** BEGIN ORIGINAL [IDENTIFY_BLOCKS_3] *****
+	switch (function){
 				case FUNC_blockCard: {
 					if (state == STATE_INSTALLED) break;
 					if (state == STATE_SELECTED) break;
