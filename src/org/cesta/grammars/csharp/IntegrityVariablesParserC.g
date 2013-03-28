@@ -10,7 +10,7 @@ options {
     rewrite = true;
 }
 
-import CSharp4AST;
+//import CSharp4Tree; //not existing yet
 
 @treeparser::header {
 package org.cesta.parsers.csharp;
