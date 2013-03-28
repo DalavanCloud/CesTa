@@ -15,8 +15,8 @@ public class IfSwitchReplacementTest {
     @Test
     public void simpleIf() {
         int j = 0;
-        	/***** BEGIN ORIGINAL [IDENTIFY_BLOCKS_1] *****
-	for (int i = 0; i < 10; i++){
+	/***** BEGIN ORIGINAL [IDENTIFY_BLOCKS_1] *****
+	        for (int i = 0; i < 10; i++){
 	            if (i == 5) break;
 	            j += i;
 	        } 
@@ -33,8 +33,8 @@ public class IfSwitchReplacementTest {
     @Test
     public void switchFor(){
         short k = 0;
-        	/***** BEGIN ORIGINAL [IDENTIFY_BLOCKS_2] *****
-	switch (k) {
+	/***** BEGIN ORIGINAL [IDENTIFY_BLOCKS_2] *****
+	        switch (k) {
 	            case 0: 
 	                    for (short i = 0; i < 6; i++) {
 	                        k += i;
@@ -60,8 +60,8 @@ public class IfSwitchReplacementTest {
     
     public short returnFunc(){
         int i = 1, j = 2;
-        	/***** BEGIN ORIGINAL [IF_SWITCH_4] *****
-	if (i == 1) {
+	/***** BEGIN ORIGINAL [IF_SWITCH_4] *****
+	        if (i == 1) {
 	            if (j == 0) {
 	                throw new RuntimeException("Dummy exception");
 	            }
@@ -77,8 +77,8 @@ public class IfSwitchReplacementTest {
 			case 0:
 				if ((i == 1)) {
 					{
-					            	/***** BEGIN ORIGINAL [IF_SWITCH_5] *****
-						if (j == 0) {
+						/***** BEGIN ORIGINAL [IF_SWITCH_5] *****
+						            if (j == 0) {
 						                throw new RuntimeException("Dummy exception");
 						            }
 						            else return 2; 
@@ -118,8 +118,8 @@ public class IfSwitchReplacementTest {
 					return 3;
 				} else {
 					{
-					            	/***** BEGIN ORIGINAL [IF_SWITCH_5] *****
-						if (j == 0) {
+						/***** BEGIN ORIGINAL [IF_SWITCH_5] *****
+						            if (j == 0) {
 						                throw new RuntimeException("Dummy exception");
 						            }
 						            else return 2; 

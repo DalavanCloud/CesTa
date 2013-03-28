@@ -61,13 +61,13 @@ public abstract class IntegrityVariablesMembers extends AbstractTreeParser {
         }
 
         public boolean isSupportedType() {
-            return type.equals("boolean") || type.equals("byte") || type.equals("short");
+            return type.matches(getParamS("replaceTypes"));
         }
     }
 
     // TODO: remove
     public boolean isSupportedType(String type) {
-        return type.equals("boolean") || type.equals("byte") || type.equals("short");
+        return new Variable("", type).isSupportedType();
     }
 
     /**
@@ -92,34 +92,40 @@ public abstract class IntegrityVariablesMembers extends AbstractTreeParser {
         // TODO: mask randomization
         StringTemplate st;
 
-        st = getTemplateLib().getInstanceOf("declareBooleanSetter");
-        st.setAttribute("trueValue", "0x55");
-        st.setAttribute("falseValue", "0xAA");
-        tokens.insertAfter(tree.getTokenStartIndex(), st);
+        if (isSupportedType("boolean")) {
+            st = getTemplateLib().getInstanceOf("declareBooleanSetter");
+            st.setAttribute("trueValue", "0x55");
+            st.setAttribute("falseValue", "0xAA");
+            tokens.insertAfter(tree.getTokenStartIndex(), st);
 
-        st = getTemplateLib().getInstanceOf("declareBooleanGetter");
-        st.setAttribute("trueValue", "0x55");
-        st.setAttribute("falseValue", "0xAA");
-        tokens.insertAfter(tree.getTokenStartIndex(), st);
+            st = getTemplateLib().getInstanceOf("declareBooleanGetter");
+            st.setAttribute("trueValue", "0x55");
+            st.setAttribute("falseValue", "0xAA");
+            tokens.insertAfter(tree.getTokenStartIndex(), st);
+        }
 
-        st = getTemplateLib().getInstanceOf("declareByteSetter");
-        st.setAttribute("mask", "0x55");
-        tokens.insertAfter(tree.getTokenStartIndex(), st);
+        if (isSupportedType("byte")) {
+            st = getTemplateLib().getInstanceOf("declareByteSetter");
+            st.setAttribute("mask", "0x55");
+            tokens.insertAfter(tree.getTokenStartIndex(), st);
 
-        st = getTemplateLib().getInstanceOf("declareByteGetter");
-        st.setAttribute("mask", "0x55");
-        tokens.insertAfter(tree.getTokenStartIndex(), st);
-
-        st = getTemplateLib().getInstanceOf("addDualShortType");
-        tokens.insertAfter(tree.getTokenStartIndex(), st);
+            st = getTemplateLib().getInstanceOf("declareByteGetter");
+            st.setAttribute("mask", "0x55");
+            tokens.insertAfter(tree.getTokenStartIndex(), st);
+        }
         
-        st = getTemplateLib().getInstanceOf("declareShortSetter");
-        st.setAttribute("mask", "0x55");
-        tokens.insertAfter(tree.getTokenStartIndex(), st);
+        if (isSupportedType("short")) {
+            st = getTemplateLib().getInstanceOf("addDualShortType");
+            tokens.insertAfter(tree.getTokenStartIndex(), st);
+        
+            st = getTemplateLib().getInstanceOf("declareShortSetter");
+            st.setAttribute("mask", "0x55");
+            tokens.insertAfter(tree.getTokenStartIndex(), st);
 
-        st = getTemplateLib().getInstanceOf("declareShortGetter");
-        st.setAttribute("mask", "0x55");
-        tokens.insertAfter(tree.getTokenStartIndex(), st);
+            st = getTemplateLib().getInstanceOf("declareShortGetter");
+            st.setAttribute("mask", "0x55");
+            tokens.insertAfter(tree.getTokenStartIndex(), st);
+        }
     }
 
     /**
@@ -170,7 +176,7 @@ public abstract class IntegrityVariablesMembers extends AbstractTreeParser {
      * @param tree only the right side of the assignment
      */
     public void setResistantType(String expression, Variable var, CommonTree tree) {
-        if (!var.shouldBeTransformed()) {
+        if (var == null || !var.shouldBeTransformed()) {
             return;
         }
         StringTemplate st = getTemplateLib().getInstanceOf("set_" + var.getType());

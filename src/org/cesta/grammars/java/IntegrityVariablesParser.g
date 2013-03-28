@@ -40,6 +40,10 @@ import org.cesta.parsers.java.IntegrityVariablesMembers;
             id = parts[parts.length - 1];
         }
         for (int i = $Variables.size() - 1; i >= 0; i--) {
+            if ($Variables[i]::variableTypes == null) {
+                System.out.println("variable '" + id + "': types " + i + " null");
+                continue;
+            }
             if ($Variables[i]::variableTypes.containsKey(id)) {
                 return $Variables[i]::variableTypes.get(id);
             }

@@ -224,6 +224,16 @@
 			<param name="replaceLocal" value="true"/>
 			<fileset dir="${test.src.dir}/transformed">
 				<include name="**/ShadowVariablesTest.java"/>
+				<!--<include name="**/MultipleTest.java"/>-->
+			</fileset>
+        </c:transform>
+                        <!-- run ShadowVariables transformation again -->
+        <c:transform classname="java.ShadowVariables">
+			<param name="javaCard" value="false"/>
+			<!-- replace also local variables inside methods -->
+			<param name="replaceLocal" value="true"/>
+                        <param name="replaceTypes" value="short"/>
+			<fileset dir="${test.src.dir}/transformed">
 				<include name="**/MultipleTest.java"/>
 			</fileset>
 	</c:transform>
@@ -232,6 +242,7 @@
                         <param name="javaCard" value="false"/>
 			<fileset dir="${test.src.dir}/transformed">
 				<include name="**/IntegrityVariablesTest.java"/>
+                                <include name="**/MultipleTest.java"/>
 			</fileset>
 	</c:transform>
 		<!-- run IfSwitchReplacement transformation -->

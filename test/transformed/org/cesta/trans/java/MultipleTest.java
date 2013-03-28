@@ -9,7 +9,65 @@ import org.junit.Test;
  * @author Tobias Smolka
  */
 import java.util.Random;
-public class MultipleTest { 
+public class MultipleTest {
+
+    private static byte _getByte(short var) {
+	/***** BEGIN ORIGINAL [IF_SWITCH_1] *****
+	        if (((byte) (var >>> 8) ^ 0x55) == (byte) var) {
+	            return (byte) var;
+	        } else {
+	            throw new RuntimeException("Error induction");
+	        } 
+	***** END ORIGINAL [IF_SWITCH_1] *****/ 
+	/***** BEGIN REPLACE [IF_SWITCH_1] *****/ 
+	IF_SWITCH_1: {
+		switch (__getRandomBit()){
+			case -1: 
+				throw new RuntimeException("__getRandomBit() returned invalid value");
+			case 0:
+				if ((((byte) (var >>> 8) ^ 0x55) == (byte) var)) {
+					{
+					            return (byte) var;
+					        }
+				} else {
+					{
+					            throw new RuntimeException("Error induction");
+					        }
+				}
+			case 1:
+				if (!(((byte) (var >>> 8) ^ 0x55) == (byte) var)) {
+					{
+					            throw new RuntimeException("Error induction");
+					        }
+				} else {
+					{
+					            return (byte) var;
+					        }
+				}
+			default:
+				throw new RuntimeException("__getRandomBit() returned invalid value");
+		}
+	}
+	/***** END REPLACE [IF_SWITCH_1] *****/ 
+    }
+
+    private static short _setByte(byte var) {
+        return (short) ((short) ((0x55 ^ var) << 8) ^ (var & 0xFF));
+    }
+
+    private static boolean _getBoolean(byte var) {
+        switch (var) {
+            case (byte) 0x55: return true;
+            case (byte) 0xAA: return false;
+            default: throw new RuntimeException("Error induction");
+        }
+    }
+
+    private static byte _setBoolean(boolean var) {
+        return var ? (byte) 0x55 : (byte) 0xAA;
+    }
+
+  
 	private short fault_resistant_short[] = new short[2];	/* help array to store negations of local short variables*/ 
 	private short fault_resistant_short_g[] = new short[1];	/* help array to store negations of global short variables*/
 
@@ -44,16 +102,16 @@ public class MultipleTest {
         short i = __set_short((short)(2),(short)0);
         assertEquals(2, __get_short(i,(short)0));
         for (short j = __set_short((short)(0),(short)1); __get_short(j,(short)1) < 20; j=__set_short((short)(__get_short(j,(short)1)+1),(short)1)){
-            	/***** BEGIN ORIGINAL [IF_SWITCH_1] *****
-	if (__get_short(i,(short)0) % 2 == 0) {
+	/***** BEGIN ORIGINAL [IF_SWITCH_2] *****
+	            if (__get_short(i,(short)0) % 2 == 0) {
 	                i=__set_short((short)(__get_short(i,(short)0)+(__get_short(j,(short)1))),(short)0);
 	            }
 	            else {
 	                i=__set_short((short)((short) (__get_short(j,(short)1) * 2)),(short)0);
 	            } 
-	***** END ORIGINAL [IF_SWITCH_1] *****/ 
-	/***** BEGIN REPLACE [IF_SWITCH_1] *****/ 
-	IF_SWITCH_1: {
+	***** END ORIGINAL [IF_SWITCH_2] *****/ 
+	/***** BEGIN REPLACE [IF_SWITCH_2] *****/ 
+	IF_SWITCH_2: {
 		switch (__getRandomBit()){
 			case -1: 
 				throw new RuntimeException("__getRandomBit() returned invalid value");
@@ -67,7 +125,7 @@ public class MultipleTest {
 					                i=__set_short((short)((short) (__get_short(j,(short)1) * 2)),(short)0);
 					            }
 				}
-	break IF_SWITCH_1;
+	break IF_SWITCH_2;
 			case 1:
 				if (!(__get_short(i,(short)0) % 2 == 0)) {
 					{
@@ -78,12 +136,12 @@ public class MultipleTest {
 					                i=__set_short((short)(__get_short(i,(short)0)+(__get_short(j,(short)1))),(short)0);
 					            }
 				}
-	break IF_SWITCH_1;
+	break IF_SWITCH_2;
 			default:
 				throw new RuntimeException("__getRandomBit() returned invalid value");
 		}
 	}
-	/***** END REPLACE [IF_SWITCH_1] *****/ 
+	/***** END REPLACE [IF_SWITCH_2] *****/ 
         }
         assertEquals(55, __get_short(i,(short)0));
         setState(STATE_INSTALLED);
@@ -106,8 +164,8 @@ public class MultipleTest {
 	 *@throws RuntimeException in case that transition is not allowed
 	 */
 	private static void _VerifyAllowedTransition(short oldState, short newState){
-			/***** BEGIN ORIGINAL [IDENTIFY_BLOCKS_2] *****
-	switch (oldState){
+	/***** BEGIN ORIGINAL [IDENTIFY_BLOCKS_3] *****
+			switch (oldState){
 				case STATE_INSTALLED: {
 					if (newState == STATE_SELECTED) {break;}
 					if (newState == STATE_BLOCKED) {break;}
@@ -128,22 +186,22 @@ public class MultipleTest {
 				default:
 					throw new RuntimeException("State transition is not allowed");
 			} 
-	***** END ORIGINAL [IDENTIFY_BLOCKS_2] *****/ 
-	/***** BEGIN REPLACE [IDENTIFY_BLOCKS_2] *****/ 
-	BLOCK_2: { switch (oldState){
+	***** END ORIGINAL [IDENTIFY_BLOCKS_3] *****/ 
+	/***** BEGIN REPLACE [IDENTIFY_BLOCKS_3] *****/ 
+	BLOCK_3: { switch (oldState){
 				case STATE_INSTALLED: {
-					if (newState == STATE_SELECTED) {break BLOCK_2;}
-					if (newState == STATE_BLOCKED) {break BLOCK_2;}
+					if (newState == STATE_SELECTED) {break BLOCK_3;}
+					if (newState == STATE_BLOCKED) {break BLOCK_3;}
 
 					throw new RuntimeException("State transition is not allowed");
 				}
 				case STATE_SELECTED: {
-					if (newState == STATE_BLOCKED) {break BLOCK_2;}
+					if (newState == STATE_BLOCKED) {break BLOCK_3;}
 
 					throw new RuntimeException("State transition is not allowed");
 				}
 				case STATE_UPLOADED: {
-					if (newState == STATE_INSTALLED) {break BLOCK_2;}
+					if (newState == STATE_INSTALLED) {break BLOCK_3;}
 
 					throw new RuntimeException("State transition is not allowed");
 				}
@@ -151,7 +209,7 @@ public class MultipleTest {
 				default:
 					throw new RuntimeException("State transition is not allowed");
 			} }
-	/***** END REPLACE [IDENTIFY_BLOCKS_2] *****/ 
+	/***** END REPLACE [IDENTIFY_BLOCKS_3] *****/ 
 	}
 
 	/**
@@ -161,8 +219,8 @@ public class MultipleTest {
 	 *@throws RuntimeException in case that function is not allowed in given state
 	 */
 	 private static void _VerifyAllowedFunction(short function, short state){
-			/***** BEGIN ORIGINAL [IDENTIFY_BLOCKS_3] *****
-	switch (function){
+	/***** BEGIN ORIGINAL [IDENTIFY_BLOCKS_4] *****
+			switch (function){
 				case FUNC_blockCard: {
 					if (state == STATE_INSTALLED) break;
 					if (state == STATE_SELECTED) break;
@@ -180,27 +238,27 @@ public class MultipleTest {
 				default:
 					throw new RuntimeException("Function is not allowed in current state");
 			} 
-	***** END ORIGINAL [IDENTIFY_BLOCKS_3] *****/ 
-	/***** BEGIN REPLACE [IDENTIFY_BLOCKS_3] *****/ 
-	BLOCK_3: { switch (function){
+	***** END ORIGINAL [IDENTIFY_BLOCKS_4] *****/ 
+	/***** BEGIN REPLACE [IDENTIFY_BLOCKS_4] *****/ 
+	BLOCK_4: { switch (function){
 				case FUNC_blockCard: {
-					if (state == STATE_INSTALLED) break BLOCK_3;
-					if (state == STATE_SELECTED) break BLOCK_3;
+					if (state == STATE_INSTALLED) break BLOCK_4;
+					if (state == STATE_SELECTED) break BLOCK_4;
 
 					throw new RuntimeException("Function is not allowed in current state");}
 				case FUNC_install: {
-					if (state == STATE_UPLOADED) break BLOCK_3;
+					if (state == STATE_UPLOADED) break BLOCK_4;
 
 					throw new RuntimeException("Function is not allowed in current state");}
 				case FUNC_select: {
-					if (state == STATE_INSTALLED) break BLOCK_3;
+					if (state == STATE_INSTALLED) break BLOCK_4;
 
 					throw new RuntimeException("Function is not allowed in current state");}
 
 				default:
 					throw new RuntimeException("Function is not allowed in current state");
 			} }
-	/***** END REPLACE [IDENTIFY_BLOCKS_3] *****/ 
+	/***** END REPLACE [IDENTIFY_BLOCKS_4] *****/ 
 	} 
 	/**
 	 *	This method will compare negation of input value with stored negation. 
