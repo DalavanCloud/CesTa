@@ -90,6 +90,18 @@ public abstract class AbstractRewriteTransformation extends AbstractTransformati
         return p;
     }
 
+    protected void createTokens(CharStream charStream) throws TransformationException {
+        tokens = new TokenRewriteStream(ANTLRJavaHelper.tokenizeStream(charStream));
+    }
+    
+    protected void createTree() throws TransformationException {
+        tree = ANTLRJavaHelper.parseStream(tokens);
+    }
+    
+    protected void checkSyntax() throws TransformationException {
+        ANTLRJavaHelper.checkSyntax(tokens);
+    }
+    
     /**
      * Prepares tree node stream from inputStream.
      * @param inputStream input stream
@@ -100,9 +112,9 @@ public abstract class AbstractRewriteTransformation extends AbstractTransformati
     protected TreeNodeStream prepareTreeNodeStream(CharStream inputStream)
             throws TransformationException {
         logger.finer("Tokenizing stream");
-        tokens = new TokenRewriteStream(ANTLRJavaHelper.tokenizeStream(inputStream));
+        createTokens(inputStream);
         logger.finer("Parsing tokens");
-        tree = ANTLRJavaHelper.parseStream(tokens);
+        createTree();
         CommonTreeNodeStream nodes = new CommonTreeNodeStream(tree);
         nodes.setTokenStream(tokens);
         return nodes;
@@ -152,7 +164,7 @@ public abstract class AbstractRewriteTransformation extends AbstractTransformati
         }
         
         try {
-            ANTLRJavaHelper.checkSyntax(tokens);
+            checkSyntax();
         } catch (TransformationException ex){
             throw new TransformationException("Transformation resulted in "
                     + "broken code and contains syntax errors.", ex);

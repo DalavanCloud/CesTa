@@ -60,6 +60,10 @@ public abstract class AbstractTreeParser extends TreeParser  {
      */
     protected Stack runtimeRewriteParams_stack = new Stack();
 
+    protected List<Token> getIndent(Token token) {
+        return ANTLRJavaHelper.getIndent(tokens, token);
+    }
+    
     /**
      * Returns all set parameters for this transformation
      * @return collection of parameters
@@ -125,8 +129,7 @@ public abstract class AbstractTreeParser extends TreeParser  {
      * @param params list of parameters
      */
     public void setParams(Map<String, Object> params){
-        for (Iterator i=params.entrySet().iterator();i.hasNext();){
-            Entry<String,Object> param = (Entry<String, Object>) i.next();
+        for (Entry<String,Object> param : params.entrySet()) {
             setParam(param.getKey(), param.getValue());
         }
     }
@@ -344,13 +347,13 @@ public abstract class AbstractTreeParser extends TreeParser  {
     protected int getStopIndex(Tree tree) {
         return input.getTreeAdaptor().getTokenStopIndex(tree);
     }
-
+    
     /**
      * Will remove indent string before token
      */
     protected String removeIndent(Token token) {
         String indentStr = "";
-        List<Token> indentTokens = ANTLRJavaHelper.getIndent(tokens, token);
+        List<Token> indentTokens = getIndent(token);
 
         if (indentTokens.isEmpty()) {
             return indentStr;

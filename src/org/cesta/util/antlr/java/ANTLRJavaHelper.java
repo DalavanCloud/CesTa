@@ -15,7 +15,7 @@ import org.cesta.trans.TransformationException;
  * @author Tobias Smolka
  */
 public class ANTLRJavaHelper {
-    private static Logger logger = Logger.getLogger(ANTLRJavaHelper.class.getName());
+    private static final Logger logger = Logger.getLogger(ANTLRJavaHelper.class.getName());
 
     /**
      * Instantiates {@link JavaLexer} on provided stream - it will
@@ -26,15 +26,15 @@ public class ANTLRJavaHelper {
      */
     public static JavaLexer tokenizeStream(CharStream stream) throws TransformationException {
         if (stream == null) {
-            throw new NullPointerException("Stream is null");
+            throw new IllegalArgumentException("Stream is null");
         }
 
-        JavaLexer lex = new JavaLexer(stream);
-        if (lex == null || lex.failed()) {
+        JavaLexer lexer = new JavaLexer(stream);
+        if (lexer.failed()) {
             throw new TransformationException(
                     "Lexer has failed, stream could not be tokenized.");
         }
-        return lex; 
+        return lexer;
     }
 
 
@@ -70,8 +70,8 @@ public class ANTLRJavaHelper {
      */
     public static void checkSyntax(TokenStream tokens) throws TransformationException {
         logger.finer("Checking for syntax errors in modified code");
-        JavaLexer lex = tokenizeStream(new ANTLRStringStream(tokens.toString()));
-        parseStream(new CommonTokenStream(lex));
+        JavaLexer lexer = tokenizeStream(new ANTLRStringStream(tokens.toString()));
+        parseStream(new CommonTokenStream(lexer));
     }
 
     /**
@@ -81,10 +81,10 @@ public class ANTLRJavaHelper {
      */
     public static List<Token> getIndent(TokenRewriteStream tokenStream, Token baseToken) {
         if (baseToken == null) {
-            throw new NullPointerException("No token was provided");
+            throw new IllegalArgumentException("No token was provided");
         }
         if (tokenStream == null) {
-            throw new NullPointerException("Token stream is null");
+            throw new IllegalArgumentException("Token stream is null");
         }
 
         Token t = null;

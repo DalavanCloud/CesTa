@@ -71,8 +71,12 @@ abstract public class AbstractTransformation implements Transformation {
      */
     @Override
     public Object getParam(String name, Object defaultValue){
-        if (parameters.containsKey(name)) return parameters.get(name);
-        else return defaultValue;
+        if (parameters.containsKey(name)) {
+            return parameters.get(name);
+        }
+        else {
+            return defaultValue;
+        }
     }
     /**
      * Helper method for getting String parameters
@@ -109,8 +113,7 @@ abstract public class AbstractTransformation implements Transformation {
      */
     @Override
     public void setParams(Map<String, Object> params){
-        for (Iterator i = params.entrySet().iterator(); i.hasNext();){
-            Entry<String,Object> param = (Entry<String, Object>) i.next();
+        for (Entry<String,Object> param : params.entrySet()) {
             setParam(param.getKey(), param.getValue());
         }
     }
