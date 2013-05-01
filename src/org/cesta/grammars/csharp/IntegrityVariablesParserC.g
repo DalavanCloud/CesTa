@@ -4,7 +4,7 @@
 tree grammar IntegrityVariablesParserC;
 
 options {
-    superClass = TreeParser;
+    superClass = AbstractTreeParserC;
     backtrack = true; 
     memoize = true;
     tokenVocab = CSharp4PreProcessor;
@@ -18,6 +18,7 @@ import CSharp4Tree;
 @treeparser::header {
 package org.cesta.parsers.csharp.generated;
 
+import org.cesta.parsers.csharp.AbstractTreeParserC;
 }
 
 @treeparser::members {	

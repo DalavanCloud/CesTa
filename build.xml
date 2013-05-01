@@ -191,7 +191,7 @@
 		<!-- copy original test classes to new directory and replace packages -->
         <copy
             todir="${test.src.dir}/transformed/"
-            overwrite="true" >
+            overwrite="true">
             <fileset dir="${test.src.dir}">
                 <exclude name="transformed/**"/>
                 <include name="**/trans/**"/>
@@ -202,7 +202,16 @@
                     <replaceregex pattern='@Ignore\("not working before transformation"\) ' replace="" flags="gi"/>
                 </tokenfilter>
             </filterchain>
-        </copy>		
+        </copy>
+        <copy
+            todir="${test.src.dir}/transformed/"
+            overwrite="true">
+            <fileset dir="${test.src.dir}">
+                <exclude name="transformed/**"/>
+                <include name="**/csharp-files/**"/>
+            </fileset>
+        </copy>
+        
 		<!-- run ValidateStateTransitions transformation -->
         <c:transform classname="java.ValidateStateTransitions">
 			<!-- do not optimize for Java Card (i.e. exceptions) -->
@@ -263,6 +272,14 @@
 				<include name="**/CheckTransactionsTest.java"/>
 			</fileset>
 		</c:transform>
+                
+                <!-- run IntegrityVariables transformation for C# -->
+        <c:transform classname="csharp.IntegrityVariablesC">
+                        <param name="dotNetCard" value="false"/>
+			<fileset dir="${test.src.dir}/transformed">
+				<include name="**/csharp-files/**"/>
+			</fileset>
+	</c:transform>
     </target>
 
     <target name="-pre-compile-test" depends="transform-tests">

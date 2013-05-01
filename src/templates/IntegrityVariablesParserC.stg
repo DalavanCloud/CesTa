@@ -1,0 +1,17 @@
+group IntegrityVariablesParserC : Base;
+
+/*
+ * Templates adding a call to setter or getter for each supported variable
+ */
+
+set_boolean(value) ::= "_setBoolean(<value>)"
+
+get_boolean(value) ::= "_getBoolean(<value>)"
+
+set_byte(value) ::= "_setByte((byte) (<value>))"
+
+get_byte(value) ::= "_getByte(<value>)"
+
+set_short(value) ::= "_setShort((short) (<value>))"
+
+get_short(value) ::= "_getShort(<value>)"

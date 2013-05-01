@@ -1,7 +1,8 @@
-// $ANTLR 3.4 CSharp4Tree.g 2013-04-19 22:47:09
+// $ANTLR 3.4 CSharp4Tree.g 2013-05-01 22:21:12
 
 package org.cesta.parsers.csharp.generated;
 
+import org.cesta.parsers.csharp.AbstractTreeParserC;
 
 
 import org.antlr.runtime.*;
@@ -16,7 +17,7 @@ import org.antlr.stringtemplate.*;
 import org.antlr.stringtemplate.language.*;
 import java.util.HashMap;
 @SuppressWarnings({"all", "warnings", "unchecked"})
-public class IntegrityVariablesParserC_CSharp4Tree extends TreeParser {
+public class IntegrityVariablesParserC_CSharp4Tree extends AbstractTreeParserC {
     public static final int EOF=-1;
     public static final int ABSTRACT=4;
     public static final int AMP=5;
@@ -319,8 +320,8 @@ public class IntegrityVariablesParserC_CSharp4Tree extends TreeParser {
     public static final int VARIANT_TYPE_PARAMETERS=424;
 
     // delegates
-    public TreeParser[] getDelegates() {
-        return new TreeParser[] {};
+    public AbstractTreeParserC[] getDelegates() {
+        return new AbstractTreeParserC[] {};
     }
 
     // delegators
