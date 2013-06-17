@@ -56,17 +56,17 @@ public class ANTLRCSharpHelper {
      */
     public static CommonTree parseStream(TokenStream tokens) throws TransformationException {
         CSharp4AST parser = new CSharp4AST(tokens);
-        CSharp4AST.compilation_unit_return r = null;
+        CSharp4AST.csharpSource_return r = null;
         
         try {
-            r = parser.compilation_unit();
+            r = parser.csharpSource();
         } catch (Exception ex) {
             throw new TransformationException("File could not be parsed.", ex);
         }
 
-        //if (parser.hasErrors()) {
-        //    throw new TransformationException("File could not be parsed and contains errors.");
-        //}
+        if (parser.failed()) {
+            throw new TransformationException("Parser failed.");
+        }
 
         return (CommonTree) r.getTree();
     }

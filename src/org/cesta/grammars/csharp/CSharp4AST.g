@@ -18,6 +18,8 @@ options {
 }
 
 tokens {
+  CSHARP_SOURCE;
+
   QUALIFIED_IDENTIFIER;
   
   EXTERN_ALIAS_DIRECTIVES;
@@ -1258,11 +1260,19 @@ compilation_unit
 	: extern_alias_directives? using_directives? namespace_member_declarations? global_attribute_sections? EOF
 	;
 */
+
+//added rule
+csharpSource
+    :   compilation_unit
+        ->  ^(CSHARP_SOURCE compilation_unit)
+    ;
+
 compilation_unit 
   : extern_alias_directives? using_directives?
     ( (global_attribute_section) => global_attribute_section )*
     namespace_member_declarations? EOF!
   ;
+
 namespace_declaration 
 	: NAMESPACE^ qualified_identifier namespace_body SEMICOLON!?
 	;

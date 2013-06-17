@@ -18,11 +18,12 @@ public class IntegrityVariablesC extends AbstractRewriteTransformationC {
         TreeNodeStream nodes = prepareTreeNodeStream(filePair);
 
         logger.fine("Calling IntegrityVariables tree parser for C#");
+        
         try {
             IntegrityVariablesParserC parser = new IntegrityVariablesParserC(nodes);
             parser.setParams(getParams());
             parser.setDefaultTemplateLib();
-            parser.compilation_unit();
+            parser.csharpSource();
         } catch (RecognitionException ex) {
             throw new TransformationException("Parser could not process file.", ex);
         }

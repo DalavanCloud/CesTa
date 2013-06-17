@@ -26,15 +26,18 @@ abstract class AbstractRewriteTransformationC extends AbstractRewriteTransformat
     @Override
     protected void createTokens(CharStream charStream) throws TransformationException {
         tokens = new TokenRewriteStream(ANTLRCSharpHelper.tokenizeStream(charStream));
+        System.out.println("tokens:\n" + tokens.toString());
     }
     
     @Override
     protected void createTree() throws TransformationException {
         tree = ANTLRCSharpHelper.parseStream(tokens);
+        System.out.println("tree:\n" + tree.toStringTree());
     }
     
     @Override
     protected void checkSyntax() throws TransformationException {
+        //System.out.println("tokens:\n" + tokens.toDebugString());
         ANTLRCSharpHelper.checkSyntax(tokens);
     }
 }
