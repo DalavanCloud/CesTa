@@ -1,8 +1,8 @@
 package org.cesta.parsers.java;
 
 import antlr.RecognitionException;
-import java.util.Map.Entry;
 import java.util.*;
+import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.antlr.runtime.RecognizerSharedState;
@@ -58,7 +58,7 @@ public abstract class AbstractTreeParser extends TreeParser  {
     /**
      * Stack of runtime parameters (each item represents one rewrite)
      */
-    protected Stack runtimeRewriteParams_stack = new Stack();
+    protected Stack<runtimeRewriteParams_scope> runtimeRewriteParams_stack = new Stack<runtimeRewriteParams_scope>();
 
     protected List<Token> getIndent(Token token) {
         return ANTLRJavaHelper.getIndent(tokens, token);
@@ -261,7 +261,7 @@ public abstract class AbstractTreeParser extends TreeParser  {
      *
      * @param ruleParams map of parameters that should be passed directly to template
      */
-    public void performRewrite(Map ruleParams){
+    public void performRewrite(Map<String, Object> ruleParams){
             if (ruleParams.containsKey("enabled") &&
                     !Boolean.valueOf(String.valueOf(ruleParams.get("enabled")))){
                 return;
